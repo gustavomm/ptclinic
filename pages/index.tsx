@@ -32,10 +32,10 @@ const Home: NextPage = () => {
           Quem somos
         </h1>
         <div className="flex flex-col md:flex-row align-center justify-center gap-6 md:gap-4 mt-5">
-          <div className="flex flex-col items-center">
-            <div className="relative h-[370px] w-[300px]">
+          <div className="flex flex-col items-center w-[350px] gap-1">
+            <div className="relative h-[370px] w-[350px]">
               <Image
-                src="/../public/Vyvyan.png"
+                src="/Vyvyan.png"
                 alt="Vyvyan"
                 fill={true}
                 objectFit="contain"
@@ -47,10 +47,10 @@ const Home: NextPage = () => {
             <p>Graduada em Fisioterapia pela Universidade de São Paulo - USP</p>
             <p> Residência em Neurologia pelo Hospital São Paulo - Unifesp</p>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="relative h-[370px] w-[300px]">
+          <div className="flex flex-col items-center w-[350px] gap-1">
+            <div className="relative h-[370px] w-[350px]">
               <Image
-                src="/../public/Taina.png"
+                src="/Taina.png"
                 alt="Vyvyan"
                 fill={true}
                 objectFit="contain"
@@ -67,10 +67,10 @@ const Home: NextPage = () => {
         <h1 className="text-3xl font-bold mt-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-500 mb-5">
           Localização
         </h1>
-        <div className="">
+        <div className="w-full">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10977.566264186069!2d-46.68692554072565!3d-23.5368301137205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57dd48fb8f4d%3A0x8836a82d53498886!2sS%C3%A3o%20Camilo%20Hospital!5e0!3m2!1sen!2sbr!4v1670812733337!5m2!1sen!2sbr"
-            width="600"
+            width="100%"
             height="450"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
