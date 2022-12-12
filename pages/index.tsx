@@ -1,86 +1,115 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Vyta Fisioterapia</title>
       </Head>
+      <Navbar />
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
+      <main className="flex w-full flex-1 flex-col items-center px-8 lg:px-36 text-center md:pt-24 max-md:pt-16 pb-20">
+        <h1 className="text-6xl font-bold ">
+          <a className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-500 font-serif">
+            Vyta
           </a>
         </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
+        <p className="mt-6 text-left">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
         </p>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <h1 className="text-3xl font-bold mt-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-500">
+          Quem somos
+        </h1>
+        <div className="flex flex-col md:flex-row align-center justify-center gap-6 md:gap-4 mt-5">
+          <div className="flex flex-col items-center">
+            <div className="relative h-[370px] w-[300px]">
+              <Image
+                src="/../public/Vyvyan.png"
+                alt="Vyvyan"
+                fill={true}
+                objectFit="contain"
+                className="bg-slate-100 p-4 rounded-2xl"
+              ></Image>
+            </div>
+            <h3 className="font-serif text-3xl">Vyvyan Maximo Andrade</h3>
+            <p>Crefito-XXXXXXXXX </p>
+            <p>Graduada em Fisioterapia pela Universidade de São Paulo - USP</p>
+            <p> Residência em Neurologia pelo Hospital São Paulo - Unifesp</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="relative h-[370px] w-[300px]">
+              <Image
+                src="/../public/Taina.png"
+                alt="Vyvyan"
+                fill={true}
+                objectFit="contain"
+                className="bg-slate-100 p-4 rounded-2xl"
+              ></Image>
+            </div>
+            <h3 className="font-serif text-3xl">Taina Horacio</h3>
+            <p>Crefito-XXXXXXXXX </p>
+            <p>Graduada em Fisioterapia pela Universidade de São Paulo - USP</p>
+            <p> Residência em Neurologia pelo Hospital São Paulo - Unifesp</p>
+          </div>
         </div>
+
+        <h1 className="text-3xl font-bold mt-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-500 mb-5">
+          Localização
+        </h1>
+        <div className="">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10977.566264186069!2d-46.68692554072565!3d-23.5368301137205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57dd48fb8f4d%3A0x8836a82d53498886!2sS%C3%A3o%20Camilo%20Hospital!5e0!3m2!1sen!2sbr!4v1670812733337!5m2!1sen!2sbr"
+            width="600"
+            height="450"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <h1 className="text-3xl font-bold mt-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-500 mb-5">
+          Contato
+        </h1>
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
+      <footer className="flex flex-col h-24 w-full items-center justify-center border-t gap-2">
+        <div className="flex">
+          <a
+            className="flex items-center justify-center gap-2"
+            href="https://instagram.com/asfisioterapeutas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+        </div>
         <a
           className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/gustavomm"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          Website by Gustavo Moreira
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export const getStaticProps = () => {
+  return {
+    props: {},
+  };
+};
+
+export default Home;
