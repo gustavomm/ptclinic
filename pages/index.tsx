@@ -64,7 +64,7 @@ const Home: NextPage = () => {
                 className="bg-slate-100 p-4 rounded-2xl"
               ></Image>
             </div>
-            <h3 className="font-serif text-3xl">Taina Horacio</h3>
+            <h3 className="font-serif text-3xl">Tainá Horacio Peixoto</h3>
             <div className="text-left px-3">
               <p>• Crefito 3: 293916F </p>
               <p>
@@ -93,9 +93,17 @@ const Home: NextPage = () => {
         <h1 className="text-3xl font-bold mt-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-500 mb-5">
           Contato
         </h1>
+        <a href="" className="fixed bottom-10 right-5 md:bottom-20 md:right-20">
+          <Image
+            src="/whatsapp.png"
+            alt="whatsapp icon"
+            width={70}
+            height={70}
+          />
+        </a>
       </main>
 
-      <footer className="flex flex-col h-24 w-full items-center justify-center border-t gap-2">
+      <footer className="flex flex-col h-24 w-full items-center justify-center border-t gap-2 bg-slate-50">
         <div className="flex">
           <a
             className="flex items-center justify-center gap-2"
