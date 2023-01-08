@@ -93,7 +93,7 @@ const Home: NextPage = () => {
         <h1 className="text-3xl font-bold mt-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-500 mb-5">
           Contato
         </h1>
-        <a href="" className="fixed bottom-10 right-5 md:bottom-20 md:right-20">
+        <a href="" className="fixed bottom-10 right-5 md:bottom-15 md:right-15">
           <Image
             src="/whatsapp.png"
             alt="whatsapp icon"
