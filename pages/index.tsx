@@ -106,16 +106,22 @@ const Home: NextPage = () => {
       <footer className="flex flex-col h-24 w-full items-center justify-center border-t gap-2 bg-slate-50">
         <div className="flex">
           <a
-            className="flex items-center justify-center gap-2"
+            className="flex items-center justify-center"
             href="https://instagram.com/vytafisioterapia"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Instagram
+            <Image
+              src="/instagram.png"
+              alt="instagram icon"
+              width={30}
+              height={30}
+            />
+            <span>Instagram</span>
           </a>
         </div>
         <a
-          className="flex items-center justify-center gap-2"
+          className="flex items-center justify-center gap-2 text-sm"
           href="https://github.com/gustavomm"
           target="_blank"
           rel="noopener noreferrer"
