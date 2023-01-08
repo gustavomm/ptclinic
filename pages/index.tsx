@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           Quem somos
         </h1>
         <div className="flex flex-col md:flex-row align-center justify-center gap-6 md:gap-4 mt-5">
-          <div className="flex flex-col items-center w-[350px] gap-1">
+          <div className="flex flex-col items-center w-[350px] gap-2">
             <div className="relative h-[370px] w-[350px]">
               <Image
                 src="/Vyvyan.png"
@@ -43,11 +43,18 @@ const Home: NextPage = () => {
               ></Image>
             </div>
             <h3 className="font-serif text-3xl">Vyvyan Maximo Andrade</h3>
-            <p>Crefito-XXXXXXXXX </p>
-            <p>Graduada em Fisioterapia pela Universidade de São Paulo - USP</p>
-            <p> Residência em Neurologia pelo Hospital São Paulo - Unifesp</p>
+            <div className="text-left px-3">
+              <p>• Crefito 3: 293919F </p>
+              <p>
+                • Graduada em Fisioterapia pela Universidade de São Paulo - USP
+              </p>
+              <p>
+                • Residência em Neurologia e Neurocirurgia pelo Hospital São
+                Paulo - Unifesp
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col items-center w-[350px] gap-1">
+          <div className="flex flex-col items-center w-[350px] gap-2">
             <div className="relative h-[370px] w-[350px]">
               <Image
                 src="/Taina.png"
@@ -58,9 +65,15 @@ const Home: NextPage = () => {
               ></Image>
             </div>
             <h3 className="font-serif text-3xl">Taina Horacio</h3>
-            <p>Crefito-XXXXXXXXX </p>
-            <p>Graduada em Fisioterapia pela Universidade de São Paulo - USP</p>
-            <p> Residência em Neurologia pelo Hospital São Paulo - Unifesp</p>
+            <div className="text-left px-3">
+              <p>• Crefito 3: 293916F </p>
+              <p>
+                • Graduada em Fisioterapia pela Universidade de São Paulo - USP
+              </p>
+              <p>
+                • Residência em Oncologia pelo Hospital AC Camargo Cancer Center
+              </p>
+            </div>
           </div>
         </div>
 
@@ -86,7 +99,7 @@ const Home: NextPage = () => {
         <div className="flex">
           <a
             className="flex items-center justify-center gap-2"
-            href="https://instagram.com/asfisioterapeutas"
+            href="https://instagram.com/vytafisioterapia"
             target="_blank"
             rel="noopener noreferrer"
           >
