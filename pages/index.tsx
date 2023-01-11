@@ -38,7 +38,7 @@ const Home: NextPage = () => {
                 src="/Vyvyan.png"
                 alt="Vyvyan"
                 fill={true}
-                objectFit="contain"
+                style={{ objectFit: "contain" }}
                 className="bg-slate-100 p-4 rounded-2xl"
               ></Image>
             </div>
@@ -60,7 +60,7 @@ const Home: NextPage = () => {
                 src="/Taina.png"
                 alt="Vyvyan"
                 fill={true}
-                objectFit="contain"
+                style={{ objectFit: "contain" }}
                 className="bg-slate-100 p-4 rounded-2xl"
               ></Image>
             </div>
