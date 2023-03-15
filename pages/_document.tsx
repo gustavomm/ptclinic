@@ -3,7 +3,7 @@ import Script from "next/script";
 
 export default function Document() {
   return (
-    <Html>
+    <Html className="scroll-smooth">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -15,6 +15,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Italiana&family=Syne&display=swap"
           rel="stylesheet"
         />
+        <link href="/adore.otf" rel="stylesheet" />
       </Head>
 
       <body>
