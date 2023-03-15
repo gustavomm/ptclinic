@@ -92,6 +92,7 @@ const Home: NextPage = () => {
               alt="whatsapp icon"
               width={70}
               height={70}
+              className="motion-safe:animate-bounce"
             />
           </a>
         </section>

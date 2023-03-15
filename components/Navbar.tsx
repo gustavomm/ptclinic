@@ -50,7 +50,7 @@ const Navbar = () => {
           }`}
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-vyta-primary-300 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:border-0 md:bg-transparent ">
+          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-vyta-primary-300 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:border-0 md:bg-transparent">
             <li>
               <Link
                 href="#home"
