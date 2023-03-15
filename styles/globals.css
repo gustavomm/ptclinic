@@ -10,3 +10,11 @@ section {
 html {
   scroll-behavior: smooth !important;
 }
+
+a {
+  @apply md:transition-all;
+}
+
+button {
+  @apply md:transition-all;
+}
