@@ -14,10 +14,10 @@ const Navbar = () => {
           <Image src="/LOGOTIPO 006.png" alt="logo" width={70} height={70} />
         </Link>
         <div className="flex md:order-2">
-          <Link href="https://wa.me/message/FJNBBFEBI6V5O1">
+          <Link href="#contato">
             <button
               type="button"
-              className="text-black bg-vyta-secondary-400 hover:bg-vyta-secondary-500 focus:ring-4 focus:outline-none focus:ring-vyta-secondary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0"
+              className="text-black bg-vyta-secondary-400 hover:bg-vyta-secondary-500 focus:ring-4 focus:outline-none focus:ring-vyta-secondary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center mr-3 md:mr-0"
             >
               Contato
             </button>

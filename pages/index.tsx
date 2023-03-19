@@ -3,6 +3,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import { StaffProfile } from "../components/StaffProfile";
+import PhoneIcon from "../components/icons/PhoneIcon";
+import EmailIcon from "../components/icons/EmailIcon";
+import InstagramIcon from "../components/icons/InstagramIcon";
 
 const Home: NextPage = () => {
   return (
@@ -12,8 +15,11 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
 
-      <main className="flex w-full flex-1 flex-col items-center px-8 lg:px-36 text-center mt-32 pb-20 gap-8">
-        <section className="flex flex-col items-center" id="home">
+      <main className="flex w-full flex-1 flex-col items-center text-center mt-32 pb-20 gap-8">
+        <section
+          className="flex flex-col items-center gap-5 md:gap-10 mt-5 md:mt-10"
+          id="home"
+        >
           {/* <h1 className="text-6xl font-bold ">
             <a className="text-transparent text-vyta-primary-400 font-serif">
               Vyta
@@ -23,26 +29,35 @@ const Home: NextPage = () => {
             className="align-center"
             src="/LOGOTIPO 004.png"
             alt="logo"
-            width={150}
-            height={150}
+            width={200}
+            height={200}
           />
 
-          <p className="mt-6 text-left text-vyta-tertiary-900">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
+          <p className="mt-6 text-justify text-vyta-tertiary-900 md:text-lg">
+            Bem-vindo à VYTA fisioterapia especializada, onde o nosso principal
+            compromisso é fornecer um atendimento humanizado e personalizado
+            para cada um dos nossos pacientes. Aqui, entendemos que cada
+            indivíduo é único e, portanto, merece um tratamento cuidadosamente
+            adaptado às suas necessidades. Nosso objetivo é ajudar nossos
+            pacientes a alcançar seus objetivos de saúde e bem-estar, seja
+            através da reabilitação após uma lesão, melhoria da mobilidade,
+            redução da dor ou melhoria da qualidade de vida. Estamos
+            comprometidos em fornecer uma abordagem integral e individualizada
+            para cada um dos nossos pacientes, ajudando-os a atingir seus
+            objetivos de forma eficaz e eficiente. Contamos com uma equipe
+            altamente qualificada de fisioterapeutas, que possuem uma vasta
+            experiência em diversas áreas da fisioterapia e está sempre
+            atualizada com as últimas técnicas e tecnologias para oferecer o
+            melhor tratamento possível. Entre em contato para agendar sua
+            consulta inicial e comece sua jornada de reabilitação conosco.
           </p>
         </section>
 
         <section id="quem-somos">
-          <h1 className="text-3xl font-bold mt-8 text-vyta-primary-400">
+          <h1 className="text-3xl font-bold text-vyta-primary-400">
             Quem somos
           </h1>
-          <div className="flex flex-col md:flex-row align-center justify-center gap-6 md:gap-4 mt-5">
+          <div className="flex flex-col md:flex-row align-center justify-center gap-6  mt-5">
             <StaffProfile
               name="Vyvyan Maximo Andrade"
               imgSrc="/Vyvyan.png"
@@ -55,7 +70,7 @@ const Home: NextPage = () => {
             />
             <StaffProfile
               name="Tainá Horacio Peixoto"
-              imgSrc="/Taina.png"
+              imgSrc="/Taina-2.png"
               imgAlt="Taina fisioterapeuta"
               description={[
                 "• Crefito 3: 293916F",
@@ -67,7 +82,7 @@ const Home: NextPage = () => {
         </section>
 
         <section className="w-full" id="localizacao">
-          <h1 className="text-3xl font-bold mt-8 text-transparent text-vyta-primary-400 mb-5">
+          <h1 className="text-3xl font-bold text-transparent text-vyta-primary-400">
             Localização
           </h1>
           <div className="w-full">
@@ -81,42 +96,55 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section>
-          <a
-            href="https://wa.me/message/FJNBBFEBI6V5O1"
-            className="fixed bottom-10 right-5 md:bottom-15 md:right-15"
-            target="_blank"
-          >
-            <Image
-              src="/whatsapp.png"
-              alt="whatsapp icon"
-              width={70}
-              height={70}
-              className="motion-safe:animate-bounce"
-            />
-          </a>
+        <section
+          className="flex flex-col align-center justify-center text-lg"
+          id="contato"
+        >
+          <h1 className="text-3xl font-bold text-transparent text-vyta-primary-400">
+            Contato
+          </h1>
+          <div className="flex flex-col align-baseline gap-6 md:gap-4">
+            <a href="tel:+5511989172311" className="flex items-center gap-2">
+              <PhoneIcon className="text-vyta-secondary-400 w-8 h-8" />
+              <span>(11)98917-2311</span>
+            </a>
+            <a
+              href="mailto:contato@vytafisioterapia.com.br"
+              className="flex items-center gap-2"
+            >
+              <EmailIcon className="text-vyta-secondary-400 w-8 h-8" />
+              <span>contato@vytafisioterapia.com.br</span>
+            </a>
+            <a
+              className="flex items-center gap-2"
+              href="https://instagram.com/vytafisioterapia"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon className="text-vyta-secondary-400 fill-vyta-secondary-400 w-7 h-7" />
+              <span>Instagram</span>
+            </a>
+          </div>
         </section>
+
+        <a
+          href="https://wa.me/message/FJNBBFEBI6V5O1"
+          className="fixed bottom-10 right-5 md:bottom-15 md:right-15"
+          target="_blank"
+        >
+          <Image
+            src="/whatsapp.png"
+            alt="whatsapp icon"
+            width={70}
+            height={70}
+            className="motion-safe:animate-bounce"
+          />
+        </a>
       </main>
 
-      <footer className="flex flex-col h-24 w-full items-center justify-center border-t gap-2 bg-slate-50">
-        <div className="flex">
-          <a
-            className="flex items-center justify-center"
-            href="https://instagram.com/vytafisioterapia"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/instagram.png"
-              alt="instagram icon"
-              width={30}
-              height={30}
-            />
-            <span>Instagram</span>
-          </a>
-        </div>
+      <footer className="flex flex-col py-4 w-full items-center justify-center border-t gap-2 bg-slate-50">
         <a
-          className="flex items-center justify-center gap-2 text-sm"
+          className="flex items-center justify-center text-sm text-vyta-tertiary-700"
           href="https://github.com/gustavomm"
           target="_blank"
           rel="noopener noreferrer"
