@@ -6,6 +6,7 @@ import { StaffProfile } from "../components/StaffProfile";
 import PhoneIcon from "../components/icons/PhoneIcon";
 import EmailIcon from "../components/icons/EmailIcon";
 import InstagramIcon from "../components/icons/InstagramIcon";
+import WhatsappIcon from "../components/icons/WhatsappIcon";
 
 const Home: NextPage = () => {
   return (
@@ -109,6 +110,13 @@ const Home: NextPage = () => {
               <span>(11)98917-2311</span>
             </a>
             <a
+              href="https://wa.me/message/FJNBBFEBI6V5O1"
+              className="flex items-center gap-2"
+            >
+              <WhatsappIcon className="fill-vyta-secondary-400 text-white w-8 h-8" />
+              <span>Whatsapp</span>
+            </a>
+            <a
               href="mailto:contato@vytafisioterapia.com.br"
               className="flex items-center gap-2"
             >
@@ -121,7 +129,7 @@ const Home: NextPage = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <InstagramIcon className="text-vyta-secondary-400 fill-vyta-secondary-400 w-7 h-7" />
+              <InstagramIcon className="text-white fill-vyta-secondary-400 w-7 h-7" />
               <span>Instagram</span>
             </a>
           </div>
