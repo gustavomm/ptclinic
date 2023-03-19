@@ -22,7 +22,9 @@ export const StaffProfile = ({
           className="bg-vyta-tertiary-100 p-4 rounded-2xl"
         ></Image>
       </div>
-      <h3 className="font-serif text-3xl text-vyta-secondary-500">{name}</h3>
+      <h3 className="font-serif text-3xl text-vyta-secondary-500 font-bold">
+        {name}
+      </h3>
       <div className="text-left px-3 text-vyta-tertiary-900">
         {description.map((line, index) => (
           <p key={index}>{line}</p>
