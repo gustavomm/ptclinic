@@ -8,8 +8,9 @@ const MyPage = () => {
   const { slug } = router.query;
 
   // Define the title and description based on the slug
-  const title = specialities[slug as string].title;
-  const description = specialities[slug as string].description;
+  const title = specialities[slug as keyof typeof specialities].title;
+  const description =
+    specialities[slug as keyof typeof specialities].description;
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">

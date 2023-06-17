@@ -37,7 +37,7 @@ const specialities = {
   },
   "saude-mulher-homem": {
     slug: "saude-mulher-homem",
-    title: "Fisioterapia em Saúde da Mulher e do Homem",
+    title: "Saúde da Mulher e do Homem",
     description:
       "A fisioterapia em saúde da mulher e do homem abrange um conjunto de intervenções fisioterapêuticas voltadas para a promoção da saúde e prevenção de disfunções relacionadas ao sistema musculoesquelético, pélvico e urogenital. Na mulher, essa especialidade está focada em questões como incontinência urinária, disfunções sexuais, recuperação pós-parto, dor pélvica e pré e pós-operatório de cirurgias ginecológicas. Já na saúde do homem, a fisioterapia pode atuar no tratamento de disfunções como incontinência urinária após cirurgia de próstata. Com abordagens terapêuticas específicas e exercícios, busca-se melhorar a qualidade de vida, autonomia e bem-estar dos pacientes, contribuindo para a sua saúde integral.",
   },
