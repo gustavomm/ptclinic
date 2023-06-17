@@ -1,20 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import ArrowDownIcon from "./icons/ArrowDownIcon";
+import DropdownMenu from "./DropdownMenu";
+import specialities from "../constants/specialities";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="bg-vyta-primary-400 bg-opacity-80 px-2 backdrop-blur sm:px-4 py-2.5 fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <Link href="#home" className="flex items-center">
+        <Link href="/#home" className="flex items-center">
           {/* <span className="self-center text-3xl font-semibold whitespace-nowrap font-serif text-transparent bg-clip-text bg-gradient-to-r from-vyta-secondary-300 to-violet-500">
             Vyta
           </span> */}
           <Image src="/LOGOTIPO 006.png" alt="logo" width={70} height={70} />
         </Link>
         <div className="flex md:order-2">
-          <Link href="#contato">
+          <Link href="/#contato">
             <button
               type="button"
               className="text-black bg-vyta-secondary-400 hover:bg-vyta-secondary-500 focus:ring-4 focus:outline-none focus:ring-vyta-secondary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center mr-3 md:mr-0"
@@ -53,7 +56,7 @@ const Navbar = () => {
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-vyta-primary-300 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:border-0 md:bg-transparent">
             <li>
               <Link
-                href="#home"
+                href="/#home"
                 onClick={() => setIsOpen(!isOpen)}
                 className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0"
               >
@@ -62,7 +65,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="#quem-somos"
+                href="/#quem-somos"
                 onClick={() => setIsOpen(!isOpen)}
                 className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 "
               >
@@ -70,22 +73,25 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
+              <DropdownMenu
+                options={Object.values(specialities)}
+                closeMenu={() => setIsOpen(false)}
+              >
+                <div className="cursor-pointer py-2 pl-3 pr-4 text-white rounded fill-white hover:bg-vyta-secondary-300 md:hover:fill-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 flex flex-column items-center">
+                  <span>Especialidades</span>
+                  <ArrowDownIcon className="text-white w-4 h-4" />
+                </div>
+              </DropdownMenu>
+            </li>
+            <li>
               <Link
-                href="#localizacao"
+                href="/#localizacao"
                 onClick={() => setIsOpen(!isOpen)}
                 className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 "
               >
                 Localização
               </Link>
             </li>
-            {/* <li>
-              <Link
-                href="#"
-                className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 "
-              >
-                Contact
-              </Link>
-            </li> */}
           </ul>
         </div>
       </div>

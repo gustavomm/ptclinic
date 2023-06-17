@@ -1,5 +1,3 @@
-import * as React from "react";
-
 const WhatsappIcon = (props) => (
   <svg
     viewBox="0 0 256 258"
