@@ -19,6 +19,21 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'G-VSSZW88J6E');
         `}
       </Script>
+
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-V5YCCVYQRR"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-V5YCCVYQRR');
+        `}
+      </Script>
+      
       <Component {...pageProps} />
       <Analytics />
     </>
