@@ -136,9 +136,9 @@ const Home: NextPage = () => {
         </section>
 
         <a
-          href="https://wa.me/message/FJNBBFEBI6V5O1"
+          href="/whatsapp"
           className="fixed bottom-10 right-5 md:bottom-15 md:right-15"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
         >
           <Image
             src="/whatsapp.png"
