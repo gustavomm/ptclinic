@@ -110,7 +110,7 @@ const Home: NextPage = () => {
               <span>(11)98917-2311</span>
             </a>
             <a
-              href="https://wa.me/message/FJNBBFEBI6V5O1"
+              href="/whatsapp"
               className="flex items-center gap-2"
             >
               <WhatsappIcon className="fill-vyta-secondary-400 text-white w-8 h-8" />
