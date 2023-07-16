@@ -41,7 +41,6 @@ const Hero = () => {
           <div id="heroSlide1" className="carousel-item w-full relative">
             <Image src={heroPic} alt="foto da clinica" />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <div></div>
               <a
                 href="#heroSlide2"
                 className="btn btn-circle bg-opacity-80 backdrop-blur"
