@@ -17,7 +17,7 @@ const SpecialitiesCarousel = () => {
             description={speciality.description}
             slug={speciality.slug}
           />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="invisible lg:visible absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a
               href={index === 0 ? "#slide0" : `#slide${index - 1}`}
               className="btn btn-circle bg-opacity-80 backdrop-blur"
