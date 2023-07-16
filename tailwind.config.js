@@ -10,11 +10,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Syne", ...defaultTheme.fontFamily.sans],
+        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
         serif: ["Italiana", ...defaultTheme.fontFamily.serif],
       },
       colors: {
-        "vyta-primary": {
+        primary: {
           50: "#f1f9fa",
           100: "#ddeff0",
           200: "#bedee3",
@@ -52,5 +52,19 @@ module.exports = {
         },
       },
     },
+  },
+  plugins: [require("daisyui"), require("tailwind-gradient-mask-image")],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#58a4b1",
+          secondary: "#e69883",
+          accent: "#94999c",
+          neutral: "#3d4451",
+          "base-100": "#ffffff",
+        },
+      },
+    ],
   },
 };

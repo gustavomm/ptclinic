@@ -2,27 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-section {
-  @apply scroll-mt-32;
+section,
+div {
+  @apply scroll-mt-[76px];
 }
 
 *,
 html {
   scroll-behavior: smooth !important;
-}
-
-a {
-  @apply md:transition-all;
-}
-
-button {
-  @apply md:transition-all;
-}
-
-h1 {
-  @apply mb-10 mt-12;
-}
-
-section {
-  @apply px-8 lg:px-36;
 }

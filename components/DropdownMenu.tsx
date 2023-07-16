@@ -33,7 +33,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       <div className="relative"></div>
       {isOpen && (
         <ul
-          className={`z-10 absolute divide-y divide-gray-100 rounded-lg shadow w-80 bg-vyta-primary-400`}
+          className={`z-10 absolute divide-y divide-gray-100 rounded-lg shadow w-80 bg-primary-400`}
           onMouseLeave={() => setIsOpen(false)}
         >
           {options.map((option, index) => (
