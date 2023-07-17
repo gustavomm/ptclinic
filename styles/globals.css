@@ -10,3 +10,22 @@ section {
 html {
   scroll-behavior: smooth !important;
 }
+
+.slick-prev {
+  left: 10px;
+  z-index: 900;
+}
+
+.slick-next {
+  right: 10px;
+  z-index: 900;
+}
+
+.slick-dots {
+  bottom: 10px;
+  color: white;
+}
+
+.slick-arrow::before {
+  color: #eee;
+}

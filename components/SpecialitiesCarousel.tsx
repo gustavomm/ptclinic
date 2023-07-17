@@ -1,39 +1,37 @@
 import React from "react";
 import specialities from "../constants/specialities";
 import SpecialityCard from "./SpecialityCard";
+import Slider from "react-slick";
+
+const settings = {
+  infinite: true,
+  speed: 500,
+  autoPlay: true,
+  slidesToShow: 1,
+  centerMode: true,
+  loop: true,
+  arrows: true,
+  dots: true,
+  centerPadding: "25px",
+};
 
 const SpecialitiesCarousel = () => {
   return (
-    <div className="carousel carousel-center max-w-sm lg:max-w-2xl p-4 space-x-4 bg-neutral-400 rounded-box">
+    <Slider
+      className="max-w-sm lg:max-w-2xl py-4 bg-neutral-400 rounded-box"
+      {...settings}
+    >
       {Object.values(specialities).map((speciality, index) => (
-        <div
-          key={index}
-          id={`slide${index}`}
-          className="carousel-item relative"
-        >
+        <div key={index} className="h-full" id={`slide${index}`}>
           <SpecialityCard
             title={speciality.title}
             image={speciality.image}
             description={speciality.description}
             slug={speciality.slug}
           />
-          <div className="invisible lg:visible absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a
-              href={index === 0 ? "#slide0" : `#slide${index - 1}`}
-              className="btn btn-circle bg-opacity-80 backdrop-blur"
-            >
-              ❮
-            </a>
-            <a
-              href={index === 7 ? "#slide7" : `#slide${index + 1}`}
-              className="btn btn-circle bg-opacity-80 backdrop-blur"
-            >
-              ❯
-            </a>
-          </div>
         </div>
       ))}
-    </div>
+    </Slider>
   );
 };
 
