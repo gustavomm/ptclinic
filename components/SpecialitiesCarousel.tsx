@@ -9,20 +9,18 @@ const settings = {
   autoPlay: false,
   slidesToShow: 1,
   centerMode: true,
-  loop: true,
-  arrows: true,
+  variableWidth: true,
   dots: true,
-  centerPadding: "25px",
 };
 
 const SpecialitiesCarousel = () => {
   return (
     <Slider
-      className="max-w-sm lg:max-w-2xl py-4 bg-neutral-400 rounded-box"
+      className="max-w-sm lg:max-w-[80vw] h-[36rem] lg:h-[40rem] py-4 bg-slate-300 rounded-box"
       {...settings}
     >
       {Object.values(specialities).map((speciality, index) => (
-        <div key={index} className="h-full" id={`slide${index}`}>
+        <div key={index} className="h-full mx-2" id={`slide${index}`}>
           <SpecialityCard
             title={speciality.title}
             image={speciality.image}
