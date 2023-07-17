@@ -43,7 +43,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col md:flex-row align-center justify-center gap-6  mt-5">
             <StaffProfile
               name="Vyvyan Maximo Andrade"
-              imgSrc="/Vyvyan.png"
+              imgSrc="/Vyvyan.webp"
               imgAlt="Vyvyan fisioterapeuta"
               description={[
                 "Graduada em Fisioterapia pela Universidade de São Paulo - USP",
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
             />
             <StaffProfile
               name="Tainá Horacio Peixoto"
-              imgSrc="/Taina-2.png"
+              imgSrc="/Taina-2.webp"
               imgAlt="Taina fisioterapeuta"
               description={[
                 "Graduada em Fisioterapia pela Universidade de São Paulo - USP",

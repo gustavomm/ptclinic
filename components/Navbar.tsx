@@ -14,7 +14,7 @@ const Navbar = () => {
           {/* <span className="self-center text-3xl font-semibold whitespace-nowrap font-serif text-transparent bg-clip-text bg-gradient-to-r from-vyta-secondary-300 to-violet-500">
             Vyta
           </span> */}
-          <Image src="/LOGOTIPO 006.png" alt="logo" width={60} height={60} />
+          <Image src="/LOGOTIPO 006.webp" alt="logo" width={60} height={60} />
         </Link>
         <div className="flex md:order-2">
           <Link href="/#contato">

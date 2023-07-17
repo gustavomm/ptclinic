@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         rel="noopener noreferrer"
       >
         <Image
-          src="/whatsapp.png"
+          src="/whatsapp.webp"
           alt="whatsapp icon"
           width={70}
           height={70}

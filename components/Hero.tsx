@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import heroPic from "../public/clinica.jpg";
-import heroPic2 from "../public/clinica2.jpg";
-import logoPic from "../public/LOGOTIPO 004.png";
+import heroPic from "../public/clinica.webp";
+import heroPic2 from "../public/clinica2.webp";
+import logoPic from "../public/LOGOTIPO 004.webp";
 import Link from "next/link";
 
 const Hero = () => {
@@ -38,7 +38,10 @@ const Hero = () => {
           </div>
         </div>
         <div className="max-h-[calc(100vh-76px)] w-[90vw] lg:w-[70vw] carousel">
-          <div id="heroSlide1" className="carousel-item w-full relative">
+          <div
+            id="heroSlide1"
+            className="carousel-item w-full relative scroll-mt-[76px]"
+          >
             <Image src={heroPic} alt="foto da clinica" />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <div></div>
@@ -50,7 +53,10 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          <div id="heroSlide2" className="carousel-item w-full relative">
+          <div
+            id="heroSlide2"
+            className="carousel-item w-full relative scroll-mt-[76px]"
+          >
             <Image src={heroPic2} alt="foto da clinica 2" />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <a

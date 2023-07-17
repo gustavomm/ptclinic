@@ -2,7 +2,7 @@ const specialities = {
   neurofuncional: {
     slug: "neurofuncional",
     title: "Fisioterapia Neurofuncional",
-    image: "/neuro.jpeg",
+    image: "/neuro.webp",
     description:
       "Trabalha a função motora e qualidade de vida em distúrbios neurológicos.",
     fullDescription: {
@@ -20,7 +20,7 @@ const specialities = {
   oncologica: {
     slug: "oncologica",
     title: "Fisioterapia Oncológica",
-    image: "/onco.jpeg",
+    image: "/onco.webp",
     description:
       "Manejo dos efeitos colaterais do tratamento e reabilitação de pacientes com câncer.",
     fullDescription: {
@@ -38,7 +38,7 @@ const specialities = {
   ortopedica: {
     slug: "ortopedica",
     title: "Fisioterapia Ortopédica",
-    image: "/ortop.jpg",
+    image: "/ortop.webp",
     description:
       "Previne, trata e reabilita lesões e disfunções do sistema musculoesquelético.",
     fullDescription: {
@@ -56,7 +56,7 @@ const specialities = {
   gerontologia: {
     slug: "gerontologia",
     title: "Fisioterapia em Gerontologia",
-    image: "/geronto.jpeg",
+    image: "/geronto.webp",
     description: "Cuidado e reabilitação da pessoa idosa.",
     fullDescription: {
       patientList: [
@@ -73,7 +73,7 @@ const specialities = {
   "condicionamento-fisico": {
     slug: "condicionamento-fisico",
     title: "Pré e Pós Cirúrgico",
-    image: "/cond.jpg",
+    image: "/cond.webp",
     description:
       "Prepara o paciente fisicamente antes da cirurgia e promove a recuperação mais rápida e eficaz após o procedimento cirúrgico.",
     fullDescription: {
@@ -90,7 +90,7 @@ const specialities = {
   respiratoria: {
     slug: "respiratoria",
     title: "Respiratória para Adultos",
-    image: "/resp.jpg",
+    image: "/resp.webp",
     description:
       "Melhora função pulmonar, promove desobstrução das vias aéreas, alivia sintomas respiratórios e melhora a capacidade respiratória.",
     fullDescription: {
@@ -108,7 +108,7 @@ const specialities = {
   "saude-mulher-homem": {
     slug: "saude-mulher-homem",
     title: "Saúde da Mulher e do Homem",
-    image: "/incont.jpg",
+    image: "/incont.webp",
     description:
       "Trata e previne disfunções disfunções do assoalho pélvico e incontinência urinária.",
     fullDescription: {
@@ -124,7 +124,7 @@ const specialities = {
   "drenagem-linfatica": {
     slug: "drenagem-linfatica",
     title: "Drenagem Linfática",
-    image: "/drenagem.jpg",
+    image: "/drenagem.webp",
     description:
       "Reduz inchaço, melhora circulação e auxilia na eliminação de toxinas e resíduos metabólicos do corpo.",
     fullDescription: {
