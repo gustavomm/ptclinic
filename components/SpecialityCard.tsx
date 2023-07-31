@@ -14,7 +14,7 @@ const SpecialityCard = ({
   slug: string;
 }) => {
   return (
-    <div className="card w-80 h-[34rem] lg:h-[38rem] lg:w-[36rem] bg-base-100 shadow-xl">
+    <div className="card w-80 h-[34rem] lg:h-[38rem] lg:w-[36rem] bg-base-100">
       <figure>
         <Image src={image} alt={title} width={800} height={600} />
       </figure>
