@@ -8,10 +8,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NNBD3887"
+        strategy="afterInteractive"
+      />
+      <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-VSSZW88J6E"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
@@ -25,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         src="https://www.googletagmanager.com/gtag/js?id=G-V5YCCVYQRR"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
