@@ -4,12 +4,16 @@ import { useState } from "react";
 import ArrowDownIcon from "./icons/ArrowDownIcon";
 import DropdownMenu from "./DropdownMenu";
 import specialities from "../constants/specialities";
+import PhoneIcon from "./icons/PhoneIcon";
+import WhatsappIcon from "./icons/WhatsappIcon";
+import InstagramIcon from "./icons/InstagramIcon";
+import EmailIcon from "./icons/EmailIcon";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="bg-primary-400 bg-opacity-80 backdrop-blur fixed z-20 top-0 left-0 navbar">
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
+      <div className="flex items-center flex-wrap justify-between w-full">
         <Link href="/#home" className="flex items-center">
           {/* <span className="self-center text-3xl font-semibold whitespace-nowrap font-serif text-transparent bg-clip-text bg-gradient-to-r from-vyta-secondary-300 to-violet-500">
             Vyta
@@ -17,11 +21,31 @@ const Navbar = () => {
           <Image src="/LOGOTIPO 006.webp" alt="logo" width={60} height={60} />
         </Link>
         <div className="flex md:order-2">
-          <Link href="/#contato">
-            <button type="button" className="btn btn-secondary">
-              Contato
-            </button>
-          </Link>
+          <div className="flex align-center gap-4 p-2 bg-primary-300 rounded-2xl">
+            <Link href="tel:+5511989172311" className="flex items-center gap-2">
+              <PhoneIcon className="text-slate-50 w-8 h-8" />
+            </Link>
+            <Link
+              href="/whatsapp"
+              className="lg:flex items-center hidden gap-2"
+            >
+              <WhatsappIcon className="fill-slate-50 text-slate-50 w-8 h-8" />
+            </Link>
+            <Link
+              href="mailto:contato@vytafisioterapia.com.br"
+              className="flex items-center gap-2"
+            >
+              <EmailIcon className="text-slate-50 w-8 h-8" />
+            </Link>
+            <Link
+              className="flex items-center gap-2"
+              href="https://instagram.com/vytafisioterapia"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon className="text-slate-50 fill-slate-50 w-7 h-7" />
+            </Link>
+          </div>
 
           <button
             type="button"
@@ -45,7 +69,7 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 lg:visible ${
+          className={`items-center justify-between md:pl-[10vw] w-full md:flex md:w-auto md:order-1 lg:visible ${
             !isOpen && "max-md:hidden"
           }`}
           id="navbar-sticky"
@@ -87,6 +111,15 @@ const Navbar = () => {
                 className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 "
               >
                 Localização
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/#contato"
+                onClick={() => setIsOpen(!isOpen)}
+                className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 "
+              >
+                Contato
               </Link>
             </li>
           </ul>
