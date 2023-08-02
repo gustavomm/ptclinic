@@ -11,6 +11,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         src="https://www.googletagmanager.com/ns.html?id=GTM-NNBD3887"
         strategy="afterInteractive"
       />
+      <Script strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'GTM-NNBD3887');
+        `}
+      </Script>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-VSSZW88J6E"
         strategy="afterInteractive"
