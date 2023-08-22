@@ -46,7 +46,7 @@ const Hero = () => {
         </div>
         <div className="lg:max-h-[calc(100vh-76px)] w-[90vw] lg:w-[50vw]">
           <Swiper
-            navigation
+            navigation={true}
             autoplay={{ delay: 3000 }}
             modules={[Navigation, Autoplay]}
           >
