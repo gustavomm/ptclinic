@@ -1,35 +1,32 @@
 import React from "react";
 import specialities from "../constants/specialities";
 import SpecialityCard from "./SpecialityCard";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-cards";
 
-const settings = {
-  infinite: true,
-  speed: 500,
-  autoPlay: false,
-  slidesToShow: 1,
-  centerMode: true,
-  variableWidth: true,
-  dots: true,
-};
+import { EffectCards } from "swiper/modules";
 
 const SpecialitiesCarousel = () => {
   return (
-    <Slider
-      className="max-w-sm lg:max-w-[80vw] h-[36rem] lg:h-[40rem] py-4 bg-slate-300 rounded-box"
-      {...settings}
+    <Swiper
+      effect={"cards"}
+      grabCursor={true}
+      modules={[EffectCards]}
+      className="w-[80vw] lg:w-[700px] overflow-visible"
     >
       {Object.values(specialities).map((speciality, index) => (
-        <div key={index} className="h-full mx-2" id={`slide${index}`}>
+        <SwiperSlide key={index} className="rounded-2xl shadow-xl">
           <SpecialityCard
             title={speciality.title}
             image={speciality.image}
             description={speciality.description}
             slug={speciality.slug}
           />
-        </div>
+        </SwiperSlide>
       ))}
-    </Slider>
+    </Swiper>
   );
 };
 

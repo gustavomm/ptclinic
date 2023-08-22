@@ -26,6 +26,14 @@ html {
   color: white;
 }
 
-.slick-arrow::before {
-  color: #eee;
+.swiper-button-prev::after {
+  color: white;
+}
+
+.swiper-slide {
+  width: fit-content;
+}
+
+.swiper-button-next::after {
+  color: white;
 }

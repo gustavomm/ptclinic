@@ -14,23 +14,20 @@ const SpecialityCard = ({
   slug: string;
 }) => {
   return (
-    <div className="card w-80 h-[34rem] lg:h-[38rem] lg:w-[36rem] bg-base-100">
-      <figure>
-        <Image src={image} alt={title} width={800} height={600} />
-      </figure>
-      <div className="card-body items-center gap-3">
-        <h2 className="card-title text-2xl">{title} </h2>
-        <p>{description}</p>
-        <div className="card-actions justify-center">
-          <Link
-            href={`speciality/${slug}`}
-            className="btn btn-primary text-white"
-          >
-            Detalhes➜
-          </Link>
+    <Link href={`speciality/${slug}`}>
+      <div className="card h-[500px] lg:h-[620px] bg-base-100">
+        <figure>
+          <Image src={image} alt={title} width={800} height={600} />
+        </figure>
+        <div className="card-body items-center gap-3">
+          <h2 className="card-title text-2xl">{title} </h2>
+          <p>{description}</p>
+          <div className="card-actions justify-center">
+            <div className="text-vyta-secondary-500">Ver Detalhes ➜</div>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

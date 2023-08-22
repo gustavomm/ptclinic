@@ -12,14 +12,14 @@ export const StaffProfile = ({
   description: string[];
 }) => {
   return (
-    <div className="flex flex-col items-center w-[350px] gap-2">
-      <div className="relative h-[370px] w-[350px]">
+    <div className="flex flex-col items-center w-[350px] gap-4">
+      <div className="relative h-[370px] w-[285px] overflow-hidden rounded-2xl">
         <Image
           src={imgSrc}
           alt={imgAlt}
           fill={true}
           style={{ objectFit: "contain" }}
-          className="bg-vyta-tertiary-100 p-4 rounded-2xl"
+          className=""
         ></Image>
       </div>
       <h3 className="text-2xl text-primary-400 font-bold">{name}</h3>

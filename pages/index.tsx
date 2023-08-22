@@ -13,7 +13,7 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex min-h-screen flex-col items-center justify-center w-screen overflow-x-clip">
       <noscript>
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-NNBD3887"
@@ -37,8 +37,8 @@ const Home: NextPage = () => {
 
         <div className="divider mx-20"></div>
 
-        <section id="especialidades">
-          <h1 className="text-3xl font-bold text-primary-400 mb-5">
+        <section id="especialidades" className="w-full">
+          <h1 className="text-3xl font-bold text-primary-400 mb-10">
             Especialidades
           </h1>
           <SpecialitiesCarousel />
@@ -48,10 +48,10 @@ const Home: NextPage = () => {
 
         <section id="quem-somos">
           <h1 className="text-3xl font-bold text-primary-400">Quem somos</h1>
-          <div className="flex flex-col md:flex-row align-center justify-center gap-6  mt-5">
+          <div className="flex flex-col md:flex-row align-center justify-center gap-6  mt-10">
             <StaffProfile
               name="Vyvyan Maximo Andrade"
-              imgSrc="/Vyvyan.webp"
+              imgSrc="/vyvyan-3.webp"
               imgAlt="Vyvyan fisioterapeuta"
               description={[
                 "Graduada em Fisioterapia pela Universidade de São Paulo - USP",
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
             />
             <StaffProfile
               name="Tainá Horacio Peixoto"
-              imgSrc="/Taina-2.webp"
+              imgSrc="/Taina-3.webp"
               imgAlt="Taina fisioterapeuta"
               description={[
                 "Graduada em Fisioterapia pela Universidade de São Paulo - USP",
@@ -75,7 +75,7 @@ const Home: NextPage = () => {
         <div className="divider mx-20"></div>
 
         <section
-          className="w-full flex items-center flex-col gap-5"
+          className="w-full flex items-center flex-col gap-10"
           id="localizacao"
         >
           <h1 className="text-3xl font-bold text-primary-400">Localização</h1>
