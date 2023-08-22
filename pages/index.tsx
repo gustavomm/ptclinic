@@ -61,7 +61,7 @@ const Home: NextPage = () => {
             />
             <StaffProfile
               name="Tainá Horacio Peixoto"
-              imgSrc="/Taina-3.webp"
+              imgSrc="/taina-3.webp"
               imgAlt="Taina fisioterapeuta"
               description={[
                 "Graduada em Fisioterapia pela Universidade de São Paulo - USP",
