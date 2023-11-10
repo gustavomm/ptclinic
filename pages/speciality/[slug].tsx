@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import specialities from "../../constants/specialities";
 import Navbar from "../../components/Navbar";
 import Image from "next/image";
+import Link from "next/link";
 
 const MyPage = () => {
   const router = useRouter();
@@ -53,6 +54,11 @@ const MyPage = () => {
             </h2>
             <p className="text-justify">{fullDescription.howItWorks}</p>
           </div>
+          <Link href="/whatsapp" className="redirect-whatsapp mt-8">
+            <button className="btn btn-primary lg:btn-lg text-white">
+              Agende sua avaliação
+            </button>
+          </Link>
         </section>
       </main>
     </div>

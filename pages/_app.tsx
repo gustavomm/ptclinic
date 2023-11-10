@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <a
         href="/whatsapp"
-        className="fixed bottom-10 right-5 md:bottom-15 md:right-15"
+        className="fixed bottom-10 right-5 md:bottom-15 md:right-15 redirect-whatsapp"
         target="_blank"
         rel="noopener noreferrer"
       >

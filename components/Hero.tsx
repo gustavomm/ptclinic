@@ -37,7 +37,7 @@ const Hero = () => {
                 Especialidades
               </button>
             </Link>
-            <Link href="/whatsapp">
+            <Link href="/whatsapp" className="redirect-whatsapp">
               <button className="btn btn-primary lg:btn-lg text-white">
                 Agendar
               </button>

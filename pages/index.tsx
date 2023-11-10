@@ -98,20 +98,26 @@ const Home: NextPage = () => {
         >
           <h1 className="text-3xl font-bold text-primary-400 mb-5">Contato</h1>
           <div className="flex align-center gap-6 p-4 bg-slate-100 rounded-2xl">
-            <Link href="tel:+5511989172311" className="flex items-center gap-2">
+            <Link
+              href="tel:+5511989172311"
+              className="flex items-center gap-2 redirect-phone"
+            >
               <PhoneIcon className="text-vyta-secondary-400 w-8 h-8" />
             </Link>
-            <Link href="/whatsapp" className="flex items-center gap-2">
+            <Link
+              href="/whatsapp"
+              className="flex items-center gap-2 redirect-whatsapp"
+            >
               <WhatsappIcon className="fill-vyta-secondary-400 text-white w-8 h-8" />
             </Link>
             <Link
               href="mailto:contato@vytafisioterapia.com.br"
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 redirect-email"
             >
               <EmailIcon className="text-vyta-secondary-400 w-8 h-8" />
             </Link>
             <Link
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 redirect-instagram"
               href="https://instagram.com/vytafisioterapia"
               target="_blank"
               rel="noopener noreferrer"

@@ -22,23 +22,26 @@ const Navbar = () => {
         </Link>
         <div className="flex md:order-2">
           <div className="flex align-center gap-4 p-2 bg-primary-300 rounded-2xl">
-            <Link href="tel:+5511989172311" className="flex items-center gap-2">
+            <Link
+              href="tel:+5511989172311"
+              className="flex items-center gap-2 redirect-phone"
+            >
               <PhoneIcon className="text-slate-50 w-8 h-8" />
             </Link>
             <Link
               href="/whatsapp"
-              className="lg:flex items-center hidden gap-2"
+              className="lg:flex items-center hidden gap-2 redirect-whatsapp"
             >
               <WhatsappIcon className="fill-slate-50 text-slate-50 w-8 h-8" />
             </Link>
             <Link
               href="mailto:contato@vytafisioterapia.com.br"
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 redirect-email"
             >
               <EmailIcon className="text-slate-50 w-8 h-8" />
             </Link>
             <Link
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 redirect-instagram"
               href="https://instagram.com/vytafisioterapia"
               target="_blank"
               rel="noopener noreferrer"
