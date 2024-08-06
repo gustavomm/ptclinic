@@ -30,10 +30,6 @@ html {
   color: white;
 }
 
-.swiper-slide {
-  width: fit-content;
-}
-
 .swiper-button-next::after {
   color: white;
 }

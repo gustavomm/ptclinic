@@ -97,6 +97,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
+              <Link
+                href="/#pilates"
+                onClick={() => setIsOpen(!isOpen)}
+                className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 "
+              >
+                Pilates
+              </Link>
+            </li>
+            <li>
               <DropdownMenu
                 options={Object.values(specialities)}
                 closeMenu={() => setIsOpen(false)}

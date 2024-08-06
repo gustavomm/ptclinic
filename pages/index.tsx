@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Navbar from "../components/Navbar";
 import { StaffProfile } from "../components/StaffProfile";
 import PhoneIcon from "../components/icons/PhoneIcon";
@@ -10,6 +9,7 @@ import WhatsappIcon from "../components/icons/WhatsappIcon";
 import Hero from "../components/Hero";
 import SpecialitiesCarousel from "../components/SpecialitiesCarousel";
 import Link from "next/link";
+import PilatesCarousel from "../components/PilatesCarousel";
 
 const Home: NextPage = () => {
   return (
@@ -70,6 +70,16 @@ const Home: NextPage = () => {
               ]}
             />
           </div>
+        </section>
+
+        <div className="divider mx-20"></div>
+
+        <section
+          className="w-full flex items-center flex-col gap-10"
+          id="pilates"
+        >
+          <h1 className="text-3xl font-bold text-primary-400">Pilates</h1>
+          <PilatesCarousel />
         </section>
 
         <div className="divider mx-20"></div>
