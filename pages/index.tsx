@@ -14,14 +14,6 @@ import Link from "next/link";
 const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center w-screen overflow-x-clip">
-      <noscript>
-        <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-NNBD3887"
-          height="0"
-          width="0"
-          className="hidden"
-        ></iframe>
-      </noscript>
       <Head>
         <title>Vyta Fisioterapia</title>
       </Head>

@@ -125,6 +125,15 @@ const Navbar = () => {
                 Contato
               </Link>
             </li>
+            <li>
+              <Link
+                href="/blog"
+                onClick={() => setIsOpen(!isOpen)}
+                className="block py-2 pl-3 pr-4 text-white rounded hover:bg-vyta-secondary-300 md:hover:bg-transparent md:hover:text-vyta-secondary-300 md:p-0 "
+              >
+                Blog
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
