@@ -37,10 +37,8 @@ const Hero = () => {
             humanizado, com práticas baseadas em evidências.
           </p>
           <p className="pt-3 lg:pt-6 lg:text-xl text-justify">
-            Atendimento de Pilates com fisioterapeutas.
-          </p>
-          <p className="pt-3 lg:pt-6 lg:text-xl text-justify">
-            Agende sua sessão e venha nos conhecer!
+            Atendimento de Pilates com fisioterapeutas. Agende sua sessão e
+            venha nos conhecer!
           </p>
           <div className="pt-4 lg:pt-6">
             <Link href="/#especialidades">

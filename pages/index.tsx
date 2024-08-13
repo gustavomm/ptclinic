@@ -86,13 +86,18 @@ const Home: NextPage = () => {
         <div className="divider mx-20"></div>
 
         <section
-          className="w-full flex items-center flex-col gap-10"
+          className="w-full flex items-center flex-col gap-10 px-6"
           id="pilates"
         >
           <h1 className="text-3xl font-bold text-primary-400">Pilates</h1>
           <PilatesCarousel />
-          <p className="lg:text-l text-justify lg:max-w-[80%]">
-            {specialities.pilates.description}
+          <p className="lg:text-l text-justify lg:max-w-[75%]">
+            O Pilates é um método eficaz para reabilitação e prevenção de
+            lesões, focando no fortalecimento do core, alinhamento postural e
+            flexibilidade. Ele corrige desequilíbrios musculares e melhora a
+            consciência corporal, essenciais para evitar lesões. Além disso, o
+            Pilates condiciona o corpo, aumentando força, resistência e
+            mobilidade, resultando em um corpo mais equilibrado e saudável.
           </p>
           <Link href={`speciality/pilates`}>
             <div className="text-vyta-secondary-500">Ver Detalhes ➜</div>

@@ -44,7 +44,7 @@ const specialities = {
     title: "Pilates",
     image: "/pilates1.jpeg",
     description:
-      "O Pilates é um método eficaz para reabilitação e prevenção de lesões, focando no fortalecimento do core, alinhamento postural e flexibilidade. Ele corrige desequilíbrios musculares e melhora a consciência corporal, essenciais para evitar lesões. Além disso, o Pilates condiciona o corpo, aumentando força, resistência e mobilidade, resultando em um corpo mais equilibrado e saudável.",
+      "O Pilates é um método eficaz para reabilitação e prevenção de lesões, focando no fortalecimento do core, alinhamento postural e flexibilidade.",
     fullDescription: {
       preDescription:
         "O Pilates é uma prática acessível a pessoas de todas as idades e níveis de condicionamento físico. É ideal para quem busca:",
