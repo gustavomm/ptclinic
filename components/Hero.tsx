@@ -1,12 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import heroPic from "../public/pilates1.jpg";
+import heroPic from "../public/pilates1.jpeg";
 import heroPic2 from "../public/sala3.jpg";
 import heroPic3 from "../public/sala1.jpg";
 import heroPic4 from "../public/sala4.jpg";
 import heroPic5 from "../public/sala2.jpg";
-import heroPic6 from "../public/pilates3.jpg";
-import heroPic7 from "../public/pilates2.jpg";
+import heroPic6 from "../public/pilates3.jpeg";
+import heroPic7 from "../public/pilates2.jpeg";
 import logoPic from "../public/LOGOTIPO 004.webp";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,7 +37,10 @@ const Hero = () => {
             humanizado, com práticas baseadas em evidências.
           </p>
           <p className="pt-3 lg:pt-6 lg:text-xl text-justify">
-            Agora com atendimento de Pilates com profissionais especializados!
+            Atendimento de Pilates com fisioterapeutas.
+          </p>
+          <p className="pt-3 lg:pt-6 lg:text-xl text-justify">
+            Agende sua sessão e venha nos conhecer!
           </p>
           <div className="pt-4 lg:pt-6">
             <Link href="/#especialidades">

@@ -1,10 +1,10 @@
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import heroPic from "../public/pilates1.jpg";
-import heroPic2 from "../public/pilates3.jpg";
-import heroPic3 from "../public/pilates2.jpg";
-import heroPic4 from "../public/pilates4.jpg";
+import heroPic from "../public/pilates1.jpeg";
+import heroPic2 from "../public/pilates3.jpeg";
+import heroPic3 from "../public/pilates2.jpeg";
+import heroPic4 from "../public/pilates4.jpeg";
 
 const PilatesCarousel = () => (
   <div className="flex align-center justify-center lg:max-h-70vh lg:w-[70vw] w-[90vw]">

@@ -40,23 +40,35 @@ const MyPage = () => {
           />
           <div className="lg:max-w-3xl">
             <h2 className="text-2xl font-semibold mb-3 text-vyta-secondary-500">
-              Para quem funciona:
+              {slug === "pilates"
+                ? "Para quem é o Pilates?"
+                : "Para quem funciona:"}
             </h2>
-            <ul className="list-disc">
+            {fullDescription.preDescription && (
+              <p className="text-justify">{fullDescription.preDescription}</p>
+            )}
+            <ul className="list-disc mt-4">
               {fullDescription.patientList.map((line, index) => (
                 <li className="mb-2 ml-3" key={index}>
                   {line}
                 </li>
               ))}
             </ul>
-            <h2 className="text-2xl font-semibold mb-3 text-vyta-secondary-500 mt-6 mb-3">
-              Como funciona:
+            {fullDescription.postDescription && (
+              <p className="text-justify mt-4">
+                {fullDescription.postDescription}
+              </p>
+            )}
+            <h2 className="text-2xl font-semibold mb-3 text-vyta-secondary-500 mt-6">
+              {slug === "pilates" ? "O que é o Pilates?" : "Como funciona:"}
             </h2>
             <p className="text-justify">{fullDescription.howItWorks}</p>
           </div>
           <Link href="/whatsapp" className="redirect-whatsapp mt-8">
             <button className="btn btn-primary lg:btn-lg text-white">
-              Agende sua avaliação
+              {slug === "pilates"
+                ? "Agende sua primeira aula"
+                : "Agende sua avaliação"}
             </button>
           </Link>
         </section>
@@ -76,6 +88,7 @@ export async function getStaticPaths() {
       { params: { slug: specialities.respiratoria.slug } },
       { params: { slug: specialities["saude-mulher-homem"].slug } },
       { params: { slug: specialities["drenagem-linfatica"].slug } },
+      { params: { slug: specialities.pilates.slug } },
     ],
     fallback: false,
   };

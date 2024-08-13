@@ -10,6 +10,7 @@ import Hero from "../components/Hero";
 import SpecialitiesCarousel from "../components/SpecialitiesCarousel";
 import Link from "next/link";
 import PilatesCarousel from "../components/PilatesCarousel";
+import specialities from "../constants/specialities";
 
 const Home: NextPage = () => {
   return (
@@ -69,6 +70,16 @@ const Home: NextPage = () => {
                 "Crefito 3: 293916F",
               ]}
             />
+            <StaffProfile
+              name="Rita Sene"
+              imgSrc="/rita.jpeg"
+              imgAlt="Rita fisioterapeuta"
+              description={[
+                "Graduada em Fisioterapia pela Universidade Federal de Juiz de Fora - UFJF",
+                "Especialização em Fisioterapia Pélvica Funcional",
+                "Crefito 3: 269942F",
+              ]}
+            />
           </div>
         </section>
 
@@ -80,6 +91,12 @@ const Home: NextPage = () => {
         >
           <h1 className="text-3xl font-bold text-primary-400">Pilates</h1>
           <PilatesCarousel />
+          <p className="lg:text-l text-justify lg:max-w-[80%]">
+            {specialities.pilates.description}
+          </p>
+          <Link href={`speciality/pilates`}>
+            <div className="text-vyta-secondary-500">Ver Detalhes ➜</div>
+          </Link>
         </section>
 
         <div className="divider mx-20"></div>
