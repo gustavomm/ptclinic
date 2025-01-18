@@ -61,24 +61,24 @@ const specialities = {
         "O Pilates é um método de exercício físico que se concentra no fortalecimento do core (músculos do abdômen, costas e pelve), promovendo equilíbrio, flexibilidade e controle do corpo. Desenvolvido por Joseph Pilates no início do século XX, este método combina técnicas de exercícios físicos e respiratórios com a consciência corporal, proporcionando benefícios tanto para o corpo quanto para a mente.",
     },
   },
-  "saude-mulher-homem": {
-    slug: "saude-mulher-homem",
-    title: "Saúde da Mulher e do Homem",
-    image: "/incont.webp",
-    description:
-      "Trata e previne disfunções disfunções do assoalho pélvico e incontinência urinária.",
-    fullDescription: {
-      preDescription: "",
-      patientList: [
-        "Mulheres com disfunções do assoalho pélvico: como incontinência urinária, incontinência fecal, prolapsos e dor pélvica crônica.",
-        "Mulheres com dor lombar ou dor pélvica: que podem ocorrer durante a gravidez, após o parto ou em outras fases da vida.",
-        "Homens com incontinência urinária: que pode ser causada por cirurgias de próstata, problemas da musculatura do assoalho pélvico ou outros fatores.",
-      ],
-      postDescription: "",
-      howItWorks:
-        "A fisioterapia em saúde da mulher e do homem abrange um conjunto de intervenções fisioterapêuticas voltadas para a promoção da saúde e prevenção de disfunções relacionadas ao sistema musculoesquelético, pélvico e urogenital. Na mulher, essa especialidade está focada em questões como incontinência urinária, disfunções sexuais, recuperação pós-parto, dor pélvica e pré e pós-operatório de cirurgias ginecológicas. Já na saúde do homem, a fisioterapia pode atuar no tratamento de disfunções como incontinência urinária após cirurgia de próstata. Com abordagens terapêuticas específicas e exercícios, busca-se melhorar a qualidade de vida, autonomia e bem-estar dos pacientes, contribuindo para a sua saúde integral.",
-    },
-  },
+  // "saude-mulher-homem": {
+  //   slug: "saude-mulher-homem",
+  //   title: "Saúde da Mulher e do Homem",
+  //   image: "/incont.webp",
+  //   description:
+  //     "Trata e previne disfunções disfunções do assoalho pélvico e incontinência urinária.",
+  //   fullDescription: {
+  //     preDescription: "",
+  //     patientList: [
+  //       "Mulheres com disfunções do assoalho pélvico: como incontinência urinária, incontinência fecal, prolapsos e dor pélvica crônica.",
+  //       "Mulheres com dor lombar ou dor pélvica: que podem ocorrer durante a gravidez, após o parto ou em outras fases da vida.",
+  //       "Homens com incontinência urinária: que pode ser causada por cirurgias de próstata, problemas da musculatura do assoalho pélvico ou outros fatores.",
+  //     ],
+  //     postDescription: "",
+  //     howItWorks:
+  //       "A fisioterapia em saúde da mulher e do homem abrange um conjunto de intervenções fisioterapêuticas voltadas para a promoção da saúde e prevenção de disfunções relacionadas ao sistema musculoesquelético, pélvico e urogenital. Na mulher, essa especialidade está focada em questões como incontinência urinária, disfunções sexuais, recuperação pós-parto, dor pélvica e pré e pós-operatório de cirurgias ginecológicas. Já na saúde do homem, a fisioterapia pode atuar no tratamento de disfunções como incontinência urinária após cirurgia de próstata. Com abordagens terapêuticas específicas e exercícios, busca-se melhorar a qualidade de vida, autonomia e bem-estar dos pacientes, contribuindo para a sua saúde integral.",
+  //   },
+  // },
   "drenagem-linfatica": {
     slug: "drenagem-linfatica",
     title: "Drenagem Linfática",

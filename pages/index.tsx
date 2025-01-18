@@ -70,16 +70,6 @@ const Home: NextPage = () => {
                 "Crefito 3: 293916F",
               ]}
             />
-            <StaffProfile
-              name="Rita Sene"
-              imgSrc="/rita.jpeg"
-              imgAlt="Rita fisioterapeuta"
-              description={[
-                "Graduada em Fisioterapia pela Universidade Federal de Juiz de Fora - UFJF",
-                "Especialização em Fisioterapia Pélvica Funcional",
-                "Crefito 3: 269942F",
-              ]}
-            />
           </div>
         </section>
 
@@ -111,6 +101,9 @@ const Home: NextPage = () => {
           id="localizacao"
         >
           <h1 className="text-3xl font-bold text-primary-400">Localização</h1>
+          <p className="lg:text-l text-justify lg:max-w-[75%]">
+            Rua Frei Caneca, 1212, Conjunto 53 - Consolação, São Paulo - SP
+          </p>
           <div className="w-[80vw] lg:w-[70vw]">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d427.96519633859407!2d-46.66115957244263!3d-23.559992771406215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce592d449e10dd%3A0x9fb98fcb63eab6f4!2sVyta%20Fisioterapia!5e0!3m2!1sen!2sbr!4v1678887676221!5m2!1sen!2sbr"

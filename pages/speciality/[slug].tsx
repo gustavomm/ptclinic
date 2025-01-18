@@ -86,7 +86,6 @@ export async function getStaticPaths() {
       { params: { slug: specialities.gerontologia.slug } },
       { params: { slug: specialities["condicionamento-fisico"].slug } },
       { params: { slug: specialities.respiratoria.slug } },
-      { params: { slug: specialities["saude-mulher-homem"].slug } },
       { params: { slug: specialities["drenagem-linfatica"].slug } },
       { params: { slug: specialities.pilates.slug } },
     ],
