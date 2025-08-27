@@ -101,17 +101,47 @@ const Home: NextPage = () => {
           id="localizacao"
         >
           <h1 className="text-3xl font-bold text-primary-400">Localização</h1>
-          <p className="lg:text-l text-justify lg:max-w-[75%]">
-            Rua Frei Caneca, 1212, Conjunto 53 - Consolação, São Paulo - SP
-          </p>
-          <div className="w-[80vw] lg:w-[70vw]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d427.96519633859407!2d-46.66115957244263!3d-23.559992771406215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce592d449e10dd%3A0x9fb98fcb63eab6f4!2sVyta%20Fisioterapia!5e0!3m2!1sen!2sbr!4v1678887676221!5m2!1sen!2sbr"
-              width="100%"
-              height="450"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+
+          <div className="w-full flex flex-col lg:flex-row gap-8 justify-center items-center px-6 md:px-8">
+            {/* Unidade Consolação */}
+            <div className="w-full lg:w-1/2 flex flex-col items-center gap-4">
+              <h2 className="text-xl font-semibold text-primary-400">
+                Unidade Consolação
+              </h2>
+              <p className="lg:text-l text-justify lg:max-w-[90%]">
+                Rua Frei Caneca, 1212, Conjunto 53 - Consolação, São Paulo - SP
+              </p>
+              <div className="w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d427.96519633859407!2d-46.66115957244263!3d-23.559992771406215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce592d449e10dd%3A0x9fb98fcb63eab6f4!2sVyta%20Fisioterapia!5e0!3m2!1sen!2sbr!4v1678887676221!5m2!1sen!2sbr"
+                  width="100%"
+                  height="300"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Unidade Fradique */}
+            <div className="w-full lg:w-1/2 flex flex-col items-center gap-4">
+              <h2 className="text-xl font-semibold text-primary-400">
+                Unidade Fradique
+              </h2>
+              <p className="lg:text-l text-justify lg:max-w-[90%]">
+                Rua Fradique Coutinho, 380 - Pinheiros, São Paulo - SP
+              </p>
+              <div className="w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1445059856637!2d-46.688715823961424!3d-23.563252978798484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57c57e3ccf37%3A0xec2878cdd908125f!2sVyta%20Fisioterapia%20e%20Pilates%20-%20Unidade%20Fradique!5e0!3m2!1sen!2sbr!4v1756327748591!5m2!1sen!2sbr"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </section>
 
