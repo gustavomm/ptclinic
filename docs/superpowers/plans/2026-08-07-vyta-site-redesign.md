@@ -1730,14 +1730,15 @@ export function Prose({ children }: { children: React.ReactNode }) {
 }
 ```
 
-- [ ] **Step 5: Add `text-balance` support**
+- [ ] **Step 5: No action — `text-balance` is already available**
 
-Add to `app/globals.css` inside `@layer base`:
-
-```css
-.text-balance { text-wrap: balance; }
-.text-pretty { text-wrap: pretty; }
-```
+This step originally said to add `.text-balance` / `.text-pretty` rules to
+`app/globals.css`. **Do not.** Tailwind 3.4.17 ships both as native utilities
+(verified at `node_modules/tailwindcss/src/corePlugins.js:1597-1598`), so the
+`className="text-balance"` and `className="text-pretty"` usages throughout
+Tasks 11–18 already work. Adding class rules would be dead CSS; adding
+element-level rules (`p { text-wrap: pretty }`) would impose a sitewide
+typographic default that belongs to no single task.
 
 - [ ] **Step 6: Run tests and build**
 
