@@ -1,5 +1,19 @@
 import { test, expect } from "@playwright/test";
 
+// Both visibility tests below read computed opacity, which is only meaningful
+// once the stylesheet has actually applied. Under parallel workers the `load`
+// event can fire while the CSS is still settling, which made the no-JS test
+// flake — it passed alone and failed in a full run. Wait for a sentinel we
+// know comes from the stylesheet (the body's surface background) before
+// measuring, so a red result means a real regression.
+async function waitForStylesheet(page: import("@playwright/test").Page) {
+  await page.waitForFunction(
+    () => getComputedStyle(document.body).backgroundColor === "rgb(250, 246, 240)",
+    undefined,
+    { timeout: 15_000 },
+  );
+}
+
 test.describe("reduced motion", () => {
   // Not `test.use({ reducedMotion: "reduce" })`: the installed playwright
   // 1.62.1 test types omit `reducedMotion`/`forcedColors`/`contrast`/`screen`
@@ -15,6 +29,7 @@ test.describe("reduced motion", () => {
   test("all revealed content is visible immediately", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
+    await waitForStylesheet(page);
     const hidden = await page
       .locator('[data-revealed]')
       .evaluateAll((els) =>
@@ -24,11 +39,13 @@ test.describe("reduced motion", () => {
   });
 });
 
+
 test.describe("no javascript", () => {
   test.use({ javaScriptEnabled: false });
 
   test("revealed content is still visible", async ({ page }) => {
     await page.goto("/");
+    await waitForStylesheet(page);
     const hidden = await page
       .locator('[data-revealed]')
       .evaluateAll((els) =>

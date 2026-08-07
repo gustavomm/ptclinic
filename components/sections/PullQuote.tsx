@@ -1,8 +1,11 @@
 import { Reveal } from "@/components/ui/Reveal";
 
 /**
- * Citação atribuída às fundadoras. Ainda precisa do sign-off da Vyvyan e da
- * Tainá antes do lançamento, como o resto da copy de marketing.
+ * Citação atribuída às fundadoras.
+ *
+ * "O atendimento é particular" está confirmado pelo Gustavo em 07/08/2026: a
+ * clínica atende só particular. A frase em si ainda passa pelo sign-off da
+ * Vyvyan e da Tainá junto com o resto da copy de marketing.
  *
  * A versão anterior dizia que a clínica não atende plano de saúde "porque não
  * conseguiria fazer, em vinte minutos, o que a sua recuperação exige em uma

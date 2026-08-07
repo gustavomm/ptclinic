@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { display, sans } from "@/lib/fonts";
 import { clinic } from "@/content/clinic";
@@ -52,7 +52,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
+      {/*
+        GTM dispara a conversão do Google Ads. O GA4 vem separado, direto,
+        porque o container GTM-NNBD3887 não tem nenhuma tag de GA4 dentro —
+        conferido baixando e decodificando o container público em 07/08/2026.
+        O site antigo também carregava o gtag direto, então é o mesmo arranjo
+        que já funcionava. Se um dia a tag do Google entrar no container,
+        remover a linha do GoogleAnalytics daqui para não medir em dobro.
+      */}
       <GoogleTagManager gtmId="GTM-NNBD3887" />
+      <GoogleAnalytics gaId="G-V5YCCVYQRR" />
       <body className="bg-surface text-ink font-sans font-light antialiased">
         <noscript>
           <style>{`[data-revealed]{opacity:1 !important;transform:none !important;}`}</style>

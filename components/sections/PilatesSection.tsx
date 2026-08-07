@@ -22,15 +22,15 @@ export function PilatesSection() {
           </h2>
           <p className="mt-6 text-[17px] font-light leading-relaxed text-surface/80">
             {/*
-              A frase começava com "É a diferença que ninguém vê no Instagram e
-              todo mundo sente na terceira semana". Saiu: era alfinetada em
-              concorrente e envelhece rápido. O que vem depois é o argumento de
-              verdade e se sustenta sozinho.
-              A alegação sobre cirurgia continua pendente de confirmação da
-              clínica — ver docs/redesign-verificacao.md.
+              Duas coisas saíram daqui, ambas a pedido do Gustavo:
+              "É a diferença que ninguém vê no Instagram e todo mundo sente na
+              terceira semana" — alfinetada em concorrente, envelhece rápido.
+              "sabe o que a sua cirurgia limitou" — afirmava que quem conduz a
+              aula conhece o histórico cirúrgico do aluno, o que não estava em
+              nenhuma fonte da clínica.
             */}
-            Quem corrige a sua postura conhece a sua lesão, sabe o que a sua
-            cirurgia limitou e entende por que aquele ombro ainda dói.
+            Quem corrige a sua postura conhece a sua lesão e entende por que
+            aquele ombro ainda dói.
           </p>
           <p className="mt-5 text-[17px] font-light leading-relaxed text-surface/80">
             Fortalecimento de core, alinhamento postural, mobilidade e
