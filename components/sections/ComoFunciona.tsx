@@ -49,7 +49,11 @@ export function ComoFunciona() {
                 last ? "border-ink bg-ink" : "border-line bg-surface"
               }`}
             >
-              <div className="text-xs font-medium tracking-[0.2em] text-accent-warm">
+              <div
+                className={`text-xs font-medium tracking-[0.2em] ${
+                  last ? "text-accent-warm-soft" : "text-accent-deep"
+                }`}
+              >
                 {step.n}
               </div>
               <h3 className={`font-display text-3xl ${last ? "text-surface" : "text-ink"}`}>
