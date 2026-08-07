@@ -27,7 +27,7 @@ const FAQ = [
   {
     question: "Qual a diferença do Pilates com fisioterapeuta?",
     answer:
-      "Quem conduz a aula tem formação clínica: entende de lesão e dosa carga e movimento a partir disso. Toda aula na Vyta é conduzida por fisioterapeuta.",
+      "Quem conduz a aula tem formação clínica. Toda aula na Vyta é conduzida por fisioterapeuta.",
   },
   {
     question: "Como é a primeira aula?",
@@ -70,7 +70,7 @@ export default function PilatesPage() {
 
       <Section tone="surface-alt">
         <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
-          <Link href="/" className="hover:text-accent">Início</Link>
+          <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
         </nav>
         <SectionHeading
           eyebrow="Pilates"
