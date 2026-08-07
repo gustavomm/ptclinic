@@ -13,7 +13,7 @@ export function Footer() {
           <div className="flex items-center gap-4">
             <Logo size={40} />
             <span className="h-8 w-px bg-line" aria-hidden />
-            <span className="pl-[0.32em] text-[9px] uppercase tracking-brand text-ink">
+            <span className="pl-[0.32em] text-[11px] uppercase tracking-brand text-ink">
               {clinic.tagline}
             </span>
           </div>

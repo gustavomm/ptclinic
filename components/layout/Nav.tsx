@@ -19,7 +19,7 @@ export function Nav() {
         <Link href="/" className="flex flex-none items-center gap-4">
           <Logo size={40} />
           <span className="hidden h-8 w-px bg-line sm:block" aria-hidden />
-          <span className="hidden pl-[0.32em] text-[9px] uppercase tracking-brand text-ink sm:block">
+          <span className="hidden pl-[0.32em] text-[11px] uppercase tracking-brand text-ink sm:block">
             {clinic.tagline}
           </span>
         </Link>
