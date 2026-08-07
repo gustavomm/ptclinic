@@ -39,7 +39,19 @@ describe("unitSchema", () => {
     };
     const s = unitSchema(withHours);
     expect(s.openingHoursSpecification).toHaveLength(1);
-    expect(s.openingHoursSpecification[0].opens).toBe("07:00");
+    expect(s.openingHoursSpecification?.[0].opens).toBe("07:00");
+  });
+
+  it("omits postalCode from the address when the unit has none", () => {
+    const s = unitSchema(units[0]);
+    expect(units[0].postalCode).toBe("");
+    expect(s.address).not.toHaveProperty("postalCode");
+  });
+
+  it("includes postalCode in the address when the unit has one", () => {
+    const withPostalCode = { ...units[0], postalCode: "01000-000" };
+    const s = unitSchema(withPostalCode);
+    expect(s.address.postalCode).toBe("01000-000");
   });
 });
 
@@ -48,6 +60,11 @@ describe("personSchema", () => {
     const s = personSchema(team[0]);
     expect(s["@type"]).toBe("Person");
     expect(s.hasCredential.credentialCategory).toBe("Crefito 3: 293919F");
+  });
+
+  it("builds alumniOf from institution names, not full education sentences", () => {
+    expect(personSchema(team[0]).alumniOf[0].name).toBe("Universidade de São Paulo");
+    expect(personSchema(team[1]).alumniOf[0].name).toBe("Universidade de São Paulo");
   });
 });
 

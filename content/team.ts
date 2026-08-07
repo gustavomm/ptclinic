@@ -6,6 +6,8 @@ export type Member = {
   bio: string;
   image: string;
   education: string[];
+  /** Institution names only, extracted from `education` — for structured data (alumniOf). */
+  institutions: string[];
 };
 
 export const team: Member[] = [
@@ -20,6 +22,7 @@ export const team: Member[] = [
       "Graduada em Fisioterapia pela Universidade de São Paulo (USP)",
       "Residência em Neurologia e Neurocirurgia pelo Hospital São Paulo (Unifesp)",
     ],
+    institutions: ["Universidade de São Paulo", "Hospital São Paulo"],
   },
   {
     slug: "taina-horacio-peixoto",
@@ -32,6 +35,7 @@ export const team: Member[] = [
       "Graduada em Fisioterapia pela Universidade de São Paulo (USP)",
       "Residência em Oncologia pelo Hospital AC Camargo Cancer Center",
     ],
+    institutions: ["Universidade de São Paulo", "Hospital AC Camargo Cancer Center"],
   },
 ];
 

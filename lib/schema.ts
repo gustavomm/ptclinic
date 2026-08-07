@@ -1,5 +1,5 @@
 import { clinic } from "@/content/clinic";
-import { units, type Unit, type OpeningHours } from "@/content/units";
+import { type Unit } from "@/content/units";
 import { team, type Member } from "@/content/team";
 
 const abs = (path: string) =>
@@ -16,7 +16,12 @@ export function organizationSchema() {
     email: clinic.email,
     sameAs: [clinic.instagram],
     medicalSpecialty: "PhysicalTherapy",
-    location: units.map((u) => ({ "@id": `${clinic.siteUrl}/unidades/${u.slug}#unit` })),
+    // Deliberately no `location` here: Google parses each page's structured
+    // data independently, and this node renders on every page (root layout),
+    // never alongside the unit nodes it would need to reference. The inverse
+    // relationship — unitSchema's `parentOrganization` — is the correct
+    // direction for a multi-location business and resolves fine, since both
+    // nodes are co-located on each unit page.
   };
 }
 
@@ -32,7 +37,7 @@ export function websiteSchema() {
   };
 }
 
-type UnitSchemaBase = {
+type UnitSchema = {
   "@context": "https://schema.org";
   "@type": "Physiotherapy";
   "@id": string;
@@ -45,26 +50,15 @@ type UnitSchemaBase = {
   geo: { "@type": "GeoCoordinates"; latitude: number; longitude: number };
   hasMap: string;
   parentOrganization: { "@id": string };
+  openingHoursSpecification?: Array<{
+    "@type": "OpeningHoursSpecification";
+    dayOfWeek: string[];
+    opens: string;
+    closes: string;
+  }>;
 };
 
-type OpeningHoursSpecification = {
-  "@type": "OpeningHoursSpecification";
-  dayOfWeek: string[];
-  opens: string;
-  closes: string;
-};
-
-type UnitSchemaWithHours = UnitSchemaBase & {
-  openingHoursSpecification: OpeningHoursSpecification[];
-};
-
-// Overloaded so the return type reflects whether hours are actually known —
-// see the omission guard below (spec §12 item 4).
-export function unitSchema(
-  unit: Unit & { openingHours: OpeningHours[] }
-): UnitSchemaWithHours;
-export function unitSchema(unit: Unit): UnitSchemaBase;
-export function unitSchema(unit: Unit): UnitSchemaBase | UnitSchemaWithHours {
+export function unitSchema(unit: Unit): UnitSchema {
   const address: Record<string, string> = {
     "@type": "PostalAddress",
     streetAddress: unit.street,
@@ -74,7 +68,7 @@ export function unitSchema(unit: Unit): UnitSchemaBase | UnitSchemaWithHours {
   };
   if (unit.postalCode) address.postalCode = unit.postalCode;
 
-  const base: UnitSchemaBase = {
+  const base: UnitSchema = {
     "@context": "https://schema.org",
     "@type": "Physiotherapy",
     "@id": `${clinic.siteUrl}/unidades/${unit.slug}#unit`,
@@ -116,9 +110,9 @@ export function personSchema(member: Member) {
     jobTitle: "Fisioterapeuta",
     description: member.bio,
     image: abs(member.image),
-    alumniOf: member.education.map((e) => ({
+    alumniOf: member.institutions.map((i) => ({
       "@type": "EducationalOrganization",
-      name: e,
+      name: i,
     })),
     hasCredential: {
       "@type": "EducationalOccupationalCredential",
