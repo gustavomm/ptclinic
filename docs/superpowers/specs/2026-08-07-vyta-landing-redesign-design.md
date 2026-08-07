@@ -149,8 +149,17 @@ inconsistência de NAP é erro comum e silenciosamente prejudicial em SEO local.
 | Com FAQ | `FAQPage` |
 | Post de blog | `Article` com `author` nomeado |
 
-`FAQPage` e `BreadcrumbList` alteram a aparência do resultado na SERP — ganham
-espaço sem exigir posição melhor.
+`BreadcrumbList` altera a aparência do resultado na SERP — ganha espaço sem
+exigir posição melhor.
+
+> **Correção — 07/08/2026.** A redação original desta seção dizia que `FAQPage`
+> também renderiza rich result. **Não para este site.** Em agosto de 2023 o
+> Google restringiu rich results de FAQ a sites de saúde e governo
+> *reconhecidamente autoritativos* — referências nacionais, não clínicas. A
+> marcação `FAQPage` permanece no plano porque é barata, correta e legível por
+> outros consumidores (assistentes, agregadores), mas **não conte com ela para
+> mudar a aparência do resultado no Google.** O ganho real de SERP vem do
+> `BreadcrumbList` e dos títulos e descrições próprios por rota.
 
 ### 5.3 Profundidade de conteúdo e E-E-A-T
 
