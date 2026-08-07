@@ -68,3 +68,18 @@ test("mobile menu opens, traps focus, and closes on Escape", async ({ page }) =>
   await expect(dialog).toBeHidden();
   await expect(trigger).toBeFocused();
 });
+
+// The top bar wrapped to four lines at 375px and ate a third of the viewport:
+// the full string is ~45 characters at 0.28em tracking, far wider than a phone.
+// The descriptive phrase is now hidden below `sm`. Guard the rendered height
+// rather than the class, so any future copy or tracking change is caught too.
+for (const width of [320, 375, 414, 768, 1440]) {
+  test(`top bar stays on one line at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto("/");
+    const height = await page.evaluate(
+      () => document.querySelector(".bg-ink")!.getBoundingClientRect().height,
+    );
+    expect(height, `top bar wrapped at ${width}px`).toBeLessThan(48);
+  });
+}
