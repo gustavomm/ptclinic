@@ -4215,8 +4215,12 @@ const ROUTES = [
 for (const route of ROUTES) {
   test(`${route} has no critical or serious axe violations`, async ({ page }) => {
     await page.goto(route);
+    // wcag22aa included deliberately: it carries the `target-size` rule, which
+    // is the site-wide guard for the 44px tap-target floor. WhatsAppLink's
+    // `bare` variant enforces no minimum of its own (Task 8, parked finding),
+    // so this is where an undersized CTA gets caught.
     const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag22aa"])
       .analyze();
     const blocking = results.violations.filter(
       (v) => v.impact === "critical" || v.impact === "serious",
