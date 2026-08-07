@@ -2,11 +2,14 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { team } from "@/content/team";
+import { personSchema } from "@/lib/schema";
 
 export function Founders() {
   return (
     <Section id="quem-somos">
+      <JsonLd data={team.map((m) => personSchema(m))} />
       <SectionHeading
         className="mb-14 max-w-3xl"
         eyebrow="Quem somos"

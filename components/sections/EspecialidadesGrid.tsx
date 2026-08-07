@@ -5,21 +5,27 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { specialities } from "@/content/specialities";
 
-export function EspecialidadesGrid() {
+export function EspecialidadesGrid({
+  showHeading = true,
+}: {
+  showHeading?: boolean;
+}) {
   return (
     <Section id="especialidades">
-      <div className="mb-14 flex flex-wrap items-end justify-between gap-8">
-        <SectionHeading
-          className="max-w-2xl"
-          eyebrow="Especialidades"
-          title="Oito frentes, uma forma de trabalhar"
-        />
-        <p className="max-w-sm text-base font-light leading-relaxed text-muted">
-          Cada especialidade tem técnica própria, mas todas partem do mesmo
-          lugar: avaliar antes de tratar, e tratar uma pessoa — não um
-          diagnóstico.
-        </p>
-      </div>
+      {showHeading && (
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-8">
+          <SectionHeading
+            className="max-w-2xl"
+            eyebrow="Especialidades"
+            title="Oito frentes, uma forma de trabalhar"
+          />
+          <p className="max-w-sm text-base font-light leading-relaxed text-muted">
+            Cada especialidade tem técnica própria, mas todas partem do mesmo
+            lugar: avaliar antes de tratar, e tratar uma pessoa — não um
+            diagnóstico.
+          </p>
+        </div>
+      )}
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {specialities.map((s, i) => (

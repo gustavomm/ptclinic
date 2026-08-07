@@ -30,7 +30,7 @@ export default function EspecialidadesIndex() {
           lead="Cada especialidade tem técnica própria, mas todas partem do mesmo lugar: avaliar antes de tratar, e tratar uma pessoa — não um diagnóstico."
         />
       </Section>
-      <EspecialidadesGrid />
+      <EspecialidadesGrid showHeading={false} />
     </main>
   );
 }

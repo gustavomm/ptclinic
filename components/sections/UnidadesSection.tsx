@@ -5,10 +5,16 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { units } from "@/content/units";
 
-export function UnidadesSection() {
+export function UnidadesSection({
+  showHeading = true,
+}: {
+  showHeading?: boolean;
+}) {
   return (
     <Section id="localizacao" tone="surface-alt">
-      <SectionHeading className="mb-14 max-w-2xl" eyebrow="Unidades" title="Consolação e Pinheiros" />
+      {showHeading && (
+        <SectionHeading className="mb-14 max-w-2xl" eyebrow="Unidades" title="Consolação e Pinheiros" />
+      )}
       <div className="grid gap-8 md:grid-cols-2">
         {units.map((u, i) => (
           <Reveal key={u.slug} delay={i * 100} className="border border-line bg-surface">

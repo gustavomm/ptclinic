@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { getAllPosts, getPost } from "@/lib/blog";
 import { getMember } from "@/content/team";
 import { buildMetadata } from "@/lib/seo";
-import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, personSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -70,6 +70,7 @@ export default async function PostPage({
             { name: "Conteúdo", path: "/blog" },
             { name: meta.title, path: `/blog/${meta.slug}` },
           ]),
+          ...authors.map((a) => personSchema(a!)),
         ]}
       />
 

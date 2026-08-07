@@ -1,9 +1,11 @@
 # Verificação do redesign — checklist de pré-produção
 
-Rodar contra a URL de preview da Vercel, antes de promover para produção.
-Este documento é o resultado dos 22 tarefas do redesign — reúne o que precisa
-de confirmação manual (o que testes automatizados não cobrem) e o que ficou
-pendente de decisão da clínica.
+Rodar contra a URL de preview da Vercel, antes de promover para produção —
+com a exceção da seção "Conversão", que tem um bloco específico para rodar só
+depois do deploy em produção (ver abaixo o motivo). Este documento é o
+resultado dos 22 tarefas do redesign — reúne o que precisa de confirmação
+manual (o que testes automatizados não cobrem) e o que ficou pendente de
+decisão da clínica.
 
 ## ATENÇÃO — mnemônico do AVC (SAMU): confirmar antes de publicar
 
@@ -23,11 +25,35 @@ Tainá precisam confirmar a redação antes da página ir ao ar.
 
 ## Conversão — bloqueia o lançamento
 
-- [ ] GTM Preview conectado à URL de preview
+**A tag de conversão do Ads só pode ser verificada em produção, não na URL de
+preview.** A regra do GTM que sobrevive ao redesign é `Click URL contains
+https://www.vytafisioterapia.com.br/whatsapp` — ela casa contra o host de
+produção, literalmente. Numa URL `*.vercel.app` o link do WhatsApp resolve
+para o host do preview (ex.: `https://ptclinic-git-xyz.vercel.app/whatsapp`),
+que nunca contém `www.vytafisioterapia.com.br`. Rodar esse teste no preview
+não é "menos confiável" — é estruturalmente incapaz de passar, e um tester que
+tentar vai reportar uma falha falsa numa tag que na verdade está correta.
+
+O que dá para verificar no preview é só o comportamento funcional do redirect
+(independe de host):
+
+- [ ] Clicar em "Agendar" no hero, no FAB, no nav, no menu mobile e numa
+      página de especialidade → confirmar que cada um navega para `/whatsapp`
+- [ ] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
+
+### Verificar em produção, imediatamente após o deploy
+
+Só dá para confirmar a conversão do Ads depois que o domínio de produção
+(`www.vytafisioterapia.com.br`) está servindo o build novo:
+
+- [ ] GTM Preview conectado à URL de produção
 - [ ] Clicar em "Agendar" no hero → confirmar page load em `/whatsapp` no GTM
 - [ ] Confirmar que a tag `Contato por WhatsApp` (label `ak4xCLuKhcwYEM3nsM4p`) disparou
 - [ ] Repetir a partir do FAB, do nav, do menu mobile e de uma página de especialidade
 - [ ] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
+
+Se algo falhar aqui — depois do deploy, contra o host de produção — aí sim é
+um problema real na tag, não um artefato do host de preview.
 
 ### Achado: uma segunda ação de conversão do Google Ads vai parar de registrar
 
@@ -156,7 +182,7 @@ numa manutenção futura.
   raiz: corpo de 0 bytes faz o cálculo de tamanho do cache de prerender
   falhar: o erro é capturado e logado na escrita, engolido na leitura. Efeito
   é um cache miss silencioso — `/whatsapp` reexecuta a cada request e sempre
-  retorna um 308 correto. Só vale corrigir se o ruído no log incomodar;
+  retorna um 307 correto. Só vale corrigir se o ruído no log incomodar;
   forçar `dynamic` trocaria a saída estática servível por CDN.
 - `Footer`'s `new Date().getFullYear()` é calculado em build time numa rota
   estática — o ano do © fica desatualizado até o próximo deploy.
