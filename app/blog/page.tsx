@@ -29,6 +29,7 @@ export default function BlogIndex() {
       />
       <Section tone="surface-alt">
         <SectionHeading
+          level="h1"
           eyebrow="Conteúdo"
           title="O que a gente escreve entre as sessões"
           lead="Guias sobre as condições que mais aparecem na clínica, escritos por quem atende."

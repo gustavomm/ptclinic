@@ -23,7 +23,7 @@ export default function UnidadesIndex() {
         ])}
       />
       <Section tone="surface-alt">
-        <SectionHeading eyebrow="Unidades" title="Onde a gente atende" />
+        <SectionHeading level="h1" eyebrow="Unidades" title="Onde a gente atende" />
       </Section>
       <UnidadesSection />
     </main>

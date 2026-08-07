@@ -24,6 +24,7 @@ export default function EspecialidadesIndex() {
       />
       <Section tone="surface-alt">
         <SectionHeading
+          level="h1"
           eyebrow="Especialidades"
           title="O que tratamos"
           lead="Cada especialidade tem técnica própria, mas todas partem do mesmo lugar: avaliar antes de tratar, e tratar uma pessoa — não um diagnóstico."

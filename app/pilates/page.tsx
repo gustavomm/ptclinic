@@ -119,6 +119,7 @@ export default function PilatesPage() {
           <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
         </nav>
         <SectionHeading
+          level="h1"
           eyebrow="Pilates"
           title={<>Pilates com <em className="italic">fisioterapeuta</em>, sempre</>}
           lead="O Pilates é um método eficaz para reabilitação e prevenção de lesões, focando no fortalecimento do core, alinhamento postural e flexibilidade. Aqui, quem conduz cada aula é fisioterapeuta."
