@@ -65,9 +65,9 @@ export default async function SpecialityPage({
 
       <Section tone="surface-alt">
         <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
-          <Link href="/" className="hover:text-accent">Início</Link>
+          <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-ink">Início</Link>
           <span className="mx-2" aria-hidden>/</span>
-          <Link href="/especialidades" className="hover:text-accent">Especialidades</Link>
+          <Link href="/especialidades" className="inline-flex min-h-[44px] items-center hover:text-ink">Especialidades</Link>
         </nav>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
@@ -118,7 +118,10 @@ export default async function SpecialityPage({
           <ul className="flex flex-col gap-4">
             {related.map((p) => (
               <li key={p!.slug}>
-                <Link href={`/blog/${p!.slug}`} className="font-display text-2xl text-ink hover:text-accent">
+                <Link
+                  href={`/blog/${p!.slug}`}
+                  className="inline-flex min-h-[44px] items-center font-display text-2xl text-ink hover:text-accent"
+                >
                   {p!.title} →
                 </Link>
               </li>
@@ -131,7 +134,7 @@ export default async function SpecialityPage({
         <h2 className="font-display text-display-md text-surface">Onde atendemos</h2>
         <div className="mt-8 flex flex-wrap gap-8">
           {units.map((u) => (
-            <Link key={u.slug} href={`/unidades/${u.slug}`} className="text-surface/85 hover:text-accent-warm">
+            <Link key={u.slug} href={`/unidades/${u.slug}`} className="text-surface/85 hover:text-accent-warm-soft">
               <span className="font-display text-2xl">{u.shortName}</span>
               <span className="mt-1 block text-sm font-light">{u.street}</span>
             </Link>
