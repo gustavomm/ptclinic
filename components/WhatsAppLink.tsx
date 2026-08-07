@@ -15,12 +15,22 @@ export function WhatsAppLink({
   from,
   variant = "primary",
   className = "",
+  ariaLabel,
   children,
 }: {
   service: string;
   from: string;
   variant?: keyof typeof VARIANTS;
   className?: string;
+  /**
+   * Nome acessível do link. Obrigatório quando `children` não tem texto — o
+   * FAB, por exemplo, só contém um SVG. Sem isto o link fica sem nome nenhum
+   * para leitor de tela, e o axe reprova (`link-name`) em todas as rotas.
+   *
+   * Existe como prop explícita, e não via spread: passar `aria-label` solto
+   * neste componente compila sem erro e é descartado em silêncio.
+   */
+  ariaLabel?: string;
   children: React.ReactNode;
 }) {
   const base =
@@ -31,6 +41,7 @@ export function WhatsAppLink({
   return (
     <a
       href="/whatsapp"
+      aria-label={ariaLabel}
       className={`redirect-whatsapp ${base} ${VARIANTS[variant]} ${className}`.trim()}
       onClick={() => trackWhatsAppClick({ service, from })}
     >
