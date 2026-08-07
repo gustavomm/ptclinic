@@ -26,7 +26,7 @@ export function EspecialidadesGrid() {
           <Reveal key={s.slug} delay={(i % 4) * 70}>
             <Link
               href={`/especialidades/${s.slug}`}
-              className="group flex h-full flex-col overflow-hidden border border-line bg-surface text-ink"
+              className="group flex h-full flex-col overflow-hidden border border-line bg-white text-ink"
             >
               <div className="h-44 overflow-hidden">
                 <Image
@@ -63,7 +63,7 @@ export function EspecialidadesGrid() {
             </div>
             <div className="flex flex-1 flex-col gap-2 p-6">
               <h3 className="font-display text-2xl text-surface">Pilates</h3>
-              <p className="text-sm font-light leading-relaxed text-surface/85">
+              <p className="text-sm font-light leading-relaxed text-surface">
                 Força, mobilidade e controle — sempre com fisioterapeuta ao lado.
                 Ver a sala →
               </p>

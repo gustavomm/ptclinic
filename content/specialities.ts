@@ -41,7 +41,7 @@ export const specialities: Speciality[] = [
       {
         question: "Quanto tempo dura a reabilitação neurofuncional?",
         answer:
-          "Depende da lesão, do tempo desde o evento e do objetivo definido na avaliação inicial, feita antes do início do tratamento.",
+          "Depende do quadro e do objetivo definido na avaliação inicial, feita antes do início do tratamento.",
       },
       {
         question: "Quais condições neurológicas são atendidas?",
@@ -63,7 +63,7 @@ export const specialities: Speciality[] = [
     cardTitle: "Oncológica",
     image: "/onco.webp",
     summary:
-      "Fisioterapia oncológica em São Paulo: manejo dos efeitos colaterais do tratamento e reabilitação de pacientes com câncer, do diagnóstico à remissão.",
+      "Fisioterapia oncológica em São Paulo: manejo dos efeitos colaterais do tratamento e reabilitação de pacientes com câncer, em todas as fases do tratamento.",
     cardText:
       "Manejar os efeitos colaterais do tratamento e apoiar a reabilitação de pacientes com câncer.",
     intro:
