@@ -72,7 +72,9 @@ export function unitSchema(unit: Unit): UnitSchema {
     "@context": "https://schema.org",
     "@type": "Physiotherapy",
     "@id": `${clinic.siteUrl}/unidades/${unit.slug}#unit`,
-    name: `${clinic.name} — ${unit.shortName}`,
+    // Hífen, não travessão: este nome aparece no LocalBusiness e deve bater com
+    // o do Google Business Profile, que usa "Vyta Fisioterapia e Pilates - ...".
+    name: `${clinic.name} - ${unit.shortName}`,
     url: abs(`/unidades/${unit.slug}`),
     telephone: clinic.phoneE164,
     email: clinic.email,

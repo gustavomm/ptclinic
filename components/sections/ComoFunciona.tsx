@@ -16,12 +16,12 @@ const STEPS = [
   {
     n: "03",
     title: "Tratamento",
-    text: "Sessões individuais com a mesma fisioterapeuta. O plano é revisto sempre que o seu corpo muda — e ele muda, é esse o ponto.",
+    text: "Sessões individuais com a mesma fisioterapeuta. O plano é revisto sempre que o seu corpo muda, e ele muda. É esse o ponto.",
   },
   {
     n: "04",
     title: "Continuidade",
-    text: "Alta não é fim de linha. A maioria segue no Pilates para manter o que conquistou — com quem já conhece a sua história clínica.",
+    text: "Alta não é fim de linha. A maioria segue no Pilates para manter o que conquistou, com quem já conhece a sua história clínica.",
   },
 ];
 

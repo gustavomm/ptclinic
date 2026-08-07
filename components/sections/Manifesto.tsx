@@ -3,7 +3,10 @@ import { Reveal } from "@/components/ui/Reveal";
 const STATS = [
   {
     figure: "1 : 1",
-    text: "Atendimento individual de fisioterapia, do começo ao fim. Sem sala cheia e sem esteira de pacientes.",
+    // "esteira de pacientes" saiu: é tradução literal de "conveyor belt of
+    // patients", expressão que não existe em português e não se usa em
+    // fisioterapia. "Atendimento simultâneo" é como se fala de verdade.
+    text: "Atendimento individual de fisioterapia, do começo ao fim. Sem sala cheia e sem atendimento simultâneo.",
   },
   {
     figure: "Sempre",
@@ -13,8 +16,13 @@ const STATS = [
     // Sem número: a contagem estava fixa no texto enquanto a grade renderiza
     // specialities.length + 1. Somar ou tirar uma especialidade fazia a frase
     // mentir sem ninguém perceber.
+    // A versão anterior era "As especialidades sob o mesmo teto, do
+    // pós-operatório à reabilitação neurológica, da oncologia ao
+    // condicionamento". A cadência "do X à Y, da Z ao W" é marca registrada de
+    // texto gerado por IA, e "sob o mesmo teto" ninguém fala. Agora diz o que o
+    // paciente ganha com isso, em vez de listar áreas em ritmo de slogan.
     figure: "Todas",
-    text: "As especialidades sob o mesmo teto, do pós-operatório à reabilitação neurológica, da oncologia ao condicionamento.",
+    text: "As especialidades no mesmo lugar. Você não precisa procurar outra clínica a cada nova queixa.",
   },
 ];
 

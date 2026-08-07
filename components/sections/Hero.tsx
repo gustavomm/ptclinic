@@ -28,9 +28,9 @@ export function Hero() {
           Cuidar do movimento é <em className="italic">cuidar da vida</em>
         </h1>
         <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-surface text-pretty">
-          Uma clínica onde cada sessão — inclusive as de Pilates — é conduzida
-          por fisioterapeutas. Avaliação longa, plano escrito para o seu corpo, e
-          alguém que acompanha a sua evolução de perto.
+          Aqui toda sessão é conduzida por fisioterapeutas, inclusive as de
+          Pilates. Avaliação longa, plano escrito para o seu corpo, e alguém que
+          acompanha a sua evolução de perto.
         </p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <WhatsAppLink service="geral" from="hero">Agendar no WhatsApp</WhatsAppLink>
