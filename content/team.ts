@@ -30,7 +30,7 @@ export const team: Member[] = [
     image: "/taina-3.webp",
     education: [
       "Graduada em Fisioterapia pela Universidade de São Paulo (USP)",
-      "Residência em Oncologia pelo A.C. Camargo Cancer Center",
+      "Residência em Oncologia pelo Hospital AC Camargo Cancer Center",
     ],
   },
 ];

@@ -31,6 +31,16 @@ describe("units", () => {
     }
   });
 
+  it("pins each unit's exact coordinates by slug, not just a loose bound", () => {
+    // Guards against the two units' geo being swapped with each other,
+    // which would place each unit at the other's address in the
+    // LocalBusiness structured data Task 6 emits.
+    expect(getUnit("consolacao")?.geo.lat).toBeCloseTo(-23.559993, 5);
+    expect(getUnit("consolacao")?.geo.lng).toBeCloseTo(-46.66116, 5);
+    expect(getUnit("pinheiros")?.geo.lat).toBeCloseTo(-23.563253, 5);
+    expect(getUnit("pinheiros")?.geo.lng).toBeCloseTo(-46.688716, 5);
+  });
+
   it("leaves opening hours null until the clinic supplies them", () => {
     for (const u of units) expect(u.openingHours).toBeNull();
   });
