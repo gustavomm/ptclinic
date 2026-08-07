@@ -8,7 +8,7 @@ export const NAV_ITEMS = [
   { href: "/especialidades", label: "Especialidades" },
   { href: "/pilates", label: "Pilates" },
   { href: "/#quem-somos", label: "Quem somos" },
-  { href: "/unidades/consolacao", label: "Unidades" },
+  { href: "/unidades", label: "Unidades" },
   { href: "/blog", label: "Conteúdo" },
 ] as const;
 
