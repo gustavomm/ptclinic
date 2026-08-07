@@ -25,10 +25,11 @@ describe("buildMetadata", () => {
   });
 
   it("defaults OpenGraph type to website and allows article", () => {
-    expect(buildMetadata({ title: "t", description: "d", path: "/" }).openGraph?.type).toBe("website");
+    expect(buildMetadata({ title: "t", description: "d", path: "/" }).openGraph).toMatchObject({
+      type: "website",
+    });
     expect(
-      buildMetadata({ title: "t", description: "d", path: "/blog/x", type: "article" })
-        .openGraph?.type,
-    ).toBe("article");
+      buildMetadata({ title: "t", description: "d", path: "/blog/x", type: "article" }).openGraph,
+    ).toMatchObject({ type: "article" });
   });
 });

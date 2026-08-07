@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { clinic } from "@/content/clinic";
 
 export const SITE_TITLE_TEMPLATE = `%s · ${clinic.name}`;
@@ -8,7 +9,7 @@ export function buildMetadata(args: {
   path: string;
   image?: string;
   type?: "website" | "article";
-}) {
+}): Metadata {
   const canonical =
     args.path === "/" ? clinic.siteUrl : `${clinic.siteUrl}${args.path}`;
   const image = args.image ?? "/opengraph-image";
