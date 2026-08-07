@@ -27,8 +27,13 @@ describe("unitSchema", () => {
     expect(s.geo.latitude).toBeCloseTo(-23.559993, 5);
   });
 
+  // Synthetic unit, not the real data: both units now carry confirmed hours,
+  // and coupling this to the content would make the assertion vacuous. The
+  // guard still matters — it is what stops invented hours reaching Google if a
+  // future unit is added before the clinic supplies its schedule.
   it("omits openingHoursSpecification when hours are unknown", () => {
-    const s = unitSchema(units[0]);
+    const withoutHours = { ...units[0], openingHours: null };
+    const s = unitSchema(withoutHours);
     expect(s).not.toHaveProperty("openingHoursSpecification");
   });
 

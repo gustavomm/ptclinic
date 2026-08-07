@@ -41,8 +41,21 @@ describe("units", () => {
     expect(getUnit("pinheiros")?.geo.lng).toBeCloseTo(-46.688716, 5);
   });
 
-  it("leaves opening hours null until the clinic supplies them", () => {
-    for (const u of units) expect(u.openingHours).toBeNull();
+  it("opens 07:00-20:00 Monday to Friday at both units, and not Saturday", () => {
+    for (const u of units) {
+      expect(u.openingHours).toHaveLength(1);
+      const h = u.openingHours![0];
+      expect(h.opens).toBe("07:00");
+      expect(h.closes).toBe("20:00");
+      expect(h.days).toEqual([
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+      ]);
+      expect(h.days).not.toContain("Saturday");
+    }
   });
 });
 

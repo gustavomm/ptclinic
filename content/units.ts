@@ -24,7 +24,7 @@ export type Unit = {
   imageHeight: number;
   /** Photos of the unit itself (treatment room + Pilates studio), shown below the map. */
   gallery: GalleryPhoto[];
-  /** null until the clinic supplies real hours — see spec §12 item 4. */
+  /** Seg a Sex, 7h as 20h. Confirmado pela clinica em 07/08/2026. Nao abre sabado. */
   openingHours: OpeningHours[] | null;
 };
 
@@ -52,33 +52,35 @@ export const units: Unit[] = [
       {
         src: "/consolacao-sala-fisioterapia.webp",
         alt: "Sala de fisioterapia da unidade Consolação, com maca de atendimento, janelas com persianas e piso de madeira.",
-        orientation: "portrait",
         width: 1020,
         height: 1600,
       },
       {
         src: "/consolacao-pilates-cadillac-escada.webp",
         alt: "Estúdio de pilates da unidade Consolação com cadillac, escada e barril, parede coral ao fundo.",
-        orientation: "portrait",
         width: 1200,
         height: 1600,
       },
       {
         src: "/pilates-consolacao-luz-natural.webp",
         alt: "Estúdio de pilates da unidade Consolação iluminado por luz natural, com cadillac, cadeira e espaldar de madeira.",
-        orientation: "portrait",
         width: 1200,
         height: 1600,
       },
       {
         src: "/pilates-consolacao-marca-vyta.webp",
         alt: "Estúdio de pilates da unidade Consolação com letreiro VYTA na parede e variedade de equipamentos.",
-        orientation: "landscape",
         width: 1200,
         height: 1067,
       },
     ],
-    openingHours: null,
+    openingHours: [
+      {
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "07:00",
+        closes: "20:00",
+      },
+    ],
   },
   {
     slug: "pinheiros",
@@ -104,33 +106,35 @@ export const units: Unit[] = [
       {
         src: "/pinheiros-sala-fisioterapia.webp",
         alt: "Sala de fisioterapia da unidade Pinheiros, com espaldar de madeira e maca de atendimento.",
-        orientation: "portrait",
         width: 1364,
         height: 1600,
       },
       {
         src: "/pinheiros-pilates-espelho-detalhe.webp",
         alt: "Detalhe do estúdio de pilates da unidade Pinheiros refletido em espelhos ovais retroiluminados.",
-        orientation: "portrait",
         width: 900,
         height: 1600,
       },
       {
         src: "/pinheiros-pilates-reformer-cadillac.webp",
         alt: "Cadillac e cadeiras de pilates em destaque no estúdio de pilates da unidade Pinheiros.",
-        orientation: "landscape",
         width: 1440,
         height: 1200,
       },
       {
         src: "/pinheiros-pilates-corredor-equipamentos.webp",
         alt: "Corredor do estúdio de pilates da unidade Pinheiros com reformer, cadillac e escada.",
-        orientation: "portrait",
         width: 1200,
         height: 1600,
       },
     ],
-    openingHours: null,
+    openingHours: [
+      {
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "07:00",
+        closes: "20:00",
+      },
+    ],
   },
 ];
 
