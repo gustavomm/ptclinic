@@ -6,12 +6,15 @@ const STATS = [
     text: "Atendimento individual de fisioterapia, do começo ao fim. Sem sala cheia e sem esteira de pacientes.",
   },
   {
-    figure: "100%",
-    text: "Das aulas de Pilates conduzidas por fisioterapeutas — quem entende de lesão orientando cada exercício, cada carga, cada respiração.",
+    figure: "Sempre",
+    text: "Toda aula de Pilates é conduzida por fisioterapeutas. Quem entende de lesão orientando cada exercício, cada carga, cada respiração.",
   },
   {
-    figure: "8",
-    text: "Especialidades sob o mesmo teto — do pós-operatório à reabilitação neurológica, da oncologia ao condicionamento.",
+    // Sem número: a contagem estava fixa no texto enquanto a grade renderiza
+    // specialities.length + 1. Somar ou tirar uma especialidade fazia a frase
+    // mentir sem ninguém perceber.
+    figure: "Todas",
+    text: "As especialidades sob o mesmo teto, do pós-operatório à reabilitação neurológica, da oncologia ao condicionamento.",
   },
 ];
 

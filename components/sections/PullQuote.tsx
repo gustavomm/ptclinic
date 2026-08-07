@@ -1,17 +1,23 @@
 import { Reveal } from "@/components/ui/Reveal";
 
 /**
- * DRAFT COPY — this asserts the clinic does not accept health insurance.
- * Must be confirmed by Vyvyan and Tainá before launch. Spec §12 item 2.
+ * Citação atribuída às fundadoras. Ainda precisa do sign-off da Vyvyan e da
+ * Tainá antes do lançamento, como o resto da copy de marketing.
+ *
+ * A versão anterior dizia que a clínica não atende plano de saúde "porque não
+ * conseguiria fazer, em vinte minutos, o que a sua recuperação exige em uma
+ * hora inteira". Saiu por dois motivos: era uma afirmação comparativa sobre o
+ * que a fisioterapia por convênio entrega, o que o código de ética do CREFITO
+ * trata com restrição, e definia a clínica pelo que ela não faz.
  */
 export function PullQuote() {
   return (
     <section className="w-full border-y border-line bg-surface-alt">
       <Reveal className="mx-auto max-w-3xl px-6 py-24 text-center md:px-8">
         <p className="font-display text-display-md text-balance text-ink">
-          “A gente não atende plano de saúde porque não conseguiria fazer, em
-          vinte minutos, o que a sua recuperação exige em{" "}
-          <em className="italic">uma hora inteira</em>.”
+          “Uma sessão de fisioterapia leva o tempo que precisa levar. Por isso o
+          atendimento é particular: assim conseguimos dedicar{" "}
+          <em className="italic">uma hora inteira</em> a cada paciente.”
         </p>
         <div className="mt-7 text-[13px] uppercase tracking-eyebrow text-subtle">
           Vyvyan &amp; Tainá · fundadoras

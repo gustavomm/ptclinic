@@ -21,9 +21,16 @@ export function PilatesSection() {
             Todas as aulas com <em className="italic">fisioterapeuta</em>. Sempre.
           </h2>
           <p className="mt-6 text-[17px] font-light leading-relaxed text-surface/80">
-            É a diferença que ninguém vê no Instagram e todo mundo sente na
-            terceira semana: quem corrige a sua postura conhece a sua lesão, sabe
-            o que a sua cirurgia limitou e entende por que aquele ombro ainda dói.
+            {/*
+              A frase começava com "É a diferença que ninguém vê no Instagram e
+              todo mundo sente na terceira semana". Saiu: era alfinetada em
+              concorrente e envelhece rápido. O que vem depois é o argumento de
+              verdade e se sustenta sozinho.
+              A alegação sobre cirurgia continua pendente de confirmação da
+              clínica — ver docs/redesign-verificacao.md.
+            */}
+            Quem corrige a sua postura conhece a sua lesão, sabe o que a sua
+            cirurgia limitou e entende por que aquele ombro ainda dói.
           </p>
           <p className="mt-5 text-[17px] font-light leading-relaxed text-surface/80">
             Fortalecimento de core, alinhamento postural, mobilidade e
