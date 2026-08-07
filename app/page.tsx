@@ -6,6 +6,7 @@ import { EspecialidadesGrid } from "@/components/sections/EspecialidadesGrid";
 import { PilatesSection } from "@/components/sections/PilatesSection";
 import { Founders } from "@/components/sections/Founders";
 import { PullQuote } from "@/components/sections/PullQuote";
+import { BlogTeasers } from "@/components/sections/BlogTeasers";
 import { UnidadesSection } from "@/components/sections/UnidadesSection";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { buildMetadata } from "@/lib/seo";
@@ -27,6 +28,7 @@ export default function Home() {
       <PilatesSection />
       <Founders />
       <PullQuote />
+      <BlogTeasers />
       <UnidadesSection />
       <ContactCTA />
     </main>
