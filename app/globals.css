@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /*
+      Height of the persistent chrome above the hero: TopBar (36px) + Nav (69px).
+      The hero subtracts this from 100svh so it ends exactly at the fold instead
+      of leaving a band of the next section showing. Both are fixed-padding,
+      fixed-logo-size components, so this is stable across breakpoints.
+      e2e/motion-and-viewport.spec.ts asserts the result — if either component's
+      height changes, that test fails rather than the layout drifting silently.
+    */
+    --chrome-height: 105px;
+  }
+
   html { scroll-behavior: smooth; }
   section { scroll-margin-top: 5rem; }
 }

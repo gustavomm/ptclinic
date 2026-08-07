@@ -83,3 +83,24 @@ for (const width of [320, 375, 414, 768, 1440]) {
     expect(height, `top bar wrapped at ${width}px`).toBeLessThan(48);
   });
 }
+
+// The hero used a bare 85svh, which is arbitrary relative to the 105px of chrome
+// above it: at 1920x1140 that left 66px of the next section showing as a stray
+// cream band, while at 1280x800 the hero ran past the fold. It now subtracts
+// --chrome-height from 100svh. Assert the next section never peeks — a negative
+// gap is fine and means the hero's own content is taller than the viewport.
+for (const [width, height] of [
+  [1920, 1140],
+  [1440, 900],
+  [1280, 800],
+  [768, 1024],
+]) {
+  test(`hero leaves no gap above the fold at ${width}x${height}`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await page.goto("/");
+    const gap = await page.evaluate(
+      () => window.innerHeight - document.querySelector("#topo")!.getBoundingClientRect().bottom,
+    );
+    expect(gap, `${gap}px of the next section is visible below the hero`).toBeLessThanOrEqual(2);
+  });
+}

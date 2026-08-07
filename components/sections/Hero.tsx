@@ -5,7 +5,7 @@ import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 export function Hero() {
   return (
-    <section id="topo" className="relative flex min-h-[85svh] w-full items-center justify-center overflow-hidden">
+    <section id="topo" className="relative flex min-h-[calc(100svh-var(--chrome-height))] w-full items-center justify-center overflow-hidden">
       <Image
         src="/hero-pilates.webp"
         alt="Estúdio de Pilates da Vyta em Pinheiros, com reformer, cadillac, escada sueca e letreiro Vyta na parede"
