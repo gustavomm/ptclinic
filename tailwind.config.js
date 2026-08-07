@@ -4,7 +4,6 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./content/**/*.{md,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -38,8 +37,21 @@ module.exports = {
       },
       letterSpacing: { eyebrow: "0.28em", brand: "0.32em", hero: "0.46em" },
       maxWidth: { shell: "80rem" },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
   },
-  plugins: [require("daisyui")],
-  daisyui: { themes: [{ mytheme: { primary: "#3a7883", secondary: "#db7f66", accent: "#94999c", neutral: "#2C3A3D", "base-100": "#FAF6F0" } }] },
+  plugins: [],
 };
