@@ -90,9 +90,9 @@ export default async function UnitPage({
           </div>
           <Image
             src={u.image}
-            alt={u.name}
-            width={880}
-            height={620}
+            alt={u.imageAlt}
+            width={u.imageWidth}
+            height={u.imageHeight}
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="h-full w-full object-cover"

@@ -53,10 +53,10 @@ export function EspecialidadesGrid() {
           >
             <div className="h-44 overflow-hidden">
               <Image
-                src="/pilates4.jpeg"
-                alt="Pilates na Vyta"
+                src="/pilates-sala.webp"
+                alt="Sala de Pilates da Vyta na unidade Consolação, com reformer, cadillac e escada sueca junto à parede coral"
                 width={480}
-                height={320}
+                height={360}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               />

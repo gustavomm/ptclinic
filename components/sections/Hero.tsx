@@ -7,8 +7,8 @@ export function Hero() {
   return (
     <section id="topo" className="relative flex min-h-[85svh] w-full items-center justify-center overflow-hidden">
       <Image
-        src="/pilates3.jpeg"
-        alt="Estúdio da Vyta Fisioterapia"
+        src="/hero-pilates.webp"
+        alt="Estúdio de Pilates da Vyta em Pinheiros, com reformer, cadillac, escada sueca e letreiro Vyta na parede"
         fill
         priority
         sizes="100vw"

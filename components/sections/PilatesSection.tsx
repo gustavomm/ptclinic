@@ -48,9 +48,9 @@ export function PilatesSection() {
         </Reveal>
 
         <Reveal delay={120} className="grid grid-cols-2 grid-rows-2 gap-3">
-          <Image src="/pilates1.jpeg" alt="Sala de Pilates da Vyta" width={480} height={640} sizes="(max-width: 1024px) 50vw, 25vw" className="row-span-2 h-full w-full object-cover" />
-          <Image src="/pilates2.jpeg" alt="Aparelho de Pilates" width={480} height={320} sizes="(max-width: 1024px) 50vw, 25vw" className="h-full w-full object-cover" />
-          <Image src="/pilates4.jpeg" alt="Aula de Pilates conduzida por fisioterapeuta" width={480} height={320} sizes="(max-width: 1024px) 50vw, 25vw" className="h-full w-full object-cover" />
+          <Image src="/pilates-corredor.webp" alt="Corredor do estúdio de Pilates da Vyta em Pinheiros, com fileira de espelhos arqueados iluminados refletindo reformers e outros aparelhos" width={480} height={640} sizes="(max-width: 1024px) 50vw, 25vw" className="row-span-2 h-full w-full object-cover" />
+          <Image src="/pilates-espelhos.webp" alt="Espelhos arqueados iluminados do estúdio de Pilates da Vyta em Pinheiros, refletindo cadillac e reformer" width={480} height={360} sizes="(max-width: 1024px) 50vw, 25vw" className="h-full w-full object-cover" />
+          <Image src="/pilates-aparelhos.webp" alt="Fileira de aparelhos de Pilates da unidade Consolação da Vyta — reformer, cadillac e escada sueca junto à parede coral" width={480} height={360} sizes="(max-width: 1024px) 50vw, 25vw" className="h-full w-full object-cover" />
         </Reveal>
       </div>
     </Section>

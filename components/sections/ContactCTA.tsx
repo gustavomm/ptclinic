@@ -7,7 +7,7 @@ import { clinic } from "@/content/clinic";
 export function ContactCTA() {
   return (
     <section id="contato" className="relative w-full overflow-hidden">
-      <Image src="/sala3.jpg" alt="Clínica Vyta" fill sizes="100vw" className="object-cover" />
+      <Image src="/sala-fisioterapia.webp" alt="Sala de fisioterapia da Vyta em Pinheiros, com maca de atendimento, escada sueca e espelho de corpo inteiro" fill sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-ink/90" aria-hidden />
       <Reveal className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-28 text-center md:px-8">
         <Logo size={68} className="bg-surface" />
