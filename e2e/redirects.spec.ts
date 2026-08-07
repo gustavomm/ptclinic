@@ -16,10 +16,11 @@ const MAP: Array<[string, string]> = [
 
 test.describe("legacy URL redirects", () => {
   for (const [from, to] of MAP) {
-    test(`${from} 301s to ${to}`, async ({ request }) => {
+    test(`${from} permanently redirects to ${to}`, async ({ request }) => {
       const res = await request.get(from, { maxRedirects: 0 });
       expect(res.status()).toBe(308);
       expect(res.headers()["location"]).toBe(to);
+      expect((await request.get(to)).status()).toBe(200);
     });
   }
 });
