@@ -1,27 +1,64 @@
-# Next.js + Tailwind CSS Example
+# Vyta Fisioterapia e Pilates
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 
-## Deploy your own
+## Desenvolvimento
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+    npm install
+    npm run dev
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Verificação
 
-## How to use
+    npm run typecheck   # tipos
+    npm test             # unidade (Vitest) — 54 testes
+    npm run build         # build de produção — 27 rotas
+    npm run test:e2e      # E2E (Playwright, roda build + start) — 59 testes
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Rode os quatro antes de qualquer merge ou deploy.
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Restrições que não podem quebrar
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Estas propriedades sustentam a conversão do Google Ads (R$55,50/dia de verba) e
+a integridade dos dados de contato. Uma falha aqui é **silenciosa** — o Ads
+continua cobrando e reportando zero conversões.
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+- `/whatsapp` (`app/whatsapp/`) é o evento de conversão do Google Ads. A regra
+  do GTM é `event = gtm.click AND Click URL contains
+  "https://www.vytafisioterapia.com.br/whatsapp"`. Não mude essa URL.
+- As classes `.redirect-whatsapp`, `.redirect-phone`, `.redirect-email` e
+  `.redirect-instagram` são lidas pelo GTM em todo tipo de página.
+  `e2e/gtm-classes.spec.ts` guarda isso — roda em toda página, valida as
+  quatro classes e confirma que todo `.redirect-whatsapp` aponta para
+  `/whatsapp`. Não relaxe essas asserções para fazer uma rota passar; se uma
+  rota genuinamente não tem uma classe, isso é um achado a reportar, não um
+  motivo para afrouxar o teste.
+- Todo CTA de WhatsApp usa `components/WhatsAppLink.tsx`. Nunca link direto
+  para `wa.me` ou para `/whatsapp` fora desse componente.
+- Dados de contato e endereços vivem em `content/clinic.ts` e
+  `content/units.ts`. São a fonte única do NAP (nome/endereço/telefone) e
+  alimentam o JSON-LD (`lib/schema.ts`). Não duplique esses dados em outro
+  lugar do código.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Conteúdo
+
+- Posts do blog: `content/blog/*.mdx`.
+- Especialidades: `content/specialities.ts`.
+- Unidades: `content/units.ts`.
+- Dados gerais da clínica: `content/clinic.ts`.
+- Equipe: `content/team.ts`.
+
+## Testes
+
+- `e2e/gtm-classes.spec.ts` — guarda de conversão (classes GTM + destino do
+  `/whatsapp`).
+- `e2e/conversion.spec.ts` — redirect de `/whatsapp` para o deep link do
+  WhatsApp.
+- `e2e/redirects.spec.ts` — redirects 308 das URLs antigas `/speciality/*`.
+- `e2e/accessibility.spec.ts` — axe (wcag22aa), h1 único, `lang`, alt text.
+- `e2e/motion-and-viewport.spec.ts` — `prefers-reduced-motion`, sem JS,
+  overflow horizontal em 375/768/1440px, menu mobile.
+
+## Checklist de pré-produção
+
+Antes de promover a URL de preview para produção, siga
+`docs/redesign-verificacao.md`.

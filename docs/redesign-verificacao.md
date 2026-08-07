@@ -1,0 +1,206 @@
+# Verificação do redesign — checklist de pré-produção
+
+Rodar contra a URL de preview da Vercel, antes de promover para produção.
+Este documento é o resultado dos 22 tarefas do redesign — reúne o que precisa
+de confirmação manual (o que testes automatizados não cobrem) e o que ficou
+pendente de decisão da clínica.
+
+## ATENÇÃO — mnemônico do AVC (SAMU): confirmar antes de publicar
+
+A Cartilha AVC ensina o mnemônico de reconhecimento de AVC assim:
+
+- S — Sorria (peça para sorrir)
+- A — Abrace (peça para levantar os dois braços)
+- M — **Mímica facial** (peça para repetir uma frase simples)
+- U — Urgente (ligue 192)
+
+O item M é internamente inconsistente: "mímica facial" descreve movimento do
+rosto, mas a instrução testa **fala** ("repetir uma frase simples"). A versão
+mais difundida no Brasil usa M de Música/Mensagem (fala). O texto foi mantido
+**verbatim** no site — ninguém neste projeto edita o conteúdo clínico da
+clínica — mas como alguém pode agir sobre isso numa emergência real, Vyvyan e
+Tainá precisam confirmar a redação antes da página ir ao ar.
+
+## Conversão — bloqueia o lançamento
+
+- [ ] GTM Preview conectado à URL de preview
+- [ ] Clicar em "Agendar" no hero → confirmar page load em `/whatsapp` no GTM
+- [ ] Confirmar que a tag `Contato por WhatsApp` (label `ak4xCLuKhcwYEM3nsM4p`) disparou
+- [ ] Repetir a partir do FAB, do nav, do menu mobile e de uma página de especialidade
+- [ ] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
+
+### Achado: uma segunda ação de conversão do Google Ads vai parar de registrar
+
+O contêiner GTM tem duas tags de conversão `__sp`:
+
+- **Principal** (label `ak4xCLuKhcwYEM3nsM4p`) — dispara em 9 regras, incluindo
+  a regra robusta `Click URL contains /whatsapp`. Essa sobrevive ao redesign
+  e é a que `e2e/gtm-classes.spec.ts` guarda automaticamente.
+- **Secundária** (label `ZopfCK6b_ssYEM3nsM4p`) — dispara a partir de exatamente
+  uma regra: clique em elemento com as classes `text-slate-50 w-8 h-8` (os
+  ícones antigos da navbar). Nenhum elemento do redesign carrega essas
+  classes, então essa ação de conversão para de registrar 100% no lançamento.
+
+**A clínica precisa decidir o que essa segunda ação media** (ela é distinta da
+principal — dois cliques do mesmo usuário no mesmo botão poderiam estar sendo
+contados como duas conversões diferentes hoje) e se algo equivalente precisa
+ser recriado no GTM/Ads para o site novo.
+
+### Achado: cinco outras regras do GTM para a conversão principal também vão morrer
+
+Presas ao DOM do Pages Router antigo (`div#__next`, botões daisyUI
+`btn.btn-primary`) e às classes antigas do botão flutuante
+(`fixed bottom-10 right-5 md:bottom-15 md:right-15`):
+
+1. `gtm.click` + element path `HTMLButtonElement: ...div#__next...btn.btn-primary`
+2. `gtm.click` + element path `HTMLImageElement: ...a.fixed.bottom-10.right-5`
+3. `gtm.click` + element path `SVGPathElement: ...div#__next...`
+4. `gtm.click` + elementClasses `fixed bottom-10 right-5 md:bottom-15 md:right-15`
+5. `gtm.click` + click text contains `AGENDAR`
+
+**Inofensivo** — todas duplicam a regra de Click URL que sobrevive, e o Ads
+conta uma conversão por clique, não uma por regra disparada. Mas é peso morto
+no contêiner. Recomendação: limpar essas 5 regras (mais a `gtm.init + Page URL
+contains /whatsapp`, que já estava morta antes do redesign) na próxima
+manutenção do GTM.
+
+## URLs — bloqueia o lançamento
+
+- [ ] Abrir cada uma das 8 URLs antigas `/speciality/*` e confirmar 308
+- [ ] Confirmar que nenhuma retorna 404
+- [ ] `/sitemap.xml` lista 20 URLs e nenhuma delas é `/whatsapp`
+- [ ] `/robots.txt` aponta para o sitemap e desautoriza `/whatsapp`
+
+## SEO
+
+- [ ] Rich Results Test em `/`, `/unidades/consolacao`, uma especialidade e um post
+- [ ] Confirmar `Physiotherapy`, `FAQPage`, `BreadcrumbList` e `Article` sem erro
+      (nota: `FAQPage` não gera rich result no Google desde ago/2023 para sites
+      fora de saúde/governo autoritativos — o markup fica por ser barato e
+      correto, mas não espere o snippet de FAQ no SERP)
+- [ ] Cada página tem title e meta description próprios
+- [ ] Lighthouse ≥ 90 em Performance e 100 em SEO na landing
+
+## Conteúdo — bloqueia o lançamento
+
+Gustavo revisa tudo com Vyvyan e Tainá antes do lançamento. Nenhum texto
+clínico foi reescrito ou suavizado durante o build — o que não vinha das
+fontes da clínica foi cortado, não inventado.
+
+- [ ] Vyvyan e Tainá revisaram todo o texto da landing
+- [ ] Revisaram as 7 páginas de especialidade
+- [ ] Revisaram os 6 posts do blog
+- [ ] Confirmaram a citação sobre não atender plano de saúde
+- [ ] Confirmaram "1:1", "100% das aulas com fisioterapeuta" e "8 especialidades"
+- [ ] Resolveram as 9 perguntas abertas listadas abaixo (mnemônico do AVC incluído)
+- [ ] Confirmaram telefone, e-mail, os dois endereços e os CEPs
+- [ ] Forneceram o horário de funcionamento (preencher `openingHours` em `content/units.ts`)
+
+## Perguntas abertas para a clínica
+
+Levantadas durante o build. Nenhuma foi resolvida por suposição — todas
+precisam de uma resposta da clínica.
+
+1. **CEPs das duas unidades.** `content/clinic.ts`/`content/units.ts` têm
+   `postalCode: ""` deliberadamente — os CEPs do plano original foram
+   inferidos do endereço, nunca confirmados pela clínica.
+   `lib/schema.ts` omite `postalCode` quando vazio, então nada quebra hoje,
+   mas o schema `LocalBusiness` fica mais fraco sem ele.
+2. **Horário de funcionamento das duas unidades.** `units.openingHours` está
+   `null`; o `unitSchema` omite `openingHoursSpecification` em vez de inventar
+   horários.
+3. **Instituição de residência da Tainá.** O site diz "Hospital AC Camargo
+   Cancer Center"; o plano do redesign tinha derivado para "A.C. Camargo
+   Cancer Center". Foi restaurado para a grafia publicada no site atual — a
+   clínica deve confirmar qual está correta.
+4. **Autoria dos posts de DPOC, Cardiovasculares e Incontinência** no blog.
+5. **Toda alegação factual no texto de marketing** (hero, seções da landing,
+   pull quote) — é rascunho do comp de design, não veio das fontes clínicas,
+   e precisa de sign-off antes de publicar.
+6. **Confirmação de que telefone, e-mail e os dois endereços estão atuais.**
+7. **Inconsistência na especialidade respiratória.** Foi renomeada para
+   "Fisioterapia Respiratória" (sem qualificador de idade) pela tabela de
+   identidade do plano, mas o texto verbatim de "como funciona" ainda diz "A
+   fisioterapia respiratória PARA ADULTOS". A página fica inconsistente sobre
+   se atende fisioterapia respiratória pediátrica. Não foi resolvido editando
+   o texto clínico verbatim — a clínica decide.
+8. **Mnemônico SAMU do AVC** — ver aviso destacado no topo deste documento.
+   Segundo, de menor gravidade: na Cartilha Cardio, "Colesterol alto" está
+   listado em "como saber se tenho" (detecção) em vez de nos fatores de
+   risco. Também mantido verbatim.
+9. **Alegações não sourced na copy do Pilates.** `PilatesSection.tsx` (copy
+   de marketing da landing) afirma que "quem corrige a sua postura conhece a
+   sua lesão, SABE O QUE A SUA CIRURGIA LIMITOU" e chama o Pilates de
+   "transição natural para quem sai da reabilitação". Nenhuma das duas
+   rastreia até `content/specialities.ts`. As mesmas afirmações foram
+   **cortadas** do FAQ de `/pilates` (respostas de FAQ são tratadas como
+   orientação clínica), mas permanecem na copy de marketing, que é rascunho
+   e já está sob revisão. A alegação sobre cirurgia é uma afirmação
+   operacional sobre como as aulas são conduzidas — Vyvyan e Tainá precisam
+   confirmar que é verdadeira antes do lançamento.
+
+**Item adicional relacionado (não contado nas 9 acima):** as páginas de
+unidade listam todas as especialidades como disponíveis nas **duas**
+unidades. Se os serviços diferem por unidade, `Unit` (em
+`content/units.ts`) precisa de um campo `specialities: string[]`. Nada foi
+inventado — isto é uma bandeira, não uma correção.
+
+## Itens técnicos adiados (não bloqueiam o lançamento)
+
+Registrados durante o build; nenhum impede o deploy, mas valem uma passada
+numa manutenção futura.
+
+**Performance / build**
+- Aviso benigno `LRUCache: calculateSize returned 0` no log do servidor a
+  cada request de `/whatsapp` (visível também nos logs do `test:e2e`). Causa
+  raiz: corpo de 0 bytes faz o cálculo de tamanho do cache de prerender
+  falhar: o erro é capturado e logado na escrita, engolido na leitura. Efeito
+  é um cache miss silencioso — `/whatsapp` reexecuta a cada request e sempre
+  retorna um 308 correto. Só vale corrigir se o ruído no log incomodar;
+  forçar `dynamic` trocaria a saída estática servível por CDN.
+- `Footer`'s `new Date().getFullYear()` é calculado em build time numa rota
+  estática — o ano do © fica desatualizado até o próximo deploy.
+- `getPostMeta` relê e reparseia os 6 arquivos MDX do disco a cada chamada.
+  Irrelevante com 6 posts; revisitar se o blog crescer bastante.
+- `vitest.config.ts` usa sintaxe ESM num arquivo carregado como CommonJS —
+  gera um aviso não fatal em todo `npm test`. Resolve renomeando para
+  `vitest.config.mts`.
+
+**Contraste — margens estreitas a observar** (não mexer nesses tokens sem
+recalcular o contraste):
+- `text-accent-deep` sobre `bg-surface-alt` (Eyebrow): 4.51:1 — passa por
+  0,28%.
+- `accent` sobre `bg-surface` (Footer, `UnidadesSection`): 4,65:1 — passa por
+  0,15.
+
+**Cobertura de teste**
+- Testes do `WhatsAppLink` exercitam só a variante `primary`; um typo em
+  `VARIANTS.warm/teal/bare` não seria pego.
+- Nenhum teste dispara uma entrada de `IntersectionObserver` para confirmar
+  que `data-revealed` vira `"true"` no componente `Reveal`. O caminho de
+  acessibilidade (reduced-motion, sem JS) está coberto; o caminho feliz não.
+- O `Sheet` (menu mobile, `components/ui/sheet.tsx`, sobre
+  `@radix-ui/react-dialog`) não tem `SheetDescription`/`aria-describedby` —
+  gera um aviso dev-only do Radix, não visível ao usuário.
+- `sheet.tsx` exporta `SheetClose`, sem nenhum consumidor.
+
+**Riscos condicionais** (hoje inalcançáveis; watch-list para tarefas futuras
+que reusem esses componentes):
+- `SectionHeading` tem tom claro por padrão e não herda o tom de uma
+  `Section` escura — se algum dia for aninhado numa `Section tone="ink"`,
+  renderiza texto escuro sobre fundo escuro. Nenhuma tarefa faz isso hoje.
+- `Prose` tem cores de texto fixas para modo claro — ficaria ilegível num
+  fundo escuro. Usado uma única vez hoje, dentro de uma `Section` clara.
+- `formatPhone` (em `content/clinic.ts`) remove um prefixo "55" pela posição
+  do dígito; um número no formato nacional cujo DDD seja literalmente 55
+  (Santa Maria/Passo Fundo, RS) seria cortado errado. Inalcançável hoje — o
+  único número usado é +5511989172311 (DDD 11). Revisitar se um segundo
+  telefone for adicionado.
+
+## Depois do deploy
+
+- [ ] Submeter o sitemap no Search Console
+- [ ] Solicitar indexação das páginas de unidade
+- [ ] Acompanhar conversões no Ads por 7 dias — vigiar especificamente a
+      segunda ação de conversão (`ZopfCK6b_ssYEM3nsM4p`) parar de registrar
+- [ ] Oscilação de ranking por 2–4 semanas é esperada — não reverter
