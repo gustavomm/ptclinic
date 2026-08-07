@@ -15,7 +15,7 @@ export function ContactCTA() {
         <h2 className="font-display text-display-lg text-balance text-surface">
           Conta pra gente o que está <em className="italic">te incomodando</em>
         </h2>
-        <p className="mt-6 max-w-lg text-lg font-light leading-relaxed text-surface/80">
+        <p className="mt-6 max-w-lg text-lg font-light leading-relaxed text-surface">
           Responder leva alguns minutos e não custa nada. A gente diz qual
           especialidade faz sentido, qual unidade fica melhor e quanto tempo
           costuma levar.

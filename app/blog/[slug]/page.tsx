@@ -79,7 +79,7 @@ export default async function PostPage({
           <span className="mx-2" aria-hidden>/</span>
           <Link href="/blog" className="inline-flex min-h-[44px] items-center hover:text-accent">Conteúdo</Link>
         </nav>
-        <div className="mb-4 text-[11px] uppercase tracking-eyebrow text-subtle">
+        <div className="mb-4 text-[13px] uppercase tracking-eyebrow text-subtle">
           <Link href={meta.categoryHref} className="inline-flex min-h-[44px] items-center hover:text-accent">{meta.category}</Link>
           {" · "}
           {meta.readingMinutes} min de leitura

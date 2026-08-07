@@ -50,7 +50,7 @@ export function ComoFunciona() {
               }`}
             >
               <div
-                className={`text-xs font-medium tracking-[0.2em] ${
+                className={`text-[13px] font-medium tracking-[0.2em] ${
                   last ? "text-accent-warm-soft" : "text-accent-deep"
                 }`}
               >

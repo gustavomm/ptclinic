@@ -24,7 +24,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <div className="mb-1 text-[11px] uppercase tracking-eyebrow text-subtle">Clínica</div>
+          <div className="mb-1 text-[13px] uppercase tracking-eyebrow text-subtle">Clínica</div>
           {NAV_ITEMS.map((item) => (
             <Link key={item.href} href={item.href} className="flex min-h-[44px] items-center text-[15px] font-light text-ink hover:text-accent">
               {item.label}
@@ -33,7 +33,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <div className="mb-1 text-[11px] uppercase tracking-eyebrow text-subtle">Unidades</div>
+          <div className="mb-1 text-[13px] uppercase tracking-eyebrow text-subtle">Unidades</div>
           {units.map((u) => (
             <Link key={u.slug} href={`/unidades/${u.slug}`} className="flex min-h-[44px] items-center text-[15px] font-light text-ink hover:text-accent">
               {u.street}
@@ -42,7 +42,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <div className="mb-1 text-[11px] uppercase tracking-eyebrow text-subtle">Contato</div>
+          <div className="mb-1 text-[13px] uppercase tracking-eyebrow text-subtle">Contato</div>
           <a href="/whatsapp" className="redirect-whatsapp flex min-h-[44px] items-center text-[15px] font-light text-ink hover:text-accent">
             WhatsApp
           </a>

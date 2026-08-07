@@ -51,7 +51,7 @@ export default function BlogIndex() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                 </div>
-                <div className="mb-3 text-[11px] uppercase tracking-eyebrow text-subtle">
+                <div className="mb-3 text-[13px] uppercase tracking-eyebrow text-subtle">
                   {p.category} · {p.readingMinutes} min
                 </div>
                 <h2 className="mb-2 font-display text-2xl leading-tight group-hover:text-accent">

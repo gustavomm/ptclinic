@@ -21,13 +21,13 @@ export function Hero() {
       <div className="relative flex max-w-4xl flex-col items-center px-6 py-24 text-center md:px-8">
         <Logo size={88} className="bg-surface" />
         <span className="my-6 block h-px w-16 bg-accent-warm" aria-hidden />
-        <span className="pl-[0.46em] text-xs uppercase tracking-hero text-surface">
+        <span className="pl-[0.46em] text-[13px] uppercase tracking-hero text-surface">
           Fisioterapia &amp; Pilates
         </span>
         <h1 className="mt-10 font-display text-display-xl text-balance text-surface">
           Cuidar do movimento é <em className="italic">cuidar da vida</em>
         </h1>
-        <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-surface/85 text-pretty">
+        <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-surface text-pretty">
           Uma clínica onde cada sessão — inclusive as de Pilates — é conduzida
           por fisioterapeuta. Avaliação longa, plano escrito para o seu corpo, e
           alguém que acompanha a sua evolução de perto.

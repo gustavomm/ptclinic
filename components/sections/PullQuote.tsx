@@ -13,7 +13,7 @@ export function PullQuote() {
           vinte minutos, o que a sua recuperação exige em{" "}
           <em className="italic">uma hora inteira</em>.”
         </p>
-        <div className="mt-7 text-xs uppercase tracking-eyebrow text-subtle">
+        <div className="mt-7 text-[13px] uppercase tracking-eyebrow text-subtle">
           Vyvyan &amp; Tainá · fundadoras
         </div>
       </Reveal>
