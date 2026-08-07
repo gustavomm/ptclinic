@@ -1,3 +1,5 @@
+import type { GalleryPhoto } from "@/components/sections/PhotoGallery";
+
 export type OpeningHours = {
   days: string[];
   opens: string;
@@ -20,6 +22,8 @@ export type Unit = {
   imageAlt: string;
   imageWidth: number;
   imageHeight: number;
+  /** Photos of the unit itself (treatment room + Pilates studio), shown below the map. */
+  gallery: GalleryPhoto[];
   /** null until the clinic supplies real hours — see spec §12 item 4. */
   openingHours: OpeningHours[] | null;
 };
@@ -45,6 +49,36 @@ export const units: Unit[] = [
       "Sala de atendimento da unidade Consolação da Vyta, com tablado azul de tratamento e espelho de corpo inteiro",
     imageWidth: 1440,
     imageHeight: 1920,
+    gallery: [
+      {
+        src: "/consolacao-sala-fisioterapia.webp",
+        alt: "Sala de fisioterapia da unidade Consolação, com maca de atendimento, janelas com persianas e piso de madeira.",
+        orientation: "portrait",
+        width: 1020,
+        height: 1600,
+      },
+      {
+        src: "/consolacao-pilates-cadillac-escada.webp",
+        alt: "Estúdio de pilates da unidade Consolação com cadillac, escada e barril, parede coral ao fundo.",
+        orientation: "portrait",
+        width: 1200,
+        height: 1600,
+      },
+      {
+        src: "/pilates-consolacao-luz-natural.webp",
+        alt: "Estúdio de pilates da unidade Consolação iluminado por luz natural, com cadillac, cadeira e espaldar de madeira.",
+        orientation: "portrait",
+        width: 1200,
+        height: 1600,
+      },
+      {
+        src: "/pilates-consolacao-marca-vyta.webp",
+        alt: "Estúdio de pilates da unidade Consolação com letreiro VYTA na parede e variedade de equipamentos.",
+        orientation: "landscape",
+        width: 1200,
+        height: 1067,
+      },
+    ],
     openingHours: null,
   },
   {
@@ -68,6 +102,36 @@ export const units: Unit[] = [
       "Sala de atendimento da unidade Pinheiros da Vyta, com maca de tratamento junto à janela e pia de higienização",
     imageWidth: 1920,
     imageHeight: 1440,
+    gallery: [
+      {
+        src: "/pinheiros-sala-fisioterapia.webp",
+        alt: "Sala de fisioterapia da unidade Pinheiros, com espaldar de madeira e maca de atendimento.",
+        orientation: "portrait",
+        width: 1364,
+        height: 1600,
+      },
+      {
+        src: "/pinheiros-pilates-espelho-detalhe.webp",
+        alt: "Detalhe do estúdio de pilates da unidade Pinheiros refletido em espelhos ovais retroiluminados.",
+        orientation: "portrait",
+        width: 900,
+        height: 1600,
+      },
+      {
+        src: "/pinheiros-pilates-reformer-cadillac.webp",
+        alt: "Cadillac e cadeiras de pilates em destaque no estúdio de pilates da unidade Pinheiros.",
+        orientation: "landscape",
+        width: 1440,
+        height: 1200,
+      },
+      {
+        src: "/pinheiros-pilates-corredor-equipamentos.webp",
+        alt: "Corredor do estúdio de pilates da unidade Pinheiros com reformer, cadillac e escada.",
+        orientation: "portrait",
+        width: 1200,
+        height: 1600,
+      },
+    ],
     openingHours: null,
   },
 ];

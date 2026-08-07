@@ -4,11 +4,57 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PilatesSection } from "@/components/sections/PilatesSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { PhotoGallery, type GalleryPhoto } from "@/components/sections/PhotoGallery";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
 import { units } from "@/content/units";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
+
+const STUDIO_PHOTOS: GalleryPhoto[] = [
+  {
+    src: "/pilates-pinheiros-cadeiras-bolas.webp",
+    alt: "Cadeiras de pilates e bolas suíças refletidas no espelho do estúdio de Pinheiros.",
+    orientation: "landscape",
+    width: 1472,
+    height: 1200,
+  },
+  {
+    src: "/pilates-pinheiros-escada-cadillac.webp",
+    alt: "Escada e cadillac refletidos nos espelhos ovais do estúdio de pilates de Pinheiros.",
+    orientation: "landscape",
+    width: 1600,
+    height: 1200,
+  },
+  {
+    src: "/pilates-pinheiros-corredor-bolas.webp",
+    alt: "Corredor do estúdio de pilates de Pinheiros com bolas, cadillac e cadeira.",
+    orientation: "portrait",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    src: "/pilates-consolacao-marca-vyta.webp",
+    alt: "Estúdio de pilates da unidade Consolação com letreiro VYTA e variedade de equipamentos.",
+    orientation: "landscape",
+    width: 1200,
+    height: 1067,
+  },
+  {
+    src: "/pilates-consolacao-luz-natural.webp",
+    alt: "Estúdio de pilates da unidade Consolação com luz natural, cadillac e espaldar.",
+    orientation: "portrait",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    src: "/pilates-consolacao-equipamentos-parede-coral.webp",
+    alt: "Reformer, cadillac e escada no estúdio de pilates da unidade Consolação, parede coral ao fundo.",
+    orientation: "portrait",
+    width: 1200,
+    height: 1600,
+  },
+];
 
 const BENEFITS = [
   "Melhorar a postura: fortalece a musculatura central, ajudando a manter uma postura mais alinhada.",
@@ -83,6 +129,8 @@ export default function PilatesPage() {
       </Section>
 
       <PilatesSection />
+
+      <PhotoGallery photos={STUDIO_PHOTOS} heading="O estúdio" tone="surface-alt" />
 
       <Section>
         <h2 className="font-display text-display-md text-ink">Para quem é o Pilates</h2>

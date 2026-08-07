@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
+import { PhotoGallery } from "@/components/sections/PhotoGallery";
 import { units, getUnit } from "@/content/units";
 import { clinic } from "@/content/clinic";
 import { specialities } from "@/content/specialities";
@@ -114,6 +115,8 @@ export default async function UnitPage({
           />
         </div>
       </Section>
+
+      <PhotoGallery photos={u.gallery} heading="A unidade por dentro" tone="surface" />
 
       <Section tone="surface-alt">
         <h2 className="mb-8 font-display text-display-md text-ink">
