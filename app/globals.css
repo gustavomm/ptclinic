@@ -5,6 +5,8 @@
 @layer base {
   html { scroll-behavior: smooth; }
   section { scroll-margin-top: 5rem; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p { text-wrap: pretty; }
 }
 
 @media (prefers-reduced-motion: reduce) {

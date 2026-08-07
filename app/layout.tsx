@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
+import { display, sans } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,9 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
       <GoogleTagManager gtmId="GTM-NNBD3887" />
-      <body>
+      <body className="bg-surface text-ink font-sans font-light antialiased">
         {children}
         <Analytics />
       </body>
