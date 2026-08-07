@@ -22,7 +22,7 @@ export function UnidadesSection() {
                 <br />
                 {u.district}, {u.city} · {u.state}
               </p>
-              <Link href={`/unidades/${u.slug}`} className="text-[15px] text-accent hover:text-accent-deep">
+              <Link href={`/unidades/${u.slug}`} className="inline-flex min-h-[44px] items-center text-[15px] text-accent hover:text-accent-deep">
                 Ver a unidade →
               </Link>
             </div>

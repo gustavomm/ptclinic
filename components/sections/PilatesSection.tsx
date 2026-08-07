@@ -32,7 +32,7 @@ export function PilatesSection() {
           <ul className="mt-8 flex flex-col gap-3 border-t border-surface/20 pt-6">
             {POINTS.map((p) => (
               <li key={p} className="flex items-baseline gap-3 text-base font-light text-surface/90">
-                <span className="text-accent-warm" aria-hidden>·</span>
+                <span className="text-accent-warm-soft" aria-hidden>·</span>
                 {p}
               </li>
             ))}

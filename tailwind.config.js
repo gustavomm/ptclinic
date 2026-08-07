@@ -21,9 +21,14 @@ module.exports = {
         accent: "#3a7883",
         "accent-deep": "#a8543c",
         "accent-warm": "#db7f66",
+        // #db7f66 is only 4.07:1 on ink — fails AA as text. This lighter tint of the
+        // same brand colour (the clinic's own vyta-secondary-400) reads 5.16:1.
+        // Use accent-warm for backgrounds and rules; accent-warm-soft for text on dark.
+        "accent-warm-soft": "#e69883",
         muted: "#5d6664",
-        // NOT the comp's #8a8378 — that is 3.48:1 on surface and fails WCAG AA.
-        subtle: "#746E64",
+        // NOT the comp's #8a8378 (3.48:1 on surface). Tuned to pass AA on BOTH
+        // backgrounds it is used over: 5.04:1 on surface, 4.66:1 on surface-alt.
+        subtle: "#6F695F",
       },
       fontSize: {
         "display-xl": ["clamp(2.5rem, 1.5rem + 4.5vw, 5.25rem)", { lineHeight: "1.02", fontWeight: "300" }],
