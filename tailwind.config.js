@@ -17,7 +17,9 @@ module.exports = {
         line: "#E3DCD2",
         ink: "#2C3A3D",
         "ink-deep": "#1A2224",
-        accent: "#3a7883",
+        // #3a7883 was 4.303:1 on surface-alt — failed AA. Darkened so it clears BOTH
+        // backgrounds it is used over: 5.56:1 on surface, 5.15:1 on surface-alt.
+        accent: "#346b75",
         "accent-deep": "#a8543c",
         "accent-warm": "#db7f66",
         // #db7f66 is only 4.07:1 on ink — fails AA as text. This lighter tint of the
