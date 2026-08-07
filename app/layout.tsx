@@ -6,6 +6,10 @@ import { clinic } from "@/content/clinic";
 import { SITE_TITLE_TEMPLATE } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
+import { TopBar } from "@/components/layout/TopBar";
+import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
+import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +36,11 @@ export default function RootLayout({
           <style>{`[data-revealed]{opacity:1 !important;transform:none !important;}`}</style>
         </noscript>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <TopBar />
+        <Nav />
         {children}
+        <Footer />
+        <WhatsAppFab />
         <Analytics />
       </body>
     </html>
