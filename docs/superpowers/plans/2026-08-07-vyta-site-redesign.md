@@ -1470,7 +1470,8 @@ git commit -m "feat: add WhatsAppLink as the single WhatsApp CTA with tracking s
   - `<Reveal as? delay? className? children />` — fade + rise on scroll into view, no-op under `prefers-reduced-motion`
   - `<Button href variant? className? children />` — `primary | outline | ghost`
   - `<Eyebrow>text</Eyebrow>` — uppercase tracked label
-  - `<SectionHeading eyebrow? title lead? align? tone? />`
+  - `<SectionHeading eyebrow? title lead? tone? className? />` — no `align`
+    prop; an earlier draft of this line listed one, but no task ever uses it.
   - `<Section id? tone? className? children />` — `tone: surface | surface-alt | ink`
   - `<Prose>` — long-form typography wrapper
 
@@ -4247,13 +4248,77 @@ for (const route of ROUTES) {
 Run: `npm run test:e2e`
 Expected: some failures. Fix each — likely candidates are the decorative `·` separators (need `aria-hidden`), the map iframe title, and contrast on `text-surface/75` over the ink background.
 
-- [ ] **Step 4: Verify reduced motion manually**
+- [ ] **Step 4: Test reduced motion, viewports and keyboard with Playwright**
 
-Run `npm run dev`, then in Chrome DevTools → Rendering → "Emulate CSS prefers-reduced-motion: reduce". Reload `/` and confirm all content is visible immediately with no rise animation and no hover scale on cards.
+**Do not drive a browser by hand.** Playwright emulates all three deterministically in seconds. Add `e2e/motion-and-viewport.spec.ts`:
 
-- [ ] **Step 5: Verify keyboard navigation manually**
+```ts
+import { test, expect } from "@playwright/test";
 
-Tab through `/` from the top: skip through nav → hero CTAs → each section → footer links. Confirm focus is always visible and the mobile sheet traps and restores focus.
+test.describe("reduced motion", () => {
+  test.use({ reducedMotion: "reduce" });
+
+  test("all revealed content is visible immediately", async ({ page }) => {
+    await page.goto("/");
+    const hidden = await page
+      .locator('[data-revealed]')
+      .evaluateAll((els) =>
+        els.filter((e) => getComputedStyle(e).opacity !== "1").length,
+      );
+    expect(hidden).toBe(0);
+  });
+});
+
+test.describe("no javascript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("revealed content is still visible", async ({ page }) => {
+    await page.goto("/");
+    const hidden = await page
+      .locator('[data-revealed]')
+      .evaluateAll((els) =>
+        els.filter((e) => getComputedStyle(e).opacity !== "1").length,
+      );
+    expect(hidden).toBe(0);
+  });
+});
+
+const VIEWPORTS = [
+  { name: "mobile", width: 375, height: 812 },
+  { name: "tablet", width: 768, height: 1024 },
+  { name: "desktop", width: 1440, height: 900 },
+];
+
+for (const vp of VIEWPORTS) {
+  test(`no horizontal overflow at ${vp.name} (${vp.width}px)`, async ({ page }) => {
+    await page.setViewportSize({ width: vp.width, height: vp.height });
+    await page.goto("/");
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    );
+    expect(overflow, `horizontal scrollbar at ${vp.width}px`).toBe(false);
+  });
+}
+
+test("mobile menu opens, traps focus, and closes on Escape", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/");
+  const trigger = page.getByRole("button", { name: "Abrir menu" });
+  await trigger.click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(dialog.locator(":focus")).toHaveCount(1);
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
+```
+
+- [ ] **Step 5: Run it**
+
+Run: `npm run test:e2e`
+Expected: PASS. The no-horizontal-overflow assertion is the highest-value one — it catches the most common responsive regression, on a design whose comp had no responsive rules at all.
 
 - [ ] **Step 6: Re-run and commit**
 
