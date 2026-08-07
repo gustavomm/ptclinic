@@ -28,6 +28,9 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
       <GoogleTagManager gtmId="GTM-NNBD3887" />
       <body className="bg-surface text-ink font-sans font-light antialiased">
+        <noscript>
+          <style>{`[data-revealed]{opacity:1 !important;transform:none !important;}`}</style>
+        </noscript>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <Analytics />

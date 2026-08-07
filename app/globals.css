@@ -14,4 +14,5 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  [data-revealed] { opacity: 1 !important; transform: none !important; }
 }
