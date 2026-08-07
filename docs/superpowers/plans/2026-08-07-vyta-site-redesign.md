@@ -2340,7 +2340,21 @@ Expected: FAIL — `../specialities` not found.
 
 - [ ] **Step 3: Create `content/specialities.ts`**
 
-Build all seven entries. The shape, with the first fully worked as the pattern to follow for the rest:
+Build all seven entries.
+
+> **⚠️ The worked example below is a SHAPE reference, not a content reference.**
+> Its `faq` entries failed their own rule and were rejected during implementation:
+> the neuroplasticity answer asserted a prognosis ("ganhos de função continuam
+> possíveis na fase crônica") that appears nowhere in `constants/specialities.ts`,
+> and the "estimativa de número de sessões" answer asserted a clinic policy the
+> speciality source never states. Both were fabricated clinical claims on a page
+> published under a CREFITO registration.
+>
+> Copy the **structure** from this example. Derive all actual `faq`, `intro` and
+> `summary` content strictly from `git show edfe4ec:constants/specialities.ts`.
+> If a sentence is not supported there, cut it.
+
+The shape, with the first worked as the structural pattern:
 
 ```ts
 export type Speciality = {
