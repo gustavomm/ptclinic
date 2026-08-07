@@ -2,12 +2,21 @@ import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { display, sans } from "@/lib/fonts";
+import { clinic } from "@/content/clinic";
+import { SITE_TITLE_TEMPLATE } from "@/lib/seo";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Vyta Fisioterapia e Pilates",
+  metadataBase: new URL(clinic.siteUrl),
+  title: {
+    default: `${clinic.name} — Fisioterapia e Pilates em São Paulo`,
+    template: SITE_TITLE_TEMPLATE,
+  },
   description:
-    "Fisioterapia e Pilates com atendimento individual, em duas unidades em São Paulo.",
+    "Fisioterapia e Pilates com atendimento individual conduzido por fisioterapeutas. Duas unidades em São Paulo: Consolação e Pinheiros.",
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -19,6 +28,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
       <GoogleTagManager gtmId="GTM-NNBD3887" />
       <body className="bg-surface text-ink font-sans font-light antialiased">
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <Analytics />
       </body>
