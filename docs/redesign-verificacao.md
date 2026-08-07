@@ -90,6 +90,42 @@ no contêiner. Recomendação: limpar essas 5 regras (mais a `gtm.init + Page UR
 contains /whatsapp`, que já estava morta antes do redesign) na próxima
 manutenção do GTM.
 
+## GA4 — bloqueia o lançamento
+
+**Confirmado empiricamente em 07/08/2026**, baixando e decodificando o container
+público `https://www.googletagmanager.com/gtm.js?id=GTM-NNBD3887`:
+
+| Procurado no container | Encontrado |
+|---|---|
+| Qualquer measurement ID `G-…` | **nenhum** |
+| `G-V5YCCVYQRR` | 0 ocorrências |
+| `G-VSSZW88J6E` | 0 ocorrências |
+| Tags de GA4 (`__googtag` / `__gaawc` / `__gaawe`) | **nenhuma** |
+
+O container só tem: 12 click listeners (`__cl`), 3 tags do Google Ads (`__sp`),
+1 conversion linker (`__gclidw`) e 5 instâncias de um template custom
+(provavelmente o Pixel da Meta).
+
+O site antigo carregava o `gtag.js` direto pelo `pages/_app.tsx`. Esse código
+saiu na migração. **Se nada for feito, o GA4 para de receber dados no momento do
+deploy** — sem erro em lugar nenhum.
+
+A tela "Your Google tag" do Google mostra o tag saudável mandando dados para
+`www.vytafisioterapia.com.br` (GA4) e `CA - VYTA Fisioterapia` (Ads). Isso é a
+*configuração* do tag, não a instalação: hoje ele chega ao navegador porque o
+site **antigo** ainda o carrega.
+
+Escolher um dos dois caminhos antes de promover:
+
+- [ ] **No GTM** (recomendado): criar uma tag *Google Tag* com o ID
+      `G-V5YCCVYQRR` (ou `GT-K4TFJ4K`), acionador *Initialization — All Pages*.
+      Nada muda no repositório.
+- [ ] **No código**: adicionar `<GoogleAnalytics gaId="G-V5YCCVYQRR" />` do
+      `@next/third-parties` ao lado do `<GoogleTagManager>` em `app/layout.tsx`.
+
+- [ ] Depois do deploy, confirmar em Tempo Real do GA4 que a propriedade voltou
+      a receber sessões.
+
 ## URLs — bloqueia o lançamento
 
 - [ ] Abrir cada uma das 8 URLs antigas `/speciality/*` e confirmar 308
@@ -118,58 +154,64 @@ fontes da clínica foi cortado, não inventado.
 - [ ] Revisaram os 6 posts do blog
 - [ ] Confirmaram a citação sobre não atender plano de saúde
 - [ ] Confirmaram "1:1", "100% das aulas com fisioterapeuta" e "8 especialidades"
-- [ ] Resolveram as 9 perguntas abertas listadas abaixo (mnemônico do AVC incluído)
-- [ ] Confirmaram telefone, e-mail, os dois endereços e os CEPs
-- [ ] Forneceram o horário de funcionamento (preencher `openingHours` em `content/units.ts`)
+- [ ] Resolveram as 5 perguntas abertas listadas abaixo (mnemônico do AVC incluído)
+- [ ] Informaram em que DIAS vale o horário das 7h às 20h (preencher `openingHours` em `content/units.ts`)
 
 ## Perguntas abertas para a clínica
 
-Levantadas durante o build. Nenhuma foi resolvida por suposição — todas
-precisam de uma resposta da clínica.
+Levantadas durante o build. **Cinco foram respondidas pelo Gustavo em 07/08/2026
+e já estão aplicadas no código** (ver "Respondidas" no fim desta seção). As que
+sobram precisam de resposta da Vyvyan e da Tainá antes de publicar.
 
-1. **CEPs das duas unidades.** `content/clinic.ts`/`content/units.ts` têm
-   `postalCode: ""` deliberadamente — os CEPs do plano original foram
-   inferidos do endereço, nunca confirmados pela clínica.
-   `lib/schema.ts` omite `postalCode` quando vazio, então nada quebra hoje,
-   mas o schema `LocalBusiness` fica mais fraco sem ele.
-2. **Horário de funcionamento das duas unidades.** `units.openingHours` está
-   `null`; o `unitSchema` omite `openingHoursSpecification` em vez de inventar
-   horários.
-3. **Instituição de residência da Tainá.** O site diz "Hospital AC Camargo
-   Cancer Center"; o plano do redesign tinha derivado para "A.C. Camargo
-   Cancer Center". Foi restaurado para a grafia publicada no site atual — a
-   clínica deve confirmar qual está correta.
-4. **Autoria dos posts de DPOC, Cardiovasculares e Incontinência** no blog.
-5. **Toda alegação factual no texto de marketing** (hero, seções da landing,
-   pull quote) — é rascunho do comp de design, não veio das fontes clínicas,
-   e precisa de sign-off antes de publicar.
-6. **Confirmação de que telefone, e-mail e os dois endereços estão atuais.**
-7. **Inconsistência na especialidade respiratória.** Foi renomeada para
+1. **Dias da semana do horário de funcionamento.** O horário confirmado é das
+   **7h às 20h**, mas falta saber em que dias. Sábado abre? `units.openingHours`
+   segue `null` até isso ser respondido, e o `unitSchema` omite
+   `openingHoursSpecification` em vez de inventar. Horário errado no schema
+   `LocalBusiness` contradiz o perfil do Google Business, que é pior do que não
+   ter horário nenhum.
+2. **Toda alegação factual no texto de marketing** (hero, seções da landing,
+   pull quote). É rascunho do comp de design, não veio das fontes clínicas, e
+   precisa de sign-off antes de publicar. Inclui a citação sobre não atender
+   plano de saúde, o "1:1", os "100% das aulas com fisioterapeuta" e as "8
+   especialidades".
+3. **Inconsistência na especialidade respiratória.** Foi renomeada para
    "Fisioterapia Respiratória" (sem qualificador de idade) pela tabela de
    identidade do plano, mas o texto verbatim de "como funciona" ainda diz "A
-   fisioterapia respiratória PARA ADULTOS". A página fica inconsistente sobre
-   se atende fisioterapia respiratória pediátrica. Não foi resolvido editando
-   o texto clínico verbatim — a clínica decide.
-8. **Mnemônico SAMU do AVC** — ver aviso destacado no topo deste documento.
+   fisioterapia respiratória PARA ADULTOS". A página fica inconsistente sobre se
+   atende fisioterapia respiratória pediátrica. Não foi resolvido editando o
+   texto clínico verbatim — a clínica decide.
+4. **Mnemônico SAMU do AVC** — ver aviso destacado no topo deste documento.
    Segundo, de menor gravidade: na Cartilha Cardio, "Colesterol alto" está
-   listado em "como saber se tenho" (detecção) em vez de nos fatores de
-   risco. Também mantido verbatim.
-9. **Alegações não sourced na copy do Pilates.** `PilatesSection.tsx` (copy
-   de marketing da landing) afirma que "quem corrige a sua postura conhece a
-   sua lesão, SABE O QUE A SUA CIRURGIA LIMITOU" e chama o Pilates de
-   "transição natural para quem sai da reabilitação". Nenhuma das duas
-   rastreia até `content/specialities.ts`. As mesmas afirmações foram
-   **cortadas** do FAQ de `/pilates` (respostas de FAQ são tratadas como
-   orientação clínica), mas permanecem na copy de marketing, que é rascunho
-   e já está sob revisão. A alegação sobre cirurgia é uma afirmação
-   operacional sobre como as aulas são conduzidas — Vyvyan e Tainá precisam
-   confirmar que é verdadeira antes do lançamento.
+   listado em "como saber se tenho" (detecção) em vez de nos fatores de risco.
+   Também mantido verbatim.
+5. **Alegações não sourced na copy do Pilates.** `PilatesSection.tsx` (copy de
+   marketing da landing) afirma que "quem corrige a sua postura conhece a sua
+   lesão, SABE O QUE A SUA CIRURGIA LIMITOU" e chama o Pilates de "transição
+   natural para quem sai da reabilitação". Nenhuma das duas rastreia até
+   `content/specialities.ts`. As mesmas afirmações foram **cortadas** do FAQ de
+   `/pilates` (respostas de FAQ são tratadas como orientação clínica), mas
+   permanecem na copy de marketing, que é rascunho e já está sob revisão. A
+   alegação sobre cirurgia é uma afirmação operacional sobre como as aulas são
+   conduzidas — Vyvyan e Tainá precisam confirmar que é verdadeira.
 
-**Item adicional relacionado (não contado nas 9 acima):** as páginas de
-unidade listam todas as especialidades como disponíveis nas **duas**
-unidades. Se os serviços diferem por unidade, `Unit` (em
-`content/units.ts`) precisa de um campo `specialities: string[]`. Nada foi
-inventado — isto é uma bandeira, não uma correção.
+**Item adicional relacionado:** as páginas de unidade listam todas as
+especialidades como disponíveis nas **duas** unidades. Se os serviços diferem
+por unidade, `Unit` (em `content/units.ts`) precisa de um campo
+`specialities: string[]`. Nada foi inventado — isto é uma bandeira, não uma
+correção.
+
+### Respondidas em 07/08/2026 — já aplicadas no código
+
+- **CEPs.** Consolação `01307-002`, Fradique `05416-000`. Gravados em
+  `content/units.ts`; o `LocalBusiness` agora emite `postalCode`.
+- **Residência da Tainá.** "Hospital AC Camargo Cancer Center" — confirma a
+  grafia que já estava publicada. Nada mudou.
+- **Autoria dos posts de DPOC, Cardiovasculares e Incontinência.** Tainá. Os
+  três `.mdx` foram atualizados e os comentários de "AUTORIA PROVISÓRIA"
+  removidos. Os seis posts agora têm autor nomeado com CREFITO.
+- **Telefone, e-mail e os dois endereços** estão atuais. Confirmado.
+- **Propriedade GA4.** Só a `G-V5YCCVYQRR` segue em uso; a `G-VSSZW88J6E` saiu
+  de cena. Ver a seção "GA4 — bloqueia o lançamento" acima.
 
 ## Itens técnicos adiados (não bloqueiam o lançamento)
 

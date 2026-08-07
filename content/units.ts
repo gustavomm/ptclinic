@@ -33,13 +33,12 @@ export const units: Unit[] = [
     slug: "consolacao",
     name: "Unidade Consolação",
     shortName: "Consolação",
-    street: "Rua Frei Caneca, 1212 — Conjunto 53",
+    street: "Rua Frei Caneca, 1212, Conjunto 53",
     district: "Consolação",
     city: "São Paulo",
     state: "SP",
-    // CEP não confirmado com a clínica — deixar vazio até confirmação (evita
     // dado incorreto em LocalBusiness schema, que é pior que dado ausente).
-    postalCode: "",
+    postalCode: "01307-002",
     geo: { lat: -23.559993, lng: -46.66116 },
     mapsUrl: "https://maps.google.com/?q=Vyta+Fisioterapia+Frei+Caneca+1212",
     mapEmbedUrl:
@@ -89,9 +88,8 @@ export const units: Unit[] = [
     district: "Pinheiros",
     city: "São Paulo",
     state: "SP",
-    // CEP não confirmado com a clínica — deixar vazio até confirmação (evita
     // dado incorreto em LocalBusiness schema, que é pior que dado ausente).
-    postalCode: "",
+    postalCode: "05416-000",
     geo: { lat: -23.563253, lng: -46.688716 },
     mapsUrl:
       "https://maps.google.com/?q=Vyta+Fisioterapia+Fradique+Coutinho+380",

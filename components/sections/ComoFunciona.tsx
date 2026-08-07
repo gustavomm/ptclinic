@@ -6,12 +6,12 @@ const STEPS = [
   {
     n: "01",
     title: "Conversa",
-    text: "Você conta o que está sentindo pelo WhatsApp. A gente responde qual especialidade faz sentido e qual unidade fica melhor para você — sem compromisso.",
+    text: "Você conta o que está sentindo pelo WhatsApp. A gente responde qual especialidade faz sentido e qual unidade fica melhor para você.",
   },
   {
     n: "02",
     title: "Avaliação",
-    text: "Uma sessão inteira para escutar, examinar e testar. Saímos dela com um objetivo escrito — seu, não nosso — e o número de sessões estimado até chegar lá.",
+    text: "Uma sessão inteira para escutar, examinar e testar. O tratamento já começa na avaliação, e saímos dela com um objetivo individualizado para o seu corpo.",
   },
   {
     n: "03",

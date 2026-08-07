@@ -21,7 +21,7 @@ export function EspecialidadesGrid({
           />
           <p className="max-w-sm text-base font-light leading-relaxed text-muted">
             Cada especialidade tem técnica própria, mas todas partem do mesmo
-            lugar: avaliar antes de tratar, e tratar uma pessoa — não um
+            lugar: avaliar antes de tratar, e tratar uma pessoa. Não um
             diagnóstico.
           </p>
         </div>
@@ -70,7 +70,7 @@ export function EspecialidadesGrid({
             <div className="flex flex-1 flex-col gap-2 p-6">
               <h3 className="font-display text-2xl text-surface">Pilates</h3>
               <p className="text-sm font-light leading-relaxed text-surface">
-                Força, mobilidade e controle — sempre com fisioterapeuta ao lado.
+                Força, mobilidade e controle. Sempre com fisioterapeuta ao lado.
                 Ver a sala →
               </p>
             </div>

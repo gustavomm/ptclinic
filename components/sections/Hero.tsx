@@ -29,7 +29,7 @@ export function Hero() {
         </h1>
         <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-surface text-pretty">
           Uma clínica onde cada sessão — inclusive as de Pilates — é conduzida
-          por fisioterapeuta. Avaliação longa, plano escrito para o seu corpo, e
+          por fisioterapeutas. Avaliação longa, plano escrito para o seu corpo, e
           alguém que acompanha a sua evolução de perto.
         </p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">

@@ -13,7 +13,7 @@ export function Founders() {
       <SectionHeading
         className="mb-14 max-w-3xl"
         eyebrow="Quem somos"
-        title={<>Duas fisioterapeutas que <em className="italic">atendem</em> — não só assinam</>}
+        title={<>Duas fisioterapeutas que <em className="italic">atendem</em> e não só assinam</>}
         lead="A Vyta nasceu de uma amizade formada na graduação e do mesmo incômodo: reabilitação boa não cabe em vinte minutos. Aqui, quem fundou a clínica é quem senta com você na avaliação."
       />
       <div className="grid gap-12 md:grid-cols-2">

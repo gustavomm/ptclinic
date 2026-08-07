@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 const STATS = [
   {
     figure: "1 : 1",
-    text: "Atendimento individual do começo ao fim. Sem sala cheia, sem esteira de paciente, sem estagiário assumindo a sua sessão.",
+    text: "Atendimento individual de fisioterapia, do começo ao fim. Sem sala cheia e sem esteira de pacientes.",
   },
   {
     figure: "100%",

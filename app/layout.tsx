@@ -15,7 +15,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(clinic.siteUrl),
   title: {
-    default: `${clinic.name} — Fisioterapia e Pilates em São Paulo`,
+    default: `${clinic.name} · Fisioterapia e Pilates em São Paulo`,
     template: SITE_TITLE_TEMPLATE,
   },
   description:

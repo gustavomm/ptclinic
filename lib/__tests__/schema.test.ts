@@ -42,9 +42,12 @@ describe("unitSchema", () => {
     expect(s.openingHoursSpecification?.[0].opens).toBe("07:00");
   });
 
+  // The guard must be tested against a synthetic unit, not the real data:
+  // both units now carry a confirmed CEP, and coupling this to the content
+  // would make the assertion silently vacuous the moment the data changed.
   it("omits postalCode from the address when the unit has none", () => {
-    const s = unitSchema(units[0]);
-    expect(units[0].postalCode).toBe("");
+    const withoutPostalCode = { ...units[0], postalCode: "" };
+    const s = unitSchema(withoutPostalCode);
     expect(s.address).not.toHaveProperty("postalCode");
   });
 

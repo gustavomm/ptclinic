@@ -16,7 +16,7 @@ export const team: Member[] = [
     name: "Vyvyan Maximo Andrade",
     role: "Neurofuncional",
     crefito: "Crefito 3: 293919F",
-    bio: "Trabalha com quem precisa reaprender um movimento — depois de um AVC, de uma cirurgia de coluna, de um diagnóstico que mudou o passo.",
+    bio: "Trabalha com quem precisa reaprender um movimento depois de um AVC, de uma cirurgia de coluna, de um diagnóstico que mudou o passo.",
     image: "/vyvyan-3.webp",
     education: [
       "Graduada em Fisioterapia pela Universidade de São Paulo (USP)",
