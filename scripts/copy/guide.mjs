@@ -52,18 +52,48 @@ const rows = parseCsv(
 
 /* ----------------------------- fontes ----------------------------- */
 
-const FONTS = {
-  cormorant: ".next/static/media/7b89a4fd5e90ede0-s.p.woff2",
-  cormorantItalic: ".next/static/media/e18f83c737786aa7-s.p.woff2",
-  jost: ".next/static/media/9dd75fadc5b3df29-s.p.woff2",
-};
-
-const dataUri = (rel) => {
-  const abs = path.join(ROOT, rel);
-  if (!fs.existsSync(abs)) {
-    throw new Error(`fonte não encontrada: ${rel} — rode 'npm run build' antes`);
+// Os nomes dos arquivos de fonte têm hash e mudam a cada build, então saem do
+// CSS gerado em vez de ficarem escritos aqui. Só interessa o subconjunto latin
+// (U+0000-00FF), que já cobre todos os acentos do português.
+function findFont(family, style) {
+  // Dois formatos de CSS para lidar: a build de dev sai identada e com aspas,
+  // a de produção sai minificada e em minúsculas. Por isso a leitura é por
+  // regex tolerante, e não por comparação de string literal.
+  const cssDir = path.join(ROOT, ".next/static/css");
+  const walk = (dir) =>
+    fs.existsSync(dir)
+      ? fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+          e.isDirectory() ? walk(path.join(dir, e.name)) : path.join(dir, e.name),
+        )
+      : [];
+  const files = walk(cssDir).filter((f) => f.endsWith(".css"));
+  if (!files.length) {
+    throw new Error("build não encontrado — rode 'npm run build' antes de gerar o mapa");
   }
-  return `data:font/woff2;base64,${fs.readFileSync(abs).toString("base64")}`;
+
+  const css = files.map((f) => fs.readFileSync(f, "utf8")).join("\n");
+  for (const face of css.match(/@font-face\s*\{[^}]*\}/g) ?? []) {
+    const fam = face.match(/font-family:\s*['"]?([^;'"}]+)['"]?/)?.[1]?.trim();
+    const sty = face.match(/font-style:\s*([a-z]+)/i)?.[1] ?? "normal";
+    const src = face.match(/url\(\/_next\/(static\/media\/[^)"']+)\)/)?.[1];
+    // Só o subconjunto latin, que já cobre todos os acentos do português.
+    // Duas grafias do mesmo intervalo: a build de dev escreve U+0000-00FF, e o
+    // minificador de produção compacta para a forma curinga u+00??.
+    const latin = /unicode-range:[^;}]*u\+(0000-00ff|00\?\?)/i.test(face);
+    if (fam === family && sty === style && latin && src) {
+      return path.join(ROOT, ".next", src);
+    }
+  }
+  throw new Error(`fonte não encontrada no build: ${family} ${style}`);
+}
+
+const dataUri = (abs) =>
+  `data:font/woff2;base64,${fs.readFileSync(abs).toString("base64")}`;
+
+const FONTS = {
+  cormorant: dataUri(findFont("Cormorant Garamond", "normal")),
+  cormorantItalic: dataUri(findFont("Cormorant Garamond", "italic")),
+  jost: dataUri(findFont("Jost", "normal")),
 };
 
 /* ---------------------------- montagem ---------------------------- */
@@ -157,9 +187,9 @@ const nav = pages
 
 const html = `<title>Mapa dos textos do site · Vyta</title>
 <style>
-@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 400;font-display:swap;src:url(${dataUri(FONTS.cormorant)}) format('woff2')}
-@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 400;font-display:swap;src:url(${dataUri(FONTS.cormorantItalic)}) format('woff2')}
-@font-face{font-family:'Jost';font-style:normal;font-weight:300 500;font-display:swap;src:url(${dataUri(FONTS.jost)}) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 400;font-display:swap;src:url(${FONTS.cormorant}) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 400;font-display:swap;src:url(${FONTS.cormorantItalic}) format('woff2')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300 500;font-display:swap;src:url(${FONTS.jost}) format('woff2')}
 
 :root{
   --ground:#FAF6F0; --raised:#F3EDE4; --line:#E3DCD2; --line-soft:#EDE6DC;

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
+import { shouldLoadAnalytics } from "@/lib/analytics-env";
 import { display, sans } from "@/lib/fonts";
 import { clinic } from "@/content/clinic";
 import { SITE_TITLE_TEMPLATE } from "@/lib/seo";
@@ -59,9 +60,16 @@ export default function RootLayout({
         O site antigo também carregava o gtag direto, então é o mesmo arranjo
         que já funcionava. Se um dia a tag do Google entrar no container,
         remover a linha do GoogleAnalytics daqui para não medir em dobro.
+
+        Os dois ficam de fora dos previews da Vercel — o porquê está em
+        lib/analytics-env.ts.
       */}
-      <GoogleTagManager gtmId="GTM-NNBD3887" />
-      <GoogleAnalytics gaId="G-V5YCCVYQRR" />
+      {shouldLoadAnalytics(process.env.VERCEL_ENV) && (
+        <>
+          <GoogleTagManager gtmId="GTM-NNBD3887" />
+          <GoogleAnalytics gaId="G-V5YCCVYQRR" />
+        </>
+      )}
       <body className="bg-surface text-ink font-sans font-light antialiased">
         <noscript>
           <style>{`[data-revealed]{opacity:1 !important;transform:none !important;}`}</style>
