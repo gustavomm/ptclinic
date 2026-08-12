@@ -10,7 +10,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "copy:export": "node scripts/copy/extract.mjs && node scripts/copy/guide.mjs",
+    "copy:apply": "node scripts/copy/apply.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.0",
