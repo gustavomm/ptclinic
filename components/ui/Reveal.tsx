@@ -37,7 +37,19 @@ export function Reveal({
           io.unobserve(entry.target);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      /*
+        threshold 0 dispara no primeiro pixel que entra. Com uma fração — era
+        0.12 — o ponto de disparo dependia da altura do bloco: a coluna de texto
+        do Pilates, com 800px, só começava a aparecer depois de 96px dentro da
+        tela; um cartão de 200px, depois de 24px. Some a isso os 700ms de
+        transição e os blocos altos chegavam legíveis já no meio da tela.
+
+        A margem de baixo agora é positiva: estende a área de observação 10%
+        abaixo da dobra, então a transição começa pouco antes de o bloco
+        aparecer e termina quando ele está inteiro à vista. Antes eram -8%, que
+        empurravam o disparo para ainda mais tarde.
+      */
+      { threshold: 0, rootMargin: "0px 0px 10% 0px" },
     );
 
     io.observe(el);
