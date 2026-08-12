@@ -6,13 +6,24 @@ import { WhatsAppLink } from "@/components/WhatsAppLink";
 export function Hero() {
   return (
     <section id="topo" className="relative flex min-h-[calc(100svh-var(--chrome-height))] w-full items-center justify-center overflow-hidden">
+      {/*
+        Esta é a foto do site antigo. O arquivo já vem cortado 260px no topo,
+        onde ficava a luminária fluorescente mais próxima da câmera: no celular
+        o recorte é pela largura, a foto aparece inteira na vertical, e aquele
+        painel frio caía bem atrás do logotipo.
+
+        No desktop sobra o corte vertical, e é ele que o object-position
+        controla. Ancorado perto do topo entra a parede coral inteira com o
+        cadillac; do meio para baixo a parede sai de quadro e sobram a porta e
+        o piso, que é justamente o que a foto tem de mais frio.
+      */}
       <Image
         src="/hero-pilates.webp"
-        alt="Estúdio de Pilates da Vyta em Pinheiros, com reformer, cadillac, escada sueca e letreiro Vyta na parede"
+        alt="Sala de Pilates da Vyta, com parede coral, cadillac, barril e reformer sobre piso de madeira"
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-[center_10%]"
       />
       <div
         className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/65 to-ink/90"

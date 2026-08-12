@@ -85,7 +85,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Pilates conduzido por fisioterapeutas em São Paulo. Avaliação postural antes da primeira aula, grupos reduzidos e aparelhos completos. Consolação e Pinheiros.",
   path: "/pilates",
-  image: "/hero-pilates.webp",
+  // Foto deitada de propósito: o card do Twitter é summary_large_image e o
+  // WhatsApp corta pelo meio. O hero passou a ser uma foto em pé e não serve
+  // mais aqui.
+  image: "/pilates-espelhos.webp",
 });
 
 export default function PilatesPage() {
