@@ -243,6 +243,26 @@ function composeJsx(node, unknown) {
   return { text: squash(out).trim(), hasLiteral };
 }
 
+/*
+  Uma lista de classes utilitárias: todo token cabe no alfabeto do CSS e pelo
+  menos um traz marca de utilitário, o hífen ou a variante com dois-pontos.
+
+  A checagem é pelo negativo de propósito. Tentar reconhecer "parece uma frase"
+  derrubava "min de leitura", que é texto de tela de verdade. Reconhecer a lista
+  de classes é o lado que dá para descrever sem ambiguidade — medido contra as
+  323 entradas da exportação, rejeita exatamente uma, o UNIT_LINK.
+*/
+const CSSISH_TOKEN = /^[-a-z0-9:/[\]().%#!]+$/;
+
+function looksLikeClassList(text) {
+  const tokens = text.trim().split(/\s+/);
+  return (
+    tokens.length > 1 &&
+    tokens.every((t) => CSSISH_TOKEN.test(t)) &&
+    tokens.some((t) => /[-:]/.test(t))
+  );
+}
+
 /**
  * Decide se um literal de string é texto para humanos, subindo a árvore até
  * encontrar um nó que responda a pergunta.
@@ -278,10 +298,15 @@ function classifyString(node, unknown) {
     }
 
     if (ts.isVariableDeclaration(p)) {
-      // Constante solta de copy, como POINTS ou BENEFITS: só aceita se o texto
-      // parecer uma frase, para não arrastar constante de configuração.
+      // Constante solta de copy, como POINTS ou BENEFITS. O nome em maiúsculas
+      // não basta: UNIT_LINK, em TopBar.tsx, é uma lista de classes do Tailwind
+      // e entrou na planilha como "Texto / Reescrever" com offsets de edição
+      // válidos. Se a Vyvyan escrevesse uma frase naquela linha, o `apply`
+      // costuraria a frase dentro do className e levaria junto o `-my-2 py-2`,
+      // que é o que dá aos links da faixa os 24px de alvo da WCAG 2.5.8.
       const name = p.name.getText();
       if (!/^[A-Z0-9_]+$/.test(name)) return null;
+      if (looksLikeClassList(node.text)) return null;
       return { role: inArray ? "Item de lista" : "Texto" };
     }
 

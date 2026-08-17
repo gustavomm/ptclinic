@@ -10,7 +10,7 @@ duas, então já é texto delas.
 
 | Arquivo | Para quem | O que é |
 | --- | --- | --- |
-| `textos-vyta.csv` | Vyvyan e Tainá | A planilha. Uma linha por trecho de texto, com uma coluna em branco para a nova versão. |
+| `textos-vyta.csv` | Vyvyan e Tainá | A planilha. Uma linha por trecho de texto, com uma coluna em branco para a nova versão e outra para comentários. |
 | `mapa-dos-textos.html` | Vyvyan e Tainá | Página de leitura: todo o texto na ordem do site, com o código de cada trecho. Responde "onde fica isso". |
 | `textos-vyta.json` | o código | Mapa de cada código para arquivo e posição. É o que permite reimportar. Não editar. |
 
@@ -83,6 +83,28 @@ transferir as colunas `TEXTO NOVO` para a planilha nova.
 
 **Enquanto a revisão estiver em andamento, não mexer nos textos do código.**
 Qualquer edição invalida as linhas correspondentes.
+
+## O arquivo do ciclo de agosto de 2026
+
+O primeiro ciclo já rodou, e ficaram dois arquivos com papéis diferentes:
+
+| Arquivo | O que é |
+| --- | --- |
+| `2026-08-17-devolvido-pela-clinica.csv` | A planilha como a clínica devolveu, sem nenhuma edição. É a prova de origem do texto clínico, que é publicado sob o CREFITO das duas. Não serve de entrada para o `apply`. |
+| `textos-revisados.csv` | O que foi de fato aplicado. |
+
+A planilha devolvida veio com uma coluna a mais, `texto vyvyan`, ao lado de
+`TEXTO NOVO`. Onde as duas estavam preenchidas, valeu a da Vyvyan — foram 9
+linhas. Por isso ela não pode ser passada direto para o `copy:apply`: o script
+lê `TEXTO NOVO`, então aplicaria a coluna errada nessas 9.
+
+Duas células não eram texto de site e não foram aplicadas: `specialities-108`
+mandava tirar a drenagem linfática, e `specialities-08` perguntava se a clínica
+atenderia crianças. A resposta veio em 17/08/2026 e foi não; o item saiu de
+`content/specialities.ts`.
+
+Se a coluna extra virar hábito, vale ensinar o `apply` a lê-la em vez de
+continuar juntando as duas à mão antes de rodar.
 
 ## Cobertura
 

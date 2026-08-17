@@ -41,20 +41,35 @@ describe("units", () => {
     expect(getUnit("pinheiros")?.geo.lng).toBeCloseTo(-46.688716, 5);
   });
 
-  it("opens 07:00-20:00 Monday to Friday at both units, and not Saturday", () => {
+  /*
+    O horário de fechamento não é o mesmo nas duas unidades, e um teste que
+    varria as duas com o mesmo número escondia isso. Vale por unidade, porque é
+    daqui que sai o openingHoursSpecification do LocalBusiness: um horário
+    errado faz o Google mandar gente para uma porta fechada.
+  */
+  it.each([
+    ["consolacao", "21:00"],
+    ["pinheiros", "20:00"],
+  ])("%s opens 07:00 to %s, Monday to Friday", (slug, closes) => {
+    const h = getUnit(slug)!.openingHours![0];
+    expect(getUnit(slug)!.openingHours).toHaveLength(1);
+    expect(h.opens).toBe("07:00");
+    expect(h.closes).toBe(closes);
+    expect(h.days).toEqual([
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+    ]);
+  });
+
+  it("never opens on Saturday or Sunday at either unit", () => {
     for (const u of units) {
-      expect(u.openingHours).toHaveLength(1);
-      const h = u.openingHours![0];
-      expect(h.opens).toBe("07:00");
-      expect(h.closes).toBe("20:00");
-      expect(h.days).toEqual([
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-      ]);
-      expect(h.days).not.toContain("Saturday");
+      for (const h of u.openingHours ?? []) {
+        expect(h.days).not.toContain("Saturday");
+        expect(h.days).not.toContain("Sunday");
+      }
     }
   });
 });

@@ -12,12 +12,16 @@ const STATS = [
   {
     /*
       Este terceiro número falava da variedade de especialidades. Na revisão de
-      agosto de 2026 a clínica trocou pelo atendimento em domicílio, que aparece
-      junto com o "Também em domicílio" de neurofuncional, gerontologia,
-      respiratória e pré e pós-cirúrgica. É a home page assumindo um serviço,
-      não uma reescrita de frase: se o domicílio sair, sai daqui também.
+      agosto de 2026 a clínica trocou pelo atendimento em domicílio, confirmado
+      por ela em 17/08/2026. Aparece junto com o "Também em domicílio" das
+      quatro áreas que o oferecem, mas ali só nas descrições do Google: nenhuma
+      página explica o serviço.
+
+      O preço não pode ser dito no site, e a página dedicada ficou para depois.
+      Até ela existir, este bloco é o único lugar onde o domicílio é explicado,
+      e quem chegar pela busca vai perguntar por área de cobertura no WhatsApp.
     */
-    figure: "À domicílio",
+    figure: "A domicílio",
     text: "Atendimento de fisioterapia na sua casa, quando ir até a clínica não é uma opção. Conforto com o mesmo cuidado e atenção.",
   },
 ];

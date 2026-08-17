@@ -31,7 +31,15 @@ export const specialities: Speciality[] = [
     forWhom: [
       "Pacientes com lesões neurológicas: após AVC, lesão medular, esclerose múltipla, paralisia cerebral, lesões cerebrais traumáticas.",
       "Pacientes com distúrbios de movimento: doença de Parkinson, distonias e ataxias.",
-      "Crianças com atraso no desenvolvimento motor: como atrasos no início da marcha, dificuldades de equilíbrio e coordenação e atrasos na aquisição de habilidades motoras.",
+      /*
+        Aqui havia um item sobre crianças com atraso no desenvolvimento motor.
+        Era a pergunta que a própria revisão levantou — "checar se a Vyvyan vai
+        querer atender criança também antes de colocar no site" — e a resposta
+        da clínica em 17/08/2026 foi não. A clínica não atende crianças, então o
+        item saiu em vez de continuar no ar sem resposta.
+
+        A respiratória diz "para adultos" em howItWorks e continua certa.
+      */
       "Pacientes pós operatório: após cirurgias de coluna e cerebral.",
       "Adultos e idosos com comprometimento neuromuscular: podem apresentar sintomas como dor ou formigamento nos membros ou na face, fraqueza muscular, fadiga e cãibras.",
     ],
@@ -235,7 +243,7 @@ export const specialities: Speciality[] = [
     intro:
       "Quem chega mais forte à cirurgia costuma se recuperar melhor. Trabalhamos os dois momentos: o preparo antes, para você entrar no procedimento em melhores condições, e a reabilitação depois, para recuperar mobilidade, força e função o mais breve possível.",
     forWhom: [
-      "Pacientes em preparação para cirurgia que desejem chegar melhores condições para o procedimento, o que costuma facilitar a recuperação depois",
+      "Pacientes em preparação para cirurgia que desejem chegar em melhores condições para o procedimento, o que costuma facilitar a recuperação depois.",
       "Depois de cirurgia ortopédica: prótese de joelho ou quadril, reparo de ligamento, fixação de fratura: recuperar amplitude, força e marcha.",
       "Depois de cirurgia abdominal: retomar mobilidade e respiração eficiente, com progressão segura de esforço.",
       "Depois de cirurgia cardíaca: recuperação de condicionamento e retorno gradual às atividades, respeitando os limites do pós-operatório.",

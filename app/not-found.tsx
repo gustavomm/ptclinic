@@ -15,7 +15,6 @@ export default function NotFound() {
         <div className="mt-8 flex flex-wrap gap-4">
           <Button href="/">Voltar para o início</Button>
           <Button href="/especialidades" variant="outlineInk">
-            
             Ver áreas de atuação
           </Button>
         </div>

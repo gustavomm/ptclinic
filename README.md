@@ -10,11 +10,16 @@ Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 ## Verificação
 
     npm run typecheck   # tipos
-    npm test             # unidade (Vitest) — 54 testes
-    npm run build         # build de produção — 27 rotas
-    npm run test:e2e      # E2E (Playwright, roda build + start) — 59 testes
+    npm test             # unidade (Vitest) — 68 testes
+    npm run build         # build de produção — 24 rotas pré-renderizadas
+    npm run test:e2e      # E2E (Playwright, roda build + start) — 68 testes
 
 Rode os quatro antes de qualquer merge ou deploy.
+
+Os números acima são de 17/08/2026 e servem de linha de base: se `npm test`
+voltar com menos testes do que isto, alguma coisa deixou de rodar. Nada os
+verifica sozinho — não há CI neste repositório, então os quatro comandos só
+acontecem quando alguém lembra.
 
 ## Restrições que não podem quebrar
 

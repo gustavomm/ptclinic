@@ -24,7 +24,13 @@ export type Unit = {
   imageHeight: number;
   /** Photos of the unit itself (treatment room + Pilates studio), shown below the map. */
   gallery: GalleryPhoto[];
-  /** Seg a Sex, 7h as 20h. Confirmado pela clinica em 07/08/2026. Nao abre sabado. */
+  /*
+    Seg a Sex, e o horario de fechamento muda por unidade: Consolacao (Frei
+    Caneca) as 21h, Pinheiros (Fradique Coutinho) as 20h. Nao abre sabado.
+    Confirmado pela clinica em 17/08/2026, corrigindo o 07/08 que dava 20h nas
+    duas. Isso vai para o LocalBusiness, entao errar aqui manda o Google mandar
+    gente na porta fechada.
+  */
   openingHours: OpeningHours[] | null;
 };
 
@@ -37,7 +43,6 @@ export const units: Unit[] = [
     district: "Consolação",
     city: "São Paulo",
     state: "SP",
-    // dado incorreto em LocalBusiness schema, que é pior que dado ausente).
     postalCode: "01307-002",
     geo: { lat: -23.559993, lng: -46.66116 },
     mapsUrl: "https://maps.google.com/?q=Vyta+Fisioterapia+Frei+Caneca+1212",
@@ -78,7 +83,7 @@ export const units: Unit[] = [
       {
         days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "07:00",
-        closes: "20:00",
+        closes: "21:00",
       },
     ],
   },
@@ -90,7 +95,6 @@ export const units: Unit[] = [
     district: "Pinheiros",
     city: "São Paulo",
     state: "SP",
-    // dado incorreto em LocalBusiness schema, que é pior que dado ausente).
     postalCode: "05416-000",
     geo: { lat: -23.563253, lng: -46.688716 },
     mapsUrl:

@@ -23,6 +23,22 @@ mais difundida no Brasil usa M de Música/Mensagem (fala). O texto foi mantido
 clínica — mas como alguém pode agir sobre isso numa emergência real, Vyvyan e
 Tainá precisam confirmar a redação antes da página ir ao ar.
 
+Piora com o teste de "Sorria", logo acima, que já cobre o rosto: quem decorar as
+quatro palavras — que é para o que serve um mnemônico — fica com duas checagens
+de rosto, uma de braço, e nenhuma de fala.
+
+- [ ] Vyvyan e Tainá confirmaram a redação do item M
+- [ ] **O post do AVC ganhou uma nota de fecho.** Cinco dos seis posts terminam
+      com um bloco "Importante:"; o do AVC é o único sem nenhum, e é justamente
+      o que manda um leigo agir numa emergência. A redação é das duas, como o
+      resto do conteúdo clínico
+
+Aviso relacionado, no post de oncologia: ele traz idades de rastreamento (PSA e
+toque retal a partir dos 40, Papanicolau anual após os 25, colonoscopia aos 45)
+que estão fora do escopo da fisioterapia e não batem com a orientação do INCA e
+do Ministério da Saúde. Também mantido verbatim, e também precisa do sign-off
+das duas antes de publicar.
+
 ## Conversão — bloqueia o lançamento
 
 **A tag de conversão do Ads só pode ser verificada em produção, não na URL de
@@ -47,10 +63,25 @@ Só dá para confirmar a conversão do Ads depois que o domínio de produção
 (`www.vytafisioterapia.com.br`) está servindo o build novo:
 
 - [ ] GTM Preview conectado à URL de produção
-- [ ] Clicar em "Agendar" no hero → confirmar page load em `/whatsapp` no GTM
+- [ ] Clicar em "Agendar" no hero → confirmar o evento **`gtm.click`** na página
+      de origem, com `Click URL` = `https://www.vytafisioterapia.com.br/whatsapp`
 - [ ] Confirmar que a tag `Contato por WhatsApp` (label `ak4xCLuKhcwYEM3nsM4p`) disparou
-- [ ] Repetir a partir do FAB, do nav, do menu mobile e de uma página de especialidade
+- [ ] Repetir **a partir do FAB**, do nav, do menu mobile e de uma página de
+      especialidade. O FAB é o que mais importa: no site antigo ele abria em
+      aba nova, então a página de origem continuava viva; agora navega na mesma
+      aba, e o beacon precisa sair antes do unload
 - [ ] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
+- [ ] Abrir o site pelo domínio **sem** `www` e confirmar que ele redireciona
+      para `www`. A regra do GTM casa a string literal com `www.`; se alguma
+      campanha ou algum backlink servir o apex, o clique não conta e o Ads
+      continua gastando
+
+> **Não procure um page load em `/whatsapp`.** Essa versão do checklist pedia
+> isso e era impossível de satisfazer: `app/whatsapp/route.ts` responde 307 com
+> corpo vazio, então não existe página, GTM nem gtag naquela URL. Nunca existiu
+> — o `pages/whatsapp.tsx` antigo usava `nextjs-redirect`, que em navegação
+> direta faz `res.writeHead(301)` no servidor e também não renderizava nada. A
+> conversão sempre foi contada pelo clique na página de origem.
 
 Se algo falhar aqui — depois do deploy, contra o host de produção — aí sim é
 um problema real na tag, não um artefato do host de preview.
@@ -115,13 +146,20 @@ A tela "Your Google tag" do Google mostra o tag saudável mandando dados para
 *configuração* do tag, não a instalação: hoje ele chega ao navegador porque o
 site **antigo** ainda o carrega.
 
-Escolher um dos dois caminhos antes de promover:
+### Resolvido no código em 17/08/2026 — não fazer no GTM
 
-- [ ] **No GTM** (recomendado): criar uma tag *Google Tag* com o ID
-      `G-V5YCCVYQRR` (ou `GT-K4TFJ4K`), acionador *Initialization — All Pages*.
-      Nada muda no repositório.
-- [ ] **No código**: adicionar `<GoogleAnalytics gaId="G-V5YCCVYQRR" />` do
-      `@next/third-parties` ao lado do `<GoogleTagManager>` em `app/layout.tsx`.
+Havia dois caminhos aqui e o do código foi tomado: `app/layout.tsx` já renderiza
+`<GoogleAnalytics gaId="G-V5YCCVYQRR" />` do `@next/third-parties`, ao lado do
+`<GoogleTagManager>`.
+
+> **Não criar a tag *Google Tag* no container.** Esta seção pedia isso e a
+> marcava como recomendada. Fazer as duas coisas mede em dobro: sessões
+> infladas, engajamento pela metade, e logo na janela de dados limpos de que a
+> decisão de verba depende. O aviso já está em `app/layout.tsx`, num lugar que
+> quem estiver mexendo no GTM não vai ler — por isso está aqui também.
+
+Se um dia a tag do Google entrar no container, tirar a linha do
+`GoogleAnalytics` do `layout.tsx` no mesmo dia.
 
 - [ ] Depois do deploy, confirmar em Tempo Real do GA4 que a propriedade voltou
       a receber sessões.
@@ -130,8 +168,12 @@ Escolher um dos dois caminhos antes de promover:
 
 - [ ] Abrir cada uma das 8 URLs antigas `/speciality/*` e confirmar 308
 - [ ] Confirmar que nenhuma retorna 404
-- [ ] `/sitemap.xml` lista 20 URLs e nenhuma delas é `/whatsapp`
+- [ ] `/sitemap.xml` lista 19 URLs e nenhuma delas é `/whatsapp`
+      (5 fixas + 6 especialidades + 2 unidades + 6 posts; eram 20 com a
+      drenagem linfática, que saiu em 17/08/2026)
 - [ ] `/robots.txt` aponta para o sitemap e desautoriza `/whatsapp`
+- [ ] `/speciality/drenagem-linfatica` cai em `/especialidades` e não em 404 —
+      a página própria deixou de existir e o redirect foi reapontado
 
 ## SEO
 
@@ -149,13 +191,25 @@ Gustavo revisa tudo com Vyvyan e Tainá antes do lançamento. Nenhum texto
 clínico foi reescrito ou suavizado durante o build — o que não vinha das
 fontes da clínica foi cortado, não inventado.
 
-- [ ] Vyvyan e Tainá revisaram todo o texto da landing
-- [ ] Revisaram as 7 páginas de especialidade
-- [ ] Revisaram os 6 posts do blog
+- [x] Vyvyan e Tainá revisaram todo o texto da landing e das especialidades —
+      ciclo de 17/08/2026, 93 linhas aplicadas. Ver `docs/revisao/README.md`
+- [ ] **Revisaram os 6 posts do blog.** O ciclo de revisão *não* cobriu o blog,
+      e `content/blog/` não existe no `master`: publicar é a primeira vez que
+      esses seis textos vão ao ar, indexados, sob o CREFITO das duas. É o maior
+      item aberto desta lista
 - [ ] Confirmaram a citação sobre não atender plano de saúde
-- [ ] Confirmaram "1:1", "100% das aulas com fisioterapeuta" e "8 especialidades"
-- [ ] Resolveram as 5 perguntas abertas listadas abaixo (mnemônico do AVC incluído)
-- [ ] Informaram em que DIAS vale o horário das 7h às 20h (preencher `openingHours` em `content/units.ts`)
+- [ ] Confirmaram as três chamadas do bloco de números da home, que **mudaram**
+      na revisão: hoje são `1 : 1`, `Segurança` e `A domicílio`
+      (`components/sections/Manifesto.tsx`). O "100% das aulas" e as
+      "8 especialidades" não existem mais e não precisam de sign-off
+- [ ] **Confirmaram o atendimento em domicílio.** A clínica confirmou em
+      17/08/2026 que o serviço existe e que o preço não pode ir para o site.
+      Falta a área de cobertura: hoje o "Também em/a domicílio" aparece só nas
+      descrições do Google de quatro áreas, e nenhuma página explica o serviço.
+      A página dedicada ficou para depois
+- [ ] Resolveram as perguntas abertas listadas abaixo (mnemônico do AVC incluído)
+- [x] Informaram os DIAS e horários — Seg a Sex, sem sábado; Consolação até 21h,
+      Pinheiros até 20h. Aplicado em `content/units.ts` em 17/08/2026
 
 ## Perguntas abertas para a clínica
 
@@ -163,42 +217,55 @@ Levantadas durante o build. **Cinco foram respondidas pelo Gustavo em 07/08/2026
 e já estão aplicadas no código** (ver "Respondidas" no fim desta seção). As que
 sobram precisam de resposta da Vyvyan e da Tainá antes de publicar.
 
-1. **Dias da semana do horário de funcionamento.** O horário confirmado é das
-   **7h às 20h**, mas falta saber em que dias. Sábado abre? `units.openingHours`
-   segue `null` até isso ser respondido, e o `unitSchema` omite
-   `openingHoursSpecification` em vez de inventar. Horário errado no schema
-   `LocalBusiness` contradiz o perfil do Google Business, que é pior do que não
-   ter horário nenhum.
+1. ~~**Dias da semana do horário de funcionamento.**~~ **Respondida em
+   17/08/2026.** Seg a Sex, não abre sábado, e o fechamento é por unidade:
+   Consolação (Frei Caneca) às 21h, Pinheiros (Fradique Coutinho) às 20h. Já
+   está em `content/units.ts` e sai no `openingHoursSpecification`. Conferir
+   contra o perfil do Google Business das duas unidades, que é o lugar onde uma
+   divergência aparece para o paciente.
 2. **Toda alegação factual no texto de marketing** (hero, seções da landing,
    pull quote). É rascunho do comp de design, não veio das fontes clínicas, e
-   precisa de sign-off antes de publicar. Inclui a citação sobre não atender
-   plano de saúde, o "1:1", os "100% das aulas com fisioterapeuta" e as "8
-   especialidades".
-3. **Inconsistência na especialidade respiratória.** Foi renomeada para
-   "Fisioterapia Respiratória" (sem qualificador de idade) pela tabela de
-   identidade do plano, mas o texto verbatim de "como funciona" ainda diz "A
-   fisioterapia respiratória PARA ADULTOS". A página fica inconsistente sobre se
-   atende fisioterapia respiratória pediátrica. Não foi resolvido editando o
-   texto clínico verbatim — a clínica decide.
+   precisa de sign-off antes de publicar. A revisão de 17/08/2026 reescreveu boa
+   parte, então o que falta conferir são as chamadas atuais — `1 : 1`,
+   `Segurança`, `A domicílio` — e a citação sobre não atender plano de saúde.
+3. ~~**Inconsistência na especialidade respiratória.**~~ **Respondida em
+   17/08/2026: a clínica não atende crianças.** O "para adultos" do texto
+   verbatim da respiratória estava certo, e o que destoava era a neurofuncional,
+   que anunciava "crianças com atraso no desenvolvimento motor" em `forWhom`.
+   Esse item saiu de `content/specialities.ts` e da fixture congelada. Era a
+   mesma pergunta que a revisão levantou na célula `specialities-08`.
 4. **Mnemônico SAMU do AVC** — ver aviso destacado no topo deste documento.
    Segundo, de menor gravidade: na Cartilha Cardio, "Colesterol alto" está
    listado em "como saber se tenho" (detecção) em vez de nos fatores de risco.
    Também mantido verbatim.
-5. **Alegações não sourced na copy do Pilates.** `PilatesSection.tsx` (copy de
-   marketing da landing) afirma que "quem corrige a sua postura conhece a sua
-   lesão, SABE O QUE A SUA CIRURGIA LIMITOU" e chama o Pilates de "transição
-   natural para quem sai da reabilitação". Nenhuma das duas rastreia até
-   `content/specialities.ts`. As mesmas afirmações foram **cortadas** do FAQ de
-   `/pilates` (respostas de FAQ são tratadas como orientação clínica), mas
-   permanecem na copy de marketing, que é rascunho e já está sob revisão. A
-   alegação sobre cirurgia é uma afirmação operacional sobre como as aulas são
-   conduzidas — Vyvyan e Tainá precisam confirmar que é verdadeira.
+5. **Alegações não sourced na copy do Pilates — metade resolvida.** A afirmação
+   de que quem conduz a aula "sabe o que a sua cirurgia limitou" foi **cortada**
+   e o corte está registrado em `components/sections/PilatesSection.tsx`. Segue
+   aberta a outra: o Pilates como "transição natural para quem sai da
+   reabilitação" (`PilatesSection.tsx`, lista de pontos), que não rastreia até
+   `content/specialities.ts` e é uma afirmação operacional sobre como a clínica
+   encaminha alta — Vyvyan e Tainá precisam confirmar.
 
 **Item adicional relacionado:** as páginas de unidade listam todas as
 especialidades como disponíveis nas **duas** unidades. Se os serviços diferem
 por unidade, `Unit` (em `content/units.ts`) precisa de um campo
 `specialities: string[]`. Nada foi inventado — isto é uma bandeira, não uma
 correção.
+
+### Respondidas em 17/08/2026 — já aplicadas no código
+
+- **A clínica não atende crianças.** O item sobre atraso no desenvolvimento
+  motor saiu do `forWhom` da neurofuncional e da fixture congelada. Resolve
+  também a pergunta 3.
+- **Horários.** Seg a Sex, sem sábado. Consolação até 21h, Pinheiros até 20h.
+- **Atendimento em domicílio existe**, o preço não pode ir para o site, e a
+  página dedicada ficou para depois. Falta a área de cobertura.
+- **Os erros de digitação da revisão foram corrigidos**: `fisiotrapeuta` no
+  cartão do Pilates, `técnias` e `terapeuticos` no FAQ do Pilates, a crase de
+  "À domicílio" no bloco de números da home, e o "em" que faltava em "chegar em
+  melhores condições" na pré e pós-cirúrgica. Mais dois no blog:
+  `desenvolve-se` no post de cardiovasculares e "o DPOC" onde o próprio texto
+  usa "a DPOC" quatro vezes.
 
 ### Respondidas em 07/08/2026 — já aplicadas no código
 

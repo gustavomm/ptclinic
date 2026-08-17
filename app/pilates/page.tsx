@@ -67,7 +67,7 @@ const FAQ = [
   {
     question: "Qual a diferença entre o Pilates e a fisioterapia?",
     answer:
-      "Apesar de também ser uma ferramenta de reabilitação, o pilates é uma atividade física estruturada focada em força, mobilidade e controle. Diferente da fisioterapia, que possui técnias de analgesia, recursos terapeuticos manuais, cinesioterapia e é focada na reabilitação física.",
+      "Apesar de também ser uma ferramenta de reabilitação, o pilates é uma atividade física estruturada focada em força, mobilidade e controle. Diferente da fisioterapia, que possui técnicas de analgesia, recursos terapêuticos manuais, cinesioterapia e é focada na reabilitação física.",
   },
   {
     question: "Como é a primeira aula?",

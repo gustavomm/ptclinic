@@ -74,7 +74,7 @@ export function EspecialidadesGrid({
             <div className="flex flex-1 flex-col gap-2 p-6">
               <h3 className="font-display text-2xl text-surface">Pilates</h3>
               <p className="text-sm font-light leading-relaxed text-surface">
-                Força, mobilidade e respiração. Sempre conduzido por um fisiotrapeuta. Ver a sala →
+                Força, mobilidade e respiração. Sempre conduzido por um fisioterapeuta. Ver a sala →
               </p>
             </div>
           </Link>
