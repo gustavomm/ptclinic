@@ -131,7 +131,7 @@ export default async function SpecialityPage({
 
       <Section tone="ink">
         <SectionSplit title="Onde atendemos" tone="surface">
-          <UnitLinks />
+          <UnitLinks withHomeVisits />
           <WhatsAppLink service={s.slug} from={`/especialidades/${s.slug}`} variant="warm" className="mt-10">
             Agendar avaliação
           </WhatsAppLink>
