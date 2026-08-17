@@ -75,7 +75,7 @@ export default async function PostPage({
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
+        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
           <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
           <span className="mx-2" aria-hidden>/</span>
           <Link href="/blog" className="inline-flex min-h-[44px] items-center hover:text-accent">Conteúdo</Link>
@@ -88,7 +88,7 @@ export default async function PostPage({
         <h1 className="max-w-3xl font-display text-display-lg text-balance text-ink">
           {meta.title}
         </h1>
-        <p className="mt-5 max-w-2xl text-lg font-light leading-relaxed text-muted">
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
           {meta.description}
         </p>
 
@@ -99,11 +99,11 @@ export default async function PostPage({
               <Image src={a!.image} alt={a!.name} width={44} height={44} className="h-11 w-11 rounded-full object-cover object-top" />
               <div>
                 <div className="text-[15px] text-ink">{a!.name}</div>
-                <div className="text-[13px] font-light text-subtle">{a!.crefito}</div>
+                <div className="text-[13px] text-subtle">{a!.crefito}</div>
               </div>
             </div>
           ))}
-          <div className="text-[13px] font-light text-subtle">Revisado em {published}</div>
+          <div className="text-[13px] text-subtle">Revisado em {published}</div>
         </div>
       </Section>
 
@@ -116,7 +116,7 @@ export default async function PostPage({
         </Prose>
 
         <div className="mt-16 border-t border-line pt-10">
-          <p className="mb-6 max-w-2xl text-lg font-light leading-relaxed text-muted">
+          <p className="mb-6 max-w-2xl text-lg leading-relaxed text-muted">
             Se algo aqui descreve o que você está vivendo, conta pra gente. A
             avaliação define o que faz sentido no seu caso.
           </p>

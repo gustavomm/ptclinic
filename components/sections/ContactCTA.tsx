@@ -15,7 +15,7 @@ export function ContactCTA() {
         <h2 className="font-display text-display-lg text-balance text-surface">
           Conta pra gente o que está <em className="italic">te incomodando</em>
         </h2>
-        <p className="mt-6 max-w-lg text-lg font-light leading-relaxed text-surface">
+        <p className="mt-6 max-w-lg text-lg leading-relaxed text-surface">
           Basta contar o que está sentindo. A gente responde qual fisioterapeuta é a mais indicada, qual unidade fica melhor para você e quando você pode começar.
         </p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">

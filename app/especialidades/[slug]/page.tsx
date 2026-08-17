@@ -64,7 +64,7 @@ export default async function SpecialityPage({
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
+        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
           <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-ink">Início</Link>
           <span className="mx-2" aria-hidden>/</span>
           <Link href="/especialidades" className="inline-flex min-h-[44px] items-center hover:text-ink">Áreas de atuação</Link>
@@ -73,7 +73,7 @@ export default async function SpecialityPage({
           <div>
             <Eyebrow>Áreas de atuação</Eyebrow>
             <h1 className="font-display text-display-lg text-balance text-ink">{s.title}</h1>
-            <p className="mt-6 text-lg font-light leading-relaxed text-muted">{s.intro}</p>
+            <p className="mt-6 text-lg leading-relaxed text-muted">{s.intro}</p>
             <WhatsAppLink service={s.slug} from={`/especialidades/${s.slug}`} className="mt-8">
               Agendar avaliação
             </WhatsAppLink>
@@ -92,9 +92,9 @@ export default async function SpecialityPage({
 
       <Section>
         <h2 className="font-display text-display-md text-ink">Para quem funciona</h2>
-        <ul className="mt-8 flex max-w-3xl flex-col gap-4">
+        <ul className="mt-8 flex max-w-xl flex-col gap-4">
           {s.forWhom.map((item) => (
-            <li key={item} className="flex gap-4 text-base font-light leading-relaxed text-muted">
+            <li key={item} className="flex gap-4 text-base leading-relaxed text-muted">
               <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
               {item}
             </li>
@@ -102,7 +102,7 @@ export default async function SpecialityPage({
         </ul>
 
         <h2 className="mt-16 font-display text-display-md text-ink">Como funciona</h2>
-        <p className="mt-6 max-w-3xl text-base font-light leading-relaxed text-muted">
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
           {s.howItWorks}
         </p>
       </Section>
@@ -120,7 +120,7 @@ export default async function SpecialityPage({
               <li key={p!.slug}>
                 <Link
                   href={`/blog/${p!.slug}`}
-                  className="inline-flex min-h-[44px] items-center font-display text-2xl text-ink hover:text-accent"
+                  className="inline-flex min-h-[44px] items-center font-display font-light text-2xl text-ink hover:text-accent"
                 >
                   {p!.title} →
                 </Link>
@@ -135,8 +135,8 @@ export default async function SpecialityPage({
         <div className="mt-8 flex flex-wrap gap-8">
           {units.map((u) => (
             <Link key={u.slug} href={`/unidades/${u.slug}`} className="text-surface/85 hover:text-accent-warm-soft">
-              <span className="font-display text-2xl">{u.shortName}</span>
-              <span className="mt-1 block text-sm font-light">{u.street}</span>
+              <span className="font-display font-light text-2xl">{u.shortName}</span>
+              <span className="mt-1 block text-sm">{u.street}</span>
             </Link>
           ))}
         </div>

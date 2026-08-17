@@ -25,7 +25,7 @@ export function SectionHeading({
         {title}
       </Heading>
       {lead && (
-        <p className={`mt-5 max-w-2xl text-lg font-light leading-relaxed ${leadColor}`}>
+        <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${leadColor}`}>
           {lead}
         </p>
       )}

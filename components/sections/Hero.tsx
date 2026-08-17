@@ -38,7 +38,7 @@ export function Hero() {
         <h1 className="mt-10 font-display text-display-xl text-balance text-surface">
           Cuidar do movimento é <em className="italic">cuidar da vida</em>
         </h1>
-        <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-surface text-pretty">
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-surface text-pretty">
           Aqui toda sessão é conduzida por fisioterapeutas, inclusive as de
           Pilates. Avaliação e atendimento personalizados para as suas demandas
           e alguém acompanhando sua evolução de perto.
