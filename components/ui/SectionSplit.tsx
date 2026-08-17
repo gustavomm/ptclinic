@@ -34,8 +34,15 @@ export function SectionSplit({
 }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[24rem_minmax(0,36rem)] lg:gap-16">
+      {/*
+        text-balance porque nem todo título cabe nos 384px: "Para ler antes da
+        consulta" mede 433px no Cormorant de 44px. Sem ele o navegador enche a
+        primeira linha e joga a última palavra sozinha na segunda — a viúva que
+        fazia o título parecer quebrado. Com ele as duas linhas saem parecidas,
+        e quebrar deixa de incomodar.
+      */}
       <h2
-        className={`font-display text-display-md ${
+        className={`text-balance font-display text-display-md ${
           tone === "surface" ? "text-surface" : "text-ink"
         }`}
       >

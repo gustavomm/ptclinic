@@ -126,15 +126,13 @@ export default async function UnitPage({
           {specialities.map((s) => (
             <li key={s.slug}>
               <Link href={`/especialidades/${s.slug}`} className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
-                {s.cardTitle}
-                <Arrow />
+                <span>{s.cardTitle}<Arrow /></span>
               </Link>
             </li>
           ))}
           <li>
             <Link href="/pilates" className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
-              Pilates
-              <Arrow />
+              <span>Pilates<Arrow /></span>
             </Link>
           </li>
         </ul>

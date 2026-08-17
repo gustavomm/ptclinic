@@ -30,8 +30,7 @@ export function UnidadesSection({
                 {u.district}, {u.city} · {u.state}
               </p>
               <Link href={`/unidades/${u.slug}`} className="inline-flex min-h-[44px] items-center text-[15px] text-accent hover:text-accent-deep">
-                Ver a unidade
-                <Arrow />
+                <span>Ver a unidade<Arrow /></span>
               </Link>
             </div>
           </Reveal>
@@ -60,8 +59,7 @@ export function UnidadesSection({
           href="/fisioterapia-domiciliar"
           className="mt-1 inline-flex min-h-[44px] items-center text-[15px] text-accent hover:text-accent-deep"
         >
-          Ver o atendimento domiciliar
-          <Arrow />
+          <span>Ver o atendimento domiciliar<Arrow /></span>
         </Link>
       </Reveal>
     </Section>

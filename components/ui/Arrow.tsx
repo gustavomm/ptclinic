@@ -5,29 +5,38 @@
   Jost ou em Cormorant. Era esse desencontro que fazia ela parecer grosseira ao
   lado do resto, e nenhum ajuste de tamanho resolveria.
 
-  Em SVG a seta passa a ser desenho e não texto: acompanha a cor por
-  currentColor, o tamanho por em, e a espessura combina com o peso leve do
-  layout — 1px de traço, haste longa, ponta curta.
+  Em SVG a seta passa a ser desenho e não texto: segue a cor por currentColor e
+  o tamanho por em, então cresce junto com o texto que acompanha — de 15px num
+  link de rodapé a 24px num título de área.
 
-  Também tira o último caractere fora de subset do site, o que fecha o assunto
-  aberto em lib/__tests__/fonts.test.ts.
+  Proporção de seta de texto: haste curta e ponta visível. A primeira versão
+  tinha 1.5em de haste e ficava comprida demais ao lado de uma palavra só.
+
+  Alinhada com as minúsculas, e sem número mágico para isso: `vertical-align:
+  middle` é definido como "o meio da caixa na linha de base mais metade da
+  altura-x da fonte", que é exatamente o meio ótico das minúsculas. Como a haste
+  está no meio do viewBox, ela cai ali sozinha — e continua caindo se a fonte ou
+  o tamanho mudarem, porque a altura-x é lida da fonte e não escrita aqui.
+
+  Isso só vale em fluxo inline: flex ignora vertical-align. Por isso os links
+  que são inline-flex embrulham texto e seta num <span>, que vira um item de
+  flex só e por dentro volta a ser fluxo inline.
 */
 export function Arrow({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 24 8"
-      // A largura vem do em para a seta crescer junto com o texto que a
-      // acompanha, que vai de 15px num link de rodapé a 24px num título.
-      className={`ml-[0.45em] inline-block w-[1.5em] flex-none align-baseline ${className}`}
+      viewBox="0 0 12 8"
+      width="0.62em"
+      className={`ml-[0.4em] inline-block flex-none align-middle ${className}`}
       fill="none"
       stroke="currentColor"
-      strokeWidth="1"
+      strokeWidth="1.1"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
       focusable="false"
     >
-      <path d="M0 4h22M18.5 1 22 4l-3.5 3" />
+      <path d="M0 4h10M6.5 1 10 4l-3.5 3" />
     </svg>
   );
 }

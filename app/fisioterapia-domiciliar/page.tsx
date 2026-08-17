@@ -145,8 +145,7 @@ export default function DomiciliarPage() {
                     href={`/especialidades/${s.slug}`}
                     className="inline-flex min-h-[44px] items-center font-display font-light text-2xl text-ink hover:text-accent"
                   >
-                    {s.cardTitle}
-                    <Arrow />
+                    <span>{s.cardTitle}<Arrow /></span>
                   </Link>
                 </li>
               ))}

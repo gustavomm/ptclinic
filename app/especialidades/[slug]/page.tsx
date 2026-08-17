@@ -120,8 +120,7 @@ export default async function SpecialityPage({
                     href={`/blog/${p!.slug}`}
                     className="inline-flex min-h-[44px] items-center font-display font-light text-2xl text-ink hover:text-accent"
                   >
-                    {p!.title}
-                    <Arrow />
+                    <span>{p!.title}<Arrow /></span>
                   </Link>
                 </li>
               ))}
