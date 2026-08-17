@@ -37,6 +37,14 @@ module.exports = {
         "display-md": ["clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem)", { lineHeight: "1.15", fontWeight: "300" }],
         "display-sm": ["clamp(1.375rem, 1.15rem + 1vw, 2rem)", { lineHeight: "1.15", fontWeight: "400" }],
         /*
+          20px no celular, 23px a 1440. O degrau mais baixo da escala display, e
+          o único com peso 400 junto do display-sm: é onde o Cormorant deixa de
+          ser título e passa a ser lido, e as hastes finas dele não sobrevivem a
+          isso no peso 300. Nasceu para as perguntas do FAQ, que são o texto em
+          serifa menor do site.
+        */
+        "display-xs": ["clamp(1.25rem, 1.18rem + 0.29vw, 1.4375rem)", { lineHeight: "1.3", fontWeight: "400" }],
+        /*
           O texto corrido também cresce com a tela. Antes destes três, só os
           display-* tinham clamp: o corpo do texto saía com o mesmo 14/16/18px
           num celular de 390px e num monitor de 1440px, e o que serve a 30cm de

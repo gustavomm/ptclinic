@@ -14,7 +14,7 @@ export function FaqAccordion({
     <Accordion type="single" collapsible className="w-full max-w-2xl">
       {items.map((item, i) => (
         <AccordionItem key={item.question} value={`item-${i}`} className="border-line">
-          <AccordionTrigger className="py-5 text-left font-display font-light text-xl text-ink hover:no-underline">
+          <AccordionTrigger className="py-5 text-left font-display text-display-xs text-ink hover:no-underline">
             {item.question}
           </AccordionTrigger>
           <AccordionContent className="pb-5 text-base font-book leading-relaxed text-muted">
