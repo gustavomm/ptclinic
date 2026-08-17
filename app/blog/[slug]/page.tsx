@@ -88,7 +88,7 @@ export default async function PostPage({
         <h1 className="max-w-3xl font-display text-display-lg text-balance text-ink">
           {meta.title}
         </h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+        <p className="mt-5 max-w-2xl text-lg font-light leading-relaxed text-muted">
           {meta.description}
         </p>
 
@@ -116,7 +116,7 @@ export default async function PostPage({
         </Prose>
 
         <div className="mt-16 border-t border-line pt-10">
-          <p className="mb-6 max-w-2xl text-lg leading-relaxed text-muted">
+          <p className="mb-6 max-w-2xl text-lg font-light leading-relaxed text-muted">
             Se algo aqui descreve o que você está vivendo, conta pra gente. A
             avaliação define o que faz sentido no seu caso.
           </p>

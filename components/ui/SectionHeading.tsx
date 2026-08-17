@@ -17,6 +17,14 @@ export function SectionHeading({
 }) {
   const titleColor = tone === "surface" ? "text-surface" : "text-ink";
   const leadColor = tone === "surface" ? "text-surface/80" : "text-muted";
+  /*
+    Texto claro sobre fundo escuro parece mais fino do que o mesmo texto escuro
+    sobre fundo claro — o fundo "come" a haste da letra. Por isso o lead sobre o
+    ink vai a 400 e o lead sobre o creme fica no 300, que é onde mora a elegância
+    da fonte. Mesma razão pela qual Hero e ContactCTA, ambos sobre escuro, não
+    voltaram ao 300 junto com os outros leads.
+  */
+  const leadWeight = tone === "surface" ? "font-normal" : "font-light";
   const Heading = level;
   return (
     <div className={className}>
@@ -25,7 +33,7 @@ export function SectionHeading({
         {title}
       </Heading>
       {lead && (
-        <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${leadColor}`}>
+        <p className={`mt-5 max-w-2xl text-lg ${leadWeight} leading-relaxed ${leadColor}`}>
           {lead}
         </p>
       )}

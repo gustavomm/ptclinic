@@ -73,7 +73,7 @@ export default async function SpecialityPage({
           <div>
             <Eyebrow>Áreas de atuação</Eyebrow>
             <h1 className="font-display text-display-lg text-balance text-ink">{s.title}</h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">{s.intro}</p>
+            <p className="mt-6 text-lg font-light leading-relaxed text-muted">{s.intro}</p>
             <WhatsAppLink service={s.slug} from={`/especialidades/${s.slug}`} className="mt-8">
               Agendar avaliação
             </WhatsAppLink>

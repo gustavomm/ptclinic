@@ -67,7 +67,7 @@ export default async function UnitPage({
             <h1 className="font-display text-display-lg text-balance text-ink">
               Fisioterapia e Pilates em {u.district}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
+            <p className="mt-6 text-lg font-light leading-relaxed text-muted">
               {u.street}
               <br />
               {u.district}, {u.city} · {u.state}
