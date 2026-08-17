@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Section } from "@/components/ui/Section";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Prose } from "@/components/ui/Prose";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
@@ -53,6 +54,12 @@ export default async function PostPage({
   const authors = meta.authorSlugs.map(getMember).filter(Boolean);
   const published = FORMATTER.format(new Date(`${meta.date}T00:00:00Z`));
 
+  const TRAIL = [
+    { name: "Início", path: "/" },
+    { name: "Conteúdo", path: "/blog" },
+    { name: meta.title, path: `/blog/${meta.slug}` },
+  ];
+
   return (
     <main>
       <JsonLd
@@ -65,22 +72,14 @@ export default async function PostPage({
             image: meta.image,
             authorSlugs: meta.authorSlugs,
           }),
-          breadcrumbSchema([
-            { name: "Início", path: "/" },
-            { name: "Conteúdo", path: "/blog" },
-            { name: meta.title, path: `/blog/${meta.slug}` },
-          ]),
+          breadcrumbSchema(TRAIL),
           ...authors.map((a) => personSchema(a!)),
         ]}
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
-          <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
-          <span className="mx-2" aria-hidden>/</span>
-          <Link href="/blog" className="inline-flex min-h-[44px] items-center hover:text-accent">Conteúdo</Link>
-        </nav>
-        <div className="mb-4 text-[13px] uppercase tracking-eyebrow text-subtle">
+        <Breadcrumb trail={TRAIL} />
+                <div className="mb-4 text-[13px] uppercase tracking-eyebrow text-subtle">
           <Link href={meta.categoryHref} className="inline-flex min-h-[44px] items-center hover:text-accent">{meta.category}</Link>
           {" · "}
           {meta.readingMinutes} min de leitura

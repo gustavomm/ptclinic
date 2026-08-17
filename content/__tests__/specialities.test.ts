@@ -45,6 +45,24 @@ describe("specialities", () => {
     }
   });
 
+  /*
+    A clínica confirmou em 17/08/2026 que todas as seis áreas são atendidas em
+    casa. O site dizia quatro — as outras duas ficaram de fora por descuido, não
+    por decisão, e a descrição é o que o Google mostra para quem procura
+    "fisioterapia domiciliar". Se uma área nova entrar sem a menção, ela nasce
+    com o mesmo descuido.
+
+    A fórmula é uma só de propósito: antes havia "Também em domicílio" em duas
+    áreas e "Também a domicílio" nas outras duas.
+  */
+  it("says every area is available at home, in the same words", () => {
+    for (const s of specialities) {
+      expect(s.summary, `sem menção ao domicílio em "${s.slug}"`).toContain(
+        "Também em domicílio.",
+      );
+    }
+  });
+
   it("looks up by slug", () => {
     expect(getSpeciality("fisioterapia-oncologica")?.cardTitle).toBe("Oncológica");
     expect(getSpeciality("nope")).toBeUndefined();

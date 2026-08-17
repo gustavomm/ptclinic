@@ -4,9 +4,19 @@ import { MobileMenu } from "./MobileMenu";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { clinic } from "@/content/clinic";
 
+/*
+  "Domiciliar" entra depois do Pilates porque os dois são a mesma coisa na
+  estrutura: serviço com página própria que não é área de atuação. Fica antes de
+  "Unidades" de propósito — os dois respondem "onde", e lado a lado dizem em uma
+  linha o que o site demorava a contar: duas unidades e também na sua casa.
+
+  São seis itens agora. Cabe em 1440px com folga e em 1024 apertado; abaixo
+  disso o MobileMenu assume, e lá a lista é vertical.
+*/
 export const NAV_ITEMS = [
   { href: "/especialidades", label: "Áreas de atuação" },
   { href: "/pilates", label: "Pilates" },
+  { href: "/fisioterapia-domiciliar", label: "Domiciliar" },
   { href: "/#quem-somos", label: "Quem somos" },
   { href: "/unidades", label: "Unidades" },
   { href: "/blog", label: "Conteúdo" },

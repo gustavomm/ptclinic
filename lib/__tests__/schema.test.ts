@@ -5,6 +5,7 @@ import {
   breadcrumbSchema,
   faqSchema,
   personSchema,
+  homeVisitSchema,
 } from "../schema";
 import { units } from "@/content/units";
 import { team } from "@/content/team";
@@ -92,5 +93,38 @@ describe("faqSchema", () => {
     const s = faqSchema([{ question: "O que é?", answer: "Isto." }]);
     expect(s["@type"]).toBe("FAQPage");
     expect(s.mainEntity[0].acceptedAnswer.text).toBe("Isto.");
+  });
+});
+
+describe("homeVisitSchema", () => {
+  const s = homeVisitSchema({
+    title: "Fisioterapia domiciliar",
+    description: "Atendimento na casa do paciente.",
+    path: "/fisioterapia-domiciliar",
+  });
+
+  it("is a Service and not a MedicalWebPage", () => {
+    // MedicalWebPage exigiria uma `condition`, e o domiciliar não trata uma
+    // condição: trata todas, em outro lugar. Inventar uma para caber no tipo
+    // seria fabricar conteúdo clínico.
+    expect(s["@type"]).toBe("Service");
+    expect(s).not.toHaveProperty("condition");
+  });
+
+  it("carries the coverage area, which is the whole point of the type", () => {
+    expect(s.areaServed).toMatchObject({
+      "@type": "City",
+      name: "São Paulo",
+      addressRegion: "SP",
+    });
+  });
+
+  it("hangs off the organization instead of redeclaring the clinic", () => {
+    expect(s.provider).toEqual({ "@id": `${clinic.siteUrl}/#organization` });
+  });
+
+  it("never points a crawler at the conversion redirect", () => {
+    // /whatsapp é Disallow no robots e fica fora do sitemap de propósito.
+    expect(JSON.stringify(s)).not.toContain("/whatsapp");
   });
 });

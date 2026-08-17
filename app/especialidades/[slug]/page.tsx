@@ -3,13 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
+import { UnitLinks } from "@/components/ui/UnitLinks";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Arrow } from "@/components/ui/Arrow";
+import { BulletList } from "@/components/ui/BulletList";
+import { SectionSplit } from "@/components/ui/SectionSplit";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
 import { specialities, getSpeciality } from "@/content/specialities";
 import { getPostMeta } from "@/lib/blog";
-import { units } from "@/content/units";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
@@ -44,6 +48,12 @@ export default async function SpecialityPage({
 
   const related = s.relatedPosts.map(getPostMeta).filter(Boolean);
 
+  const TRAIL = [
+    { name: "Início", path: "/" },
+    { name: "Áreas de atuação", path: "/especialidades" },
+    { name: s.title, path: `/especialidades/${s.slug}` },
+  ];
+
   return (
     <main>
       <JsonLd
@@ -55,21 +65,13 @@ export default async function SpecialityPage({
             condition: s.condition,
           }),
           faqSchema(s.faq),
-          breadcrumbSchema([
-            { name: "Início", path: "/" },
-            { name: "Áreas de atuação", path: "/especialidades" },
-            { name: s.title, path: `/especialidades/${s.slug}` },
-          ]),
+          breadcrumbSchema(TRAIL),
         ]}
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
-          <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-ink">Início</Link>
-          <span className="mx-2" aria-hidden>/</span>
-          <Link href="/especialidades" className="inline-flex min-h-[44px] items-center hover:text-ink">Áreas de atuação</Link>
-        </nav>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <Breadcrumb trail={TRAIL} />
+                <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <Eyebrow>Áreas de atuação</Eyebrow>
             <h1 className="font-display text-display-lg text-balance text-ink">{s.title}</h1>
@@ -91,58 +93,49 @@ export default async function SpecialityPage({
       </Section>
 
       <Section>
-        <h2 className="font-display text-display-md text-ink">Para quem funciona</h2>
-        <ul className="mt-8 flex max-w-xl flex-col gap-4">
-          {s.forWhom.map((item) => (
-            <li key={item} className="flex gap-4 text-base font-book leading-relaxed text-muted">
-              <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
-              {item}
-            </li>
-          ))}
-        </ul>
+        <SectionSplit title="Para quem funciona">
+          <BulletList items={s.forWhom} />
+        </SectionSplit>
 
-        <h2 className="mt-16 font-display text-display-md text-ink">Como funciona</h2>
-        <p className="mt-6 max-w-xl text-base font-book leading-relaxed text-muted">
-          {s.howItWorks}
-        </p>
+        <div className="mt-16">
+          <SectionSplit title="Como funciona">
+            <p className="text-base font-book leading-relaxed text-muted">{s.howItWorks}</p>
+          </SectionSplit>
+        </div>
       </Section>
 
       <Section tone="surface-alt">
-        <h2 className="mb-8 font-display text-display-md text-ink">Perguntas frequentes</h2>
-        <FaqAccordion items={s.faq} />
+        <SectionSplit title="Perguntas frequentes">
+          <FaqAccordion items={s.faq} />
+        </SectionSplit>
       </Section>
 
       {related.length > 0 && (
         <Section>
-          <h2 className="mb-8 font-display text-display-md text-ink">Para ler antes da consulta</h2>
-          <ul className="flex flex-col gap-4">
-            {related.map((p) => (
-              <li key={p!.slug}>
-                <Link
-                  href={`/blog/${p!.slug}`}
-                  className="inline-flex min-h-[44px] items-center font-display font-light text-2xl text-ink hover:text-accent"
-                >
-                  {p!.title} →
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <SectionSplit title="Para ler antes da consulta">
+            <ul className="flex flex-col gap-4">
+              {related.map((p) => (
+                <li key={p!.slug}>
+                  <Link
+                    href={`/blog/${p!.slug}`}
+                    className="inline-flex min-h-[44px] items-center font-display font-light text-2xl text-ink hover:text-accent"
+                  >
+                    <span>{p!.title}<Arrow /></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </SectionSplit>
         </Section>
       )}
 
       <Section tone="ink">
-        <h2 className="font-display text-display-md text-surface">Onde atendemos</h2>
-        <div className="mt-8 flex flex-wrap gap-8">
-          {units.map((u) => (
-            <Link key={u.slug} href={`/unidades/${u.slug}`} className="text-surface/85 hover:text-accent-warm-soft">
-              <span className="font-display font-light text-2xl">{u.shortName}</span>
-              <span className="mt-1 block text-sm">{u.street}</span>
-            </Link>
-          ))}
-        </div>
-        <WhatsAppLink service={s.slug} from={`/especialidades/${s.slug}`} variant="warm" className="mt-10">
-          Agendar avaliação
-        </WhatsAppLink>
+        <SectionSplit title="Onde atendemos" tone="surface">
+          <UnitLinks withHomeVisits />
+          <WhatsAppLink service={s.slug} from={`/especialidades/${s.slug}`} variant="warm" className="mt-10">
+            Agendar avaliação
+          </WhatsAppLink>
+        </SectionSplit>
       </Section>
     </main>
   );

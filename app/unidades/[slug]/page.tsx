@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Arrow } from "@/components/ui/Arrow";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
@@ -42,26 +44,24 @@ export default async function UnitPage({
   const u = getUnit(slug);
   if (!u) notFound();
 
+  const TRAIL = [
+    { name: "Início", path: "/" },
+    { name: "Unidades", path: "/unidades" },
+    { name: u.name, path: `/unidades/${u.slug}` },
+  ];
+
   return (
     <main>
       <JsonLd
         data={[
           unitSchema(u),
-          breadcrumbSchema([
-            { name: "Início", path: "/" },
-            { name: "Unidades", path: "/unidades" },
-            { name: u.name, path: `/unidades/${u.slug}` },
-          ]),
+          breadcrumbSchema(TRAIL),
         ]}
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
-          <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
-          <span className="mx-2" aria-hidden>/</span>
-          <Link href="/unidades" className="inline-flex min-h-[44px] items-center hover:text-accent">Unidades</Link>
-        </nav>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <Breadcrumb trail={TRAIL} />
+                <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <Eyebrow>Unidade</Eyebrow>
             <h1 className="font-display text-display-lg text-balance text-ink">
@@ -126,13 +126,13 @@ export default async function UnitPage({
           {specialities.map((s) => (
             <li key={s.slug}>
               <Link href={`/especialidades/${s.slug}`} className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
-                {s.cardTitle} →
+                <span>{s.cardTitle}<Arrow /></span>
               </Link>
             </li>
           ))}
           <li>
             <Link href="/pilates" className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
-              Pilates →
+              <span>Pilates<Arrow /></span>
             </Link>
           </li>
         </ul>

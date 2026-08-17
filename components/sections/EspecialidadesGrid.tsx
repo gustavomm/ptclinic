@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { Arrow } from "@/components/ui/Arrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { specialities } from "@/content/specialities";
@@ -74,7 +75,8 @@ export function EspecialidadesGrid({
             <div className="flex flex-1 flex-col gap-2 p-6">
               <h3 className="font-display font-light text-2xl text-surface">Pilates</h3>
               <p className="text-sm leading-relaxed text-surface">
-                Força, mobilidade e respiração. Sempre conduzido por um fisioterapeuta. Ver a sala →
+                Força, mobilidade e respiração. Sempre conduzido por um fisioterapeuta. Ver a sala
+                <Arrow />
               </p>
             </div>
           </Link>

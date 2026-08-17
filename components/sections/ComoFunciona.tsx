@@ -40,7 +40,7 @@ const STEPS = [
   {
     n: "04",
     title: "Continuidade",
-    text: "A alta não é fim de linha. Seguir no pilates *com quem já conhece sua história clínica* é para manter o que conquistou.",
+    text: "A alta não é fim de linha. Seguir no pilates *com quem já conhece sua história clínica* e para manter o que conquistou.",
   },
 ];
 

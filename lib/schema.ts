@@ -193,3 +193,36 @@ export function articleSchema(post: {
     publisher: { "@id": `${clinic.siteUrl}/#organization` },
   };
 }
+
+/*
+  O domiciliar não é MedicalWebPage como as áreas de atuação nem Physiotherapy
+  como as unidades, e forçá-lo em qualquer um dos dois mentiria: MedicalWebPage
+  pede uma `condition`, e domiciliar não trata uma condição — trata todas, em
+  outro lugar. Physiotherapy pede endereço, horário e geo, e a casa do paciente
+  não tem nada disso.
+
+  Service com `areaServed` é o tipo certo, e `areaServed` é exatamente o campo
+  que carrega a área de cobertura. Hoje ela é a cidade inteira; quando a clínica
+  fechar os bairros, eles entram aqui e no texto da página, nos dois lugares.
+*/
+export function homeVisitSchema(args: { title: string; description: string; path: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${clinic.siteUrl}${args.path}#service`,
+    name: args.title,
+    description: args.description,
+    url: abs(args.path),
+    serviceType: "Fisioterapia domiciliar",
+    provider: { "@id": `${clinic.siteUrl}/#organization` },
+    areaServed: {
+      "@type": "City",
+      name: "São Paulo",
+      addressRegion: "SP",
+      addressCountry: "BR",
+    },
+    // Sem availableChannel apontando para /whatsapp: aquela URL é Disallow no
+    // robots e fica fora do sitemap de propósito, e citá-la aqui convidaria o
+    // rastreador justamente para o redirect que carrega a conversão do Ads.
+  };
+}

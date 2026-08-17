@@ -75,7 +75,7 @@ export const specialities: Speciality[] = [
       // é o que o Google mostra antes de cortar. Nenhuma palavra do conteúdo
       // saiu: só o "em São Paulo -" da abertura, que as outras quatro áreas
       // reescritas na mesma revisão também já não têm.
-      "Fisioterapia oncológica na Consolação e em Pinheiros. Cuidado com linfedema, mobilidade de ombro, fadiga e força durante e depois do tratamento do câncer.",
+      "Fisioterapia oncológica na Consolação e em Pinheiros. Linfedema, mobilidade de ombro, fadiga e força durante e após o tratamento do câncer. Também em domicílio.",
     cardText:
       "Reabilitação durante e depois do tratamento oncológico: mobilidade, linfedema, fadiga e condicionamento.",
     intro:
@@ -118,7 +118,7 @@ export const specialities: Speciality[] = [
     cardTitle: "Ortopédica",
     image: "/ortop.webp",
     summary:
-      "Fisioterapia ortopédica na Consolação e em Pinheiros: dor na coluna, ombro e joelho, reabilitação pós-operatória e lesões esportivas. Atendimento individual.",
+      "Fisioterapia ortopédica na Consolação e em Pinheiros: dor na coluna, ombro e joelho, reabilitação pós-operatória e lesões esportivas. Também em domicílio.",
     cardText:
       "Prevenir, tratar e reabilitar, de uma entorse ao pós-operatório, até você voltar ao que fazia antes.",
     intro:
@@ -158,7 +158,7 @@ export const specialities: Speciality[] = [
     cardTitle: "Gerontologia",
     image: "/geronto.webp",
     summary:
-      "Fisioterapia para idosos na Consolação e em Pinheiros: prevenção de quedas, equilíbrio e recuperação após internação. Também a domicílio.",
+      "Fisioterapia para idosos na Consolação e em Pinheiros: prevenção de quedas, equilíbrio e recuperação após internação. Também em domicílio.",
     cardText:
       "Prevenir quedas, recuperar equilíbrio e força, e devolver autonomia depois de internações e períodos de repouso.",
     intro:
@@ -237,7 +237,7 @@ export const specialities: Speciality[] = [
     cardTitle: "Pré e pós-cirúrgico",
     image: "/cond.webp",
     summary:
-      "Fisioterapia pré e pós-operatória na Consolação e em Pinheiros: preparo antes da cirurgia e recuperação dos movimentos e força depois. Também a domicílio.",
+      "Fisioterapia pré e pós-operatória na Consolação e em Pinheiros: preparo antes da cirurgia e recuperação dos movimentos e força depois. Também em domicílio.",
     cardText:
       "Chegar mais forte à cirurgia e voltar mais rápido à rotina depois: em procedimentos ortopédicos, abdominais e cardíacos.",
     intro:
