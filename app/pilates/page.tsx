@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { UnitLinks } from "@/components/ui/UnitLinks";
+import { SectionSplit } from "@/components/ui/SectionSplit";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { BulletList } from "@/components/ui/BulletList";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -9,7 +11,6 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PhotoGallery, type GalleryPhoto } from "@/components/sections/PhotoGallery";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
-import { units } from "@/content/units";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
@@ -117,7 +118,7 @@ export default function PilatesPage() {
 
       <Section tone="surface-alt">
         <Breadcrumb trail={TRAIL} />
-                <SectionHeading
+        <SectionHeading
           level="h1"
           eyebrow="Pilates"
           title={<>Pilates com <em className="italic">fisioterapeuta</em>, sempre</>}
@@ -132,33 +133,34 @@ export default function PilatesPage() {
 
       <PhotoGallery photos={STUDIO_PHOTOS} heading="O estúdio" tone="surface-alt" />
 
+      {/*
+        Só estas três seções em duas colunas. O PilatesSection e a PhotoGallery
+        entre elas têm layout próprio — a galeria é uma grade de fotos de ponta a
+        ponta — e espremê-las numa coluna de 36rem estragaria as duas.
+      */}
       <Section>
-        <h2 className="font-display text-display-md text-ink">Para quem é o Pilates</h2>
-        <p className="mt-6 max-w-xl text-base font-book leading-relaxed text-muted">
-          O Pilates é uma prática acessível a pessoas de todas as idades e níveis
-          de condicionamento físico. É ideal para quem busca:
-        </p>
-        <BulletList items={BENEFITS} className="mt-8 max-w-xl" />
+        <SectionSplit title="Para quem é o Pilates">
+          <p className="text-base font-book leading-relaxed text-muted">
+            O Pilates é uma prática acessível a pessoas de todas as idades e níveis
+            de condicionamento físico. É ideal para quem busca:
+          </p>
+          <BulletList items={BENEFITS} className="mt-8" />
+        </SectionSplit>
       </Section>
 
       <Section tone="surface-alt">
-        <h2 className="mb-8 font-display text-display-md text-ink">Perguntas frequentes</h2>
-        <FaqAccordion items={FAQ} />
+        <SectionSplit title="Perguntas frequentes">
+          <FaqAccordion items={FAQ} />
+        </SectionSplit>
       </Section>
 
       <Section tone="ink">
-        <h2 className="font-display text-display-md text-surface">Onde praticar</h2>
-        <div className="mt-8 flex flex-wrap gap-8">
-          {units.map((u) => (
-            <Link key={u.slug} href={`/unidades/${u.slug}`} className="text-surface/85 hover:text-accent-warm-soft">
-              <span className="font-display font-light text-2xl">{u.shortName}</span>
-              <span className="mt-1 block text-sm">{u.street}</span>
-            </Link>
-          ))}
-        </div>
-        <WhatsAppLink service="pilates" from="/pilates" variant="warm" className="mt-10">
-          Agendar aula experimental
-        </WhatsAppLink>
+        <SectionSplit title="Onde praticar" tone="surface">
+          <UnitLinks />
+          <WhatsAppLink service="pilates" from="/pilates" variant="warm" className="mt-10">
+            Agendar aula experimental
+          </WhatsAppLink>
+        </SectionSplit>
       </Section>
     </main>
   );

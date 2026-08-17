@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
+import { UnitLinks } from "@/components/ui/UnitLinks";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Arrow } from "@/components/ui/Arrow";
 import { BulletList } from "@/components/ui/BulletList";
@@ -13,7 +14,6 @@ import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
 import { specialities, getSpeciality } from "@/content/specialities";
 import { getPostMeta } from "@/lib/blog";
-import { units } from "@/content/units";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
@@ -131,14 +131,7 @@ export default async function SpecialityPage({
 
       <Section tone="ink">
         <SectionSplit title="Onde atendemos" tone="surface">
-          <div className="flex flex-wrap gap-8">
-            {units.map((u) => (
-              <Link key={u.slug} href={`/unidades/${u.slug}`} className="text-surface/85 hover:text-accent-warm-soft">
-                <span className="font-display font-light text-2xl">{u.shortName}</span>
-                <span className="mt-1 block text-sm">{u.street}</span>
-              </Link>
-            ))}
-          </div>
+          <UnitLinks />
           <WhatsAppLink service={s.slug} from={`/especialidades/${s.slug}`} variant="warm" className="mt-10">
             Agendar avaliação
           </WhatsAppLink>

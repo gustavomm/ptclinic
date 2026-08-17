@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { UnitLinks } from "@/components/ui/UnitLinks";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Arrow } from "@/components/ui/Arrow";
 import { BulletList } from "@/components/ui/BulletList";
@@ -9,7 +10,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
-import { units } from "@/content/units";
 import { specialities } from "@/content/specialities";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, homeVisitSchema } from "@/lib/schema";
@@ -166,18 +166,7 @@ export default function DomiciliarPage() {
             Em domicílio na cidade de São Paulo, e nas duas unidades para quem
             prefere ou consegue se deslocar.
           </p>
-          <div className="mt-8 flex flex-wrap gap-8">
-            {units.map((u) => (
-              <Link
-                key={u.slug}
-                href={`/unidades/${u.slug}`}
-                className="text-surface/85 hover:text-accent-warm-soft"
-              >
-                <span className="font-display font-light text-2xl">{u.shortName}</span>
-                <span className="mt-1 block text-sm">{u.street}</span>
-              </Link>
-            ))}
-          </div>
+          <UnitLinks />
           <WhatsAppLink
             service="domiciliar"
             from="/fisioterapia-domiciliar"
