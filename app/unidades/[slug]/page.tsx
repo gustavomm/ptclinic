@@ -56,7 +56,7 @@ export default async function UnitPage({
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
+        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
           <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
           <span className="mx-2" aria-hidden>/</span>
           <Link href="/unidades" className="inline-flex min-h-[44px] items-center hover:text-accent">Unidades</Link>
@@ -125,13 +125,13 @@ export default async function UnitPage({
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {specialities.map((s) => (
             <li key={s.slug}>
-              <Link href={`/especialidades/${s.slug}`} className="inline-flex min-h-[44px] items-center text-[17px] font-light text-ink hover:text-accent">
+              <Link href={`/especialidades/${s.slug}`} className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
                 {s.cardTitle} →
               </Link>
             </li>
           ))}
           <li>
-            <Link href="/pilates" className="inline-flex min-h-[44px] items-center text-[17px] font-light text-ink hover:text-accent">
+            <Link href="/pilates" className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
               Pilates →
             </Link>
           </li>

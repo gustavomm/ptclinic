@@ -12,7 +12,7 @@ const UNIT_LINK =
 
 export function TopBar() {
   return (
-    <div className="flex w-full items-center justify-center gap-2 bg-ink px-4 py-2 text-center text-[13px] font-light uppercase tracking-[0.16em] text-surface sm:gap-3 sm:px-6 sm:tracking-eyebrow">
+    <div className="flex w-full items-center justify-center gap-2 bg-ink px-4 py-2 text-center text-[13px] uppercase tracking-[0.16em] text-surface sm:gap-3 sm:px-6 sm:tracking-eyebrow">
       {/*
         The descriptive phrase is hidden below `sm`. At 375px the full string is
         ~45 characters at 0.28em tracking — roughly 520px of text in 343px of

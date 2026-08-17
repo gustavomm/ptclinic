@@ -20,7 +20,7 @@ export function PilatesSection() {
           <h2 className="font-display text-display-lg text-balance text-surface">
             Todas as aulas com <em className="italic">fisioterapeutas</em>. Sempre.
           </h2>
-          <p className="mt-6 text-[17px] font-light leading-relaxed text-surface/80">
+          <p className="mt-6 text-[17px] leading-relaxed text-surface/80">
             {/*
               Duas coisas saíram daqui, ambas a pedido do Gustavo:
               "É a diferença que ninguém vê no Instagram e todo mundo sente na
@@ -32,12 +32,12 @@ export function PilatesSection() {
             Quem corrige a sua postura conhece a sua lesão e entende por que
             aquele ombro ainda dói.
           </p>
-          <p className="mt-5 text-[17px] font-light leading-relaxed text-surface/80">
+          <p className="mt-5 text-[17px] leading-relaxed text-surface/80">
             Fortalecimento, alinhamento, mobilidade e consciência corporal. Tudo dosado para demanda de cada aluno de forma individual.
           </p>
           <ul className="mt-8 flex flex-col gap-3 border-t border-surface/20 pt-6">
             {POINTS.map((p) => (
-              <li key={p} className="flex items-baseline gap-3 text-base font-light text-surface/90">
+              <li key={p} className="flex items-baseline gap-3 text-base text-surface/90">
                 <span className="text-accent-warm-soft" aria-hidden>·</span>
                 {p}
               </li>

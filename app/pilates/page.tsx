@@ -112,7 +112,7 @@ export default function PilatesPage() {
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
+        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
           <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
         </nav>
         <SectionHeading
@@ -132,13 +132,13 @@ export default function PilatesPage() {
 
       <Section>
         <h2 className="font-display text-display-md text-ink">Para quem é o Pilates</h2>
-        <p className="mt-6 max-w-3xl text-base font-light leading-relaxed text-muted">
+        <p className="mt-6 max-w-xl text-base font-book leading-relaxed text-muted">
           O Pilates é uma prática acessível a pessoas de todas as idades e níveis
           de condicionamento físico. É ideal para quem busca:
         </p>
-        <ul className="mt-8 flex max-w-3xl flex-col gap-4">
+        <ul className="mt-8 flex max-w-xl flex-col gap-4">
           {BENEFITS.map((b) => (
-            <li key={b} className="flex gap-4 text-base font-light leading-relaxed text-muted">
+            <li key={b} className="flex gap-4 text-base font-book leading-relaxed text-muted">
               <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
               {b}
             </li>
@@ -156,8 +156,8 @@ export default function PilatesPage() {
         <div className="mt-8 flex flex-wrap gap-8">
           {units.map((u) => (
             <Link key={u.slug} href={`/unidades/${u.slug}`} className="text-surface/85 hover:text-accent-warm-soft">
-              <span className="font-display text-2xl">{u.shortName}</span>
-              <span className="mt-1 block text-sm font-light">{u.street}</span>
+              <span className="font-display font-light text-2xl">{u.shortName}</span>
+              <span className="mt-1 block text-sm">{u.street}</span>
             </Link>
           ))}
         </div>

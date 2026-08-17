@@ -22,8 +22,8 @@ export function UnidadesSection({
               <Image src={u.image} alt={u.imageAlt} width={u.imageWidth} height={u.imageHeight} sizes="(max-width: 768px) 100vw, 50vw" className="h-full w-full object-cover" />
             </div>
             <div className="flex flex-col gap-3 p-8">
-              <h3 className="font-display text-3xl text-ink">{u.name}</h3>
-              <p className="text-base font-light leading-relaxed text-muted">
+              <h3 className="font-display font-light text-3xl text-ink">{u.name}</h3>
+              <p className="text-base font-book leading-relaxed text-muted">
                 {u.street}
                 <br />
                 {u.district}, {u.city} · {u.state}

@@ -1,5 +1,26 @@
 # Verificação do redesign — checklist de pré-produção
 
+> **O redesign subiu para produção em 17/08/2026**, no merge `b827739`. O que
+> está marcado abaixo foi conferido contra o site no ar depois do deploy, não
+> contra o preview. Rollback: `git revert -m 1 b827739`, ou Instant Rollback na
+> Vercel — nenhum dos dois desfaz os 308 já cacheados nos navegadores.
+>
+> Medido com `curl` contra produção: as 8 URLs antigas respondem 308 e os
+> destinos devolvem 200; o sitemap traz 19 URLs e nenhuma `/whatsapp`; o
+> `robots.txt` está certo; o apex e o `http` redirecionam para `https://www`;
+> o HTML não traz nenhum config de GA4 direto, só o GTM; e as quatro classes
+> de conversão aparecem na home (whatsapp 7, phone 4, email 2, instagram 2).
+>
+> A conversão foi vista disparando no navegador, com o filtro `11170231245` na
+> aba de rede: `viewthroughconversion` → 302 → `1p-user-list` → 200, saindo da
+> página de origem e terminando em `api.whatsapp.com`. O GTM Preview foi rodado
+> pelo Gustavo depois de publicar o container, com as tags disparando.
+>
+> Os dois acionadores foram publicados no container no mesmo dia: o do WhatsApp
+> passou a ser `Click URL contains /whatsapp` (sem esquema nem host, imune ao
+> `https//` sem dois-pontos que estava no nome e a apex-vs-www), e o do telefone
+> passou de `text-slate-50 w-8 h-8` para `Click Classes contains redirect-phone`.
+
 Rodar contra a URL de preview da Vercel, antes de promover para produção —
 com a exceção da seção "Conversão", que tem um bloco específico para rodar só
 depois do deploy em produção (ver abaixo o motivo). Este documento é o
@@ -55,23 +76,23 @@ O que dá para verificar no preview é só o comportamento funcional do redirect
 
 - [ ] Clicar em "Agendar" no hero, no FAB, no nav, no menu mobile e numa
       página de especialidade → confirmar que cada um navega para `/whatsapp`
-- [ ] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
+- [x] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
 
 ### Verificar em produção, imediatamente após o deploy
 
 Só dá para confirmar a conversão do Ads depois que o domínio de produção
 (`www.vytafisioterapia.com.br`) está servindo o build novo:
 
-- [ ] GTM Preview conectado à URL de produção
+- [x] GTM Preview conectado à URL de produção
 - [ ] Clicar em "Agendar" no hero → confirmar o evento **`gtm.click`** na página
       de origem, com `Click URL` = `https://www.vytafisioterapia.com.br/whatsapp`
-- [ ] Confirmar que a tag `Contato por WhatsApp` (label `ak4xCLuKhcwYEM3nsM4p`) disparou
+- [x] Confirmar que a tag `Contato por WhatsApp` (label `ak4xCLuKhcwYEM3nsM4p`) disparou
 - [ ] Repetir **a partir do FAB**, do nav, do menu mobile e de uma página de
       especialidade. O FAB é o que mais importa: no site antigo ele abria em
       aba nova, então a página de origem continuava viva; agora navega na mesma
       aba, e o beacon precisa sair antes do unload
-- [ ] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
-- [ ] Abrir o site pelo domínio **sem** `www` e confirmar que ele redireciona
+- [x] Confirmar o redirect final para `wa.me/message/FJNBBFEBI6V5O1`
+- [x] Abrir o site pelo domínio **sem** `www` e confirmar que ele redireciona
       para `www`. A regra do GTM casa a string literal com `www.`; se alguma
       campanha ou algum backlink servir o apex, o clique não conta e o Ads
       continua gastando
@@ -135,7 +156,7 @@ carregam `.redirect-phone` (`Footer.tsx`, `ContactCTA.tsx`,
 `app/unidades/[slug]/page.tsx`), que é a mesma classe que o `e2e/gtm-classes.spec.ts`
 já guarda.
 
-- [ ] Trocar o acionador da tag `Google ADS - Contact Phone` de
+- [x] Trocar o acionador da tag `Google ADS - Contact Phone` de
       `elementClasses = text-slate-50 w-8 h-8` para `Click Classes contains
       redirect-phone`, **antes** do deploy
 - [ ] Conferir se `ZopfCK6b_ssYEM3nsM4p` está como ação primária no Ads. Se
@@ -214,13 +235,13 @@ Números de GA4 dessa propriedade desde a data da mudança estão inflados.
 
 ## URLs — bloqueia o lançamento
 
-- [ ] Abrir cada uma das 8 URLs antigas `/speciality/*` e confirmar 308
-- [ ] Confirmar que nenhuma retorna 404
-- [ ] `/sitemap.xml` lista 19 URLs e nenhuma delas é `/whatsapp`
+- [x] Abrir cada uma das 8 URLs antigas `/speciality/*` e confirmar 308
+- [x] Confirmar que nenhuma retorna 404
+- [x] `/sitemap.xml` lista 19 URLs e nenhuma delas é `/whatsapp`
       (5 fixas + 6 especialidades + 2 unidades + 6 posts; eram 20 com a
       drenagem linfática, que saiu em 17/08/2026)
-- [ ] `/robots.txt` aponta para o sitemap e desautoriza `/whatsapp`
-- [ ] `/speciality/drenagem-linfatica` cai em `/especialidades` e não em 404 —
+- [x] `/robots.txt` aponta para o sitemap e desautoriza `/whatsapp`
+- [x] `/speciality/drenagem-linfatica` cai em `/especialidades` e não em 404 —
       a página própria deixou de existir e o redirect foi reapontado
 
 ## SEO

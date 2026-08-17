@@ -25,7 +25,7 @@ export function EspecialidadesGrid({
             */
             title="Sete frentes, uma forma de trabalhar"
           />
-          <p className="max-w-sm text-base font-light leading-relaxed text-muted">
+          <p className="max-w-sm text-base font-book leading-relaxed text-muted">
             Cada caso exige técnica própria, mas todos partem do mesmo lugar: escuta ativa, plano de tratamento individualizado e humanizado. Tratamos pessoas, não diagnósticos.
           </p>
         </div>
@@ -49,8 +49,8 @@ export function EspecialidadesGrid({
                 />
               </div>
               <div className="flex flex-1 flex-col gap-2 p-6">
-                <h3 className="font-display text-2xl">{s.cardTitle}</h3>
-                <p className="text-sm font-light leading-relaxed text-muted">{s.cardText}</p>
+                <h3 className="font-display font-light text-2xl">{s.cardTitle}</h3>
+                <p className="text-sm leading-relaxed text-muted">{s.cardText}</p>
               </div>
             </Link>
           </Reveal>
@@ -72,8 +72,8 @@ export function EspecialidadesGrid({
               />
             </div>
             <div className="flex flex-1 flex-col gap-2 p-6">
-              <h3 className="font-display text-2xl text-surface">Pilates</h3>
-              <p className="text-sm font-light leading-relaxed text-surface">
+              <h3 className="font-display font-light text-2xl text-surface">Pilates</h3>
+              <p className="text-sm leading-relaxed text-surface">
                 Força, mobilidade e respiração. Sempre conduzido por um fisioterapeuta. Ver a sala →
               </p>
             </div>

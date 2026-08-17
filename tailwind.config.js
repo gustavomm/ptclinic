@@ -36,7 +36,28 @@ module.exports = {
         "display-lg": ["clamp(2rem, 1.3rem + 3.2vw, 3.75rem)", { lineHeight: "1.05", fontWeight: "300" }],
         "display-md": ["clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem)", { lineHeight: "1.15", fontWeight: "300" }],
         "display-sm": ["clamp(1.375rem, 1.15rem + 1vw, 2rem)", { lineHeight: "1.15", fontWeight: "400" }],
+        /*
+          O texto corrido também cresce com a tela. Antes destes três, só os
+          display-* tinham clamp: o corpo do texto saía com o mesmo 14/16/18px
+          num celular de 390px e num monitor de 1440px, e o que serve a 30cm de
+          distância fica pequeno a 60cm. Cada clamp vai do tamanho antigo (o
+          mínimo, no celular) a dois pixels acima dele a 1440px.
+
+          Sobrescrevem os tokens do próprio Tailwind, então as ~30 chamadas de
+          text-sm/text-base/text-lg que já existem passam a escalar sem precisar
+          mudar nenhuma delas.
+        */
+        sm: ["clamp(0.875rem, 0.852rem + 0.095vw, 0.9375rem)", { lineHeight: "1.6" }],
+        base: ["clamp(1rem, 0.954rem + 0.19vw, 1.125rem)", { lineHeight: "1.65" }],
+        lg: ["clamp(1.125rem, 1.079rem + 0.19vw, 1.25rem)", { lineHeight: "1.6" }],
       },
+      /*
+        350. "Book" é o nome tipográfico do peso entre o light e o regular, e é
+        onde o texto corrido deste site quer ficar: o 300 sumia na tela, o 400
+        ficou pesado demais para um layout que vive de ar. Só existe porque o
+        Jost passou a ser carregado como fonte variável — ver lib/fonts.ts.
+      */
+      fontWeight: { book: "350" },
       letterSpacing: { eyebrow: "0.28em", brand: "0.32em", hero: "0.46em" },
       maxWidth: { shell: "80rem" },
       keyframes: {

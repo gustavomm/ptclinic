@@ -26,7 +26,7 @@ export function MobileMenu() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="flex min-h-[44px] items-center border-b border-line py-3 font-display text-2xl text-ink"
+              className="flex min-h-[44px] items-center border-b border-line py-3 font-display font-light text-2xl text-ink"
             >
               {item.label}
             </Link>

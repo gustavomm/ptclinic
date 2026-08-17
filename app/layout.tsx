@@ -73,7 +73,14 @@ export default function RootLayout({
       {shouldLoadAnalytics(process.env.VERCEL_ENV) && (
         <GoogleTagManager gtmId="GTM-NNBD3887" />
       )}
-      <body className="bg-surface text-ink font-sans font-light antialiased">
+      {/*
+        O peso padrão daqui era 300. Como peso se herda, todo texto que não
+        dissesse o contrário nascia Jost Light — elegante num título de 48px,
+        fino demais nos 13-16px do texto corrido, que é a maior parte do site.
+        Agora o padrão é 400 e o 300 sobrou só onde é escolha: nos tokens
+        display-* e nos títulos em Cormorant, que o declaram explicitamente.
+      */}
+      <body className="bg-surface text-ink font-sans font-normal antialiased">
         <noscript>
           <style>{`[data-revealed]{opacity:1 !important;transform:none !important;}`}</style>
         </noscript>

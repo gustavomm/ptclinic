@@ -33,10 +33,10 @@ export function BlogTeasers() {
               <div className="mb-3 text-[13px] uppercase tracking-eyebrow text-subtle">
                 {p.category} · {p.readingMinutes} min
               </div>
-              <h3 className="mb-2 font-display text-2xl leading-tight group-hover:text-accent">
+              <h3 className="mb-2 font-display font-light text-2xl leading-tight group-hover:text-accent">
                 {p.title}
               </h3>
-              <p className="text-[15px] font-light leading-relaxed text-muted">{p.description}</p>
+              <p className="text-[15px] leading-relaxed text-muted">{p.description}</p>
             </Link>
           </Reveal>
         ))}

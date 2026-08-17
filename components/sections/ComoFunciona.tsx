@@ -75,10 +75,10 @@ export function ComoFunciona() {
               >
                 {step.n}
               </div>
-              <h3 className={`font-display text-3xl ${last ? "text-surface" : "text-ink"}`}>
+              <h3 className={`font-display font-light text-3xl ${last ? "text-surface" : "text-ink"}`}>
                 {step.title}
               </h3>
-              <p className={`text-[15px] font-light leading-relaxed ${last ? "text-surface/75" : "text-muted"}`}>
+              <p className={`text-[15px] leading-relaxed ${last ? "text-surface/75" : "text-muted"}`}>
                 {withEmphasis(step.text)}
               </p>
             </Reveal>

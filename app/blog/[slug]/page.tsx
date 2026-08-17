@@ -75,7 +75,7 @@ export default async function PostPage({
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
+        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
           <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
           <span className="mx-2" aria-hidden>/</span>
           <Link href="/blog" className="inline-flex min-h-[44px] items-center hover:text-accent">Conteúdo</Link>
@@ -99,11 +99,11 @@ export default async function PostPage({
               <Image src={a!.image} alt={a!.name} width={44} height={44} className="h-11 w-11 rounded-full object-cover object-top" />
               <div>
                 <div className="text-[15px] text-ink">{a!.name}</div>
-                <div className="text-[13px] font-light text-subtle">{a!.crefito}</div>
+                <div className="text-[13px] text-subtle">{a!.crefito}</div>
               </div>
             </div>
           ))}
-          <div className="text-[13px] font-light text-subtle">Revisado em {published}</div>
+          <div className="text-[13px] text-subtle">Revisado em {published}</div>
         </div>
       </Section>
 
