@@ -1,0 +1,3215 @@
+{
+  "commit": "be2876987fa459e88f9f486461d50993d852b294",
+  "entries": {
+    "top-bar-01": {
+      "file": "components/layout/TopBar.tsx",
+      "line": 23,
+      "kind": "jsx",
+      "start": 1075,
+      "end": 1177,
+      "editStart": 1128,
+      "editEnd": 1170,
+      "text": "Duas unidades em São Paulo"
+    },
+    "top-bar-02": {
+      "file": "components/layout/TopBar.tsx",
+      "line": 29,
+      "kind": "jsx",
+      "start": 1329,
+      "end": 1339,
+      "editStart": 1329,
+      "editEnd": 1339,
+      "text": "Consolação"
+    },
+    "top-bar-03": {
+      "file": "components/layout/TopBar.tsx",
+      "line": 33,
+      "kind": "jsx",
+      "start": 1480,
+      "end": 1489,
+      "editStart": 1480,
+      "editEnd": 1489,
+      "text": "Pinheiros"
+    },
+    "nav-01": {
+      "file": "components/layout/Nav.tsx",
+      "line": 8,
+      "kind": "string",
+      "start": 269,
+      "end": 287,
+      "editStart": 269,
+      "editEnd": 287,
+      "text": "Áreas de atuação"
+    },
+    "nav-02": {
+      "file": "components/layout/Nav.tsx",
+      "line": 9,
+      "kind": "string",
+      "start": 320,
+      "end": 329,
+      "editStart": 320,
+      "editEnd": 329,
+      "text": "Pilates"
+    },
+    "nav-03": {
+      "file": "components/layout/Nav.tsx",
+      "line": 10,
+      "kind": "string",
+      "start": 366,
+      "end": 378,
+      "editStart": 366,
+      "editEnd": 378,
+      "text": "Quem somos"
+    },
+    "nav-04": {
+      "file": "components/layout/Nav.tsx",
+      "line": 11,
+      "kind": "string",
+      "start": 412,
+      "end": 422,
+      "editStart": 412,
+      "editEnd": 422,
+      "text": "Unidades"
+    },
+    "nav-05": {
+      "file": "components/layout/Nav.tsx",
+      "line": 12,
+      "kind": "string",
+      "start": 452,
+      "end": 462,
+      "editStart": 452,
+      "editEnd": 462,
+      "text": "Conteúdo"
+    },
+    "nav-06": {
+      "file": "components/layout/Nav.tsx",
+      "line": 37,
+      "kind": "jsx",
+      "start": 1521,
+      "end": 1539,
+      "editStart": 1521,
+      "editEnd": 1539,
+      "text": "Agendar"
+    },
+    "mobile-menu-01": {
+      "file": "components/layout/MobileMenu.tsx",
+      "line": 16,
+      "kind": "string",
+      "start": 470,
+      "end": 482,
+      "editStart": 470,
+      "editEnd": 482,
+      "text": "Abrir menu"
+    },
+    "mobile-menu-02": {
+      "file": "components/layout/MobileMenu.tsx",
+      "line": 22,
+      "kind": "jsx",
+      "start": 790,
+      "end": 794,
+      "editStart": 790,
+      "editEnd": 794,
+      "text": "Menu"
+    },
+    "mobile-menu-03": {
+      "file": "components/layout/MobileMenu.tsx",
+      "line": 35,
+      "kind": "jsx",
+      "start": 1321,
+      "end": 1351,
+      "editStart": 1321,
+      "editEnd": 1351,
+      "text": "Agendar no WhatsApp"
+    },
+    "whats-app-fab-01": {
+      "file": "components/layout/WhatsAppFab.tsx",
+      "line": 33,
+      "kind": "string",
+      "start": 1476,
+      "end": 1495,
+      "editStart": 1476,
+      "editEnd": 1495,
+      "text": "Falar no WhatsApp"
+    },
+    "footer-01": {
+      "file": "components/layout/Footer.tsx",
+      "line": 20,
+      "kind": "jsx",
+      "start": 785,
+      "end": 987,
+      "editStart": 856,
+      "editEnd": 983,
+      "text": "Atendimento particular, individual e baseado em evidências. Emitimos recibo para reembolso."
+    },
+    "footer-02": {
+      "file": "components/layout/Footer.tsx",
+      "line": 27,
+      "kind": "jsx",
+      "start": 1133,
+      "end": 1140,
+      "editStart": 1133,
+      "editEnd": 1140,
+      "text": "Clínica"
+    },
+    "footer-03": {
+      "file": "components/layout/Footer.tsx",
+      "line": 36,
+      "kind": "jsx",
+      "start": 1535,
+      "end": 1543,
+      "editStart": 1535,
+      "editEnd": 1543,
+      "text": "Unidades"
+    },
+    "footer-04": {
+      "file": "components/layout/Footer.tsx",
+      "line": 45,
+      "kind": "jsx",
+      "start": 1938,
+      "end": 1945,
+      "editStart": 1938,
+      "editEnd": 1945,
+      "text": "Contato"
+    },
+    "footer-05": {
+      "file": "components/layout/Footer.tsx",
+      "line": 46,
+      "kind": "jsx",
+      "start": 1962,
+      "end": 2129,
+      "editStart": 2093,
+      "editEnd": 2125,
+      "text": "WhatsApp"
+    },
+    "clinic-01": {
+      "file": "content/clinic.ts",
+      "line": 6,
+      "kind": "string",
+      "start": 115,
+      "end": 144,
+      "editStart": 115,
+      "editEnd": 144,
+      "text": "Vyta Fisioterapia e Pilates"
+    },
+    "clinic-02": {
+      "file": "content/clinic.ts",
+      "line": 8,
+      "kind": "string",
+      "start": 191,
+      "end": 215,
+      "editStart": 191,
+      "editEnd": 215,
+      "text": "Fisioterapia & Pilates"
+    },
+    "layout-01": {
+      "file": "app/layout.tsx",
+      "line": 23,
+      "kind": "string",
+      "start": 946,
+      "end": 1071,
+      "editStart": 946,
+      "editEnd": 1071,
+      "text": "Fisioterapia oncológica, neurofuncional e ortopédica. Pilates em grupo. Duas unidades em São Paulo: Consolação e Pinheiros."
+    },
+    "opengraph-image-01": {
+      "file": "app/opengraph-image.tsx",
+      "line": 24,
+      "kind": "jsx",
+      "start": 736,
+      "end": 740,
+      "editStart": 736,
+      "editEnd": 740,
+      "text": "Vyta"
+    },
+    "opengraph-image-02": {
+      "file": "app/opengraph-image.tsx",
+      "line": 34,
+      "kind": "jsx",
+      "start": 962,
+      "end": 997,
+      "editStart": 962,
+      "editEnd": 997,
+      "text": "Fisioterapia & Pilates"
+    },
+    "opengraph-image-03": {
+      "file": "app/opengraph-image.tsx",
+      "line": 37,
+      "kind": "jsx",
+      "start": 1082,
+      "end": 1125,
+      "editStart": 1082,
+      "editEnd": 1125,
+      "text": "Consolação · Pinheiros · São Paulo"
+    },
+    "logo-01": {
+      "file": "components/layout/Logo.tsx",
+      "line": 11,
+      "kind": "string",
+      "start": 164,
+      "end": 170,
+      "editStart": 164,
+      "editEnd": 170,
+      "text": "Vyta"
+    },
+    "sheet-01": {
+      "file": "components/ui/sheet.tsx",
+      "line": 78,
+      "kind": "string",
+      "start": 2707,
+      "end": 2715,
+      "editStart": 2707,
+      "editEnd": 2715,
+      "text": "Fechar"
+    },
+    "home-01": {
+      "file": "app/page.tsx",
+      "line": 15,
+      "kind": "string",
+      "start": 791,
+      "end": 828,
+      "editStart": 791,
+      "editEnd": 828,
+      "text": "Fisioterapia e Pilates em São Paulo"
+    },
+    "home-02": {
+      "file": "app/page.tsx",
+      "line": 17,
+      "kind": "string",
+      "start": 849,
+      "end": 974,
+      "editStart": 849,
+      "editEnd": 974,
+      "text": "Fisioterapia oncológica, neurofuncional e ortopédica. Pilates em grupo. Duas unidades em São Paulo: Consolação e Pinheiros."
+    },
+    "hero-01": {
+      "file": "components/sections/Hero.tsx",
+      "line": 22,
+      "kind": "string",
+      "start": 1024,
+      "end": 1118,
+      "editStart": 1024,
+      "editEnd": 1118,
+      "text": "Sala de Pilates da Vyta, com parede coral, cadillac, barril e reformer sobre piso de madeira"
+    },
+    "hero-02": {
+      "file": "components/sections/Hero.tsx",
+      "line": 35,
+      "kind": "jsx",
+      "start": 1596,
+      "end": 1728,
+      "editStart": 1675,
+      "editEnd": 1721,
+      "text": "Fisioterapia & Pilates"
+    },
+    "hero-03": {
+      "file": "components/sections/Hero.tsx",
+      "line": 38,
+      "kind": "jsx",
+      "start": 1737,
+      "end": 1903,
+      "editStart": 1814,
+      "editEnd": 1898,
+      "text": "Cuidar do movimento é *cuidar da vida*"
+    },
+    "hero-04": {
+      "file": "components/sections/Hero.tsx",
+      "line": 41,
+      "kind": "jsx",
+      "start": 1912,
+      "end": 2225,
+      "editStart": 2001,
+      "editEnd": 2221,
+      "text": "Aqui toda sessão é conduzida por fisioterapeutas, inclusive as de Pilates. Avaliação e atendimento personalizados para as suas demandas e alguém acompanhando sua evolução de perto."
+    },
+    "hero-05": {
+      "file": "components/sections/Hero.tsx",
+      "line": 47,
+      "kind": "jsx",
+      "start": 2345,
+      "end": 2364,
+      "editStart": 2345,
+      "editEnd": 2364,
+      "text": "Agendar no WhatsApp"
+    },
+    "hero-06": {
+      "file": "components/sections/Hero.tsx",
+      "line": 48,
+      "kind": "jsx",
+      "start": 2438,
+      "end": 2451,
+      "editStart": 2438,
+      "editEnd": 2451,
+      "text": "Como funciona"
+    },
+    "manifesto-01": {
+      "file": "components/sections/Manifesto.tsx",
+      "line": 6,
+      "kind": "string",
+      "start": 101,
+      "end": 215,
+      "editStart": 101,
+      "editEnd": 215,
+      "text": "Atendimento exclusivo, só você e o fisioterapeuta do começo ao fim. Sem sala cheia e específico para sua queixa."
+    },
+    "manifesto-02": {
+      "file": "components/sections/Manifesto.tsx",
+      "line": 9,
+      "kind": "string",
+      "start": 238,
+      "end": 249,
+      "editStart": 238,
+      "editEnd": 249,
+      "text": "Segurança"
+    },
+    "manifesto-03": {
+      "file": "components/sections/Manifesto.tsx",
+      "line": 10,
+      "kind": "string",
+      "start": 261,
+      "end": 394,
+      "editStart": 261,
+      "editEnd": 394,
+      "text": "Toda aula de Pilates é conduzida por fisioterapeutas. Quem entende de lesão orientando cada exercício, cada carga, cada respiração."
+    },
+    "manifesto-04": {
+      "file": "components/sections/Manifesto.tsx",
+      "line": 24,
+      "kind": "string",
+      "start": 1019,
+      "end": 1032,
+      "editStart": 1019,
+      "editEnd": 1032,
+      "text": "A domicílio"
+    },
+    "manifesto-05": {
+      "file": "components/sections/Manifesto.tsx",
+      "line": 25,
+      "kind": "string",
+      "start": 1044,
+      "end": 1167,
+      "editStart": 1044,
+      "editEnd": 1167,
+      "text": "Atendimento de fisioterapia na sua casa, quando ir até a clínica não é uma opção. Conforto com o mesmo cuidado e atenção."
+    },
+    "como-funciona-01": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 27,
+      "kind": "string",
+      "start": 863,
+      "end": 881,
+      "editStart": 863,
+      "editEnd": 881,
+      "text": "Primeiro contato"
+    },
+    "como-funciona-02": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 28,
+      "kind": "string",
+      "start": 893,
+      "end": 1016,
+      "editStart": 893,
+      "editEnd": 1016,
+      "text": "Você conta o que está sentindo pelo WhatsApp. Nós indicamos a fisioterapeuta certa e a unidade compatível com o seu caso."
+    },
+    "como-funciona-03": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 32,
+      "kind": "string",
+      "start": 1051,
+      "end": 1062,
+      "editStart": 1051,
+      "editEnd": 1062,
+      "text": "Avaliação"
+    },
+    "como-funciona-04": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 33,
+      "kind": "string",
+      "start": 1074,
+      "end": 1225,
+      "editStart": 1074,
+      "editEnd": 1225,
+      "text": "Uma sessão inteira para escutar, examinar e testar. O tratamento já começa neste dia, e você sai com um plano definido e *exclusivo para o seu caso*."
+    },
+    "como-funciona-05": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 37,
+      "kind": "string",
+      "start": 1260,
+      "end": 1272,
+      "editStart": 1260,
+      "editEnd": 1272,
+      "text": "Tratamento"
+    },
+    "como-funciona-06": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 38,
+      "kind": "string",
+      "start": 1284,
+      "end": 1430,
+      "editStart": 1284,
+      "editEnd": 1430,
+      "text": "Sessões individuais, sempre com a mesma fisioterapeuta. Reavaliações que acontecem ao longo do processo e ajustes do plano conforme você evolui."
+    },
+    "como-funciona-07": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 42,
+      "kind": "string",
+      "start": 1465,
+      "end": 1479,
+      "editStart": 1465,
+      "editEnd": 1479,
+      "text": "Continuidade"
+    },
+    "como-funciona-08": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 43,
+      "kind": "string",
+      "start": 1491,
+      "end": 1612,
+      "editStart": 1491,
+      "editEnd": 1612,
+      "text": "A alta não é fim de linha. Seguir no pilates *com quem já conhece sua história clínica* é para manter o que conquistou."
+    },
+    "como-funciona-09": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 52,
+      "kind": "string",
+      "start": 1793,
+      "end": 1808,
+      "editStart": 1793,
+      "editEnd": 1808,
+      "text": "Como funciona"
+    },
+    "como-funciona-10": {
+      "file": "components/sections/ComoFunciona.tsx",
+      "line": 54,
+      "kind": "jsx",
+      "start": 1835,
+      "end": 1977,
+      "editStart": 1837,
+      "editEnd": 1974,
+      "text": "Quatro passos entre a primeira mensagem e *voltar a se mover sem medo*"
+    },
+    "especialidades-grid-01": {
+      "file": "components/sections/EspecialidadesGrid.tsx",
+      "line": 19,
+      "kind": "string",
+      "start": 605,
+      "end": 623,
+      "editStart": 605,
+      "editEnd": 623,
+      "text": "Áreas de atuação"
+    },
+    "especialidades-grid-02": {
+      "file": "components/sections/EspecialidadesGrid.tsx",
+      "line": 26,
+      "kind": "string",
+      "start": 995,
+      "end": 1033,
+      "editStart": 995,
+      "editEnd": 1033,
+      "text": "Sete frentes, uma forma de trabalhar"
+    },
+    "especialidades-grid-03": {
+      "file": "components/sections/EspecialidadesGrid.tsx",
+      "line": 28,
+      "kind": "jsx",
+      "start": 1057,
+      "end": 1322,
+      "editStart": 1129,
+      "editEnd": 1318,
+      "text": "Cada caso exige técnica própria, mas todos partem do mesmo lugar: escuta ativa, plano de tratamento individualizado e humanizado. Tratamos pessoas, não diagnósticos."
+    },
+    "especialidades-grid-04": {
+      "file": "components/sections/EspecialidadesGrid.tsx",
+      "line": 67,
+      "kind": "string",
+      "start": 2827,
+      "end": 2979,
+      "editStart": 2827,
+      "editEnd": 2979,
+      "text": "Estúdio de Pilates da Vyta na unidade Consolação, com os aparelhos de pilates sendo eles reformer, cadillac e chair, com parede de fundo na cor coral."
+    },
+    "especialidades-grid-05": {
+      "file": "components/sections/EspecialidadesGrid.tsx",
+      "line": 75,
+      "kind": "jsx",
+      "start": 3406,
+      "end": 3469,
+      "editStart": 3457,
+      "editEnd": 3464,
+      "text": "Pilates"
+    },
+    "especialidades-grid-06": {
+      "file": "components/sections/EspecialidadesGrid.tsx",
+      "line": 76,
+      "kind": "jsx",
+      "start": 3484,
+      "end": 3667,
+      "editStart": 3547,
+      "editEnd": 3663,
+      "text": "Força, mobilidade e respiração. Sempre conduzido por um fisioterapeuta. Ver a sala →"
+    },
+    "pilates-section-01": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 9,
+      "kind": "string",
+      "start": 291,
+      "end": 357,
+      "editStart": 291,
+      "editEnd": 357,
+      "text": "Grupos reduzidos, aparelhos completos, metodologia contemporânea"
+    },
+    "pilates-section-02": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 10,
+      "kind": "string",
+      "start": 361,
+      "end": 445,
+      "editStart": 361,
+      "editEnd": 445,
+      "text": "Avaliação dinâmica a cada aula, adaptando os exercícios às suas necessidades reais"
+    },
+    "pilates-section-03": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 11,
+      "kind": "string",
+      "start": 449,
+      "end": 529,
+      "editStart": 449,
+      "editEnd": 529,
+      "text": "Transição natural para quem sai da reabilitação, mantendo um olhar terapêutico"
+    },
+    "pilates-section-04": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 19,
+      "kind": "jsx",
+      "start": 741,
+      "end": 748,
+      "editStart": 741,
+      "editEnd": 748,
+      "text": "Pilates"
+    },
+    "pilates-section-05": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 20,
+      "kind": "jsx",
+      "start": 769,
+      "end": 940,
+      "editStart": 840,
+      "editEnd": 935,
+      "text": "Todas as aulas com *fisioterapeutas*. Sempre."
+    },
+    "pilates-section-06": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 23,
+      "kind": "jsx",
+      "start": 951,
+      "end": 1608,
+      "editStart": 1026,
+      "editEnd": 1604,
+      "text": "Quem corrige a sua postura conhece a sua lesão e entende por que aquele ombro ainda dói."
+    },
+    "pilates-section-07": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 35,
+      "kind": "jsx",
+      "start": 1619,
+      "end": 1845,
+      "editStart": 1694,
+      "editEnd": 1841,
+      "text": "Fortalecimento, alinhamento, mobilidade e consciência corporal. Tudo dosado para demanda de cada aluno de forma individual."
+    },
+    "pilates-section-08": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 48,
+      "kind": "jsx",
+      "start": 2365,
+      "end": 2403,
+      "editStart": 2365,
+      "editEnd": 2403,
+      "text": "Agendar aula experimental"
+    },
+    "pilates-section-09": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 51,
+      "kind": "jsx",
+      "start": 2604,
+      "end": 2635,
+      "editStart": 2604,
+      "editEnd": 2635,
+      "text": "Conhecer o Pilates"
+    },
+    "pilates-section-10": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 57,
+      "kind": "string",
+      "start": 2805,
+      "end": 2944,
+      "editStart": 2805,
+      "editEnd": 2944,
+      "text": "Corredor do estúdio de Pilates da Vyta em Pinheiros, com fileira de espelhos arqueados iluminados refletindo reformers e outros aparelhos"
+    },
+    "pilates-section-11": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 58,
+      "kind": "string",
+      "start": 3112,
+      "end": 3218,
+      "editStart": 3112,
+      "editEnd": 3218,
+      "text": "Espelhos arqueados iluminados do estúdio de Pilates da Vyta em Pinheiros, refletindo cadillac e reformer"
+    },
+    "pilates-section-12": {
+      "file": "components/sections/PilatesSection.tsx",
+      "line": 59,
+      "kind": "string",
+      "start": 3376,
+      "end": 3499,
+      "editStart": 3376,
+      "editEnd": 3499,
+      "text": "Fileira de aparelhos de Pilates da unidade Consolação da Vyta, com reformer, cadillac e escada sueca junto à parede coral"
+    },
+    "founders-01": {
+      "file": "components/sections/Founders.tsx",
+      "line": 15,
+      "kind": "string",
+      "start": 529,
+      "end": 541,
+      "editStart": 529,
+      "editEnd": 541,
+      "text": "Quem somos"
+    },
+    "founders-02": {
+      "file": "components/sections/Founders.tsx",
+      "line": 16,
+      "kind": "jsx",
+      "start": 557,
+      "end": 662,
+      "editStart": 559,
+      "editEnd": 659,
+      "text": "Duas fisioterapeutas que *atendem* e acompanham do primeiro contato à alta"
+    },
+    "founders-03": {
+      "file": "components/sections/Founders.tsx",
+      "line": 17,
+      "kind": "string",
+      "start": 677,
+      "end": 858,
+      "editStart": 677,
+      "editEnd": 858,
+      "text": "A Vyta nasceu de uma amizade formada na graduação e do mesmo incômodo: reabilitação boa não cabe em trinta minutos. Aqui, quem fundou a clínica é quem senta com você na avaliação."
+    },
+    "pull-quote-01": {
+      "file": "components/sections/PullQuote.tsx",
+      "line": 20,
+      "kind": "jsx",
+      "start": 889,
+      "end": 1189,
+      "editStart": 955,
+      "editEnd": 1185,
+      "text": "“Uma sessão de fisioterapia leva o tempo que precisa levar. Por isso o atendimento é particular: assim conseguimos dedicar *uma hora inteira* a cada paciente.”"
+    },
+    "pull-quote-02": {
+      "file": "components/sections/PullQuote.tsx",
+      "line": 26,
+      "kind": "jsx",
+      "start": 1282,
+      "end": 1322,
+      "editStart": 1282,
+      "editEnd": 1322,
+      "text": "Vyvyan & Tainá · fundadoras"
+    },
+    "blog-teasers-01": {
+      "file": "components/sections/BlogTeasers.tsx",
+      "line": 14,
+      "kind": "string",
+      "start": 516,
+      "end": 526,
+      "editStart": 516,
+      "editEnd": 526,
+      "text": "Conteúdo"
+    },
+    "blog-teasers-02": {
+      "file": "components/sections/BlogTeasers.tsx",
+      "line": 14,
+      "kind": "string",
+      "start": 533,
+      "end": 573,
+      "editStart": 533,
+      "editEnd": 573,
+      "text": "O que a gente escreve entre as sessões"
+    },
+    "blog-teasers-03": {
+      "file": "components/sections/BlogTeasers.tsx",
+      "line": 16,
+      "kind": "jsx",
+      "start": 712,
+      "end": 742,
+      "editStart": 712,
+      "editEnd": 742,
+      "text": "Ver todos os textos →"
+    },
+    "unidades-section-01": {
+      "file": "components/sections/UnidadesSection.tsx",
+      "line": 16,
+      "kind": "string",
+      "start": 505,
+      "end": 515,
+      "editStart": 505,
+      "editEnd": 515,
+      "text": "Unidades"
+    },
+    "unidades-section-02": {
+      "file": "components/sections/UnidadesSection.tsx",
+      "line": 16,
+      "kind": "string",
+      "start": 522,
+      "end": 546,
+      "editStart": 522,
+      "editEnd": 546,
+      "text": "Consolação e Pinheiros"
+    },
+    "unidades-section-03": {
+      "file": "components/sections/UnidadesSection.tsx",
+      "line": 32,
+      "kind": "jsx",
+      "start": 1467,
+      "end": 1497,
+      "editStart": 1467,
+      "editEnd": 1497,
+      "text": "Ver a unidade →"
+    },
+    "contact-cta-01": {
+      "file": "components/sections/ContactCTA.tsx",
+      "line": 10,
+      "kind": "string",
+      "start": 392,
+      "end": 497,
+      "editStart": 392,
+      "editEnd": 497,
+      "text": "Sala de fisioterapia da Vyta em Pinheiros, com maca de atendimento, espaldar e espelho de corpo inteiro"
+    },
+    "contact-cta-02": {
+      "file": "components/sections/ContactCTA.tsx",
+      "line": 15,
+      "kind": "jsx",
+      "start": 857,
+      "end": 1022,
+      "editStart": 928,
+      "editEnd": 1017,
+      "text": "Conta pra gente o que está *te incomodando*"
+    },
+    "contact-cta-03": {
+      "file": "components/sections/ContactCTA.tsx",
+      "line": 18,
+      "kind": "jsx",
+      "start": 1031,
+      "end": 1284,
+      "editStart": 1108,
+      "editEnd": 1280,
+      "text": "Basta contar o que está sentindo. A gente responde qual fisioterapeuta é a mais indicada, qual unidade fica melhor para você e quando você pode começar."
+    },
+    "contact-cta-04": {
+      "file": "components/sections/ContactCTA.tsx",
+      "line": 22,
+      "kind": "jsx",
+      "start": 1407,
+      "end": 1424,
+      "editStart": 1407,
+      "editEnd": 1424,
+      "text": "Falar no WhatsApp"
+    },
+    "team-01": {
+      "file": "content/team.ts",
+      "line": 16,
+      "kind": "string",
+      "start": 350,
+      "end": 373,
+      "editStart": 350,
+      "editEnd": 373,
+      "text": "Vyvyan Maximo Andrade"
+    },
+    "team-02": {
+      "file": "content/team.ts",
+      "line": 17,
+      "kind": "string",
+      "start": 385,
+      "end": 401,
+      "editStart": 385,
+      "editEnd": 401,
+      "text": "Neurofuncional"
+    },
+    "team-03": {
+      "file": "content/team.ts",
+      "line": 18,
+      "kind": "string",
+      "start": 416,
+      "end": 436,
+      "editStart": 416,
+      "editEnd": 436,
+      "text": "Crefito 3: 293919F"
+    },
+    "team-04": {
+      "file": "content/team.ts",
+      "line": 19,
+      "kind": "string",
+      "start": 447,
+      "end": 580,
+      "editStart": 447,
+      "editEnd": 580,
+      "text": "Trabalha com quem precisa reaprender um movimento depois de um AVC, de uma cirurgia de coluna, de um diagnóstico que mudou o passo."
+    },
+    "team-05": {
+      "file": "content/team.ts",
+      "line": 22,
+      "kind": "string",
+      "start": 634,
+      "end": 697,
+      "editStart": 634,
+      "editEnd": 697,
+      "text": "Graduada em Fisioterapia pela Universidade de São Paulo (USP)"
+    },
+    "team-06": {
+      "file": "content/team.ts",
+      "line": 23,
+      "kind": "string",
+      "start": 705,
+      "end": 781,
+      "editStart": 705,
+      "editEnd": 781,
+      "text": "Residência em Neurologia e Neurocirurgia pelo Hospital São Paulo (Unifesp)"
+    },
+    "team-07": {
+      "file": "content/team.ts",
+      "line": 29,
+      "kind": "string",
+      "start": 915,
+      "end": 938,
+      "editStart": 915,
+      "editEnd": 938,
+      "text": "Tainá Horacio Peixoto"
+    },
+    "team-08": {
+      "file": "content/team.ts",
+      "line": 30,
+      "kind": "string",
+      "start": 950,
+      "end": 962,
+      "editStart": 950,
+      "editEnd": 962,
+      "text": "Oncológica"
+    },
+    "team-09": {
+      "file": "content/team.ts",
+      "line": 31,
+      "kind": "string",
+      "start": 977,
+      "end": 997,
+      "editStart": 977,
+      "editEnd": 997,
+      "text": "Crefito 3: 293916F"
+    },
+    "team-10": {
+      "file": "content/team.ts",
+      "line": 32,
+      "kind": "string",
+      "start": 1008,
+      "end": 1148,
+      "editStart": 1008,
+      "editEnd": 1148,
+      "text": "Acompanha pacientes durante e depois do tratamento oncológico, quando o movimento ajuda a reduzir efeitos colaterais e a manter autonomia."
+    },
+    "team-11": {
+      "file": "content/team.ts",
+      "line": 35,
+      "kind": "string",
+      "start": 1201,
+      "end": 1264,
+      "editStart": 1201,
+      "editEnd": 1264,
+      "text": "Graduada em Fisioterapia pela Universidade de São Paulo (USP)"
+    },
+    "team-12": {
+      "file": "content/team.ts",
+      "line": 36,
+      "kind": "string",
+      "start": 1272,
+      "end": 1336,
+      "editStart": 1272,
+      "editEnd": 1336,
+      "text": "Residência em Oncologia pelo Hospital AC Camargo Cancer Center"
+    },
+    "especialidades-01": {
+      "file": "app/especialidades/page.tsx",
+      "line": 10,
+      "kind": "string",
+      "start": 431,
+      "end": 449,
+      "editStart": 431,
+      "editEnd": 449,
+      "text": "Áreas de atuação"
+    },
+    "especialidades-02": {
+      "file": "app/especialidades/page.tsx",
+      "line": 12,
+      "kind": "string",
+      "start": 470,
+      "end": 623,
+      "editStart": 470,
+      "editEnd": 623,
+      "text": "Seis áreas de atuação em fisioterapia e Pilates em São Paulo: neurofuncional, oncológica, ortopédica, gerontologia, respiratória e pré e pós-cirúrgica."
+    },
+    "especialidades-03": {
+      "file": "app/especialidades/page.tsx",
+      "line": 21,
+      "kind": "string",
+      "start": 792,
+      "end": 800,
+      "editStart": 792,
+      "editEnd": 800,
+      "text": "Início"
+    },
+    "especialidades-04": {
+      "file": "app/especialidades/page.tsx",
+      "line": 22,
+      "kind": "string",
+      "start": 833,
+      "end": 851,
+      "editStart": 833,
+      "editEnd": 851,
+      "text": "Áreas de atuação"
+    },
+    "especialidades-05": {
+      "file": "app/especialidades/page.tsx",
+      "line": 28,
+      "kind": "string",
+      "start": 999,
+      "end": 1017,
+      "editStart": 999,
+      "editEnd": 1017,
+      "text": "Áreas de atuação"
+    },
+    "especialidades-06": {
+      "file": "app/especialidades/page.tsx",
+      "line": 29,
+      "kind": "string",
+      "start": 1034,
+      "end": 1050,
+      "editStart": 1034,
+      "editEnd": 1050,
+      "text": "O que tratamos"
+    },
+    "especialidades-07": {
+      "file": "app/especialidades/page.tsx",
+      "line": 30,
+      "kind": "string",
+      "start": 1066,
+      "end": 1197,
+      "editStart": 1066,
+      "editEnd": 1197,
+      "text": "Cada área tem técnica própria, mas todas partem do mesmo lugar: avaliar antes de tratar, e tratar uma pessoa. Não um diagnóstico."
+    },
+    "especialidades-slug-01": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 59,
+      "kind": "string",
+      "start": 1723,
+      "end": 1731,
+      "editStart": 1723,
+      "editEnd": 1731,
+      "text": "Início"
+    },
+    "especialidades-slug-02": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 60,
+      "kind": "string",
+      "start": 1766,
+      "end": 1784,
+      "editStart": 1766,
+      "editEnd": 1784,
+      "text": "Áreas de atuação"
+    },
+    "especialidades-slug-03": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 67,
+      "kind": "string",
+      "start": 1973,
+      "end": 1981,
+      "editStart": 1973,
+      "editEnd": 1981,
+      "text": "Trilha"
+    },
+    "especialidades-slug-04": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 68,
+      "kind": "jsx",
+      "start": 2121,
+      "end": 2127,
+      "editStart": 2121,
+      "editEnd": 2127,
+      "text": "Início"
+    },
+    "especialidades-slug-05": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 70,
+      "kind": "jsx",
+      "start": 2293,
+      "end": 2309,
+      "editStart": 2293,
+      "editEnd": 2309,
+      "text": "Áreas de atuação"
+    },
+    "especialidades-slug-06": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 74,
+      "kind": "jsx",
+      "start": 2435,
+      "end": 2451,
+      "editStart": 2435,
+      "editEnd": 2451,
+      "text": "Áreas de atuação"
+    },
+    "especialidades-slug-07": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 78,
+      "kind": "jsx",
+      "start": 2758,
+      "end": 2788,
+      "editStart": 2758,
+      "editEnd": 2788,
+      "text": "Agendar avaliação"
+    },
+    "especialidades-slug-08": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 94,
+      "kind": "jsx",
+      "start": 3133,
+      "end": 3210,
+      "editStart": 3187,
+      "editEnd": 3205,
+      "text": "Para quem funciona"
+    },
+    "especialidades-slug-09": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 104,
+      "kind": "jsx",
+      "start": 3581,
+      "end": 3659,
+      "editStart": 3641,
+      "editEnd": 3654,
+      "text": "Como funciona"
+    },
+    "especialidades-slug-10": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 111,
+      "kind": "jsx",
+      "start": 3846,
+      "end": 3930,
+      "editStart": 3905,
+      "editEnd": 3925,
+      "text": "Perguntas frequentes"
+    },
+    "especialidades-slug-11": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 117,
+      "kind": "jsx",
+      "start": 4047,
+      "end": 4137,
+      "editStart": 4106,
+      "editEnd": 4132,
+      "text": "Para ler antes da consulta"
+    },
+    "especialidades-slug-12": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 134,
+      "kind": "jsx",
+      "start": 4624,
+      "end": 4701,
+      "editStart": 4682,
+      "editEnd": 4696,
+      "text": "Onde atendemos"
+    },
+    "especialidades-slug-13": {
+      "file": "app/especialidades/[slug]/page.tsx",
+      "line": 144,
+      "kind": "jsx",
+      "start": 5223,
+      "end": 5249,
+      "editStart": 5223,
+      "editEnd": 5249,
+      "text": "Agendar avaliação"
+    },
+    "specialities-01": {
+      "file": "content/specialities.ts",
+      "line": 22,
+      "kind": "string",
+      "start": 529,
+      "end": 558,
+      "editStart": 529,
+      "editEnd": 558,
+      "text": "Fisioterapia Neurofuncional"
+    },
+    "specialities-02": {
+      "file": "content/specialities.ts",
+      "line": 23,
+      "kind": "string",
+      "start": 575,
+      "end": 591,
+      "editStart": 575,
+      "editEnd": 591,
+      "text": "Neurofuncional"
+    },
+    "specialities-03": {
+      "file": "content/specialities.ts",
+      "line": 26,
+      "kind": "string",
+      "start": 638,
+      "end": 792,
+      "editStart": 638,
+      "editEnd": 792,
+      "text": "Fisioterapia neurofuncional na Consolação e em Pinheiros. Reabilitação após AVC, lesão medular, Parkinson e cirurgias neurológicas. Também em domicílio."
+    },
+    "specialities-04": {
+      "file": "content/specialities.ts",
+      "line": 28,
+      "kind": "string",
+      "start": 814,
+      "end": 950,
+      "editStart": 814,
+      "editEnd": 950,
+      "text": "Recuperar marcha, equilíbrio e independência nas atividades do dia a dia, após AVC, lesão medular, Parkinson e cirurgias neurológicas."
+    },
+    "specialities-05": {
+      "file": "content/specialities.ts",
+      "line": 30,
+      "kind": "string",
+      "start": 969,
+      "end": 1146,
+      "editStart": 969,
+      "editEnd": 1146,
+      "text": "Depois de um AVC, uma lesão medular ou com o Parkinson, a rotina muda. Nosso trabalho é devolver movimento, equilíbrio e independência, com objetivos definidos junto com você."
+    },
+    "specialities-06": {
+      "file": "content/specialities.ts",
+      "line": 32,
+      "kind": "string",
+      "start": 1169,
+      "end": 1300,
+      "editStart": 1169,
+      "editEnd": 1300,
+      "text": "Pacientes com lesões neurológicas: após AVC, lesão medular, esclerose múltipla, paralisia cerebral, lesões cerebrais traumáticas."
+    },
+    "specialities-07": {
+      "file": "content/specialities.ts",
+      "line": 33,
+      "kind": "string",
+      "start": 1308,
+      "end": 1390,
+      "editStart": 1308,
+      "editEnd": 1390,
+      "text": "Pacientes com distúrbios de movimento: doença de Parkinson, distonias e ataxias."
+    },
+    "specialities-08": {
+      "file": "content/specialities.ts",
+      "line": 43,
+      "kind": "string",
+      "start": 1868,
+      "end": 1932,
+      "editStart": 1868,
+      "editEnd": 1932,
+      "text": "Pacientes pós operatório: após cirurgias de coluna e cerebral."
+    },
+    "specialities-09": {
+      "file": "content/specialities.ts",
+      "line": 44,
+      "kind": "string",
+      "start": 1940,
+      "end": 2105,
+      "editStart": 1940,
+      "editEnd": 2105,
+      "text": "Adultos e idosos com comprometimento neuromuscular: podem apresentar sintomas como dor ou formigamento nos membros ou na face, fraqueza muscular, fadiga e cãibras."
+    },
+    "specialities-10": {
+      "file": "content/specialities.ts",
+      "line": 47,
+      "kind": "string",
+      "start": 2136,
+      "end": 2390,
+      "editStart": 2136,
+      "editEnd": 2390,
+      "text": "Você começa por uma avaliação detalhada da sua queixa. Definimos juntos onde queremos chegar e montamos um plano com técnicas e exercícios escolhidos especificamente para o seu caso. Ao longo do tratamento, reavaliamos e ajustamos conforme você evolui."
+    },
+    "specialities-11": {
+      "file": "content/specialities.ts",
+      "line": 50,
+      "kind": "string",
+      "start": 2429,
+      "end": 2479,
+      "editStart": 2429,
+      "editEnd": 2479,
+      "text": "Quanto tempo dura a reabilitação neurofuncional?"
+    },
+    "specialities-12": {
+      "file": "content/specialities.ts",
+      "line": 52,
+      "kind": "string",
+      "start": 2507,
+      "end": 2745,
+      "editStart": 2507,
+      "editEnd": 2745,
+      "text": "Depende do quadro e do objetivo definido na avaliação inicial. Cada caso tem um ritmo, e por isso reavaliamos ao longo do tratamento e ajustamos o plano conforme a evolução. Na primeira sessão conversamos sobre o que é realista esperar."
+    },
+    "specialities-13": {
+      "file": "content/specialities.ts",
+      "line": 55,
+      "kind": "string",
+      "start": 2782,
+      "end": 2827,
+      "editStart": 2782,
+      "editEnd": 2827,
+      "text": "Quais condições neurológicas são atendidas?"
+    },
+    "specialities-14": {
+      "file": "content/specialities.ts",
+      "line": 57,
+      "kind": "string",
+      "start": 2855,
+      "end": 3002,
+      "editStart": 2855,
+      "editEnd": 3002,
+      "text": "AVC, lesão medular, esclerose múltipla, paralisia cerebral, lesões cerebrais traumáticas, doença de Parkinson, distonias e ataxias, entre outras."
+    },
+    "specialities-15": {
+      "file": "content/specialities.ts",
+      "line": 60,
+      "kind": "string",
+      "start": 3039,
+      "end": 3068,
+      "editStart": 3039,
+      "editEnd": 3068,
+      "text": "As sessões são individuais?"
+    },
+    "specialities-16": {
+      "file": "content/specialities.ts",
+      "line": 62,
+      "kind": "string",
+      "start": 3096,
+      "end": 3232,
+      "editStart": 3096,
+      "editEnd": 3232,
+      "text": "Sim. Todo atendimento é individual, do começo ao fim, sempre com a mesma fisioterapeuta. Você não divide o horário com outro paciente."
+    },
+    "specialities-17": {
+      "file": "content/specialities.ts",
+      "line": 65,
+      "kind": "string",
+      "start": 3265,
+      "end": 3290,
+      "editStart": 3265,
+      "editEnd": 3290,
+      "text": "Distúrbios neurológicos"
+    },
+    "specialities-18": {
+      "file": "content/specialities.ts",
+      "line": 70,
+      "kind": "string",
+      "start": 3394,
+      "end": 3419,
+      "editStart": 3394,
+      "editEnd": 3419,
+      "text": "Fisioterapia Oncológica"
+    },
+    "specialities-19": {
+      "file": "content/specialities.ts",
+      "line": 71,
+      "kind": "string",
+      "start": 3436,
+      "end": 3448,
+      "editStart": 3436,
+      "editEnd": 3448,
+      "text": "Oncológica"
+    },
+    "specialities-20": {
+      "file": "content/specialities.ts",
+      "line": 78,
+      "kind": "string",
+      "start": 3785,
+      "end": 3941,
+      "editStart": 3785,
+      "editEnd": 3941,
+      "text": "Fisioterapia oncológica na Consolação e em Pinheiros. Cuidado com linfedema, mobilidade de ombro, fadiga e força durante e depois do tratamento do câncer."
+    },
+    "specialities-21": {
+      "file": "content/specialities.ts",
+      "line": 80,
+      "kind": "string",
+      "start": 3963,
+      "end": 4069,
+      "editStart": 3963,
+      "editEnd": 4069,
+      "text": "Reabilitação durante e depois do tratamento oncológico: mobilidade, linfedema, fadiga e condicionamento."
+    },
+    "specialities-22": {
+      "file": "content/specialities.ts",
+      "line": 82,
+      "kind": "string",
+      "start": 4088,
+      "end": 4328,
+      "editStart": 4088,
+      "editEnd": 4328,
+      "text": "Acompanhamos pacientes em todas as fases do tratamento oncológico. Antes, para preparar o corpo. Durante, para manejo dos efeitos colaterais do tratamento como fadiga, dor e linfedema. Depois, para recuperar mobilidade, força e autonomia."
+    },
+    "specialities-23": {
+      "file": "content/specialities.ts",
+      "line": 84,
+      "kind": "string",
+      "start": 4351,
+      "end": 4625,
+      "editStart": 4351,
+      "editEnd": 4625,
+      "text": "Pacientes em tratamento de câncer: que estão passando por quimioterapia, radioterapia, cirurgia ou terapia-alvo. Esses tratamentos podem causar efeitos colaterais que afetam a função física, como fadiga, fraqueza muscular, dor, rigidez articular e problemas de equilíbrio."
+    },
+    "specialities-24": {
+      "file": "content/specialities.ts",
+      "line": 85,
+      "kind": "string",
+      "start": 4633,
+      "end": 4730,
+      "editStart": 4633,
+      "editEnd": 4730,
+      "text": "Pacientes com linfedema: linfedema em perna ou braço, após tratamentos ginecológicos e de mama."
+    },
+    "specialities-25": {
+      "file": "content/specialities.ts",
+      "line": 86,
+      "kind": "string",
+      "start": 4738,
+      "end": 4913,
+      "editStart": 4738,
+      "editEnd": 4913,
+      "text": "Pacientes em recuperação pós-cirúrgica: O procedimento cirúrgico pode resultar em restrições de movimento, retração cicatricial, perda de força muscular e aumento da fadiga."
+    },
+    "specialities-26": {
+      "file": "content/specialities.ts",
+      "line": 87,
+      "kind": "string",
+      "start": 4921,
+      "end": 5042,
+      "editStart": 4921,
+      "editEnd": 5042,
+      "text": "Pacientes com dor crônica relacionada ao câncer: devido à progressão da doença ou aos efeitos colaterais do tratamento."
+    },
+    "specialities-27": {
+      "file": "content/specialities.ts",
+      "line": 88,
+      "kind": "string",
+      "start": 5050,
+      "end": 5212,
+      "editStart": 5050,
+      "editEnd": 5212,
+      "text": "Pacientes pós tratamento oncológico: que podem passar por fadiga persistente, fraqueza muscular, dificuldades de equilíbrio e alterações na composição corporal."
+    },
+    "specialities-28": {
+      "file": "content/specialities.ts",
+      "line": 91,
+      "kind": "string",
+      "start": 5243,
+      "end": 5563,
+      "editStart": 5243,
+      "editEnd": 5563,
+      "text": "Começamos por uma avaliação que considera a fase do tratamento, os procedimentos já realizados e os sintomas presentes. O plano é individualizado e reavaliado ao longo do percurso, porque a conduta muda conforme o tratamento avança, o que funciona durante a quimioterapia não é o mesmo que funciona depois da cirurgia."
+    },
+    "specialities-29": {
+      "file": "content/specialities.ts",
+      "line": 94,
+      "kind": "string",
+      "start": 5602,
+      "end": 5685,
+      "editStart": 5602,
+      "editEnd": 5685,
+      "text": "A fisioterapia oncológica pode ser feita durante a quimioterapia ou radioterapia?"
+    },
+    "specialities-30": {
+      "file": "content/specialities.ts",
+      "line": 96,
+      "kind": "string",
+      "start": 5713,
+      "end": 6054,
+      "editStart": 5713,
+      "editEnd": 6054,
+      "text": "Sim, e é recomendável que seja feito nessa fase. A fisioterapia oncológica atende pacientes em todas as fases do tratamento contra o câncer, incluindo quimioterapia, radioterapia, cirurgia ou terapia-alvo, com foco na prevenção e alívio de efeitos colaterais como fadiga, fraqueza muscular, dor, rigidez articular e questões de equilíbrio."
+    },
+    "specialities-31": {
+      "file": "content/specialities.ts",
+      "line": 99,
+      "kind": "string",
+      "start": 6091,
+      "end": 6135,
+      "editStart": 6091,
+      "editEnd": 6135,
+      "text": "A fisioterapia oncológica trata linfedema?"
+    },
+    "specialities-32": {
+      "file": "content/specialities.ts",
+      "line": 101,
+      "kind": "string",
+      "start": 6163,
+      "end": 6360,
+      "editStart": 6163,
+      "editEnd": 6360,
+      "text": "Sim. Atendemos linfedema de braço e de perna após tratamentos de mama e ginecológicos, com drenagem, exercícios e orientação de cuidados para o dia a dia. Quanto antes começar, melhor o controle."
+    },
+    "specialities-33": {
+      "file": "content/specialities.ts",
+      "line": 104,
+      "kind": "string",
+      "start": 6397,
+      "end": 6419,
+      "editStart": 6397,
+      "editEnd": 6419,
+      "text": "Como são as sessões?"
+    },
+    "specialities-34": {
+      "file": "content/specialities.ts",
+      "line": 106,
+      "kind": "string",
+      "start": 6447,
+      "end": 6641,
+      "editStart": 6447,
+      "editEnd": 6641,
+      "text": "Individuais e conduzidas pela mesma fisioterapeuta do início ao fim. Cada sessão é ajustada ao seu momento no tratamento, respeitando fadiga, contagem sanguínea e como você chegou naquele dia."
+    },
+    "specialities-35": {
+      "file": "content/specialities.ts",
+      "line": 109,
+      "kind": "string",
+      "start": 6674,
+      "end": 6682,
+      "editStart": 6674,
+      "editEnd": 6682,
+      "text": "Câncer"
+    },
+    "specialities-36": {
+      "file": "content/specialities.ts",
+      "line": 117,
+      "kind": "string",
+      "start": 6861,
+      "end": 6886,
+      "editStart": 6861,
+      "editEnd": 6886,
+      "text": "Fisioterapia Ortopédica"
+    },
+    "specialities-37": {
+      "file": "content/specialities.ts",
+      "line": 118,
+      "kind": "string",
+      "start": 6903,
+      "end": 6915,
+      "editStart": 6903,
+      "editEnd": 6915,
+      "text": "Ortopédica"
+    },
+    "specialities-38": {
+      "file": "content/specialities.ts",
+      "line": 121,
+      "kind": "string",
+      "start": 6962,
+      "end": 7121,
+      "editStart": 6962,
+      "editEnd": 7121,
+      "text": "Fisioterapia ortopédica na Consolação e em Pinheiros: dor na coluna, ombro e joelho, reabilitação pós-operatória e lesões esportivas. Atendimento individual."
+    },
+    "specialities-39": {
+      "file": "content/specialities.ts",
+      "line": 123,
+      "kind": "string",
+      "start": 7143,
+      "end": 7245,
+      "editStart": 7143,
+      "editEnd": 7245,
+      "text": "Prevenir, tratar e reabilitar, de uma entorse ao pós-operatório, até você voltar ao que fazia antes."
+    },
+    "specialities-40": {
+      "file": "content/specialities.ts",
+      "line": 125,
+      "kind": "string",
+      "start": 7264,
+      "end": 7439,
+      "editStart": 7264,
+      "editEnd": 7439,
+      "text": "De uma entorse a uma prótese de joelho. Tratamos dor, lesão e limitação de movimento em músculos, ossos, tendões e articulações, na fase aguda ou na recuperação de cirurgia."
+    },
+    "specialities-41": {
+      "file": "content/specialities.ts",
+      "line": 127,
+      "kind": "string",
+      "start": 7462,
+      "end": 7594,
+      "editStart": 7462,
+      "editEnd": 7594,
+      "text": "Pacientes com lesões musculoesqueléticas: como entorses, distensões musculares, tendinites, fraturas ósseas e lesões ligamentares."
+    },
+    "specialities-42": {
+      "file": "content/specialities.ts",
+      "line": 128,
+      "kind": "string",
+      "start": 7602,
+      "end": 7716,
+      "editStart": 7602,
+      "editEnd": 7716,
+      "text": "Pessoas com dor crônica ou aguda nas articulações: como artrite/osteoartrite, bursite, epicondilite e tendinite."
+    },
+    "specialities-43": {
+      "file": "content/specialities.ts",
+      "line": 129,
+      "kind": "string",
+      "start": 7724,
+      "end": 7908,
+      "editStart": 7724,
+      "editEnd": 7908,
+      "text": "Pacientes em processo de reabilitação pós-cirúrgica: cirurgias ortopédicas como a substituição total do joelho ou do quadril, reparo de ligamentos ou tendões, ou fixação de fraturas."
+    },
+    "specialities-44": {
+      "file": "content/specialities.ts",
+      "line": 130,
+      "kind": "string",
+      "start": 7916,
+      "end": 8021,
+      "editStart": 7916,
+      "editEnd": 8021,
+      "text": "Atletas com lesões esportivas: como entorses, contusões, distensões musculares e lesões nos ligamentos."
+    },
+    "specialities-45": {
+      "file": "content/specialities.ts",
+      "line": 131,
+      "kind": "string",
+      "start": 8029,
+      "end": 8174,
+      "editStart": 8029,
+      "editEnd": 8174,
+      "text": "Indivíduos com desordens posturais: como cifose, lordose ou escoliose. Podem apresentar dores nas costas, restrições de movimento e má postura."
+    },
+    "specialities-46": {
+      "file": "content/specialities.ts",
+      "line": 134,
+      "kind": "string",
+      "start": 8205,
+      "end": 8459,
+      "editStart": 8205,
+      "editEnd": 8459,
+      "text": "Primeiro, uma avaliação que testa movimento, força e função para entender de onde vem a dor. Depois, um plano com técnicas manuais e exercícios progressivos, ajustado conforme você evolui. O foco é na recuperação e na prevenção de futuras complicações."
+    },
+    "specialities-47": {
+      "file": "content/specialities.ts",
+      "line": 137,
+      "kind": "string",
+      "start": 8498,
+      "end": 8545,
+      "editStart": 8498,
+      "editEnd": 8545,
+      "text": "Quais lesões a fisioterapia ortopédica trata?"
+    },
+    "specialities-48": {
+      "file": "content/specialities.ts",
+      "line": 139,
+      "kind": "string",
+      "start": 8573,
+      "end": 8754,
+      "editStart": 8573,
+      "editEnd": 8754,
+      "text": "Entorses, distensões musculares, tendinites, fraturas ósseas e lesões ligamentares, além de dor crônica ou aguda em articulações como artrite/osteoartrite, bursite e epicondilite."
+    },
+    "specialities-49": {
+      "file": "content/specialities.ts",
+      "line": 142,
+      "kind": "string",
+      "start": 8791,
+      "end": 8838,
+      "editStart": 8791,
+      "editEnd": 8838,
+      "text": "Atende reabilitação após cirurgia ortopédica?"
+    },
+    "specialities-50": {
+      "file": "content/specialities.ts",
+      "line": 144,
+      "kind": "string",
+      "start": 8866,
+      "end": 9085,
+      "editStart": 8866,
+      "editEnd": 9085,
+      "text": "Sim, inclusive após cirurgias como prótese de joelho ou quadril, reparo de ligamentos ou tendões e fixação de fraturas. Também atendemos no pré-operatório: chegar mais forte à cirurgia costuma facilitar a recuperação."
+    },
+    "specialities-51": {
+      "file": "content/specialities.ts",
+      "line": 147,
+      "kind": "string",
+      "start": 9122,
+      "end": 9161,
+      "editStart": 9122,
+      "editEnd": 9161,
+      "text": "Atende atletas com lesões esportivas?"
+    },
+    "specialities-52": {
+      "file": "content/specialities.ts",
+      "line": 149,
+      "kind": "string",
+      "start": 9189,
+      "end": 9385,
+      "editStart": 9189,
+      "editEnd": 9385,
+      "text": "Sim. Entorses, contusões, distensões e lesões ligamentares, do atleta de competição a quem corre no fim de semana ou treina na academia. O tratamento acompanha até o retorno seguro à modalidade."
+    },
+    "specialities-53": {
+      "file": "content/specialities.ts",
+      "line": 152,
+      "kind": "string",
+      "start": 9418,
+      "end": 9446,
+      "editStart": 9418,
+      "editEnd": 9446,
+      "text": "Lesões musculoesqueléticas"
+    },
+    "specialities-54": {
+      "file": "content/specialities.ts",
+      "line": 157,
+      "kind": "string",
+      "start": 9528,
+      "end": 9558,
+      "editStart": 9528,
+      "editEnd": 9558,
+      "text": "Fisioterapia em Gerontologia"
+    },
+    "specialities-55": {
+      "file": "content/specialities.ts",
+      "line": 158,
+      "kind": "string",
+      "start": 9575,
+      "end": 9589,
+      "editStart": 9575,
+      "editEnd": 9589,
+      "text": "Gerontologia"
+    },
+    "specialities-56": {
+      "file": "content/specialities.ts",
+      "line": 161,
+      "kind": "string",
+      "start": 9638,
+      "end": 9777,
+      "editStart": 9638,
+      "editEnd": 9777,
+      "text": "Fisioterapia para idosos na Consolação e em Pinheiros: prevenção de quedas, equilíbrio e recuperação após internação. Também a domicílio."
+    },
+    "specialities-57": {
+      "file": "content/specialities.ts",
+      "line": 163,
+      "kind": "string",
+      "start": 9799,
+      "end": 9913,
+      "editStart": 9799,
+      "editEnd": 9913,
+      "text": "Prevenir quedas, recuperar equilíbrio e força, e devolver autonomia depois de internações e períodos de repouso."
+    },
+    "specialities-58": {
+      "file": "content/specialities.ts",
+      "line": 165,
+      "kind": "string",
+      "start": 9932,
+      "end": 10098,
+      "editStart": 9932,
+      "editEnd": 10098,
+      "text": "A fisioterapia em gerontologia cuida da saúde, independência e qualidade de vida da pessoa idosa, com trabalho de equilíbrio, força muscular e mobilidade articular."
+    },
+    "specialities-59": {
+      "file": "content/specialities.ts",
+      "line": 167,
+      "kind": "string",
+      "start": 10121,
+      "end": 10169,
+      "editStart": 10121,
+      "editEnd": 10169,
+      "text": "Idosos com histórico de desequilíbrio e queda."
+    },
+    "specialities-60": {
+      "file": "content/specialities.ts",
+      "line": 168,
+      "kind": "string",
+      "start": 10177,
+      "end": 10306,
+      "editStart": 10177,
+      "editEnd": 10306,
+      "text": "Pacientes com doenças crônicas relacionadas à idade: como osteoartrite, osteoporose, doenças cardíacas e doenças respiratórias."
+    },
+    "specialities-61": {
+      "file": "content/specialities.ts",
+      "line": 169,
+      "kind": "string",
+      "start": 10314,
+      "end": 10515,
+      "editStart": 10314,
+      "editEnd": 10515,
+      "text": "Idosos em processo de reabilitação pós-hospitalar: esses pacientes podem apresentar fraqueza muscular, perda de mobilidade e limitações funcionais devido a doenças agudas ou procedimentos cirúrgicos."
+    },
+    "specialities-62": {
+      "file": "content/specialities.ts",
+      "line": 170,
+      "kind": "string",
+      "start": 10523,
+      "end": 10580,
+      "editStart": 10523,
+      "editEnd": 10580,
+      "text": "Pessoas com demência, doença de Alzheimer ou Parkinson."
+    },
+    "specialities-63": {
+      "file": "content/specialities.ts",
+      "line": 171,
+      "kind": "string",
+      "start": 10588,
+      "end": 10714,
+      "editStart": 10588,
+      "editEnd": 10714,
+      "text": "Idosos que desejam manter um estilo de vida ativo e saudável: prevenindo futuras complicações secundárias ao envelhecimento."
+    },
+    "specialities-64": {
+      "file": "content/specialities.ts",
+      "line": 174,
+      "kind": "string",
+      "start": 10745,
+      "end": 11110,
+      "editStart": 10745,
+      "editEnd": 11110,
+      "text": "A fisioterapia em gerontologia é voltada para o atendimento de idosos, visando promover a saúde, independência e qualidade de vida nessa fase da vida. Por meio de exercícios específicos, treinamento de equilíbrio, fortalecimento muscular e mobilidade articular, busca-se prevenir quedas, melhorar a funcionalidade, reduzir dores e promover o envelhecimento ativo."
+    },
+    "specialities-65": {
+      "file": "content/specialities.ts",
+      "line": 177,
+      "kind": "string",
+      "start": 11149,
+      "end": 11206,
+      "editStart": 11149,
+      "editEnd": 11206,
+      "text": "A fisioterapia em gerontologia ajuda a prevenir quedas?"
+    },
+    "specialities-66": {
+      "file": "content/specialities.ts",
+      "line": 179,
+      "kind": "string",
+      "start": 11234,
+      "end": 11451,
+      "editStart": 11234,
+      "editEnd": 11451,
+      "text": "Sim, e é uma das intervenções mais bem estabelecidas na área. Avaliamos o risco de queda, treinamos equilíbrio e força, e orientamos as adaptações necessárias em casa como tapete, iluminação, apoio no banheiro, etc."
+    },
+    "specialities-67": {
+      "file": "content/specialities.ts",
+      "line": 182,
+      "kind": "string",
+      "start": 11488,
+      "end": 11531,
+      "editStart": 11488,
+      "editEnd": 11531,
+      "text": "Atende idosos com Parkinson ou Alzheimer?"
+    },
+    "specialities-68": {
+      "file": "content/specialities.ts",
+      "line": 183,
+      "kind": "string",
+      "start": 11549,
+      "end": 11807,
+      "editStart": 11549,
+      "editEnd": 11807,
+      "text": "Sim. Atendemos Parkinson, Alzheimer e outras demências. Nessas condições a fisioterapia trabalha manutenção: preservar marcha, equilíbrio e independência pelo maior tempo possível, e reduzir o risco de queda, que é o que costuma acelerar a perda de função."
+    },
+    "specialities-69": {
+      "file": "content/specialities.ts",
+      "line": 186,
+      "kind": "string",
+      "start": 11844,
+      "end": 11897,
+      "editStart": 11844,
+      "editEnd": 11897,
+      "text": "Serve para reabilitação após internação hospitalar?"
+    },
+    "specialities-70": {
+      "file": "content/specialities.ts",
+      "line": 188,
+      "kind": "string",
+      "start": 11925,
+      "end": 12173,
+      "editStart": 11925,
+      "editEnd": 12173,
+      "text": "Sim. Perda de força, dificuldade para andar e insegurança ao levantar são muito comuns depois de uma internação, mesmo curta. Começar cedo faz diferença, atendemos na clínica e também em domicílio, para quem ainda não tem condição de se deslocar."
+    },
+    "specialities-71": {
+      "file": "content/specialities.ts",
+      "line": 191,
+      "kind": "string",
+      "start": 12206,
+      "end": 12231,
+      "editStart": 12206,
+      "editEnd": 12231,
+      "text": "Envelhecimento e quedas"
+    },
+    "specialities-72": {
+      "file": "content/specialities.ts",
+      "line": 196,
+      "kind": "string",
+      "start": 12314,
+      "end": 12341,
+      "editStart": 12314,
+      "editEnd": 12341,
+      "text": "Fisioterapia Respiratória"
+    },
+    "specialities-73": {
+      "file": "content/specialities.ts",
+      "line": 197,
+      "kind": "string",
+      "start": 12358,
+      "end": 12372,
+      "editStart": 12358,
+      "editEnd": 12372,
+      "text": "Respiratória"
+    },
+    "specialities-74": {
+      "file": "content/specialities.ts",
+      "line": 200,
+      "kind": "string",
+      "start": 12418,
+      "end": 12574,
+      "editStart": 12418,
+      "editEnd": 12574,
+      "text": "Fisioterapia respiratória na Consolação e em Pinheiros: falta de ar, asma, enfisema, bronquite crônica e recuperação após internação. Também em domicílio."
+    },
+    "specialities-75": {
+      "file": "content/specialities.ts",
+      "line": 202,
+      "kind": "string",
+      "start": 12596,
+      "end": 12734,
+      "editStart": 12596,
+      "editEnd": 12734,
+      "text": "Melhorar capacidade respiratória e tolerância ao esforço, para voltar a caminhar, subir escada e fazer suas atividades sem ficar sem ar."
+    },
+    "specialities-76": {
+      "file": "content/specialities.ts",
+      "line": 204,
+      "kind": "string",
+      "start": 12753,
+      "end": 12996,
+      "editStart": 12753,
+      "editEnd": 12996,
+      "text": "Quando subir uma escada ou atravessar a rua já cansa, a fisioterapia respiratória trabalha capacidade pulmonar, força muscular e tolerância ao esforço. Atendemos asma, DPOC, bronquite crônica, fibrose pulmonar e recuperação após internações."
+    },
+    "specialities-77": {
+      "file": "content/specialities.ts",
+      "line": 206,
+      "kind": "string",
+      "start": 13019,
+      "end": 13154,
+      "editStart": 13019,
+      "editEnd": 13154,
+      "text": "Adultos com doenças respiratórias crônicas: como asma, doença pulmonar obstrutiva crônica (DPOC), fibrose pulmonar e bronquiectasias."
+    },
+    "specialities-78": {
+      "file": "content/specialities.ts",
+      "line": 207,
+      "kind": "string",
+      "start": 13162,
+      "end": 13258,
+      "editStart": 13162,
+      "editEnd": 13258,
+      "text": "Pacientes em recuperação pós-cirúrgica: principalmente após cirurgias torácicas ou abdominais."
+    },
+    "specialities-79": {
+      "file": "content/specialities.ts",
+      "line": 208,
+      "kind": "string",
+      "start": 13266,
+      "end": 13431,
+      "editStart": 13266,
+      "editEnd": 13431,
+      "text": "Pessoas com limitações respiratórias devido ao envelhecimento: como redução da capacidade pulmonar, fraqueza muscular respiratória e diminuição da função pulmonar."
+    },
+    "specialities-80": {
+      "file": "content/specialities.ts",
+      "line": 209,
+      "kind": "string",
+      "start": 13439,
+      "end": 13586,
+      "editStart": 13439,
+      "editEnd": 13586,
+      "text": "Pacientes com falta de ar crônica: causada por doenças respiratórias, como DPOC, ou por outras condições, como insuficiência cardíaca congestiva."
+    },
+    "specialities-81": {
+      "file": "content/specialities.ts",
+      "line": 210,
+      "kind": "string",
+      "start": 13594,
+      "end": 13729,
+      "editStart": 13594,
+      "editEnd": 13729,
+      "text": "Pessoas com condições neuromusculares respiratórias: como esclerose lateral amiotrófica (ELA), distrofia muscular e lesões medulares."
+    },
+    "specialities-82": {
+      "file": "content/specialities.ts",
+      "line": 213,
+      "kind": "string",
+      "start": 13760,
+      "end": 14145,
+      "editStart": 13760,
+      "editEnd": 14145,
+      "text": "A fisioterapia respiratória para adultos é direcionada ao tratamento de distúrbios respiratórios, como doença pulmonar obstrutiva crônica (DPOC), asma, bronquite e fibrose pulmonar. Por meio de técnicas de reabilitação pulmonar, exercícios respiratórios e desobstrução brônquica, busca-se melhorar a capacidade pulmonar, a eficiência respiratória e a qualidade de vida dos pacientes."
+    },
+    "specialities-83": {
+      "file": "content/specialities.ts",
+      "line": 216,
+      "kind": "string",
+      "start": 14184,
+      "end": 14232,
+      "editStart": 14184,
+      "editEnd": 14232,
+      "text": "A fisioterapia respiratória trata DPOC e asma?"
+    },
+    "specialities-84": {
+      "file": "content/specialities.ts",
+      "line": 218,
+      "kind": "string",
+      "start": 14260,
+      "end": 14485,
+      "editStart": 14260,
+      "editEnd": 14485,
+      "text": "Sim. Em asma, DPOC, fibrose pulmonar e bronquiectasias, o trabalho é de condicionamento: fortalecer a musculatura respiratória, melhorar o controle da respiração e aumentar o quanto você aguenta de esforço sem ficar sem ar."
+    },
+    "specialities-85": {
+      "file": "content/specialities.ts",
+      "line": 221,
+      "kind": "string",
+      "start": 14522,
+      "end": 14561,
+      "editStart": 14522,
+      "editEnd": 14561,
+      "text": "Serve para recuperação após cirurgia?"
+    },
+    "specialities-86": {
+      "file": "content/specialities.ts",
+      "line": 223,
+      "kind": "string",
+      "start": 14589,
+      "end": 14888,
+      "editStart": 14589,
+      "editEnd": 14888,
+      "text": "Sim, principalmente após cirurgias torácicas e abdominais. Nesses casos a respiração fica limitada pela dor, o pulmão não expande como deveria, favorecendo o acúmulo de secreção, e isso pode causar infecções. O trabalho da fisioterapia respiratória reduz esse risco e acelera a retomada da rotina."
+    },
+    "specialities-87": {
+      "file": "content/specialities.ts",
+      "line": 226,
+      "kind": "string",
+      "start": 14925,
+      "end": 14976,
+      "editStart": 14925,
+      "editEnd": 14976,
+      "text": "Funciona para quem tem falta de ar há meses/anos?"
+    },
+    "specialities-88": {
+      "file": "content/specialities.ts",
+      "line": 228,
+      "kind": "string",
+      "start": 15004,
+      "end": 15243,
+      "editStart": 15004,
+      "editEnd": 15243,
+      "text": "Sim. Falta de ar crônica por DPOC, fibrose ou insuficiência cardíaca costuma criar um ciclo: a pessoa evita esforço, perde condicionamento, e passa a cansar cada vez mais fácil. A fisioterapia trabalha justamente para quebrar esse ciclo."
+    },
+    "specialities-89": {
+      "file": "content/specialities.ts",
+      "line": 231,
+      "kind": "string",
+      "start": 15276,
+      "end": 15308,
+      "editStart": 15276,
+      "editEnd": 15308,
+      "text": "Doenças respiratórias crônicas"
+    },
+    "specialities-90": {
+      "file": "content/specialities.ts",
+      "line": 236,
+      "kind": "string",
+      "start": 15430,
+      "end": 15464,
+      "editStart": 15430,
+      "editEnd": 15464,
+      "text": "Fisioterapia Pré e Pós-Cirúrgica"
+    },
+    "specialities-91": {
+      "file": "content/specialities.ts",
+      "line": 237,
+      "kind": "string",
+      "start": 15481,
+      "end": 15502,
+      "editStart": 15481,
+      "editEnd": 15502,
+      "text": "Pré e pós-cirúrgico"
+    },
+    "specialities-92": {
+      "file": "content/specialities.ts",
+      "line": 240,
+      "kind": "string",
+      "start": 15548,
+      "end": 15704,
+      "editStart": 15548,
+      "editEnd": 15704,
+      "text": "Fisioterapia pré e pós-operatória na Consolação e em Pinheiros: preparo antes da cirurgia e recuperação dos movimentos e força depois. Também a domicílio."
+    },
+    "specialities-93": {
+      "file": "content/specialities.ts",
+      "line": 242,
+      "kind": "string",
+      "start": 15726,
+      "end": 15848,
+      "editStart": 15726,
+      "editEnd": 15848,
+      "text": "Chegar mais forte à cirurgia e voltar mais rápido à rotina depois: em procedimentos ortopédicos, abdominais e cardíacos."
+    },
+    "specialities-94": {
+      "file": "content/specialities.ts",
+      "line": 244,
+      "kind": "string",
+      "start": 15867,
+      "end": 16123,
+      "editStart": 15867,
+      "editEnd": 16123,
+      "text": "Quem chega mais forte à cirurgia costuma se recuperar melhor. Trabalhamos os dois momentos: o preparo antes, para você entrar no procedimento em melhores condições, e a reabilitação depois, para recuperar mobilidade, força e função o mais breve possível."
+    },
+    "specialities-95": {
+      "file": "content/specialities.ts",
+      "line": 246,
+      "kind": "string",
+      "start": 16146,
+      "end": 16293,
+      "editStart": 16146,
+      "editEnd": 16293,
+      "text": "Pacientes em preparação para cirurgia que desejem chegar em melhores condições para o procedimento, o que costuma facilitar a recuperação depois."
+    },
+    "specialities-96": {
+      "file": "content/specialities.ts",
+      "line": 247,
+      "kind": "string",
+      "start": 16301,
+      "end": 16441,
+      "editStart": 16301,
+      "editEnd": 16441,
+      "text": "Depois de cirurgia ortopédica: prótese de joelho ou quadril, reparo de ligamento, fixação de fratura: recuperar amplitude, força e marcha."
+    },
+    "specialities-97": {
+      "file": "content/specialities.ts",
+      "line": 248,
+      "kind": "string",
+      "start": 16449,
+      "end": 16557,
+      "editStart": 16449,
+      "editEnd": 16557,
+      "text": "Depois de cirurgia abdominal: retomar mobilidade e respiração eficiente, com progressão segura de esforço."
+    },
+    "specialities-98": {
+      "file": "content/specialities.ts",
+      "line": 249,
+      "kind": "string",
+      "start": 16565,
+      "end": 16701,
+      "editStart": 16565,
+      "editEnd": 16701,
+      "text": "Depois de cirurgia cardíaca: recuperação de condicionamento e retorno gradual às atividades, respeitando os limites do pós-operatório."
+    },
+    "specialities-99": {
+      "file": "content/specialities.ts",
+      "line": 252,
+      "kind": "string",
+      "start": 16732,
+      "end": 17201,
+      "editStart": 16732,
+      "editEnd": 17201,
+      "text": "A fisioterapia para condicionamento físico pré e pós cirúrgico tem como objetivo preparar o paciente antes de uma cirurgia, melhorando sua condição física e reduzindo o risco de complicações. Após a cirurgia, a fisioterapia auxilia na recuperação, restaurando a mobilidade, força muscular e função, além de reduzir o tempo de internação e acelerar o retorno às atividades cotidianas. Sempre alinhados às orientações do cirurgião e respeitando o tempo de cicatrização."
+    },
+    "specialities-100": {
+      "file": "content/specialities.ts",
+      "line": 255,
+      "kind": "string",
+      "start": 17240,
+      "end": 17279,
+      "editStart": 17240,
+      "editEnd": 17279,
+      "text": "O que é a fisioterapia pré-cirúrgica?"
+    },
+    "specialities-101": {
+      "file": "content/specialities.ts",
+      "line": 257,
+      "kind": "string",
+      "start": 17307,
+      "end": 17576,
+      "editStart": 17307,
+      "editEnd": 17576,
+      "text": "É preparar o corpo para o que vem. Nas semanas anteriores à cirurgia, trabalhamos condicionamento, força e mobilidade, e já ensinamos os movimentos que você vai precisar fazer depois: levantar da cama, sentar, andar com apoio. Chegar treinado facilita bastante o pós."
+    },
+    "specialities-102": {
+      "file": "content/specialities.ts",
+      "line": 260,
+      "kind": "string",
+      "start": 17613,
+      "end": 17663,
+      "editStart": 17613,
+      "editEnd": 17663,
+      "text": "Quais cirurgias são atendidas no pós-operatório?"
+    },
+    "specialities-103": {
+      "file": "content/specialities.ts",
+      "line": 261,
+      "kind": "string",
+      "start": 17681,
+      "end": 17784,
+      "editStart": 17681,
+      "editEnd": 17784,
+      "text": "Atendemos pós-operatório de cirurgias ortopédicas, abdominais, cardíacas, neurológicas e oncológicas."
+    },
+    "specialities-104": {
+      "file": "content/specialities.ts",
+      "line": 264,
+      "kind": "string",
+      "start": 17821,
+      "end": 17876,
+      "editStart": 17821,
+      "editEnd": 17876,
+      "text": "O que a fisioterapia pós-cirúrgica ajuda a restaurar?"
+    },
+    "specialities-105": {
+      "file": "content/specialities.ts",
+      "line": 266,
+      "kind": "string",
+      "start": 17904,
+      "end": 18155,
+      "editStart": 17904,
+      "editEnd": 18155,
+      "text": "Movimento, força, confiança e a capacidade de fazer as coisas do dia a dia da forma mais segura e independente possível. O objetivo é você voltar à sua rotina (trabalho, esporte, tarefas de casa), com ou sem adaptações, de forma mais breve possível."
+    },
+    "specialities-106": {
+      "file": "content/specialities.ts",
+      "line": 269,
+      "kind": "string",
+      "start": 18188,
+      "end": 18211,
+      "editStart": 18188,
+      "editEnd": 18211,
+      "text": "Recuperação cirúrgica"
+    },
+    "pilates-01": {
+      "file": "app/pilates/page.tsx",
+      "line": 17,
+      "kind": "string",
+      "start": 783,
+      "end": 866,
+      "editStart": 783,
+      "editEnd": 866,
+      "text": "Cadeiras de pilates e bolas suíças refletidas no espelho do estúdio de Pinheiros."
+    },
+    "pilates-02": {
+      "file": "app/pilates/page.tsx",
+      "line": 23,
+      "kind": "string",
+      "start": 973,
+      "end": 1058,
+      "editStart": 973,
+      "editEnd": 1058,
+      "text": "Escada e cadillac refletidos nos espelhos ovais do estúdio de pilates de Pinheiros."
+    },
+    "pilates-03": {
+      "file": "app/pilates/page.tsx",
+      "line": 29,
+      "kind": "string",
+      "start": 1164,
+      "end": 1240,
+      "editStart": 1164,
+      "editEnd": 1240,
+      "text": "Corredor do estúdio de pilates de Pinheiros com bolas, cadillac e cadeira."
+    },
+    "pilates-04": {
+      "file": "app/pilates/page.tsx",
+      "line": 35,
+      "kind": "string",
+      "start": 1343,
+      "end": 1432,
+      "editStart": 1343,
+      "editEnd": 1432,
+      "text": "Estúdio de pilates da unidade Consolação com letreiro VYTA e variedade de equipamentos."
+    },
+    "pilates-05": {
+      "file": "app/pilates/page.tsx",
+      "line": 41,
+      "kind": "string",
+      "start": 1536,
+      "end": 1616,
+      "editStart": 1536,
+      "editEnd": 1616,
+      "text": "Estúdio de pilates da unidade Consolação com luz natural, cadillac e espaldar."
+    },
+    "pilates-06": {
+      "file": "app/pilates/page.tsx",
+      "line": 47,
+      "kind": "string",
+      "start": 1734,
+      "end": 1831,
+      "editStart": 1734,
+      "editEnd": 1831,
+      "text": "Reformer, cadillac e escada no estúdio de pilates da unidade Consolação, parede coral ao fundo."
+    },
+    "pilates-07": {
+      "file": "app/pilates/page.tsx",
+      "line": 54,
+      "kind": "string",
+      "start": 1898,
+      "end": 2012,
+      "editStart": 1898,
+      "editEnd": 2012,
+      "text": "Melhorar a postura: fortalece a musculatura do core, aumentando a estabilidade e melhorando o suporte da coluna."
+    },
+    "pilates-08": {
+      "file": "app/pilates/page.tsx",
+      "line": 55,
+      "kind": "string",
+      "start": 2016,
+      "end": 2107,
+      "editStart": 2016,
+      "editEnd": 2107,
+      "text": "Aumentar a flexibilidade: ajuda a alongar os músculos para ganhar amplitude de movimento."
+    },
+    "pilates-09": {
+      "file": "app/pilates/page.tsx",
+      "line": 56,
+      "kind": "string",
+      "start": 2111,
+      "end": 2220,
+      "editStart": 2111,
+      "editEnd": 2220,
+      "text": "Reduzir o estresse: através das respirações conscientes, oferece um espaço para relaxamento e concentração."
+    },
+    "pilates-10": {
+      "file": "app/pilates/page.tsx",
+      "line": 57,
+      "kind": "string",
+      "start": 2224,
+      "end": 2291,
+      "editStart": 2224,
+      "editEnd": 2291,
+      "text": "Ajuda na recuperação de lesões e na prevenção de novos problemas."
+    },
+    "pilates-11": {
+      "file": "app/pilates/page.tsx",
+      "line": 58,
+      "kind": "string",
+      "start": 2295,
+      "end": 2410,
+      "editStart": 2295,
+      "editEnd": 2410,
+      "text": "Melhorar o condicionamento físico: um treino completo, que foca em força, mobilidade, estabilidade e resistência."
+    },
+    "pilates-12": {
+      "file": "app/pilates/page.tsx",
+      "line": 63,
+      "kind": "string",
+      "start": 2448,
+      "end": 2511,
+      "editStart": 2448,
+      "editEnd": 2511,
+      "text": "Preciso ter feito fisioterapia antes para fazer Pilates aqui?"
+    },
+    "pilates-13": {
+      "file": "app/pilates/page.tsx",
+      "line": 65,
+      "kind": "string",
+      "start": 2531,
+      "end": 2692,
+      "editStart": 2531,
+      "editEnd": 2692,
+      "text": "Não. O Pilates é uma modalidade aplicável para todas as pessoas, não só para quem tem dor. É recomendada para qualquer idade e nível de condicionamento físico."
+    },
+    "pilates-14": {
+      "file": "app/pilates/page.tsx",
+      "line": 68,
+      "kind": "string",
+      "start": 2717,
+      "end": 2769,
+      "editStart": 2717,
+      "editEnd": 2769,
+      "text": "Qual a diferença entre o Pilates e a fisioterapia?"
+    },
+    "pilates-15": {
+      "file": "app/pilates/page.tsx",
+      "line": 70,
+      "kind": "string",
+      "start": 2789,
+      "end": 3070,
+      "editStart": 2789,
+      "editEnd": 3070,
+      "text": "Apesar de também ser uma ferramenta de reabilitação, o pilates é uma atividade física estruturada focada em força, mobilidade e controle. Diferente da fisioterapia, que possui técnicas de analgesia, recursos terapêuticos manuais, cinesioterapia e é focada na reabilitação física."
+    },
+    "pilates-16": {
+      "file": "app/pilates/page.tsx",
+      "line": 73,
+      "kind": "string",
+      "start": 3095,
+      "end": 3120,
+      "editStart": 3095,
+      "editEnd": 3120,
+      "text": "Como é a primeira aula?"
+    },
+    "pilates-17": {
+      "file": "app/pilates/page.tsx",
+      "line": 75,
+      "kind": "string",
+      "start": 3140,
+      "end": 3428,
+      "editStart": 3140,
+      "editEnd": 3428,
+      "text": "Ao chegar ao nosso estúdio, o aluno comunica seu histórico de lesões, queixas e/ou objetivos com a prática de pilates. O fisioterapeuta que conduz a aula planeja os exercícios individualmente, de acordo com as demandas específicas, e evolui a intensidade no ritmo particular de cada um."
+    },
+    "pilates-18": {
+      "file": "app/pilates/page.tsx",
+      "line": 78,
+      "kind": "string",
+      "start": 3453,
+      "end": 3477,
+      "editStart": 3453,
+      "editEnd": 3477,
+      "text": "As aulas são em grupo?"
+    },
+    "pilates-19": {
+      "file": "app/pilates/page.tsx",
+      "line": 79,
+      "kind": "string",
+      "start": 3491,
+      "end": 3549,
+      "editStart": 3491,
+      "editEnd": 3549,
+      "text": "Em grupos reduzidos, de no máximo um aluno por aparelho."
+    },
+    "pilates-20": {
+      "file": "app/pilates/page.tsx",
+      "line": 84,
+      "kind": "string",
+      "start": 3619,
+      "end": 3660,
+      "editStart": 3619,
+      "editEnd": 3660,
+      "text": "Pilates com fisioterapeuta em São Paulo"
+    },
+    "pilates-21": {
+      "file": "app/pilates/page.tsx",
+      "line": 86,
+      "kind": "string",
+      "start": 3681,
+      "end": 3820,
+      "editStart": 3681,
+      "editEnd": 3820,
+      "text": "Pilates conduzido por fisioterapeutas em São Paulo. Aulas personalizadas, grupos reduzidos e aparelhos completos. Consolação e Pinheiros."
+    },
+    "pilates-22": {
+      "file": "app/pilates/page.tsx",
+      "line": 100,
+      "kind": "string",
+      "start": 4196,
+      "end": 4224,
+      "editStart": 4196,
+      "editEnd": 4224,
+      "text": "Pilates com fisioterapeuta"
+    },
+    "pilates-23": {
+      "file": "app/pilates/page.tsx",
+      "line": 102,
+      "kind": "string",
+      "start": 4265,
+      "end": 4352,
+      "editStart": 4265,
+      "editEnd": 4352,
+      "text": "Pilates conduzido por fisioterapeutas, com avaliação postural antes da primeira aula."
+    },
+    "pilates-24": {
+      "file": "app/pilates/page.tsx",
+      "line": 104,
+      "kind": "string",
+      "start": 4407,
+      "end": 4446,
+      "editStart": 4407,
+      "editEnd": 4446,
+      "text": "Reabilitação e condicionamento físico"
+    },
+    "pilates-25": {
+      "file": "app/pilates/page.tsx",
+      "line": 108,
+      "kind": "string",
+      "start": 4537,
+      "end": 4545,
+      "editStart": 4537,
+      "editEnd": 4545,
+      "text": "Início"
+    },
+    "pilates-26": {
+      "file": "app/pilates/page.tsx",
+      "line": 109,
+      "kind": "string",
+      "start": 4580,
+      "end": 4589,
+      "editStart": 4580,
+      "editEnd": 4589,
+      "text": "Pilates"
+    },
+    "pilates-27": {
+      "file": "app/pilates/page.tsx",
+      "line": 115,
+      "kind": "string",
+      "start": 4705,
+      "end": 4713,
+      "editStart": 4705,
+      "editEnd": 4713,
+      "text": "Trilha"
+    },
+    "pilates-28": {
+      "file": "app/pilates/page.tsx",
+      "line": 116,
+      "kind": "jsx",
+      "start": 4856,
+      "end": 4862,
+      "editStart": 4856,
+      "editEnd": 4862,
+      "text": "Início"
+    },
+    "pilates-29": {
+      "file": "app/pilates/page.tsx",
+      "line": 120,
+      "kind": "string",
+      "start": 4948,
+      "end": 4957,
+      "editStart": 4948,
+      "editEnd": 4957,
+      "text": "Pilates"
+    },
+    "pilates-30": {
+      "file": "app/pilates/page.tsx",
+      "line": 121,
+      "kind": "jsx",
+      "start": 4975,
+      "end": 5042,
+      "editStart": 4977,
+      "editEnd": 5039,
+      "text": "Pilates com *fisioterapeuta*, sempre"
+    },
+    "pilates-31": {
+      "file": "app/pilates/page.tsx",
+      "line": 122,
+      "kind": "string",
+      "start": 5059,
+      "end": 5261,
+      "editStart": 5059,
+      "editEnd": 5261,
+      "text": "O Pilates é uma atividade completa: fortalece, melhora postura e flexibilidade, e funciona tanto na reabilitação quanto na prevenção de lesões. Aqui, todas as aulas são conduzidas por fisioterapeutas."
+    },
+    "pilates-32": {
+      "file": "app/pilates/page.tsx",
+      "line": 125,
+      "kind": "jsx",
+      "start": 5357,
+      "end": 5391,
+      "editStart": 5357,
+      "editEnd": 5391,
+      "text": "Agendar aula experimental"
+    },
+    "pilates-33": {
+      "file": "app/pilates/page.tsx",
+      "line": 131,
+      "kind": "string",
+      "start": 5502,
+      "end": 5513,
+      "editStart": 5502,
+      "editEnd": 5513,
+      "text": "O estúdio"
+    },
+    "pilates-34": {
+      "file": "app/pilates/page.tsx",
+      "line": 134,
+      "kind": "jsx",
+      "start": 5561,
+      "end": 5641,
+      "editStart": 5615,
+      "editEnd": 5636,
+      "text": "Para quem é o Pilates"
+    },
+    "pilates-35": {
+      "file": "app/pilates/page.tsx",
+      "line": 135,
+      "kind": "jsx",
+      "start": 5650,
+      "end": 5885,
+      "editStart": 5728,
+      "editEnd": 5881,
+      "text": "O Pilates é uma prática acessível a pessoas de todas as idades e níveis de condicionamento físico. É ideal para quem busca:"
+    },
+    "pilates-36": {
+      "file": "app/pilates/page.tsx",
+      "line": 150,
+      "kind": "jsx",
+      "start": 6298,
+      "end": 6382,
+      "editStart": 6357,
+      "editEnd": 6377,
+      "text": "Perguntas frequentes"
+    },
+    "pilates-37": {
+      "file": "app/pilates/page.tsx",
+      "line": 155,
+      "kind": "jsx",
+      "start": 6473,
+      "end": 6549,
+      "editStart": 6531,
+      "editEnd": 6544,
+      "text": "Onde praticar"
+    },
+    "pilates-38": {
+      "file": "app/pilates/page.tsx",
+      "line": 165,
+      "kind": "jsx",
+      "start": 7053,
+      "end": 7087,
+      "editStart": 7053,
+      "editEnd": 7087,
+      "text": "Agendar aula experimental"
+    },
+    "unidades-01": {
+      "file": "app/unidades/page.tsx",
+      "line": 10,
+      "kind": "string",
+      "start": 425,
+      "end": 435,
+      "editStart": 425,
+      "editEnd": 435,
+      "text": "Unidades"
+    },
+    "unidades-02": {
+      "file": "app/unidades/page.tsx",
+      "line": 12,
+      "kind": "string",
+      "start": 456,
+      "end": 569,
+      "editStart": 456,
+      "editEnd": 569,
+      "text": "Duas unidades de fisioterapia e Pilates em São Paulo: Consolação (Frei Caneca) e Pinheiros (Fradique Coutinho)."
+    },
+    "unidades-03": {
+      "file": "app/unidades/page.tsx",
+      "line": 21,
+      "kind": "string",
+      "start": 726,
+      "end": 734,
+      "editStart": 726,
+      "editEnd": 734,
+      "text": "Início"
+    },
+    "unidades-04": {
+      "file": "app/unidades/page.tsx",
+      "line": 22,
+      "kind": "string",
+      "start": 767,
+      "end": 777,
+      "editStart": 767,
+      "editEnd": 777,
+      "text": "Unidades"
+    },
+    "unidades-05": {
+      "file": "app/unidades/page.tsx",
+      "line": 26,
+      "kind": "string",
+      "start": 899,
+      "end": 909,
+      "editStart": 899,
+      "editEnd": 909,
+      "text": "Unidades"
+    },
+    "unidades-06": {
+      "file": "app/unidades/page.tsx",
+      "line": 26,
+      "kind": "string",
+      "start": 916,
+      "end": 937,
+      "editStart": 916,
+      "editEnd": 937,
+      "text": "Onde a gente atende"
+    },
+    "unidades-slug-01": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 29,
+      "kind": "template",
+      "start": 995,
+      "end": 1036,
+      "editStart": 995,
+      "editEnd": 1036,
+      "text": "Fisioterapia e Pilates em {u.district}"
+    },
+    "unidades-slug-02": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 30,
+      "kind": "template",
+      "start": 1055,
+      "end": 1186,
+      "editStart": 1055,
+      "editEnd": 1186,
+      "text": "Clínica de fisioterapia e Pilates em {u.district}, São Paulo. {u.street}. Atendimento individual conduzido por fisioterapeutas."
+    },
+    "unidades-slug-03": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 51,
+      "kind": "string",
+      "start": 1557,
+      "end": 1565,
+      "editStart": 1557,
+      "editEnd": 1565,
+      "text": "Início"
+    },
+    "unidades-slug-04": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 52,
+      "kind": "string",
+      "start": 1600,
+      "end": 1610,
+      "editStart": 1600,
+      "editEnd": 1610,
+      "text": "Unidades"
+    },
+    "unidades-slug-05": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 59,
+      "kind": "string",
+      "start": 1786,
+      "end": 1794,
+      "editStart": 1786,
+      "editEnd": 1794,
+      "text": "Trilha"
+    },
+    "unidades-slug-06": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 60,
+      "kind": "jsx",
+      "start": 1937,
+      "end": 1943,
+      "editStart": 1937,
+      "editEnd": 1943,
+      "text": "Início"
+    },
+    "unidades-slug-07": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 62,
+      "kind": "jsx",
+      "start": 2106,
+      "end": 2114,
+      "editStart": 2106,
+      "editEnd": 2114,
+      "text": "Unidades"
+    },
+    "unidades-slug-08": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 66,
+      "kind": "jsx",
+      "start": 2240,
+      "end": 2247,
+      "editStart": 2240,
+      "editEnd": 2247,
+      "text": "Unidade"
+    },
+    "unidades-slug-09": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 67,
+      "kind": "jsx",
+      "start": 2270,
+      "end": 2408,
+      "editStart": 2337,
+      "editEnd": 2403,
+      "text": "Fisioterapia e Pilates em {u.district}"
+    },
+    "unidades-slug-10": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 77,
+      "kind": "jsx",
+      "start": 2746,
+      "end": 2782,
+      "editStart": 2746,
+      "editEnd": 2782,
+      "text": "Agendar nesta unidade"
+    },
+    "unidades-slug-11": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 79,
+      "kind": "jsx",
+      "start": 2812,
+      "end": 3130,
+      "editStart": 3074,
+      "editEnd": 3126,
+      "text": "Abrir no Google Maps"
+    },
+    "unidades-slug-12": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 105,
+      "kind": "jsx",
+      "start": 3720,
+      "end": 3795,
+      "editStart": 3779,
+      "editEnd": 3790,
+      "text": "Como chegar"
+    },
+    "unidades-slug-13": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 109,
+      "kind": "template",
+      "start": 3926,
+      "end": 3945,
+      "editStart": 3926,
+      "editEnd": 3945,
+      "text": "Mapa da {u.name}"
+    },
+    "unidades-slug-14": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 119,
+      "kind": "string",
+      "start": 4207,
+      "end": 4229,
+      "editStart": 4207,
+      "editEnd": 4229,
+      "text": "A unidade por dentro"
+    },
+    "unidades-slug-15": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 122,
+      "kind": "jsx",
+      "start": 4292,
+      "end": 4407,
+      "editStart": 4351,
+      "editEnd": 4402,
+      "text": "O que atendemos em {u.district}"
+    },
+    "unidades-slug-16": {
+      "file": "app/unidades/[slug]/page.tsx",
+      "line": 133,
+      "kind": "jsx",
+      "start": 4793,
+      "end": 4992,
+      "editStart": 4797,
+      "editEnd": 4987,
+      "text": "Pilates →"
+    },
+    "units-01": {
+      "file": "content/units.ts",
+      "line": 40,
+      "kind": "string",
+      "start": 1065,
+      "end": 1085,
+      "editStart": 1065,
+      "editEnd": 1085,
+      "text": "Unidade Consolação"
+    },
+    "units-02": {
+      "file": "content/units.ts",
+      "line": 41,
+      "kind": "string",
+      "start": 1102,
+      "end": 1114,
+      "editStart": 1102,
+      "editEnd": 1114,
+      "text": "Consolação"
+    },
+    "units-03": {
+      "file": "content/units.ts",
+      "line": 42,
+      "kind": "string",
+      "start": 1128,
+      "end": 1164,
+      "editStart": 1128,
+      "editEnd": 1164,
+      "text": "Rua Frei Caneca, 1212, Conjunto 53"
+    },
+    "units-04": {
+      "file": "content/units.ts",
+      "line": 43,
+      "kind": "string",
+      "start": 1180,
+      "end": 1192,
+      "editStart": 1180,
+      "editEnd": 1192,
+      "text": "Consolação"
+    },
+    "units-05": {
+      "file": "content/units.ts",
+      "line": 44,
+      "kind": "string",
+      "start": 1204,
+      "end": 1215,
+      "editStart": 1204,
+      "editEnd": 1215,
+      "text": "São Paulo"
+    },
+    "units-06": {
+      "file": "content/units.ts",
+      "line": 53,
+      "kind": "string",
+      "start": 1748,
+      "end": 1858,
+      "editStart": 1748,
+      "editEnd": 1858,
+      "text": "Sala de atendimento da unidade Consolação da Vyta, com tablado azul de tratamento e espelho de corpo inteiro"
+    },
+    "units-07": {
+      "file": "content/units.ts",
+      "line": 59,
+      "kind": "string",
+      "start": 1992,
+      "end": 2103,
+      "editStart": 1992,
+      "editEnd": 2103,
+      "text": "Sala de fisioterapia da unidade Consolação, com maca de atendimento, janelas com persianas e piso de madeira."
+    },
+    "units-08": {
+      "file": "content/units.ts",
+      "line": 65,
+      "kind": "string",
+      "start": 2235,
+      "end": 2331,
+      "editStart": 2235,
+      "editEnd": 2331,
+      "text": "Estúdio de pilates da unidade Consolação com cadillac, escada e barril, parede coral ao fundo."
+    },
+    "units-09": {
+      "file": "content/units.ts",
+      "line": 71,
+      "kind": "string",
+      "start": 2459,
+      "end": 2573,
+      "editStart": 2459,
+      "editEnd": 2573,
+      "text": "Estúdio de pilates da unidade Consolação iluminado por luz natural, com cadillac, cadeira e espaldar de madeira."
+    },
+    "units-10": {
+      "file": "content/units.ts",
+      "line": 77,
+      "kind": "string",
+      "start": 2700,
+      "end": 2799,
+      "editStart": 2700,
+      "editEnd": 2799,
+      "text": "Estúdio de pilates da unidade Consolação com letreiro VYTA na parede e variedade de equipamentos."
+    },
+    "units-11": {
+      "file": "content/units.ts",
+      "line": 92,
+      "kind": "string",
+      "start": 3067,
+      "end": 3085,
+      "editStart": 3067,
+      "editEnd": 3085,
+      "text": "Unidade Fradique"
+    },
+    "units-12": {
+      "file": "content/units.ts",
+      "line": 93,
+      "kind": "string",
+      "start": 3102,
+      "end": 3113,
+      "editStart": 3102,
+      "editEnd": 3113,
+      "text": "Pinheiros"
+    },
+    "units-13": {
+      "file": "content/units.ts",
+      "line": 94,
+      "kind": "string",
+      "start": 3127,
+      "end": 3155,
+      "editStart": 3127,
+      "editEnd": 3155,
+      "text": "Rua Fradique Coutinho, 380"
+    },
+    "units-14": {
+      "file": "content/units.ts",
+      "line": 95,
+      "kind": "string",
+      "start": 3171,
+      "end": 3182,
+      "editStart": 3171,
+      "editEnd": 3182,
+      "text": "Pinheiros"
+    },
+    "units-15": {
+      "file": "content/units.ts",
+      "line": 96,
+      "kind": "string",
+      "start": 3194,
+      "end": 3205,
+      "editStart": 3194,
+      "editEnd": 3205,
+      "text": "São Paulo"
+    },
+    "units-16": {
+      "file": "content/units.ts",
+      "line": 106,
+      "kind": "string",
+      "start": 3789,
+      "end": 3900,
+      "editStart": 3789,
+      "editEnd": 3900,
+      "text": "Sala de atendimento da unidade Pinheiros da Vyta, com maca de tratamento junto à janela e pia de higienização"
+    },
+    "units-17": {
+      "file": "content/units.ts",
+      "line": 112,
+      "kind": "string",
+      "start": 4033,
+      "end": 4124,
+      "editStart": 4033,
+      "editEnd": 4124,
+      "text": "Sala de fisioterapia da unidade Pinheiros, com espaldar de madeira e maca de atendimento."
+    },
+    "units-18": {
+      "file": "content/units.ts",
+      "line": 118,
+      "kind": "string",
+      "start": 4255,
+      "end": 4352,
+      "editStart": 4255,
+      "editEnd": 4352,
+      "text": "Detalhe do estúdio de pilates da unidade Pinheiros refletido em espelhos ovais retroiluminados."
+    },
+    "units-19": {
+      "file": "content/units.ts",
+      "line": 124,
+      "kind": "string",
+      "start": 4484,
+      "end": 4572,
+      "editStart": 4484,
+      "editEnd": 4572,
+      "text": "Cadillac e cadeiras de pilates em destaque no estúdio de pilates da unidade Pinheiros."
+    },
+    "units-20": {
+      "file": "content/units.ts",
+      "line": 130,
+      "kind": "string",
+      "start": 4709,
+      "end": 4795,
+      "editStart": 4709,
+      "editEnd": 4795,
+      "text": "Corredor do estúdio de pilates da unidade Pinheiros com reformer, cadillac e escada."
+    },
+    "blog-01": {
+      "file": "app/blog/page.tsx",
+      "line": 13,
+      "kind": "string",
+      "start": 505,
+      "end": 515,
+      "editStart": 505,
+      "editEnd": 515,
+      "text": "Conteúdo"
+    },
+    "blog-02": {
+      "file": "app/blog/page.tsx",
+      "line": 15,
+      "kind": "string",
+      "start": 536,
+      "end": 683,
+      "editStart": 536,
+      "editEnd": 683,
+      "text": "Guias sobre reabilitação escritos por fisioterapeutas: AVC, câncer, DPOC, doenças cardiovasculares, incontinência urinária e cuidados paliativos."
+    },
+    "blog-03": {
+      "file": "app/blog/page.tsx",
+      "line": 26,
+      "kind": "string",
+      "start": 864,
+      "end": 872,
+      "editStart": 864,
+      "editEnd": 872,
+      "text": "Início"
+    },
+    "blog-04": {
+      "file": "app/blog/page.tsx",
+      "line": 27,
+      "kind": "string",
+      "start": 905,
+      "end": 915,
+      "editStart": 905,
+      "editEnd": 915,
+      "text": "Conteúdo"
+    },
+    "blog-05": {
+      "file": "app/blog/page.tsx",
+      "line": 33,
+      "kind": "string",
+      "start": 1053,
+      "end": 1063,
+      "editStart": 1053,
+      "editEnd": 1063,
+      "text": "Conteúdo"
+    },
+    "blog-06": {
+      "file": "app/blog/page.tsx",
+      "line": 34,
+      "kind": "string",
+      "start": 1080,
+      "end": 1120,
+      "editStart": 1080,
+      "editEnd": 1120,
+      "text": "O que a gente escreve entre as sessões"
+    },
+    "blog-07": {
+      "file": "app/blog/page.tsx",
+      "line": 35,
+      "kind": "string",
+      "start": 1136,
+      "end": 1218,
+      "editStart": 1136,
+      "editEnd": 1218,
+      "text": "Guias sobre as condições que mais aparecem na clínica, escritos por quem atende."
+    },
+    "blog-slug-01": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 69,
+      "kind": "string",
+      "start": 1944,
+      "end": 1952,
+      "editStart": 1944,
+      "editEnd": 1952,
+      "text": "Início"
+    },
+    "blog-slug-02": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 70,
+      "kind": "string",
+      "start": 1987,
+      "end": 1997,
+      "editStart": 1987,
+      "editEnd": 1997,
+      "text": "Conteúdo"
+    },
+    "blog-slug-03": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 78,
+      "kind": "string",
+      "start": 2223,
+      "end": 2231,
+      "editStart": 2223,
+      "editEnd": 2231,
+      "text": "Trilha"
+    },
+    "blog-slug-04": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 79,
+      "kind": "jsx",
+      "start": 2374,
+      "end": 2380,
+      "editStart": 2374,
+      "editEnd": 2380,
+      "text": "Início"
+    },
+    "blog-slug-05": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 81,
+      "kind": "jsx",
+      "start": 2539,
+      "end": 2547,
+      "editStart": 2539,
+      "editEnd": 2547,
+      "text": "Conteúdo"
+    },
+    "blog-slug-06": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 86,
+      "kind": "jsx",
+      "start": 2834,
+      "end": 2857,
+      "editStart": 2834,
+      "editEnd": 2857,
+      "text": "min de leitura"
+    },
+    "blog-slug-07": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 106,
+      "kind": "jsx",
+      "start": 3812,
+      "end": 3824,
+      "editStart": 3812,
+      "editEnd": 3824,
+      "text": "Revisado em"
+    },
+    "blog-slug-08": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 119,
+      "kind": "jsx",
+      "start": 4247,
+      "end": 4476,
+      "editStart": 4323,
+      "editEnd": 4472,
+      "text": "Se algo aqui descreve o que você está vivendo, conta pra gente. A avaliação define o que faz sentido no seu caso."
+    },
+    "blog-slug-09": {
+      "file": "app/blog/[slug]/page.tsx",
+      "line": 124,
+      "kind": "jsx",
+      "start": 4562,
+      "end": 4601,
+      "editStart": 4562,
+      "editEnd": 4601,
+      "text": "Falar com uma fisioterapeuta"
+    },
+    "not-found-01": {
+      "file": "app/not-found.tsx",
+      "line": 11,
+      "kind": "string",
+      "start": 323,
+      "end": 346,
+      "editStart": 323,
+      "editEnd": 346,
+      "text": "Página não encontrada"
+    },
+    "not-found-02": {
+      "file": "app/not-found.tsx",
+      "line": 12,
+      "kind": "string",
+      "start": 363,
+      "end": 387,
+      "editStart": 363,
+      "editEnd": 387,
+      "text": "Essa página não existe"
+    },
+    "not-found-03": {
+      "file": "app/not-found.tsx",
+      "line": 13,
+      "kind": "string",
+      "start": 403,
+      "end": 500,
+      "editStart": 403,
+      "editEnd": 500,
+      "text": "O endereço que você acessou não foi encontrado. Pode ter mudado de lugar ou nunca ter existido."
+    },
+    "not-found-04": {
+      "file": "app/not-found.tsx",
+      "line": 16,
+      "kind": "jsx",
+      "start": 591,
+      "end": 611,
+      "editStart": 591,
+      "editEnd": 611,
+      "text": "Voltar para o início"
+    },
+    "not-found-05": {
+      "file": "app/not-found.tsx",
+      "line": 18,
+      "kind": "jsx",
+      "start": 696,
+      "end": 727,
+      "editStart": 696,
+      "editEnd": 727,
+      "text": "Ver áreas de atuação"
+    }
+  }
+}
