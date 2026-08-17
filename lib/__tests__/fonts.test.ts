@@ -3,25 +3,28 @@ import fs from "node:fs";
 import path from "node:path";
 
 /*
-  lib/fonts.ts carrega as duas fontes só com o subset "latin". São 85.388 bytes
-  a menos, 45% do peso de fonte de uma página, e vale enquanto o site não
-  escrever nada que só exista no latin-ext.
+  lib/fonts.ts carrega as duas fontes só com o subset "latin", e com isso a
+  página baixa 85.388 bytes a menos — 45% do peso de fonte.
 
-  O modo de falhar é traiçoeiro: um caractere de fora não quebra o build nem
-  aparece como tofu. Ele desenha na fonte de fallback, então a palavra troca de
-  fonte no meio da frase e ninguém vê até olhar de perto. Quem escrever "Kraków"
-  ou "Škoda" num post descobre aqui, não no ar.
+  Este teste NÃO está protegendo contra texto quebrado. Vale ser explícito
+  porque o contrário é o palpite natural: `subsets` controla o preload, não a
+  declaração, então os @font-face de latin-ext continuam no CSS e um "Kraków"
+  num post continua desenhando em Jost, com o navegador buscando o arquivo sob
+  demanda. Isso foi medido, não deduzido.
 
-  O teste é sobre o latin-ext e só sobre ele, porque é o que esta mudança tirou.
-  Não pergunta se todo caractere está no latin: existe coisa que nunca esteve em
-  subset nenhum — ver o teste do travessão e da seta lá embaixo.
+  O que o teste protege é mais modesto: a economia acima só existe enquanto
+  nenhum texto puxa o latin-ext. No dia em que puxar, aquele trecho passa a
+  custar uma requisição tardia de ~17 KB (Jost) ou ~34 KB (Cormorant) e pinta
+  depois do resto. É um aviso de performance, não de correção — e se a palavra
+  precisar existir, o certo é deixá-la existir e apagar este teste.
 
-  Vale para comentário também, não só para texto que vai à tela. Separar os dois
-  pediria varrer a árvore sintática, e o custo de um falso positivo aqui é
+  Só sobre o latin-ext, porque é o que a mudança tirou. Não pergunta se todo
+  caractere está no latin: a seta "→" das chamadas de link nunca esteve em
+  subset nenhum e sempre desenhou na fonte de fallback, antes e depois disto.
+
+  Vale para comentário também, não só para o texto que vai à tela. Separar os
+  dois pediria varrer a árvore sintática, e o custo de um falso positivo aqui é
   trocar uma palavra num comentário.
-
-  Se um dia precisar mesmo, o conserto é devolver "latin-ext" ao subsets das
-  duas fontes — e aí este teste sai junto.
 */
 
 // unicode-range do subset "latin-ext", copiado do CSS servido em
@@ -84,10 +87,12 @@ describe("subset das fontes", () => {
 
     expect(
       offenders,
-      `Caractere que só existe no subset "latin-ext", que lib/fonts.ts não\n` +
-        `carrega mais. Não vira tofu: desenha na fonte de fallback e troca de\n` +
-        `fonte no meio da palavra. Ou troque o caractere, ou devolva "latin-ext"\n` +
-        `ao subsets das duas fontes (custa 85.388 bytes) e apague este teste.\n\n` +
+      `Caractere que só existe no subset "latin-ext", que lib/fonts.ts deixou\n` +
+        `de dar preload. O texto NÃO quebra: desenha na fonte certa, buscada sob\n` +
+        `demanda. O que muda é que aquele trecho passa a custar uma requisição\n` +
+        `tardia (~17 KB Jost, ~34 KB Cormorant) e pinta depois do resto.\n` +
+        `Se a palavra precisa existir, deixe existir e apague este teste. Se foi\n` +
+        `descuido, troque o caractere.\n\n` +
         offenders.join("\n"),
     ).toEqual([]);
   });
