@@ -76,12 +76,29 @@ Só dá para confirmar a conversão do Ads depois que o domínio de produção
       campanha ou algum backlink servir o apex, o clique não conta e o Ads
       continua gastando
 
-> **Não procure um page load em `/whatsapp`.** Essa versão do checklist pedia
-> isso e era impossível de satisfazer: `app/whatsapp/route.ts` responde 307 com
-> corpo vazio, então não existe página, GTM nem gtag naquela URL. Nunca existiu
-> — o `pages/whatsapp.tsx` antigo usava `nextjs-redirect`, que em navegação
-> direta faz `res.writeHead(301)` no servidor e também não renderizava nada. A
-> conversão sempre foi contada pelo clique na página de origem.
+> **Não procure um page load em `/whatsapp`.** A tela do Ads descreve a ação
+> `Contato por WhatsApp` como `Event: Page load: www.vytafisioterapia.com.br/whatsapp`,
+> e isso assusta — mas é a definição de quando ela foi criada, em 16/07/2023,
+> não o que dispara hoje.
+>
+> Medido em 17/08/2026 contra o site **em produção**, antes de qualquer deploy:
+>
+> ```
+> $ curl -sSI https://www.vytafisioterapia.com.br/whatsapp
+> HTTP/2 301
+> location: https://wa.me/message/FJNBBFEBI6V5O1
+> $ curl -sS https://www.vytafisioterapia.com.br/whatsapp | wc -c
+> 0
+> ```
+>
+> Corpo de zero byte: não existe página, GTM nem gtag naquela URL, hoje, no site
+> que está no ar. E a conversão está confirmada funcionando hoje. Logo não é um
+> page load que a dispara — é a tag `Google ADS - Contact WhatsApp` no clique,
+> na página de origem. O redesign emite o mesmo `<a href="/whatsapp">` com
+> `.redirect-whatsapp`, no mesmo host, então a regra casa igual.
+>
+> (O `pages/whatsapp.tsx` antigo usa `nextjs-redirect`, que em navegação direta
+> faz `res.writeHead(301)` no servidor — por isso o corpo vazio.)
 
 Se algo falhar aqui — depois do deploy, contra o host de produção — aí sim é
 um problema real na tag, não um artefato do host de preview.
@@ -98,10 +115,32 @@ O contêiner GTM tem duas tags de conversão `__sp`:
   ícones antigos da navbar). Nenhum elemento do redesign carrega essas
   classes, então essa ação de conversão para de registrar 100% no lançamento.
 
-**A clínica precisa decidir o que essa segunda ação media** (ela é distinta da
-principal — dois cliques do mesmo usuário no mesmo botão poderiam estar sendo
-contados como duas conversões diferentes hoje) e se algo equivalente precisa
-ser recriado no GTM/Ads para o site novo.
+**Respondido em 17/08/2026: ela mede contato por telefone.** A tela do GTM
+(Overview → Destinations → `AW-11170231245`) nomeia as quatro tags do container:
+
+| Tag | Label |
+|---|---|
+| Google ADS - Contact Phone | `ZopfCK6b_ssYEM3nsM4p` |
+| Google ADS - Contact WhatsApp | `ak4xCLuKhcwYEM3nsM4p` |
+| Google ADS - PageView | `11170231245` |
+| Tag do Google | `G-V5YCCVYQRR` |
+
+Não é uma duplicata da principal: uma conta WhatsApp, a outra conta telefone.
+Então não dá para simplesmente descartar — **o que morre no lançamento é a
+medição de ligações**, não uma redundância.
+
+O acionador é que está preso ao site velho: classes `text-slate-50 w-8 h-8`, o
+ícone de telefone da navbar antiga. No redesign os links de telefone existem e
+carregam `.redirect-phone` (`Footer.tsx`, `ContactCTA.tsx`,
+`app/unidades/[slug]/page.tsx`), que é a mesma classe que o `e2e/gtm-classes.spec.ts`
+já guarda.
+
+- [ ] Trocar o acionador da tag `Google ADS - Contact Phone` de
+      `elementClasses = text-slate-50 w-8 h-8` para `Click Classes contains
+      redirect-phone`, **antes** do deploy
+- [ ] Conferir se `ZopfCK6b_ssYEM3nsM4p` está como ação primária no Ads. Se
+      estiver, a queda a zero é lida pelo Smart Bidding como colapso de
+      desempenho, e a janela de clique é de 90 dias
 
 ### Achado: cinco outras regras do GTM para a conversão principal também vão morrer
 
@@ -146,23 +185,32 @@ A tela "Your Google tag" do Google mostra o tag saudável mandando dados para
 *configuração* do tag, não a instalação: hoje ele chega ao navegador porque o
 site **antigo** ainda o carrega.
 
-### Resolvido no código em 17/08/2026 — não fazer no GTM
+### Resolvido em 17/08/2026 — o container mudou, e o código saiu da frente
 
-Havia dois caminhos aqui e o do código foi tomado: `app/layout.tsx` já renderiza
-`<GoogleAnalytics gaId="G-V5YCCVYQRR" />` do `@next/third-parties`, ao lado do
-`<GoogleTagManager>`.
+**A tabela acima venceu.** Baixando e decodificando o mesmo container hoje:
 
-> **Não criar a tag *Google Tag* no container.** Esta seção pedia isso e a
-> marcava como recomendada. Fazer as duas coisas mede em dobro: sessões
-> infladas, engajamento pela metade, e logo na janela de dados limpos de que a
-> decisão de verba depende. O aviso já está em `app/layout.tsx`, num lugar que
-> quem estiver mexendo no GTM não vai ler — por isso está aqui também.
+```
+$ curl -sS "https://www.googletagmanager.com/gtm.js?id=GTM-NNBD3887" \
+    | grep -o '"__googtag","vtp_tagId":"[^"]*"'
+"__googtag","vtp_tagId":"G-V5YCCVYQRR"
+```
 
-Se um dia a tag do Google entrar no container, tirar a linha do
-`GoogleAnalytics` do `layout.tsx` no mesmo dia.
+Alguém adicionou a "Tag do Google" ao container entre 07/08 e 17/08 — ela
+aparece em Overview → Destinations → `AW-11170231245` → Tag references, junto
+das três tags do Ads. O GA4 **não** vai parar no deploy: o container carrega.
 
-- [ ] Depois do deploy, confirmar em Tempo Real do GA4 que a propriedade voltou
-      a receber sessões.
+Por isso o `<GoogleAnalytics gaId="G-V5YCCVYQRR" />` saiu do `app/layout.tsx`.
+Manter os dois mediria a mesma propriedade duas vezes — e é o que o site
+**antigo** faz agora, porque o `pages/_app.tsx` dele carrega o gtag direto para
+`G-V5YCCVYQRR` (e para `G-VSSZW88J6E`) enquanto o container também carrega.
+Números de GA4 dessa propriedade desde a data da mudança estão inflados.
+
+> Não criar uma segunda Tag do Google, e não recolocar a linha no `layout.tsx`
+> enquanto a do container existir. Se ela sair do container, a linha volta — o
+> comando acima é como conferir.
+
+- [ ] Depois do deploy, confirmar em Tempo Real do GA4 que a propriedade recebe
+      sessões, e que é **um** `page_view` por navegação, não dois
 
 ## URLs — bloqueia o lançamento
 

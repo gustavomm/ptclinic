@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { shouldLoadAnalytics } from "@/lib/analytics-env";
 import { display, sans } from "@/lib/fonts";
@@ -54,21 +54,24 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
       {/*
-        GTM dispara a conversão do Google Ads. O GA4 vem separado, direto,
-        porque o container GTM-NNBD3887 não tem nenhuma tag de GA4 dentro —
-        conferido baixando e decodificando o container público em 07/08/2026.
-        O site antigo também carregava o gtag direto, então é o mesmo arranjo
-        que já funcionava. Se um dia a tag do Google entrar no container,
-        remover a linha do GoogleAnalytics daqui para não medir em dobro.
+        Só o GTM. O container GTM-NNBD3887 carrega a conversão do Google Ads e
+        também o GA4.
 
-        Os dois ficam de fora dos previews da Vercel — o porquê está em
+        Aqui havia um <GoogleAnalytics gaId="G-V5YCCVYQRR" /> ao lado, porque em
+        07/08/2026 o container foi baixado e decodificado e não tinha nenhuma
+        tag de GA4 dentro. Em 17/08/2026 tem: `{"function":"__googtag",
+        "vtp_tagId":"G-V5YCCVYQRR"}`, a "Tag do Google" que alguém adicionou
+        nesse intervalo. Manter os dois mediria a mesma propriedade duas vezes.
+
+        Se a tag sair do container de novo, esta linha volta. Conferir é baixar
+        https://www.googletagmanager.com/gtm.js?id=GTM-NNBD3887 e procurar
+        __googtag — a tela do GTM mostra o mesmo em Overview → Destinations.
+
+        O GTM fica de fora dos previews da Vercel — o porquê está em
         lib/analytics-env.ts.
       */}
       {shouldLoadAnalytics(process.env.VERCEL_ENV) && (
-        <>
-          <GoogleTagManager gtmId="GTM-NNBD3887" />
-          <GoogleAnalytics gaId="G-V5YCCVYQRR" />
-        </>
+        <GoogleTagManager gtmId="GTM-NNBD3887" />
       )}
       <body className="bg-surface text-ink font-sans font-light antialiased">
         <noscript>
