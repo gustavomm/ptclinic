@@ -132,13 +132,13 @@ export default function PilatesPage() {
 
       <Section>
         <h2 className="font-display text-display-md text-ink">Para quem é o Pilates</h2>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
+        <p className="mt-6 max-w-xl text-base font-book leading-relaxed text-muted">
           O Pilates é uma prática acessível a pessoas de todas as idades e níveis
           de condicionamento físico. É ideal para quem busca:
         </p>
         <ul className="mt-8 flex max-w-xl flex-col gap-4">
           {BENEFITS.map((b) => (
-            <li key={b} className="flex gap-4 text-base leading-relaxed text-muted">
+            <li key={b} className="flex gap-4 text-base font-book leading-relaxed text-muted">
               <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
               {b}
             </li>

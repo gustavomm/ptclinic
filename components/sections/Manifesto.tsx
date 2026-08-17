@@ -41,7 +41,7 @@ export function Manifesto() {
             <div className="font-display text-5xl font-light leading-none text-accent">
               {stat.figure}
             </div>
-            <p className="mt-4 text-base leading-relaxed text-muted">
+            <p className="mt-4 text-base font-book leading-relaxed text-muted">
               {stat.text}
             </p>
           </Reveal>

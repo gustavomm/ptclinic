@@ -17,7 +17,7 @@ export function FaqAccordion({
           <AccordionTrigger className="py-5 text-left font-display font-light text-xl text-ink hover:no-underline">
             {item.question}
           </AccordionTrigger>
-          <AccordionContent className="pb-5 text-base leading-relaxed text-muted">
+          <AccordionContent className="pb-5 text-base font-book leading-relaxed text-muted">
             {item.answer}
           </AccordionContent>
         </AccordionItem>

@@ -25,7 +25,7 @@ export function EspecialidadesGrid({
             */
             title="Sete frentes, uma forma de trabalhar"
           />
-          <p className="max-w-sm text-base leading-relaxed text-muted">
+          <p className="max-w-sm text-base font-book leading-relaxed text-muted">
             Cada caso exige técnica própria, mas todos partem do mesmo lugar: escuta ativa, plano de tratamento individualizado e humanizado. Tratamos pessoas, não diagnósticos.
           </p>
         </div>

@@ -94,7 +94,7 @@ export default async function SpecialityPage({
         <h2 className="font-display text-display-md text-ink">Para quem funciona</h2>
         <ul className="mt-8 flex max-w-xl flex-col gap-4">
           {s.forWhom.map((item) => (
-            <li key={item} className="flex gap-4 text-base leading-relaxed text-muted">
+            <li key={item} className="flex gap-4 text-base font-book leading-relaxed text-muted">
               <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
               {item}
             </li>
@@ -102,7 +102,7 @@ export default async function SpecialityPage({
         </ul>
 
         <h2 className="mt-16 font-display text-display-md text-ink">Como funciona</h2>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
+        <p className="mt-6 max-w-xl text-base font-book leading-relaxed text-muted">
           {s.howItWorks}
         </p>
       </Section>

@@ -34,7 +34,7 @@ export function Founders() {
               <div className="mb-4 mt-1 text-[13px] uppercase tracking-eyebrow text-accent-deep">
                 {m.role}
               </div>
-              <p className="text-base leading-relaxed text-muted">{m.bio}</p>
+              <p className="text-base font-book leading-relaxed text-muted">{m.bio}</p>
               <ul className="mt-4 flex flex-col gap-1">
                 {m.education.map((e) => (
                   <li key={e} className="text-[15px] text-muted">{e}</li>

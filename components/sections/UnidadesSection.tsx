@@ -23,7 +23,7 @@ export function UnidadesSection({
             </div>
             <div className="flex flex-col gap-3 p-8">
               <h3 className="font-display font-light text-3xl text-ink">{u.name}</h3>
-              <p className="text-base leading-relaxed text-muted">
+              <p className="text-base font-book leading-relaxed text-muted">
                 {u.street}
                 <br />
                 {u.district}, {u.city} · {u.state}
