@@ -28,7 +28,7 @@ export default function UnidadesIndex() {
       <JsonLd
         data={breadcrumbSchema(TRAIL)}
       />
-      <Section tone="surface-alt">
+      <Section tone="surface-alt" padBottom={false}>
         <Breadcrumb trail={TRAIL} />
         <SectionHeading level="h1" eyebrow="Unidades" title="Onde a gente atende" />
       </Section>

@@ -28,7 +28,7 @@ export default function EspecialidadesIndex() {
       <JsonLd
         data={breadcrumbSchema(TRAIL)}
       />
-      <Section tone="surface-alt">
+      <Section tone="surface-alt" padBottom={false}>
         <Breadcrumb trail={TRAIL} />
         <SectionHeading
           level="h1"
