@@ -1,5 +1,5 @@
 {
-  "_comment": "Frozen verbatim fixture. This is the clinic's published forWhom/howItWorks text, extracted from git show edfe4ec:constants/specialities.ts (the pre-redesign content model). It may only change when the clinic changes its own published clinical copy -- never for style, brevity, or rewording.",
+  "_comment": "Frozen verbatim fixture. This is the clinic's published forWhom/howItWorks text. Originally extracted from git show edfe4ec:constants/specialities.ts (the pre-redesign content model); refreshed on 2026-08-17 from the copy review that Vyvyan and Tainá returned, which rewrote these fields themselves. It may only change when the clinic changes its own published clinical copy -- never for style, brevity, or rewording.",
   "entries": {
     "fisioterapia-neurologica": {
       "forWhom": [
@@ -9,7 +9,7 @@
         "Pacientes pós operatório: após cirurgias de coluna e cerebral.",
         "Adultos e idosos com comprometimento neuromuscular: podem apresentar sintomas como dor ou formigamento nos membros ou na face, fraqueza muscular, fadiga e cãibras."
       ],
-      "howItWorks": "Uma avaliação detalhada e com foco na queixa será realizada e, junto com o paciente, definiremos um objetivo a ser atingido. Sendo assim, um tratamento específico e individualizado será realizado, por meio de técnicas e exercícios terapêuticos, buscando melhorar a funcionalidade, mobilidade, equilíbrio e qualidade de vida dos pacientes."
+      "howItWorks": "Você começa por uma avaliação detalhada da sua queixa. Definimos juntos onde queremos chegar e montamos um plano com técnicas e exercícios escolhidos especificamente para o seu caso. Ao longo do tratamento, reavaliamos e ajustamos conforme você evolui."
     },
     "fisioterapia-oncologica": {
       "forWhom": [
@@ -19,7 +19,7 @@
         "Pacientes com dor crônica relacionada ao câncer: devido à progressão da doença ou aos efeitos colaterais do tratamento.",
         "Pacientes pós tratamento oncológico: que podem passar por fadiga persistente, fraqueza muscular, dificuldades de equilíbrio e alterações na composição corporal."
       ],
-      "howItWorks": "A fisioterapia oncológica tem como objetivo auxiliar pacientes em todas as fases do tratamento contra o câncer. Ela abrange desde a prevenção e alívio de sintomas, como fadiga e dor, até a reabilitação após cirurgias e outros procedimentos. A terapia é individualizada e visa promover a melhora da capacidade física, diminuição dos efeitos colaterais do tratamento e o suporte emocional durante todo o processo."
+      "howItWorks": "Começamos por uma avaliação que considera a fase do tratamento, os procedimentos já realizados e os sintomas presentes. O plano é individualizado e reavaliado ao longo do percurso, porque a conduta muda conforme o tratamento avança, o que funciona durante a quimioterapia não é o mesmo que funciona depois da cirurgia."
     },
     "fisioterapia-ortopedica": {
       "forWhom": [
@@ -29,11 +29,11 @@
         "Atletas com lesões esportivas: como entorses, contusões, distensões musculares e lesões nos ligamentos.",
         "Indivíduos com desordens posturais: como cifose, lordose ou escoliose. Podem apresentar dores nas costas, restrições de movimento e má postura."
       ],
-      "howItWorks": "A fisioterapia ortopédica é especializada no tratamento de lesões e disfunções do sistema musculoesquelético. Após avaliações precisas, são utilizadas técnicas terapêuticas, exercícios e reabilitação funcional para promover a recuperação e prevenir futuras complicações."
+      "howItWorks": "Primeiro, uma avaliação que testa movimento, força e função para entender de onde vem a dor. Depois, um plano com técnicas manuais e exercícios progressivos, ajustado conforme você evolui. O foco é na recuperação e na prevenção de futuras complicações."
     },
     "fisioterapia-para-idosos": {
       "forWhom": [
-        "Idosos com problemas de equilíbrio e queda.",
+        "Idosos com histórico de desequilíbrio e queda.",
         "Pacientes com doenças crônicas relacionadas à idade: como osteoartrite, osteoporose, doenças cardíacas e doenças respiratórias.",
         "Idosos em processo de reabilitação pós-hospitalar: esses pacientes podem apresentar fraqueza muscular, perda de mobilidade e limitações funcionais devido a doenças agudas ou procedimentos cirúrgicos.",
         "Pessoas com demência, doença de Alzheimer ou Parkinson.",
@@ -43,31 +43,22 @@
     },
     "fisioterapia-respiratoria": {
       "forWhom": [
-        "Indivíduos com doenças respiratórias crônicas: como asma, doença pulmonar obstrutiva crônica (DPOC), fibrose pulmonar e bronquiectasias.",
+        "Adultos com doenças respiratórias crônicas: como asma, doença pulmonar obstrutiva crônica (DPOC), fibrose pulmonar e bronquiectasias.",
         "Pacientes em recuperação pós-cirúrgica: principalmente após cirurgias torácicas ou abdominais.",
         "Pessoas com limitações respiratórias devido ao envelhecimento: como redução da capacidade pulmonar, fraqueza muscular respiratória e diminuição da função pulmonar.",
         "Pacientes com falta de ar crônica: causada por doenças respiratórias, como DPOC, ou por outras condições, como insuficiência cardíaca congestiva.",
-        "Indivíduos com condições neuromusculares respiratórias: como esclerose lateral amiotrófica (ELA), distrofia muscular e lesões medulares."
+        "Pessoas com condições neuromusculares respiratórias: como esclerose lateral amiotrófica (ELA), distrofia muscular e lesões medulares."
       ],
       "howItWorks": "A fisioterapia respiratória para adultos é direcionada ao tratamento de distúrbios respiratórios, como doença pulmonar obstrutiva crônica (DPOC), asma, bronquite e fibrose pulmonar. Por meio de técnicas de reabilitação pulmonar, exercícios respiratórios e desobstrução brônquica, busca-se melhorar a capacidade pulmonar, a eficiência respiratória e a qualidade de vida dos pacientes."
     },
     "fisioterapia-pre-e-pos-cirurgica": {
       "forWhom": [
-        "Pacientes em preparação para cirurgia: focando na melhoria do condicionamento cardiovascular, fortalecimento muscular e flexibilidade, preparando o corpo para o procedimento cirúrgico e ajudando a acelerar a recuperação pós-operatória.",
-        "Pessoas que passaram por cirurgias ortopédicas.",
-        "Indivíduos que passaram por cirurgias abdominais.",
-        "Pacientes que se submeteram a cirurgias cardíacas."
+        "Pacientes em preparação para cirurgia que desejem chegar melhores condições para o procedimento, o que costuma facilitar a recuperação depois",
+        "Depois de cirurgia ortopédica: prótese de joelho ou quadril, reparo de ligamento, fixação de fratura: recuperar amplitude, força e marcha.",
+        "Depois de cirurgia abdominal: retomar mobilidade e respiração eficiente, com progressão segura de esforço.",
+        "Depois de cirurgia cardíaca: recuperação de condicionamento e retorno gradual às atividades, respeitando os limites do pós-operatório."
       ],
-      "howItWorks": "A fisioterapia para condicionamento físico pré e pós cirúrgico tem como objetivo preparar o paciente antes de uma cirurgia, melhorando sua condição física e reduzindo o risco de complicações. Após a cirurgia, a fisioterapia auxilia na recuperação, restaurando a mobilidade, força muscular e função, além de reduzir o tempo de internação e acelerar o retorno às atividades cotidianas."
-    },
-    "drenagem-linfatica": {
-      "forWhom": [
-        "Pessoas com edema linfático: como linfedema primário ou secundário, pós-operatório de cirurgias, traumatismos ou problemas circulatórios.",
-        "Gestantes: durante a gravidez, o aumento da pressão uterina e hormonal pode levar à retenção de líquidos e ao inchaço nas pernas, tornozelos e pés.",
-        "Pacientes em recuperação pós-cirúrgica: após procedimentos estéticos, como lipoaspiração ou abdominoplastia",
-        "Indivíduos com estresse e fadiga: além dos benefícios físicos, a drenagem linfática também pode proporcionar alívio do estresse e da fadiga."
-      ],
-      "howItWorks": "A drenagem linfática é uma técnica terapêutica que estimula o sistema linfático, promovendo a eliminação de líquidos retidos, melhorando a circulação e proporcionando benefícios como a redução do inchaço, alívio de dores musculares e sensação de relaxamento."
+      "howItWorks": "A fisioterapia para condicionamento físico pré e pós cirúrgico tem como objetivo preparar o paciente antes de uma cirurgia, melhorando sua condição física e reduzindo o risco de complicações. Após a cirurgia, a fisioterapia auxilia na recuperação, restaurando a mobilidade, força muscular e função, além de reduzir o tempo de internação e acelerar o retorno às atividades cotidianas. Sempre alinhados às orientações do cirurgião e respeitando o tempo de cicatrização."
     }
   }
 }

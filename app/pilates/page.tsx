@@ -51,10 +51,10 @@ const STUDIO_PHOTOS: GalleryPhoto[] = [
 ];
 
 const BENEFITS = [
-  "Melhorar a postura: fortalece a musculatura central, ajudando a manter uma postura mais alinhada.",
-  "Aumentar a flexibilidade: trabalha a amplitude de movimento dos músculos.",
+  "Melhorar a postura: fortalece a musculatura do core, aumentando a estabilidade e melhorando o suporte da coluna.",
+  "Aumentar a flexibilidade: ajuda a alongar os músculos para ganhar amplitude de movimento.",
   "Reduzir o estresse: através das respirações conscientes, oferece um espaço para relaxamento e concentração.",
-  "Reabilitação e prevenção de lesões: ajuda na recuperação de lesões e na prevenção de novos problemas.",
+  "Ajuda na recuperação de lesões e na prevenção de novos problemas.",
   "Melhorar o condicionamento físico: um treino completo, que foca em força, mobilidade, estabilidade e resistência.",
 ];
 
@@ -62,28 +62,28 @@ const FAQ = [
   {
     question: "Preciso ter feito fisioterapia antes para fazer Pilates aqui?",
     answer:
-      "Não. O Pilates é acessível a pessoas de todas as idades e níveis de condicionamento físico.",
+      "Não. O Pilates é uma modalidade aplicável para todas as pessoas, não só para quem tem dor. É recomendada para qualquer idade e nível de condicionamento físico.",
   },
   {
-    question: "Qual a diferença do Pilates com fisioterapeuta?",
+    question: "Qual a diferença entre o Pilates e a fisioterapia?",
     answer:
-      "Quem conduz a aula tem formação clínica. Toda aula na Vyta é conduzida por fisioterapeuta.",
+      "Apesar de também ser uma ferramenta de reabilitação, o pilates é uma atividade física estruturada focada em força, mobilidade e controle. Diferente da fisioterapia, que possui técnias de analgesia, recursos terapeuticos manuais, cinesioterapia e é focada na reabilitação física.",
   },
   {
     question: "Como é a primeira aula?",
     answer:
-      "Antes da primeira aula é feita uma avaliação postural. A partir dela o exercício é dosado para o seu corpo.",
+      "Ao chegar ao nosso estúdio, o aluno comunica seu histórico de lesões, queixas e/ou objetivos com a prática de pilates. O fisioterapeuta que conduz a aula planeja os exercícios individualmente, de acordo com as demandas específicas, e evolui a intensidade no ritmo particular de cada um.",
   },
   {
     question: "As aulas são em grupo?",
-    answer: "Em grupos reduzidos, com aparelhos completos.",
+    answer: "Em grupos reduzidos, de no máximo um aluno por aparelho.",
   },
 ];
 
 export const metadata: Metadata = buildMetadata({
   title: "Pilates com fisioterapeuta em São Paulo",
   description:
-    "Pilates conduzido por fisioterapeutas em São Paulo. Avaliação postural antes da primeira aula, grupos reduzidos e aparelhos completos. Consolação e Pinheiros.",
+    "Pilates conduzido por fisioterapeutas em São Paulo. Aulas personalizadas, grupos reduzidos e aparelhos completos. Consolação e Pinheiros.",
   path: "/pilates",
   // Foto deitada de propósito: o card do Twitter é summary_large_image e o
   // WhatsApp corta pelo meio. O hero passou a ser uma foto em pé e não serve
@@ -119,7 +119,7 @@ export default function PilatesPage() {
           level="h1"
           eyebrow="Pilates"
           title={<>Pilates com <em className="italic">fisioterapeuta</em>, sempre</>}
-          lead="O Pilates é um método eficaz para reabilitação e prevenção de lesões, focando no fortalecimento do core, alinhamento postural e flexibilidade. Aqui, quem conduz cada aula é fisioterapeuta."
+          lead="O Pilates é uma atividade completa: fortalece, melhora postura e flexibilidade, e funciona tanto na reabilitação quanto na prevenção de lesões. Aqui, todas as aulas são conduzidas por fisioterapeutas."
         />
         <WhatsAppLink service="pilates" from="/pilates" className="mt-8">
           Agendar aula experimental

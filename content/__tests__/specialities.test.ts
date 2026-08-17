@@ -3,9 +3,19 @@ import { specialities, getSpeciality } from "../specialities";
 import sourceFixture from "./fixtures/speciality-source.json";
 
 describe("specialities", () => {
-  it("has seven entries and none is pilates", () => {
-    expect(specialities).toHaveLength(7);
+  it("has six entries and none is pilates", () => {
+    expect(specialities).toHaveLength(6);
     expect(specialities.map((s) => s.slug)).not.toContain("pilates");
+  });
+
+  /*
+    A drenagem linfática saiu a pedido da clínica na revisão de agosto de 2026.
+    O que era a página dela agora é atendido dentro da oncológica, que trata
+    linfedema, e a URL antiga do site legado aponta para a lista.
+  */
+  it("no longer offers drenagem linfática as its own page", () => {
+    expect(specialities.map((s) => s.slug)).not.toContain("drenagem-linfatica");
+    expect(getSpeciality("drenagem-linfatica")).toBeUndefined();
   });
 
   it("uses the new Portuguese slugs", () => {
@@ -16,7 +26,6 @@ describe("specialities", () => {
       "fisioterapia-para-idosos",
       "fisioterapia-respiratoria",
       "fisioterapia-pre-e-pos-cirurgica",
-      "drenagem-linfatica",
     ]);
   });
 
@@ -37,7 +46,7 @@ describe("specialities", () => {
   });
 
   it("looks up by slug", () => {
-    expect(getSpeciality("drenagem-linfatica")?.cardTitle).toBe("Drenagem linfática");
+    expect(getSpeciality("fisioterapia-oncologica")?.cardTitle).toBe("Oncológica");
     expect(getSpeciality("nope")).toBeUndefined();
   });
 

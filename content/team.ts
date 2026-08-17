@@ -29,7 +29,7 @@ export const team: Member[] = [
     name: "Tainá Horacio Peixoto",
     role: "Oncológica",
     crefito: "Crefito 3: 293916F",
-    bio: "Acompanha pacientes durante e depois do tratamento oncológico, quando o corpo cobra o preço da cura.",
+    bio: "Acompanha pacientes durante e depois do tratamento oncológico, quando o movimento ajuda a reduzir efeitos colaterais e a manter autonomia.",
     image: "/taina-3.webp",
     education: [
       "Graduada em Fisioterapia pela Universidade de São Paulo (USP)",

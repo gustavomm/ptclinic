@@ -10,7 +10,8 @@ const MAP: Array<[string, string]> = [
     "/speciality/condicionamento-fisico",
     "/especialidades/fisioterapia-pre-e-pos-cirurgica",
   ],
-  ["/speciality/drenagem-linfatica", "/especialidades/drenagem-linfatica"],
+  // Sem página própria desde agosto de 2026: cai na lista em vez de 404.
+  ["/speciality/drenagem-linfatica", "/especialidades"],
   ["/speciality/pilates", "/pilates"],
 ];
 

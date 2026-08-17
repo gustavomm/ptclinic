@@ -3,26 +3,22 @@ import { Reveal } from "@/components/ui/Reveal";
 const STATS = [
   {
     figure: "1 : 1",
-    // "esteira de pacientes" saiu: é tradução literal de "conveyor belt of
-    // patients", expressão que não existe em português e não se usa em
-    // fisioterapia. "Atendimento simultâneo" é como se fala de verdade.
-    text: "Atendimento individual de fisioterapia, do começo ao fim. Sem sala cheia e sem atendimento simultâneo.",
+    text: "Atendimento exclusivo, só você e o fisioterapeuta do começo ao fim. Sem sala cheia e específico para sua queixa.",
   },
   {
-    figure: "Sempre",
+    figure: "Segurança",
     text: "Toda aula de Pilates é conduzida por fisioterapeutas. Quem entende de lesão orientando cada exercício, cada carga, cada respiração.",
   },
   {
-    // Sem número: a contagem estava fixa no texto enquanto a grade renderiza
-    // specialities.length + 1. Somar ou tirar uma especialidade fazia a frase
-    // mentir sem ninguém perceber.
-    // A versão anterior era "As especialidades sob o mesmo teto, do
-    // pós-operatório à reabilitação neurológica, da oncologia ao
-    // condicionamento". A cadência "do X à Y, da Z ao W" é marca registrada de
-    // texto gerado por IA, e "sob o mesmo teto" ninguém fala. Agora diz o que o
-    // paciente ganha com isso, em vez de listar áreas em ritmo de slogan.
-    figure: "Todas",
-    text: "As especialidades no mesmo lugar. Você não precisa procurar outra clínica a cada nova queixa.",
+    /*
+      Este terceiro número falava da variedade de especialidades. Na revisão de
+      agosto de 2026 a clínica trocou pelo atendimento em domicílio, que aparece
+      junto com o "Também em domicílio" de neurofuncional, gerontologia,
+      respiratória e pré e pós-cirúrgica. É a home page assumindo um serviço,
+      não uma reescrita de frase: se o domicílio sair, sai daqui também.
+    */
+    figure: "À domicílio",
+    text: "Atendimento de fisioterapia na sua casa, quando ir até a clínica não é uma opção. Conforto com o mesmo cuidado e atenção.",
   },
 ];
 

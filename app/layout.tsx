@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: SITE_TITLE_TEMPLATE,
   },
   description:
-    "Fisioterapia e Pilates com atendimento individual conduzido por fisioterapeutas. Duas unidades em São Paulo: Consolação e Pinheiros.",
+    "Fisioterapia oncológica, neurofuncional e ortopédica. Pilates em grupo. Duas unidades em São Paulo: Consolação e Pinheiros.",
   robots: { index: true, follow: true },
   manifest: "/site.webmanifest",
   icons: {

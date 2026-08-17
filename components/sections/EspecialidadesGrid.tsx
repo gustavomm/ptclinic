@@ -16,13 +16,17 @@ export function EspecialidadesGrid({
         <div className="mb-14 flex flex-wrap items-end justify-between gap-8">
           <SectionHeading
             className="max-w-2xl"
-            eyebrow="Especialidades"
-            title="Oito frentes, uma forma de trabalhar"
+            eyebrow="Áreas de atuação"
+            /*
+              Sete = specialities.length + 1, o cartão do Pilates. O número está
+              escrito à mão porque é ele que vai para a planilha de revisão, mas
+              por isso mesmo mente em silêncio se alguém somar ou tirar uma área.
+              O teste em __tests__/EspecialidadesGrid.test.tsx prende os dois.
+            */
+            title="Sete frentes, uma forma de trabalhar"
           />
           <p className="max-w-sm text-base font-light leading-relaxed text-muted">
-            Cada especialidade tem técnica própria, mas todas partem do mesmo
-            lugar: avaliar antes de tratar, e tratar uma pessoa. Não um
-            diagnóstico.
+            Cada caso exige técnica própria, mas todos partem do mesmo lugar: escuta ativa, plano de tratamento individualizado e humanizado. Tratamos pessoas, não diagnósticos.
           </p>
         </div>
       )}
@@ -60,7 +64,7 @@ export function EspecialidadesGrid({
             <div className="h-44 overflow-hidden">
               <Image
                 src="/pilates-sala.webp"
-                alt="Sala de Pilates da Vyta na unidade Consolação, com reformer, cadillac e escada sueca junto à parede coral"
+                alt="Estúdio de Pilates da Vyta na unidade Consolação, com os aparelhos de pilates sendo eles reformer, cadillac e chair, com parede de fundo na cor coral."
                 width={480}
                 height={360}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -70,8 +74,7 @@ export function EspecialidadesGrid({
             <div className="flex flex-1 flex-col gap-2 p-6">
               <h3 className="font-display text-2xl text-surface">Pilates</h3>
               <p className="text-sm font-light leading-relaxed text-surface">
-                Força, mobilidade e controle. Sempre com fisioterapeuta ao lado.
-                Ver a sala →
+                Força, mobilidade e respiração. Sempre conduzido por um fisiotrapeuta. Ver a sala →
               </p>
             </div>
           </Link>

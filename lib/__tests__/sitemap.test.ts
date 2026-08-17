@@ -14,8 +14,8 @@ describe("sitemap", () => {
     expect(urls).toContain(`${clinic.siteUrl}/blog`);
   });
 
-  it("lists all seven specialities, two units and six posts", () => {
-    expect(urls.filter((u) => u.includes("/especialidades/"))).toHaveLength(7);
+  it("lists all six specialities, two units and six posts", () => {
+    expect(urls.filter((u) => u.includes("/especialidades/"))).toHaveLength(6);
     expect(urls.filter((u) => u.includes("/unidades/"))).toHaveLength(2);
     expect(urls.filter((u) => u.includes("/blog/"))).toHaveLength(6);
   });

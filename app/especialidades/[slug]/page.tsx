@@ -57,7 +57,7 @@ export default async function SpecialityPage({
           faqSchema(s.faq),
           breadcrumbSchema([
             { name: "Início", path: "/" },
-            { name: "Especialidades", path: "/especialidades" },
+            { name: "Áreas de atuação", path: "/especialidades" },
             { name: s.title, path: `/especialidades/${s.slug}` },
           ]),
         ]}
@@ -67,11 +67,11 @@ export default async function SpecialityPage({
         <nav aria-label="Trilha" className="mb-8 text-sm font-light text-subtle">
           <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-ink">Início</Link>
           <span className="mx-2" aria-hidden>/</span>
-          <Link href="/especialidades" className="inline-flex min-h-[44px] items-center hover:text-ink">Especialidades</Link>
+          <Link href="/especialidades" className="inline-flex min-h-[44px] items-center hover:text-ink">Áreas de atuação</Link>
         </nav>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <Eyebrow>Especialidade</Eyebrow>
+            <Eyebrow>Áreas de atuação</Eyebrow>
             <h1 className="font-display text-display-lg text-balance text-ink">{s.title}</h1>
             <p className="mt-6 text-lg font-light leading-relaxed text-muted">{s.intro}</p>
             <WhatsAppLink service={s.slug} from={`/especialidades/${s.slug}`} className="mt-8">

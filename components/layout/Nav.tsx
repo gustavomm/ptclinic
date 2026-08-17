@@ -5,7 +5,7 @@ import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { clinic } from "@/content/clinic";
 
 export const NAV_ITEMS = [
-  { href: "/especialidades", label: "Especialidades" },
+  { href: "/especialidades", label: "Áreas de atuação" },
   { href: "/pilates", label: "Pilates" },
   { href: "/#quem-somos", label: "Quem somos" },
   { href: "/unidades", label: "Unidades" },

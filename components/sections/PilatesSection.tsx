@@ -6,9 +6,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 const POINTS = [
-  "Grupos reduzidos, aparelhos completos",
-  "Avaliação postural antes da primeira aula",
-  "Transição natural para quem sai da reabilitação",
+  "Grupos reduzidos, aparelhos completos, metodologia contemporânea",
+  "Avaliação dinâmica a cada aula, adaptando os exercícios às suas necessidades reais",
+  "Transição natural para quem sai da reabilitação, mantendo um olhar terapêutico",
 ];
 
 export function PilatesSection() {
@@ -18,7 +18,7 @@ export function PilatesSection() {
         <Reveal>
           <Eyebrow tone="warm">Pilates</Eyebrow>
           <h2 className="font-display text-display-lg text-balance text-surface">
-            Todas as aulas com <em className="italic">fisioterapeuta</em>. Sempre.
+            Todas as aulas com <em className="italic">fisioterapeutas</em>. Sempre.
           </h2>
           <p className="mt-6 text-[17px] font-light leading-relaxed text-surface/80">
             {/*
@@ -33,8 +33,7 @@ export function PilatesSection() {
             aquele ombro ainda dói.
           </p>
           <p className="mt-5 text-[17px] font-light leading-relaxed text-surface/80">
-            Fortalecimento de core, alinhamento postural, mobilidade e
-            consciência corporal. Tudo dosado para o seu corpo de hoje.
+            Fortalecimento, alinhamento, mobilidade e consciência corporal. Tudo dosado para demanda de cada aluno de forma individual.
           </p>
           <ul className="mt-8 flex flex-col gap-3 border-t border-surface/20 pt-6">
             {POINTS.map((p) => (

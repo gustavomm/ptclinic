@@ -2,26 +2,45 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
+/*
+  A planilha de revisão diz para a Vyvyan e a Tainá que "*entre asteriscos* vira
+  itálico no site", e vale para a página inteira. Mas o `apply` só converte os
+  asteriscos quando o texto é filho de um elemento JSX; aqui `text` é uma string
+  solta dentro de um objeto, e o React imprimiria os asteriscos na tela. Esta
+  função fecha essa diferença do lado do componente.
+*/
+function withEmphasis(text: string) {
+  return text.split(/(\*[^*]+\*)/g).map((part, i) =>
+    part.startsWith("*") && part.endsWith("*") && part.length > 2 ? (
+      <em key={i} className="italic">
+        {part.slice(1, -1)}
+      </em>
+    ) : (
+      part
+    ),
+  );
+}
+
 const STEPS = [
   {
     n: "01",
-    title: "Conversa",
-    text: "Você conta o que está sentindo pelo WhatsApp. A gente responde qual especialidade faz sentido e qual unidade fica melhor para você.",
+    title: "Primeiro contato",
+    text: "Você conta o que está sentindo pelo WhatsApp. Nós indicamos a fisioterapeuta certa e a unidade compatível com o seu caso.",
   },
   {
     n: "02",
     title: "Avaliação",
-    text: "Uma sessão inteira para escutar, examinar e testar. O tratamento já começa na avaliação, e saímos dela com um objetivo individualizado para o seu corpo.",
+    text: "Uma sessão inteira para escutar, examinar e testar. O tratamento já começa neste dia, e você sai com um plano definido e *exclusivo para o seu caso*.",
   },
   {
     n: "03",
     title: "Tratamento",
-    text: "Sessões individuais com a mesma fisioterapeuta. O plano é revisto sempre que o seu corpo muda, e ele muda. É esse o ponto.",
+    text: "Sessões individuais, sempre com a mesma fisioterapeuta. Reavaliações que acontecem ao longo do processo e ajustes do plano conforme você evolui.",
   },
   {
     n: "04",
     title: "Continuidade",
-    text: "Alta não é fim de linha. A maioria segue no Pilates para manter o que conquistou, com quem já conhece a sua história clínica.",
+    text: "A alta não é fim de linha. Seguir no pilates *com quem já conhece sua história clínica* é para manter o que conquistou.",
   },
 ];
 
@@ -60,7 +79,7 @@ export function ComoFunciona() {
                 {step.title}
               </h3>
               <p className={`text-[15px] font-light leading-relaxed ${last ? "text-surface/75" : "text-muted"}`}>
-                {step.text}
+                {withEmphasis(step.text)}
               </p>
             </Reveal>
           );

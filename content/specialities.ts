@@ -23,11 +23,11 @@ export const specialities: Speciality[] = [
     cardTitle: "Neurofuncional",
     image: "/neuro.webp",
     summary:
-      "Fisioterapia neurofuncional em São Paulo: recuperação de função motora e autonomia após AVC, lesão medular, Parkinson e cirurgias neurológicas.",
+      "Fisioterapia neurofuncional na Consolação e em Pinheiros. Reabilitação após AVC, lesão medular, Parkinson e cirurgias neurológicas. Também em domicílio.",
     cardText:
-      "Recuperar função motora e autonomia após AVC, lesão medular, Parkinson e cirurgias neurológicas.",
+      "Recuperar marcha, equilíbrio e independência nas atividades do dia a dia, após AVC, lesão medular, Parkinson e cirurgias neurológicas.",
     intro:
-      "A fisioterapia neurofuncional trabalha a função motora e a qualidade de vida em distúrbios neurológicos, com avaliação individualizada e um objetivo de tratamento definido junto com o paciente.",
+      "Depois de um AVC, uma lesão medular ou com o Parkinson, a rotina muda. Nosso trabalho é devolver movimento, equilíbrio e independência, com objetivos definidos junto com você.",
     forWhom: [
       "Pacientes com lesões neurológicas: após AVC, lesão medular, esclerose múltipla, paralisia cerebral, lesões cerebrais traumáticas.",
       "Pacientes com distúrbios de movimento: doença de Parkinson, distonias e ataxias.",
@@ -36,12 +36,12 @@ export const specialities: Speciality[] = [
       "Adultos e idosos com comprometimento neuromuscular: podem apresentar sintomas como dor ou formigamento nos membros ou na face, fraqueza muscular, fadiga e cãibras.",
     ],
     howItWorks:
-      "Uma avaliação detalhada e com foco na queixa será realizada e, junto com o paciente, definiremos um objetivo a ser atingido. Sendo assim, um tratamento específico e individualizado será realizado, por meio de técnicas e exercícios terapêuticos, buscando melhorar a funcionalidade, mobilidade, equilíbrio e qualidade de vida dos pacientes.",
+      "Você começa por uma avaliação detalhada da sua queixa. Definimos juntos onde queremos chegar e montamos um plano com técnicas e exercícios escolhidos especificamente para o seu caso. Ao longo do tratamento, reavaliamos e ajustamos conforme você evolui.",
     faq: [
       {
         question: "Quanto tempo dura a reabilitação neurofuncional?",
         answer:
-          "Depende do quadro e do objetivo definido na avaliação inicial, feita antes do início do tratamento.",
+          "Depende do quadro e do objetivo definido na avaliação inicial. Cada caso tem um ritmo, e por isso reavaliamos ao longo do tratamento e ajustamos o plano conforme a evolução. Na primeira sessão conversamos sobre o que é realista esperar.",
       },
       {
         question: "Quais condições neurológicas são atendidas?",
@@ -51,7 +51,7 @@ export const specialities: Speciality[] = [
       {
         question: "As sessões são individuais?",
         answer:
-          "Sim. Todo atendimento é individual, com avaliação prévia e a mesma fisioterapeuta acompanhando o caso.",
+          "Sim. Todo atendimento é individual, do começo ao fim, sempre com a mesma fisioterapeuta. Você não divide o horário com outro paciente.",
       },
     ],
     condition: "Distúrbios neurológicos",
@@ -63,11 +63,15 @@ export const specialities: Speciality[] = [
     cardTitle: "Oncológica",
     image: "/onco.webp",
     summary:
-      "Fisioterapia oncológica em São Paulo: manejo dos efeitos colaterais do tratamento e reabilitação de pacientes com câncer, em todas as fases do tratamento.",
+      // Encurtada. A versão da revisão tinha 164 caracteres, e o limite de 160
+      // é o que o Google mostra antes de cortar. Nenhuma palavra do conteúdo
+      // saiu: só o "em São Paulo -" da abertura, que as outras quatro áreas
+      // reescritas na mesma revisão também já não têm.
+      "Fisioterapia oncológica na Consolação e em Pinheiros. Cuidado com linfedema, mobilidade de ombro, fadiga e força durante e depois do tratamento do câncer.",
     cardText:
-      "Manejar os efeitos colaterais do tratamento e apoiar a reabilitação de pacientes com câncer.",
+      "Reabilitação durante e depois do tratamento oncológico: mobilidade, linfedema, fadiga e condicionamento.",
     intro:
-      "A fisioterapia oncológica acompanha pacientes em todas as fases do tratamento contra o câncer, da prevenção e alívio de sintomas como fadiga e dor até a reabilitação após cirurgias e outros procedimentos.",
+      "Acompanhamos pacientes em todas as fases do tratamento oncológico. Antes, para preparar o corpo. Durante, para manejo dos efeitos colaterais do tratamento como fadiga, dor e linfedema. Depois, para recuperar mobilidade, força e autonomia.",
     forWhom: [
       "Pacientes em tratamento de câncer: que estão passando por quimioterapia, radioterapia, cirurgia ou terapia-alvo. Esses tratamentos podem causar efeitos colaterais que afetam a função física, como fadiga, fraqueza muscular, dor, rigidez articular e problemas de equilíbrio.",
       "Pacientes com linfedema: linfedema em perna ou braço, após tratamentos ginecológicos e de mama.",
@@ -76,22 +80,22 @@ export const specialities: Speciality[] = [
       "Pacientes pós tratamento oncológico: que podem passar por fadiga persistente, fraqueza muscular, dificuldades de equilíbrio e alterações na composição corporal.",
     ],
     howItWorks:
-      "A fisioterapia oncológica tem como objetivo auxiliar pacientes em todas as fases do tratamento contra o câncer. Ela abrange desde a prevenção e alívio de sintomas, como fadiga e dor, até a reabilitação após cirurgias e outros procedimentos. A terapia é individualizada e visa promover a melhora da capacidade física, diminuição dos efeitos colaterais do tratamento e o suporte emocional durante todo o processo.",
+      "Começamos por uma avaliação que considera a fase do tratamento, os procedimentos já realizados e os sintomas presentes. O plano é individualizado e reavaliado ao longo do percurso, porque a conduta muda conforme o tratamento avança, o que funciona durante a quimioterapia não é o mesmo que funciona depois da cirurgia.",
     faq: [
       {
         question: "A fisioterapia oncológica pode ser feita durante a quimioterapia ou radioterapia?",
         answer:
-          "Sim. Ela atende pacientes em todas as fases do tratamento contra o câncer, incluindo quimioterapia, radioterapia, cirurgia ou terapia-alvo, com foco na prevenção e alívio de efeitos colaterais como fadiga, fraqueza muscular, dor, rigidez articular e problemas de equilíbrio.",
+          "Sim, e é recomendável que seja feito nessa fase. A fisioterapia oncológica atende pacientes em todas as fases do tratamento contra o câncer, incluindo quimioterapia, radioterapia, cirurgia ou terapia-alvo, com foco na prevenção e alívio de efeitos colaterais como fadiga, fraqueza muscular, dor, rigidez articular e questões de equilíbrio.",
       },
       {
         question: "A fisioterapia oncológica trata linfedema?",
         answer:
-          "Sim, atende pacientes com linfedema em perna ou braço após tratamentos ginecológicos e de mama.",
+          "Sim. Atendemos linfedema de braço e de perna após tratamentos de mama e ginecológicos, com drenagem, exercícios e orientação de cuidados para o dia a dia. Quanto antes começar, melhor o controle.",
       },
       {
         question: "Como são as sessões?",
         answer:
-          "A terapia é individualizada, com avaliação prévia e a mesma fisioterapeuta acompanhando o caso.",
+          "Individuais e conduzidas pela mesma fisioterapeuta do início ao fim. Cada sessão é ajustada ao seu momento no tratamento, respeitando fadiga, contagem sanguínea e como você chegou naquele dia.",
       },
     ],
     condition: "Câncer",
@@ -106,11 +110,11 @@ export const specialities: Speciality[] = [
     cardTitle: "Ortopédica",
     image: "/ortop.webp",
     summary:
-      "Fisioterapia ortopédica em São Paulo: tratamento de lesões musculoesqueléticas, dor articular, reabilitação pós-cirúrgica e lesões esportivas.",
+      "Fisioterapia ortopédica na Consolação e em Pinheiros: dor na coluna, ombro e joelho, reabilitação pós-operatória e lesões esportivas. Atendimento individual.",
     cardText:
-      "Prevenir, tratar e reabilitar lesões e disfunções do sistema musculoesquelético, de entorses a cirurgias ortopédicas.",
+      "Prevenir, tratar e reabilitar, de uma entorse ao pós-operatório, até você voltar ao que fazia antes.",
     intro:
-      "A fisioterapia ortopédica previne, trata e reabilita lesões e disfunções do sistema musculoesquelético, de entorses e tendinites a fraturas e cirurgias como a substituição de joelho ou quadril.",
+      "De uma entorse a uma prótese de joelho. Tratamos dor, lesão e limitação de movimento em músculos, ossos, tendões e articulações, na fase aguda ou na recuperação de cirurgia.",
     forWhom: [
       "Pacientes com lesões musculoesqueléticas: como entorses, distensões musculares, tendinites, fraturas ósseas e lesões ligamentares.",
       "Pessoas com dor crônica ou aguda nas articulações: como artrite/osteoartrite, bursite, epicondilite e tendinite.",
@@ -119,7 +123,7 @@ export const specialities: Speciality[] = [
       "Indivíduos com desordens posturais: como cifose, lordose ou escoliose. Podem apresentar dores nas costas, restrições de movimento e má postura.",
     ],
     howItWorks:
-      "A fisioterapia ortopédica é especializada no tratamento de lesões e disfunções do sistema musculoesquelético. Após avaliações precisas, são utilizadas técnicas terapêuticas, exercícios e reabilitação funcional para promover a recuperação e prevenir futuras complicações.",
+      "Primeiro, uma avaliação que testa movimento, força e função para entender de onde vem a dor. Depois, um plano com técnicas manuais e exercícios progressivos, ajustado conforme você evolui. O foco é na recuperação e na prevenção de futuras complicações.",
     faq: [
       {
         question: "Quais lesões a fisioterapia ortopédica trata?",
@@ -129,12 +133,12 @@ export const specialities: Speciality[] = [
       {
         question: "Atende reabilitação após cirurgia ortopédica?",
         answer:
-          "Sim, inclusive após cirurgias como substituição total do joelho ou do quadril, reparo de ligamentos ou tendões e fixação de fraturas.",
+          "Sim, inclusive após cirurgias como prótese de joelho ou quadril, reparo de ligamentos ou tendões e fixação de fraturas. Também atendemos no pré-operatório: chegar mais forte à cirurgia costuma facilitar a recuperação.",
       },
       {
         question: "Atende atletas com lesões esportivas?",
         answer:
-          "Sim, atletas com entorses, contusões, distensões musculares e lesões nos ligamentos também são atendidos.",
+          "Sim. Entorses, contusões, distensões e lesões ligamentares, do atleta de competição a quem corre no fim de semana ou treina na academia. O tratamento acompanha até o retorno seguro à modalidade.",
       },
     ],
     condition: "Lesões musculoesqueléticas",
@@ -146,13 +150,13 @@ export const specialities: Speciality[] = [
     cardTitle: "Gerontologia",
     image: "/geronto.webp",
     summary:
-      "Fisioterapia em gerontologia em São Paulo: prevenção de quedas, reabilitação pós-hospitalar e cuidado de idosos com doenças crônicas ou neurológicas.",
+      "Fisioterapia para idosos na Consolação e em Pinheiros: prevenção de quedas, equilíbrio e recuperação após internação. Também a domicílio.",
     cardText:
-      "Prevenir quedas, melhorar equilíbrio e mobilidade, e apoiar a recuperação de idosos após internações.",
+      "Prevenir quedas, recuperar equilíbrio e força, e devolver autonomia depois de internações e períodos de repouso.",
     intro:
       "A fisioterapia em gerontologia cuida da saúde, independência e qualidade de vida da pessoa idosa, com trabalho de equilíbrio, força muscular e mobilidade articular.",
     forWhom: [
-      "Idosos com problemas de equilíbrio e queda.",
+      "Idosos com histórico de desequilíbrio e queda.",
       "Pacientes com doenças crônicas relacionadas à idade: como osteoartrite, osteoporose, doenças cardíacas e doenças respiratórias.",
       "Idosos em processo de reabilitação pós-hospitalar: esses pacientes podem apresentar fraqueza muscular, perda de mobilidade e limitações funcionais devido a doenças agudas ou procedimentos cirúrgicos.",
       "Pessoas com demência, doença de Alzheimer ou Parkinson.",
@@ -164,16 +168,16 @@ export const specialities: Speciality[] = [
       {
         question: "A fisioterapia em gerontologia ajuda a prevenir quedas?",
         answer:
-          "O trabalho de treinamento de equilíbrio e fortalecimento muscular busca prevenir quedas em idosos com problemas de equilíbrio.",
+          "Sim, e é uma das intervenções mais bem estabelecidas na área. Avaliamos o risco de queda, treinamos equilíbrio e força, e orientamos as adaptações necessárias em casa como tapete, iluminação, apoio no banheiro, etc.",
       },
       {
         question: "Atende idosos com Parkinson ou Alzheimer?",
-        answer: "Sim, atende pessoas com demência, doença de Alzheimer ou Parkinson.",
+        answer: "Sim. Atendemos Parkinson, Alzheimer e outras demências. Nessas condições a fisioterapia trabalha manutenção: preservar marcha, equilíbrio e independência pelo maior tempo possível, e reduzir o risco de queda, que é o que costuma acelerar a perda de função.",
       },
       {
         question: "Serve para reabilitação após internação hospitalar?",
         answer:
-          "Sim, atende idosos em processo de reabilitação pós-hospitalar, que podem apresentar fraqueza muscular, perda de mobilidade e limitações funcionais devido a doenças agudas ou procedimentos cirúrgicos.",
+          "Sim. Perda de força, dificuldade para andar e insegurança ao levantar são muito comuns depois de uma internação, mesmo curta. Começar cedo faz diferença, atendemos na clínica e também em domicílio, para quem ainda não tem condição de se deslocar.",
       },
     ],
     condition: "Envelhecimento e quedas",
@@ -185,17 +189,17 @@ export const specialities: Speciality[] = [
     cardTitle: "Respiratória",
     image: "/resp.webp",
     summary:
-      "Fisioterapia respiratória em São Paulo: tratamento de asma, DPOC, fibrose pulmonar e outras doenças respiratórias crônicas, com reabilitação pulmonar.",
+      "Fisioterapia respiratória na Consolação e em Pinheiros: falta de ar, asma, enfisema, bronquite crônica e recuperação após internação. Também em domicílio.",
     cardText:
-      "Melhorar a função pulmonar e aliviar sintomas de doenças respiratórias crônicas como asma, DPOC e fibrose pulmonar.",
+      "Melhorar capacidade respiratória e tolerância ao esforço, para voltar a caminhar, subir escada e fazer suas atividades sem ficar sem ar.",
     intro:
-      "A fisioterapia respiratória trata distúrbios respiratórios como DPOC, asma, bronquite e fibrose pulmonar, com técnicas de reabilitação pulmonar, exercícios respiratórios e desobstrução brônquica.",
+      "Quando subir uma escada ou atravessar a rua já cansa, a fisioterapia respiratória trabalha capacidade pulmonar, força muscular e tolerância ao esforço. Atendemos asma, DPOC, bronquite crônica, fibrose pulmonar e recuperação após internações.",
     forWhom: [
-      "Indivíduos com doenças respiratórias crônicas: como asma, doença pulmonar obstrutiva crônica (DPOC), fibrose pulmonar e bronquiectasias.",
+      "Adultos com doenças respiratórias crônicas: como asma, doença pulmonar obstrutiva crônica (DPOC), fibrose pulmonar e bronquiectasias.",
       "Pacientes em recuperação pós-cirúrgica: principalmente após cirurgias torácicas ou abdominais.",
       "Pessoas com limitações respiratórias devido ao envelhecimento: como redução da capacidade pulmonar, fraqueza muscular respiratória e diminuição da função pulmonar.",
       "Pacientes com falta de ar crônica: causada por doenças respiratórias, como DPOC, ou por outras condições, como insuficiência cardíaca congestiva.",
-      "Indivíduos com condições neuromusculares respiratórias: como esclerose lateral amiotrófica (ELA), distrofia muscular e lesões medulares.",
+      "Pessoas com condições neuromusculares respiratórias: como esclerose lateral amiotrófica (ELA), distrofia muscular e lesões medulares.",
     ],
     howItWorks:
       "A fisioterapia respiratória para adultos é direcionada ao tratamento de distúrbios respiratórios, como doença pulmonar obstrutiva crônica (DPOC), asma, bronquite e fibrose pulmonar. Por meio de técnicas de reabilitação pulmonar, exercícios respiratórios e desobstrução brônquica, busca-se melhorar a capacidade pulmonar, a eficiência respiratória e a qualidade de vida dos pacientes.",
@@ -203,17 +207,17 @@ export const specialities: Speciality[] = [
       {
         question: "A fisioterapia respiratória trata DPOC e asma?",
         answer:
-          "Sim, atende indivíduos com doenças respiratórias crônicas como asma, DPOC, fibrose pulmonar e bronquiectasias.",
+          "Sim. Em asma, DPOC, fibrose pulmonar e bronquiectasias, o trabalho é de condicionamento: fortalecer a musculatura respiratória, melhorar o controle da respiração e aumentar o quanto você aguenta de esforço sem ficar sem ar.",
       },
       {
         question: "Serve para recuperação após cirurgia?",
         answer:
-          "Sim, atende pacientes em recuperação pós-cirúrgica, principalmente após cirurgias torácicas ou abdominais.",
+          "Sim, principalmente após cirurgias torácicas e abdominais. Nesses casos a respiração fica limitada pela dor, o pulmão não expande como deveria, favorecendo o acúmulo de secreção, e isso pode causar infecções. O trabalho da fisioterapia respiratória reduz esse risco e acelera a retomada da rotina.",
       },
       {
-        question: "Atende quem tem falta de ar crônica?",
+        question: "Funciona para quem tem falta de ar há meses/anos?",
         answer:
-          "Sim, atende pacientes com falta de ar crônica causada por doenças respiratórias, como DPOC, ou por outras condições, como insuficiência cardíaca congestiva.",
+          "Sim. Falta de ar crônica por DPOC, fibrose ou insuficiência cardíaca costuma criar um ciclo: a pessoa evita esforço, perde condicionamento, e passa a cansar cada vez mais fácil. A fisioterapia trabalha justamente para quebrar esse ciclo.",
       },
     ],
     condition: "Doenças respiratórias crônicas",
@@ -225,76 +229,37 @@ export const specialities: Speciality[] = [
     cardTitle: "Pré e pós-cirúrgico",
     image: "/cond.webp",
     summary:
-      "Fisioterapia pré e pós-cirúrgica em São Paulo: preparo físico antes da cirurgia e recuperação de mobilidade e força após o procedimento.",
+      "Fisioterapia pré e pós-operatória na Consolação e em Pinheiros: preparo antes da cirurgia e recuperação dos movimentos e força depois. Também a domicílio.",
     cardText:
-      "Preparar o corpo antes da cirurgia e apoiar a recuperação após procedimentos ortopédicos, abdominais e cardíacos.",
+      "Chegar mais forte à cirurgia e voltar mais rápido à rotina depois: em procedimentos ortopédicos, abdominais e cardíacos.",
     intro:
-      "A fisioterapia pré e pós-cirúrgica prepara o paciente antes de uma cirurgia, melhorando sua condição física, e depois auxilia na recuperação, restaurando mobilidade, força muscular e função.",
+      "Quem chega mais forte à cirurgia costuma se recuperar melhor. Trabalhamos os dois momentos: o preparo antes, para você entrar no procedimento em melhores condições, e a reabilitação depois, para recuperar mobilidade, força e função o mais breve possível.",
     forWhom: [
-      "Pacientes em preparação para cirurgia: focando na melhoria do condicionamento cardiovascular, fortalecimento muscular e flexibilidade, preparando o corpo para o procedimento cirúrgico e ajudando a acelerar a recuperação pós-operatória.",
-      "Pessoas que passaram por cirurgias ortopédicas.",
-      "Indivíduos que passaram por cirurgias abdominais.",
-      "Pacientes que se submeteram a cirurgias cardíacas.",
+      "Pacientes em preparação para cirurgia que desejem chegar melhores condições para o procedimento, o que costuma facilitar a recuperação depois",
+      "Depois de cirurgia ortopédica: prótese de joelho ou quadril, reparo de ligamento, fixação de fratura: recuperar amplitude, força e marcha.",
+      "Depois de cirurgia abdominal: retomar mobilidade e respiração eficiente, com progressão segura de esforço.",
+      "Depois de cirurgia cardíaca: recuperação de condicionamento e retorno gradual às atividades, respeitando os limites do pós-operatório.",
     ],
     howItWorks:
-      "A fisioterapia para condicionamento físico pré e pós cirúrgico tem como objetivo preparar o paciente antes de uma cirurgia, melhorando sua condição física e reduzindo o risco de complicações. Após a cirurgia, a fisioterapia auxilia na recuperação, restaurando a mobilidade, força muscular e função, além de reduzir o tempo de internação e acelerar o retorno às atividades cotidianas.",
+      "A fisioterapia para condicionamento físico pré e pós cirúrgico tem como objetivo preparar o paciente antes de uma cirurgia, melhorando sua condição física e reduzindo o risco de complicações. Após a cirurgia, a fisioterapia auxilia na recuperação, restaurando a mobilidade, força muscular e função, além de reduzir o tempo de internação e acelerar o retorno às atividades cotidianas. Sempre alinhados às orientações do cirurgião e respeitando o tempo de cicatrização.",
     faq: [
       {
         question: "O que é a fisioterapia pré-cirúrgica?",
         answer:
-          "É a preparação do paciente antes de uma cirurgia, com foco em condicionamento cardiovascular, fortalecimento muscular e flexibilidade, ajudando a acelerar a recuperação pós-operatória.",
+          "É preparar o corpo para o que vem. Nas semanas anteriores à cirurgia, trabalhamos condicionamento, força e mobilidade, e já ensinamos os movimentos que você vai precisar fazer depois: levantar da cama, sentar, andar com apoio. Chegar treinado facilita bastante o pós.",
       },
       {
         question: "Quais cirurgias são atendidas no pós-operatório?",
-        answer: "Cirurgias ortopédicas, abdominais e cardíacas.",
+        answer: "Atendemos pós-operatório de cirurgias ortopédicas, abdominais, cardíacas, neurológicas e oncológicas.",
       },
       {
         question: "O que a fisioterapia pós-cirúrgica ajuda a restaurar?",
         answer:
-          "A mobilidade, a força muscular e a função, além de reduzir o tempo de internação e acelerar o retorno às atividades cotidianas.",
+          "Movimento, força, confiança e a capacidade de fazer as coisas do dia a dia da forma mais segura e independente possível. O objetivo é você voltar à sua rotina (trabalho, esporte, tarefas de casa), com ou sem adaptações, de forma mais breve possível.",
       },
     ],
     condition: "Recuperação cirúrgica",
     relatedPosts: [],
-  },
-  {
-    slug: "drenagem-linfatica",
-    title: "Drenagem Linfática",
-    cardTitle: "Drenagem linfática",
-    image: "/drenagem.webp",
-    summary:
-      "Drenagem linfática em São Paulo: redução de inchaço, melhora da circulação e alívio de dores musculares, para linfedema, pós-operatório e gestantes.",
-    cardText:
-      "Reduzir inchaço, melhorar a circulação e aliviar dores musculares, para pós-operatório, gestantes e linfedema.",
-    intro:
-      "A drenagem linfática estimula o sistema linfático para eliminar líquidos retidos e melhorar a circulação, reduzindo o inchaço e aliviando dores musculares.",
-    forWhom: [
-      "Pessoas com edema linfático: como linfedema primário ou secundário, pós-operatório de cirurgias, traumatismos ou problemas circulatórios.",
-      "Gestantes: durante a gravidez, o aumento da pressão uterina e hormonal pode levar à retenção de líquidos e ao inchaço nas pernas, tornozelos e pés.",
-      "Pacientes em recuperação pós-cirúrgica: após procedimentos estéticos, como lipoaspiração ou abdominoplastia",
-      "Indivíduos com estresse e fadiga: além dos benefícios físicos, a drenagem linfática também pode proporcionar alívio do estresse e da fadiga.",
-    ],
-    howItWorks:
-      "A drenagem linfática é uma técnica terapêutica que estimula o sistema linfático, promovendo a eliminação de líquidos retidos, melhorando a circulação e proporcionando benefícios como a redução do inchaço, alívio de dores musculares e sensação de relaxamento.",
-    faq: [
-      {
-        question: "A drenagem linfática trata linfedema?",
-        answer:
-          "Sim, atende pessoas com edema linfático, como linfedema primário ou secundário, pós-operatório de cirurgias, traumatismos ou problemas circulatórios.",
-      },
-      {
-        question: "Gestantes podem fazer drenagem linfática?",
-        answer:
-          "Sim. Durante a gravidez, o aumento da pressão uterina e hormonal pode levar à retenção de líquidos e ao inchaço nas pernas, tornozelos e pés, quadro que a drenagem linfática ajuda a aliviar.",
-      },
-      {
-        question: "Serve para recuperação após cirurgia estética?",
-        answer:
-          "Sim, atende pacientes em recuperação pós-cirúrgica após procedimentos estéticos, como lipoaspiração ou abdominoplastia.",
-      },
-    ],
-    condition: "Linfedema",
-    relatedPosts: ["fisioterapia-incontinencia-urinaria"],
   },
 ];
 

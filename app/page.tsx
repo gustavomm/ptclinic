@@ -14,7 +14,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Fisioterapia e Pilates em São Paulo",
   description:
-    "Fisioterapia e Pilates com atendimento individual conduzido por fisioterapeutas. Consolação e Pinheiros, São Paulo.",
+    "Fisioterapia oncológica, neurofuncional e ortopédica. Pilates em grupo. Duas unidades em São Paulo: Consolação e Pinheiros.",
   path: "/",
 });
 

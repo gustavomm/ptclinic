@@ -13,7 +13,11 @@ module.exports = {
         "/speciality/condicionamento-fisico",
         "/especialidades/fisioterapia-pre-e-pos-cirurgica",
       ],
-      ["/speciality/drenagem-linfatica", "/especialidades/drenagem-linfatica"],
+      // A clínica tirou a drenagem linfática da lista em agosto de 2026. A URL
+      // do site legado continua existindo e não pode voltar 404, então aponta
+      // para a lista: o linfedema, que era o motivo clínico de quem chegava por
+      // aqui, é tratado dentro da fisioterapia oncológica.
+      ["/speciality/drenagem-linfatica", "/especialidades"],
       ["/speciality/pilates", "/pilates"],
     ].map(([source, destination]) => ({ source, destination, permanent: true }));
   },
