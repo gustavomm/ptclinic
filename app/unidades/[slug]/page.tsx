@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
+import { Arrow } from "@/components/ui/Arrow";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { JsonLd } from "@/components/JsonLd";
@@ -126,13 +127,15 @@ export default async function UnitPage({
           {specialities.map((s) => (
             <li key={s.slug}>
               <Link href={`/especialidades/${s.slug}`} className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
-                {s.cardTitle} →
+                {s.cardTitle}
+                <Arrow />
               </Link>
             </li>
           ))}
           <li>
             <Link href="/pilates" className="inline-flex min-h-[44px] items-center text-[17px] text-ink hover:text-accent">
-              Pilates →
+              Pilates
+              <Arrow />
             </Link>
           </li>
         </ul>

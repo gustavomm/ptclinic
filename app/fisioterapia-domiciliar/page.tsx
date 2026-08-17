@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { Arrow } from "@/components/ui/Arrow";
+import { BulletList } from "@/components/ui/BulletList";
 import { SectionSplit } from "@/components/ui/SectionSplit";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
@@ -123,14 +125,7 @@ export default function DomiciliarPage() {
 
       <Section>
         <SectionSplit title="Para quem é">
-          <ul className="flex flex-col gap-4">
-            {FOR_WHOM.map((item) => (
-              <li key={item} className="flex gap-4 text-base font-book leading-relaxed text-muted">
-                <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <BulletList items={FOR_WHOM} />
         </SectionSplit>
 
         <div className="mt-16">
@@ -146,7 +141,8 @@ export default function DomiciliarPage() {
                     href={`/especialidades/${s.slug}`}
                     className="inline-flex min-h-[44px] items-center font-display font-light text-2xl text-ink hover:text-accent"
                   >
-                    {s.cardTitle} →
+                    {s.cardTitle}
+                    <Arrow />
                   </Link>
                 </li>
               ))}

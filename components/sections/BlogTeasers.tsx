@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { Arrow } from "@/components/ui/Arrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { getAllPosts } from "@/lib/blog";
@@ -13,7 +14,8 @@ export function BlogTeasers() {
       <div className="mb-14 flex flex-wrap items-end justify-between gap-8">
         <SectionHeading className="max-w-2xl" eyebrow="Conteúdo" title="O que a gente escreve entre as sessões" />
         <Link href="/blog" className="inline-flex min-h-[44px] items-center text-[15px] text-accent hover:text-accent-deep">
-          Ver todos os textos →
+          Ver todos os textos
+          <Arrow />
         </Link>
       </div>
       <div className="grid gap-10 md:grid-cols-3">

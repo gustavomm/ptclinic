@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { Arrow } from "@/components/ui/Arrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { units } from "@/content/units";
@@ -29,7 +30,8 @@ export function UnidadesSection({
                 {u.district}, {u.city} · {u.state}
               </p>
               <Link href={`/unidades/${u.slug}`} className="inline-flex min-h-[44px] items-center text-[15px] text-accent hover:text-accent-deep">
-                Ver a unidade →
+                Ver a unidade
+                <Arrow />
               </Link>
             </div>
           </Reveal>
@@ -58,7 +60,8 @@ export function UnidadesSection({
           href="/fisioterapia-domiciliar"
           className="mt-1 inline-flex min-h-[44px] items-center text-[15px] text-accent hover:text-accent-deep"
         >
-          Ver o atendimento domiciliar →
+          Ver o atendimento domiciliar
+          <Arrow />
         </Link>
       </Reveal>
     </Section>

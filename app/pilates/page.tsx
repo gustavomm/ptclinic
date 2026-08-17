@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { BulletList } from "@/components/ui/BulletList";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PilatesSection } from "@/components/sections/PilatesSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
@@ -136,14 +137,7 @@ export default function PilatesPage() {
           O Pilates é uma prática acessível a pessoas de todas as idades e níveis
           de condicionamento físico. É ideal para quem busca:
         </p>
-        <ul className="mt-8 flex max-w-xl flex-col gap-4">
-          {BENEFITS.map((b) => (
-            <li key={b} className="flex gap-4 text-base font-book leading-relaxed text-muted">
-              <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
-              {b}
-            </li>
-          ))}
-        </ul>
+        <BulletList items={BENEFITS} className="mt-8 max-w-xl" />
       </Section>
 
       <Section tone="surface-alt">

@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
+import { Arrow } from "@/components/ui/Arrow";
+import { BulletList } from "@/components/ui/BulletList";
 import { SectionSplit } from "@/components/ui/SectionSplit";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
@@ -93,14 +95,7 @@ export default async function SpecialityPage({
 
       <Section>
         <SectionSplit title="Para quem funciona">
-          <ul className="flex flex-col gap-4">
-            {s.forWhom.map((item) => (
-              <li key={item} className="flex gap-4 text-base font-book leading-relaxed text-muted">
-                <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-warm" aria-hidden />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <BulletList items={s.forWhom} />
         </SectionSplit>
 
         <div className="mt-16">
@@ -126,7 +121,8 @@ export default async function SpecialityPage({
                     href={`/blog/${p!.slug}`}
                     className="inline-flex min-h-[44px] items-center font-display font-light text-2xl text-ink hover:text-accent"
                   >
-                    {p!.title} →
+                    {p!.title}
+                    <Arrow />
                   </Link>
                 </li>
               ))}
