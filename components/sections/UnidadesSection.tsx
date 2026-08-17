@@ -35,6 +35,32 @@ export function UnidadesSection({
           </Reveal>
         ))}
       </div>
+
+      {/*
+        A terceira resposta para "onde". As duas unidades e o domicílio estão no
+        mesmo eixo — mudam o lugar, não o tratamento — e é aqui que ficam juntos
+        pela primeira vez. Era a queixa: o site não deixava claro que existem
+        duas casas físicas E atendimento na casa do paciente.
+
+        Fica como faixa e não como terceiro cartão de propósito: cartão pediria
+        foto, e não existe foto de atendimento em domicílio que possa ir ao ar
+        sem consentimento de quem aparece nela.
+      */}
+      <Reveal delay={200} className="mt-8 border border-line bg-surface p-8">
+        <h3 className="font-display font-light text-3xl text-ink">
+          Também na sua casa
+        </h3>
+        <p className="mt-3 text-base font-book leading-relaxed text-muted">
+          Atendimento domiciliar na cidade de São Paulo, para quem não consegue
+          ou não deve se deslocar até a clínica.
+        </p>
+        <Link
+          href="/fisioterapia-domiciliar"
+          className="mt-1 inline-flex min-h-[44px] items-center text-[15px] text-accent hover:text-accent-deep"
+        >
+          Ver o atendimento domiciliar →
+        </Link>
+      </Reveal>
     </Section>
   );
 }

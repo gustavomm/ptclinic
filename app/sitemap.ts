@@ -12,6 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: url("/"), priority: 1 },
     { url: url("/pilates"), priority: 0.9 },
+    // Mesma prioridade do pilates: os dois são serviço com página própria, e
+    // "fisioterapia domiciliar são paulo" é busca de intenção alta.
+    { url: url("/fisioterapia-domiciliar"), priority: 0.9 },
     { url: url("/especialidades"), priority: 0.8 },
     { url: url("/unidades"), priority: 0.8 },
     { url: url("/blog"), priority: 0.7 },
