@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Arrow } from "@/components/ui/Arrow";
 import { BulletList } from "@/components/ui/BulletList";
 import { SectionSplit } from "@/components/ui/SectionSplit";
@@ -75,6 +76,11 @@ const FAQ = [
   },
 ];
 
+const TRAIL = [
+  { name: "Início", path: "/" },
+  { name: "Fisioterapia domiciliar", path: "/fisioterapia-domiciliar" },
+];
+
 export const metadata: Metadata = buildMetadata({
   title: "Fisioterapia domiciliar em São Paulo",
   description:
@@ -94,14 +100,12 @@ export default function DomiciliarPage() {
             path: "/fisioterapia-domiciliar",
           }),
           faqSchema(FAQ),
-          breadcrumbSchema([
-            { name: "Início", path: "/" },
-            { name: "Fisioterapia domiciliar", path: "/fisioterapia-domiciliar" },
-          ]),
+          breadcrumbSchema(TRAIL),
         ]}
       />
 
       <Section tone="surface-alt">
+        <Breadcrumb trail={TRAIL} />
         <SectionHeading
           level="h1"
           eyebrow="Atendimento"

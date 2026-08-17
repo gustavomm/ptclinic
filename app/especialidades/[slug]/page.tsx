@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Arrow } from "@/components/ui/Arrow";
 import { BulletList } from "@/components/ui/BulletList";
 import { SectionSplit } from "@/components/ui/SectionSplit";
@@ -47,6 +48,12 @@ export default async function SpecialityPage({
 
   const related = s.relatedPosts.map(getPostMeta).filter(Boolean);
 
+  const TRAIL = [
+    { name: "Início", path: "/" },
+    { name: "Áreas de atuação", path: "/especialidades" },
+    { name: s.title, path: `/especialidades/${s.slug}` },
+  ];
+
   return (
     <main>
       <JsonLd
@@ -58,21 +65,13 @@ export default async function SpecialityPage({
             condition: s.condition,
           }),
           faqSchema(s.faq),
-          breadcrumbSchema([
-            { name: "Início", path: "/" },
-            { name: "Áreas de atuação", path: "/especialidades" },
-            { name: s.title, path: `/especialidades/${s.slug}` },
-          ]),
+          breadcrumbSchema(TRAIL),
         ]}
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
-          <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-ink">Início</Link>
-          <span className="mx-2" aria-hidden>/</span>
-          <Link href="/especialidades" className="inline-flex min-h-[44px] items-center hover:text-ink">Áreas de atuação</Link>
-        </nav>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <Breadcrumb trail={TRAIL} />
+                <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <Eyebrow>Áreas de atuação</Eyebrow>
             <h1 className="font-display text-display-lg text-balance text-ink">{s.title}</h1>

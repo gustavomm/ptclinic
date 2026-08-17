@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { BulletList } from "@/components/ui/BulletList";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PilatesSection } from "@/components/sections/PilatesSection";
@@ -81,6 +82,11 @@ const FAQ = [
   },
 ];
 
+const TRAIL = [
+  { name: "Início", path: "/" },
+  { name: "Pilates", path: "/pilates" },
+];
+
 export const metadata: Metadata = buildMetadata({
   title: "Pilates com fisioterapeuta em São Paulo",
   description:
@@ -105,18 +111,13 @@ export default function PilatesPage() {
             condition: "Reabilitação e condicionamento físico",
           }),
           faqSchema(FAQ),
-          breadcrumbSchema([
-            { name: "Início", path: "/" },
-            { name: "Pilates", path: "/pilates" },
-          ]),
+          breadcrumbSchema(TRAIL),
         ]}
       />
 
       <Section tone="surface-alt">
-        <nav aria-label="Trilha" className="mb-8 text-sm text-subtle">
-          <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-accent">Início</Link>
-        </nav>
-        <SectionHeading
+        <Breadcrumb trail={TRAIL} />
+                <SectionHeading
           level="h1"
           eyebrow="Pilates"
           title={<>Pilates com <em className="italic">fisioterapeuta</em>, sempre</>}

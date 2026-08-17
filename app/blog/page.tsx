@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { getAllPosts } from "@/lib/blog";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -16,18 +17,24 @@ export const metadata: Metadata = buildMetadata({
   path: "/blog",
 });
 
+// Mesmo array para o JSON-LD e para a trilha visível, para os dois não
+// discordarem: o schema leva todos os itens, a tela desenha todos menos o
+// último, que é a página em que a pessoa já está.
+const TRAIL = [
+  { name: "Início", path: "/" },
+  { name: "Conteúdo", path: "/blog" },
+];
+
 export default function BlogIndex() {
   const posts = getAllPosts();
 
   return (
     <main>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Início", path: "/" },
-          { name: "Conteúdo", path: "/blog" },
-        ])}
+        data={breadcrumbSchema(TRAIL)}
       />
       <Section tone="surface-alt">
+        <Breadcrumb trail={TRAIL} />
         <SectionHeading
           level="h1"
           eyebrow="Conteúdo"
