@@ -15,12 +15,34 @@
     --chrome-height: 105px;
   }
 
-  html { scroll-behavior: smooth; }
+  /*
+    Sem scroll-behavior: smooth no html, de propósito.
+
+    Ele causava, no celular, o pior bug que o site teve: tocar num card de área
+    de atuação levava para a página certa rolada até o rodapé. O Next chama
+    scrollTo(0, 0) a cada navegação e sabe que smooth atrapalha, então desliga
+    antes de rolar — mas em disable-smooth-scroll.js ele restaura o valor na
+    linha seguinte, síncrona. Se a rolagem atrasar um quadro que seja, o smooth
+    já voltou, e rolagem suave é cancelada assim que um dedo encosta na tela. O
+    dedo de quem acabou de tocar no card ainda está lá. A rolagem morre no meio
+    e a pessoa fica no deslocamento antigo, limitado à altura da página nova —
+    que dá exatamente no rodapé.
+
+    Só aparece com toque de verdade: reproduzido em vídeo, num navegador
+    embutido de aplicativo no iOS, e não reproduz em Chromium nem WebKit
+    automatizados, de nenhuma profundidade de rolagem, porque ali não há dedo.
+
+    O que se perde são dois links de âncora — o "Como funciona" do hero e o
+    "Quem somos" do menu — que passam a saltar em vez de deslizar. É pouco
+    perto de mandar para o rodapé quem chega pelo anúncio.
+
+    Se um dia o salto incomodar, o caminho é rolar por JS nesses dois links
+    (scrollIntoView com behavior smooth), que não passa pelo caminho do Next.
+  */
   section { scroll-margin-top: 5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

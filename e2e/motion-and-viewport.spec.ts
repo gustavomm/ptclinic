@@ -121,3 +121,31 @@ for (const [width, height] of [
     expect(gap, `${gap}px of the next section is visible below the hero`).toBeLessThanOrEqual(2);
   });
 }
+
+/*
+  Guarda o conserto do bug de rolagem no celular: tocar num card de área de
+  atuação levava para a página certa rolada até o rodapé.
+
+  A causa era `scroll-behavior: smooth` no html. O Next desliga o smooth antes
+  do scrollTo de cada navegação, mas restaura na linha seguinte, síncrona — e
+  rolagem suave morre assim que um dedo encosta na tela, que é justamente onde
+  está o dedo de quem acabou de tocar no card.
+
+  Este teste não reproduz o bug: sem toque real ele não acontece, e foi por isso
+  que passou despercebido. O que ele prende é a condição que o causava, para
+  ninguém devolver a linha ao globals.css sem saber o que ela custa.
+*/
+test.describe("rolagem entre páginas", () => {
+  for (const path of ["/", "/especialidades", "/especialidades/fisioterapia-neurologica"]) {
+    test(`${path} não usa scroll-behavior smooth no html`, async ({ page }) => {
+      await page.goto(path);
+      const behavior = await page.evaluate(
+        () => getComputedStyle(document.documentElement).scrollBehavior,
+      );
+      expect(
+        behavior,
+        "scroll-behavior: smooth no html faz o Next largar a pessoa no rodapé da página nova quando o toque cancela a rolagem",
+      ).not.toBe("smooth");
+    });
+  }
+});
