@@ -91,13 +91,13 @@ describe("GET /whatsapp", () => {
     expect(sendLead).toHaveBeenCalledTimes(1);
     const [row, config] = sendLead.mock.calls[0];
     expect(row).toMatchObject({
-      lead_code: "VY-GABCDE",
-      channel: "google_ads",
-      last_gclid: "G1",
-      fbp: "fb.1.1.2",
-      gcl_aw: "GCL.1760443200.G1",
-      ga: "GA1.1.123456789.1760443200",
-      user_agent: "UA/1.0",
+      Código: "VY-GABCDE",
+      "De onde veio": "Anúncio do Google",
+      "Técnico: último toque, gclid": "G1",
+      "Técnico: _fbp": "fb.1.1.2",
+      "Técnico: _gcl_aw": "GCL.1760443200.G1",
+      "Técnico: _ga": "GA1.1.123456789.1760443200",
+      "Técnico: navegador": "UA/1.0",
     });
     expect(config).toMatchObject({ url: "https://script.example/exec", secret: "s3" });
   });
@@ -137,7 +137,10 @@ describe("GET /whatsapp", () => {
     expect(res.status).toBe(302);
     expect(textOf(res)).toContain("VY-GABCDE");
     await afterCallbacks[0]();
-    expect(sendLead.mock.calls[0][0]).toMatchObject({ first_channel: "", last_channel: "google_ads" });
+    expect(sendLead.mock.calls[0][0]).toMatchObject({
+      "Técnico: primeiro toque, canal": "",
+      "Técnico: último toque, canal": "google_ads",
+    });
   });
 
   it("never lets a failure building the row escape the after() callback", async () => {

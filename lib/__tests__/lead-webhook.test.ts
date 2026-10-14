@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { sendLead } from "../lead-webhook";
 
-const row = { lead_code: "VY-GABCDE" };
+const row = { Código: "VY-GABCDE" };
 
 afterEach(() => vi.restoreAllMocks());
 
