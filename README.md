@@ -10,7 +10,7 @@ Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 ## Verificação
 
     npm run typecheck   # tipos
-    npm test             # unidade (Vitest) — 213 testes
+    npm test             # unidade (Vitest) — 282 testes
     npm run build         # build de produção — 26 páginas estáticas; só /whatsapp é dinâmica
     npm run test:e2e      # E2E (Playwright, roda build + start) — 76 testes
 
@@ -55,6 +55,13 @@ continua cobrando e reportando zero conversões.
   `.env.local`. O outro lado do contrato é `scripts/leads-apps-script.gs`.
 - O `lead_code` não é único sozinho (5 caracteres): ligue a conversa à linha
   da planilha pelo código **e** pela data.
+- A planilha é lida pela equipe da clínica, não por quem programa. Cada
+  clique vira uma linha na aba "Cliques do site", com as colunas legíveis
+  primeiro, em português e com valores traduzidos ("Anúncio do Google",
+  "Botão flutuante do WhatsApp"), e as colunas "Técnico: …" depois. Os nomes
+  das colunas são as chaves de `lib/lead-row.ts`: mudar um nome lá muda a
+  planilha. Quando alguém cola um código na coluna "Código" da aba de
+  contatos, o script preenche "Canal" sozinho.
 - As classes `.redirect-whatsapp`, `.redirect-phone`, `.redirect-email` e
   `.redirect-instagram` são lidas pelo GTM em todo tipo de página.
   `e2e/gtm-classes.spec.ts` guarda isso — roda em toda página, valida as

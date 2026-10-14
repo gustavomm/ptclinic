@@ -1,3 +1,5 @@
+import { CODE_COLUMN } from "@/lib/lead-row";
+
 /**
  * Sends one lead row to the Google Apps Script web app that appends it to the
  * leads Sheet (scripts/leads-apps-script.gs). Server-only: called from
@@ -23,7 +25,7 @@ export async function sendLead(
   { url, secret, fetchImpl = fetch }: LeadWebhookConfig,
 ): Promise<void> {
   if (!url) return;
-  const code = row.lead_code ?? "?";
+  const code = row[CODE_COLUMN] ?? "?";
   try {
     // The secret goes in the body: an Apps Script web app cannot read request headers.
     const res = await fetchImpl(url, {
