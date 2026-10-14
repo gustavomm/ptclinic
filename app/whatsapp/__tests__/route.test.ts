@@ -93,7 +93,7 @@ describe("GET /whatsapp", () => {
 
   it("without a handoff still redirects, with an X code, and writes no row", () => {
     const res = GET(request());
-    expect(textOf(res)).toMatch(/^Código de atendimento: VY-X[A-HJ-NP-Z2-9]{5}\n\nOlá, gostaria de marcar uma consulta\.$/);
+    expect(textOf(res)).toMatch(/^Olá! Vim pelo site da Vyta \(código VY-X[A-HJ-NP-Z2-9]{5}\)\.\nGostaria de marcar uma consulta e tirar algumas dúvidas\.$/);
     expect(afterCallbacks).toHaveLength(0);
   });
 

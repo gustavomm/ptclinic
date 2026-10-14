@@ -46,7 +46,7 @@ test("a click lands on WhatsApp with a code that names the ad channel", async ({
   expect(redirects).toHaveLength(1);
   expect(redirects[0].startsWith("https://wa.me/5511989172311?text=")).toBe(true);
   expect(textOf(redirects[0])).toMatch(
-    /^Código de atendimento: VY-G[A-HJ-NP-Z2-9]{5}\n\nOlá, gostaria de informações sobre o Pilates\.$/,
+    /^Olá! Vim pelo site da Vyta \(código VY-G[A-HJ-NP-Z2-9]{5}\)\.\nTenho interesse no Pilates e queria tirar algumas dúvidas\.$/,
   );
 });
 
@@ -79,7 +79,7 @@ test("the dataLayer event and the WhatsApp message carry the same lead_code", as
   expect(cookie?.path).toBe("/whatsapp");
 
   await page.goto("/whatsapp");
-  expect(textOf(redirects[0])).toMatch(new RegExp(`^Código de atendimento: ${event?.lead_code}\\n`));
+  expect(textOf(redirects[0]).split("\n")[0]).toContain(`(código ${event?.lead_code})`);
 
   // The route consumed the cookie: a second visit cannot replay the code.
   const left = await context.cookies("http://localhost:3000/whatsapp");
@@ -92,7 +92,7 @@ test("the footer link carries the code too, and asks about Pilates on /pilates",
   await footerLink.scrollIntoViewIfNeeded();
   await Promise.all([page.waitForURL("**/whatsapp"), footerLink.click()]);
   expect(textOf(redirects[0])).toMatch(
-    /^Código de atendimento: VY-G[A-HJ-NP-Z2-9]{5}\n\nOlá, gostaria de informações sobre o Pilates\.$/,
+    /^Olá! Vim pelo site da Vyta \(código VY-G[A-HJ-NP-Z2-9]{5}\)\.\nTenho interesse no Pilates e queria tirar algumas dúvidas\.$/,
   );
 });
 

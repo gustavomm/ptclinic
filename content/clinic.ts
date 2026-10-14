@@ -8,6 +8,8 @@ const PHONE_E164 = "+5511989172311";
 
 export const clinic = {
   name: "Vyta Fisioterapia e Pilates",
+  /** How a patient refers to the clinic in a sentence ("Vim pelo site da Vyta"). */
+  shortName: "Vyta",
   legalName: "Vyta Fisioterapia",
   tagline: "Fisioterapia & Pilates",
   phoneE164: PHONE_E164,

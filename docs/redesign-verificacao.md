@@ -65,8 +65,8 @@ das duas antes de publicar.
 > **Desde o `lead_code` (outubro de 2026), o redirect final mudou.** Os itens
 > marcados abaixo com `wa.me/message/FJNBBFEBI6V5O1` registram o que foi
 > conferido em 17/08/2026. Hoje `/whatsapp` responde `302` com
-> `Cache-Control: no-store` para `wa.me/5511989172311?text=…`, com a linha
-> `Código de atendimento: VY-…` no início da mensagem (código `VY-X…` quando a
+> `Cache-Control: no-store` para `wa.me/5511989172311?text=…`, com a mensagem
+> começando por `Olá! Vim pelo site da Vyta (código VY-…).` (código `VY-X…` quando a
 > visita chega sem o cookie do clique). A conversão continua contando no
 > clique, na página de origem.
 >

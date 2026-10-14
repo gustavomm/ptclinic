@@ -31,20 +31,30 @@ const handoff: Handoff = {
 };
 
 describe("whatsappMessage", () => {
-  it("asks about Pilates on Pilates CTAs, with the code on its own line", () => {
+  it("asks about Pilates on Pilates CTAs, with the code inside the first line", () => {
     expect(whatsappMessage("pilates", "/", "VY-GABCDE")).toBe(
-      "Código de atendimento: VY-GABCDE\n\nOlá, gostaria de informações sobre o Pilates.",
+      "Olá! Vim pelo site da Vyta (código VY-GABCDE).\nTenho interesse no Pilates e queria tirar algumas dúvidas.",
     );
   });
 
   // WhatsApp opens with the cursor at the end of the text: whatever sits last
   // is what a backspace or a rewrite erases first.
-  it("puts the code first, away from the cursor", () => {
-    expect(whatsappMessage("geral", "/", "VY-GABCDE")).toMatch(/^Código de atendimento: VY-GABCDE\n/);
+  it("keeps the code on the first line, away from the cursor", () => {
+    const [first, ...rest] = whatsappMessage("geral", "/", "VY-GABCDE").split("\n");
+    expect(first).toContain("VY-GABCDE");
+    expect(rest.join("\n")).not.toContain("VY-");
+  });
+
+  // Brazilians are taught never to share a "código" on WhatsApp (account-
+  // cloning scam), and a form-style label reads as system text people delete.
+  it("frames the code as where the person came from, not as a label or a protocol", () => {
+    const message = whatsappMessage("geral", "/", "VY-GABCDE");
+    expect(message).toMatch(/^Olá! Vim pelo site da Vyta \(código VY-GABCDE\)\./);
+    expect(message).not.toMatch(/atendimento|protocolo|meu código/i);
   });
 
   it("asks about Pilates from any CTA on the Pilates page (nav, FAB, footer)", () => {
-    expect(whatsappMessage("geral", "/pilates", "VY-GABCDE")).toMatch(/Olá, gostaria de informações sobre o Pilates\.$/);
+    expect(whatsappMessage("geral", "/pilates", "VY-GABCDE")).toMatch(/Tenho interesse no Pilates e queria tirar algumas dúvidas\.$/);
   });
 
   it.each([
@@ -54,7 +64,7 @@ describe("whatsappMessage", () => {
     ["fisioterapia-apos-avc", "/blog/fisioterapia-apos-avc"],
   ])("uses the consultation greeting for %s on %s", (service, page) => {
     expect(whatsappMessage(service, page, "VY-DABCDE")).toBe(
-      "Código de atendimento: VY-DABCDE\n\nOlá, gostaria de marcar uma consulta.",
+      "Olá! Vim pelo site da Vyta (código VY-DABCDE).\nGostaria de marcar uma consulta e tirar algumas dúvidas.",
     );
   });
 });
@@ -69,7 +79,7 @@ describe("whatsappUrl", () => {
 
   it("encodes spaces and line breaks as %20 and %0A, which every WhatsApp client reads", () => {
     const raw = whatsappUrl("+5511989172311", "geral", "/", "VY-DABCDE");
-    expect(raw).toContain("C%C3%B3digo%20de%20atendimento%3A%20VY-DABCDE%0A%0AOl%C3%A1");
+    expect(raw).toContain("(c%C3%B3digo%20VY-DABCDE).%0AGostaria%20de%20marcar");
     expect(raw).not.toContain("+");
   });
 });

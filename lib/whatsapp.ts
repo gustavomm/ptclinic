@@ -1,3 +1,4 @@
+import { clinic } from "@/content/clinic";
 import { isTouch, type Touch } from "@/lib/attribution";
 import { LEAD_CODE_PATTERN } from "@/lib/lead-code";
 
@@ -29,8 +30,8 @@ export type Handoff = {
   last: Touch | null;
 };
 
-const PILATES_GREETING = "Olá, gostaria de informações sobre o Pilates.";
-const DEFAULT_GREETING = "Olá, gostaria de marcar uma consulta.";
+const PILATES_REQUEST = "Tenho interesse no Pilates e queria tirar algumas dúvidas.";
+const DEFAULT_REQUEST = "Gostaria de marcar uma consulta e tirar algumas dúvidas.";
 
 const isPilates = (service: string, page: string) =>
   service === "pilates" || page === "/pilates" || page.startsWith("/pilates/");
@@ -39,14 +40,20 @@ const isPilates = (service: string, page: string) =>
  * The pre-filled first message. Pilates CTAs, and any CTA on the Pilates page,
  * ask about Pilates.
  *
- * The code comes first, on its own labelled line. WhatsApp opens with the
- * cursor at the end of the text, so whatever sits last is what a backspace or
- * a rewritten greeting erases first. First is also what the clinic's chat list
- * shows, and the label makes it read as something the clinic needs.
+ * Every word of it is aimed at the code surviving until "send":
+ * - The code sits inside a true first-person sentence ("I came from the
+ *   site"), not under a label. A labelled line reads as system text people
+ *   tidy away, and Brazilians are taught never to share a "código" on
+ *   WhatsApp; "atendimento" would also suggest a service ticket it isn't.
+ * - It is on the first line. WhatsApp opens with the cursor at the end, so
+ *   the last line is what a backspace or a rewrite erases first. The first
+ *   line is also what the clinic's chat list shows.
+ * - "Tirar algumas dúvidas" ends open, inviting people to type their question
+ *   after it instead of rewriting the message.
  */
 export function whatsappMessage(service: string, page: string, code: string): string {
-  const greeting = isPilates(service, page) ? PILATES_GREETING : DEFAULT_GREETING;
-  return `Código de atendimento: ${code}\n\n${greeting}`;
+  const request = isPilates(service, page) ? PILATES_REQUEST : DEFAULT_REQUEST;
+  return `Olá! Vim pelo site da ${clinic.shortName} (código ${code}).\n${request}`;
 }
 
 export function whatsappUrl(phoneE164: string, service: string, page: string, code: string): string {

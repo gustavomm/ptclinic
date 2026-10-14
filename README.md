@@ -10,7 +10,7 @@ Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 ## Verificação
 
     npm run typecheck   # tipos
-    npm test             # unidade (Vitest) — 212 testes
+    npm test             # unidade (Vitest) — 213 testes
     npm run build         # build de produção — 26 páginas estáticas; só /whatsapp é dinâmica
     npm run test:e2e      # E2E (Playwright, roda build + start) — 76 testes
 
