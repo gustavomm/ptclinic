@@ -37,12 +37,16 @@ const isPilates = (service: string, page: string) =>
 
 /**
  * The pre-filled first message. Pilates CTAs, and any CTA on the Pilates page,
- * ask about Pilates. The code gets its own labelled line so it reads as
- * something the clinic needs, which makes people less likely to delete it.
+ * ask about Pilates.
+ *
+ * The code comes first, on its own labelled line. WhatsApp opens with the
+ * cursor at the end of the text, so whatever sits last is what a backspace or
+ * a rewritten greeting erases first. First is also what the clinic's chat list
+ * shows, and the label makes it read as something the clinic needs.
  */
 export function whatsappMessage(service: string, page: string, code: string): string {
   const greeting = isPilates(service, page) ? PILATES_GREETING : DEFAULT_GREETING;
-  return `${greeting}\n\nCódigo de atendimento: ${code}`;
+  return `Código de atendimento: ${code}\n\n${greeting}`;
 }
 
 export function whatsappUrl(phoneE164: string, service: string, page: string, code: string): string {

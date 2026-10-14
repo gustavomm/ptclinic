@@ -33,12 +33,18 @@ const handoff: Handoff = {
 describe("whatsappMessage", () => {
   it("asks about Pilates on Pilates CTAs, with the code on its own line", () => {
     expect(whatsappMessage("pilates", "/", "VY-GABCDE")).toBe(
-      "Olá, gostaria de informações sobre o Pilates.\n\nCódigo de atendimento: VY-GABCDE",
+      "Código de atendimento: VY-GABCDE\n\nOlá, gostaria de informações sobre o Pilates.",
     );
   });
 
+  // WhatsApp opens with the cursor at the end of the text: whatever sits last
+  // is what a backspace or a rewrite erases first.
+  it("puts the code first, away from the cursor", () => {
+    expect(whatsappMessage("geral", "/", "VY-GABCDE")).toMatch(/^Código de atendimento: VY-GABCDE\n/);
+  });
+
   it("asks about Pilates from any CTA on the Pilates page (nav, FAB, footer)", () => {
-    expect(whatsappMessage("geral", "/pilates", "VY-GABCDE")).toMatch(/^Olá, gostaria de informações sobre o Pilates\./);
+    expect(whatsappMessage("geral", "/pilates", "VY-GABCDE")).toMatch(/Olá, gostaria de informações sobre o Pilates\.$/);
   });
 
   it.each([
@@ -48,7 +54,7 @@ describe("whatsappMessage", () => {
     ["fisioterapia-apos-avc", "/blog/fisioterapia-apos-avc"],
   ])("uses the consultation greeting for %s on %s", (service, page) => {
     expect(whatsappMessage(service, page, "VY-DABCDE")).toBe(
-      "Olá, gostaria de marcar uma consulta.\n\nCódigo de atendimento: VY-DABCDE",
+      "Código de atendimento: VY-DABCDE\n\nOlá, gostaria de marcar uma consulta.",
     );
   });
 });
@@ -63,7 +69,7 @@ describe("whatsappUrl", () => {
 
   it("encodes spaces and line breaks as %20 and %0A, which every WhatsApp client reads", () => {
     const raw = whatsappUrl("+5511989172311", "geral", "/", "VY-DABCDE");
-    expect(raw).toContain("%0A%0AC%C3%B3digo%20de%20atendimento%3A%20VY-DABCDE");
+    expect(raw).toContain("C%C3%B3digo%20de%20atendimento%3A%20VY-DABCDE%0A%0AOl%C3%A1");
     expect(raw).not.toContain("+");
   });
 });

@@ -66,7 +66,7 @@ das duas antes de publicar.
 > marcados abaixo com `wa.me/message/FJNBBFEBI6V5O1` registram o que foi
 > conferido em 17/08/2026. Hoje `/whatsapp` responde `302` com
 > `Cache-Control: no-store` para `wa.me/5511989172311?text=…`, com a linha
-> `Código de atendimento: VY-…` no fim da mensagem (código `VY-X…` quando a
+> `Código de atendimento: VY-…` no início da mensagem (código `VY-X…` quando a
 > visita chega sem o cookie do clique). A conversão continua contando no
 > clique, na página de origem.
 >

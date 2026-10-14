@@ -11,7 +11,7 @@ test.describe("Google Ads conversion route", () => {
     expect(location).toMatch(/^https:\/\/wa\.me\/5511989172311\?text=[^&#]+$/);
     // No click happened, so there is no handoff cookie: the code is X.
     expect(new URL(location).searchParams.get("text")).toMatch(
-      /^Olá, gostaria de marcar uma consulta\.\n\nCódigo de atendimento: VY-X[A-HJ-NP-Z2-9]{5}$/,
+      /^Código de atendimento: VY-X[A-HJ-NP-Z2-9]{5}\n\nOlá, gostaria de marcar uma consulta\.$/,
     );
   });
 
