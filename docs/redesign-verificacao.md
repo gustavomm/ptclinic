@@ -69,6 +69,13 @@ das duas antes de publicar.
 > `Código de atendimento: VY-…` no fim da mensagem (código `VY-X…` quando a
 > visita chega sem o cookie do clique). A conversão continua contando no
 > clique, na página de origem.
+>
+> Depois de cada deploy que mexa nesse caminho, em produção:
+>
+> - [ ] Um clique real num botão de WhatsApp gera uma linha na planilha, com o
+>       mesmo código da mensagem. Marcar a linha como teste.
+> - [ ] No GTM Preview, `whatsapp_click` dispara só a tag de evento do GA4,
+>       nunca uma tag de conversão do Ads.
 
 **A tag de conversão do Ads só pode ser verificada em produção, não na URL de
 preview.** A regra do GTM que sobrevive ao redesign é `Click URL contains

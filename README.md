@@ -10,7 +10,7 @@ Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 ## Verificação
 
     npm run typecheck   # tipos
-    npm test             # unidade (Vitest) — 203 testes
+    npm test             # unidade (Vitest) — 211 testes
     npm run build         # build de produção — 26 páginas estáticas; só /whatsapp é dinâmica
     npm run test:e2e      # E2E (Playwright, roda build + start) — 76 testes
 
@@ -28,8 +28,9 @@ a integridade dos dados de contato. Uma falha aqui é **silenciosa** — o Ads
 continua cobrando e reportando zero conversões.
 
 - `/whatsapp` (`app/whatsapp/`) é o evento de conversão do Google Ads. A regra
-  do GTM é `event = gtm.click AND Click URL contains
-  "https://www.vytafisioterapia.com.br/whatsapp"`. Não mude essa URL.
+  do GTM é `event = gtm.click AND Click URL contains "/whatsapp"`, sem host
+  desde 17/08/2026: vale para qualquer domínio onde o GTM carregue, inclusive
+  localhost. Não mude essa URL.
   A conversão conta no **clique**, na página de origem; por isso `/whatsapp`
   é um redirect de corpo vazio (`302`, `no-store`), sem página, sem GTM.
 - `/whatsapp` leva o `lead_code` para a mensagem do WhatsApp. O clique
@@ -42,9 +43,12 @@ continua cobrando e reportando zero conversões.
   é evento do GA4 — nunca uma segunda conversão do Google Ads.
 - A planilha só recebe linhas quando `VERCEL_ENV` é `production` **e**
   `LEAD_WEBHOOK_URL`/`LEAD_WEBHOOK_SECRET` existem — configure os dois só no
-  ambiente Production da Vercel. Preview, build local e `test:e2e` nunca
-  escrevem na planilha (o `playwright.config.ts` ainda zera as variáveis). O
-  outro lado do contrato é `scripts/leads-apps-script.gs`.
+  ambiente Production da Vercel. Preview e build local não escrevem; o
+  `test:e2e` zera as variáveis no servidor que ele sobe. Exceção: um `.env`
+  local puxado de produção (`vercel env pull --environment=production`) traz
+  as três, e aí um servidor local escreve de verdade, inclusive se o
+  Playwright reaproveitar um que já estava rodando. Não puxe produção para o
+  `.env.local`. O outro lado do contrato é `scripts/leads-apps-script.gs`.
 - O `lead_code` não é único sozinho (5 caracteres): ligue a conversa à linha
   da planilha pelo código **e** pela data.
 - As classes `.redirect-whatsapp`, `.redirect-phone`, `.redirect-email` e
@@ -80,7 +84,8 @@ continua cobrando e reportando zero conversões.
   do navegador fora de localhost: com o GTM carregado, um clique de teste
   viraria conversão de verdade no Ads.
 - `components/__tests__/whatsapp-cta-guard.test.ts` — nenhum link cru para
-  `/whatsapp` fora do `WhatsAppLink`.
+  `/whatsapp` (JSX, markdown ou URL absoluta) fora do `WhatsAppLink`, e
+  nenhum link direto para `wa.me` fora de `lib/whatsapp.ts`.
 - `e2e/redirects.spec.ts` — redirects 308 das URLs antigas `/speciality/*`.
 - `e2e/accessibility.spec.ts` — axe (wcag22aa), h1 único, `lang`, alt text.
 - `e2e/motion-and-viewport.spec.ts` — `prefers-reduced-motion`, sem JS,

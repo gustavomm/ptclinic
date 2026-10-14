@@ -6,7 +6,8 @@
  * visit would credit "direct" and make the ad look useless.
  *
  * - `vyta_attr_first`: first touch, never overwritten inside the window.
- * - `vyta_attr_last`: last non-direct touch, overwritten on every tagged visit.
+ * - `vyta_attr_last`: last non-direct touch, overwritten on every visit that is
+ *   not direct (tagged, or from an outside referrer).
  *
  * Nothing here leaves the browser by itself. It is read when someone clicks a
  * WhatsApp CTA (lib/tracking.ts) and handed to /whatsapp in a short cookie.

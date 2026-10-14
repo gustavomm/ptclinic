@@ -27,6 +27,9 @@ export const CHANNEL_LETTER: Record<CodeChannel, string> = {
 };
 
 /**
+ * The 4th character is always one of the channel letters above, so the O and
+ * I there are letters, never digits.
+ *
  * 32 symbols: A–Z without I and O, plus 2–9. No 0/O or 1/I to confuse when
  * someone reads the code off a phone screen. 32 divides 256, so taking the low
  * 5 bits of a random byte picks every symbol with the same probability.

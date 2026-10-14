@@ -146,6 +146,12 @@ describe("GET /whatsapp", () => {
     }
   });
 
+  it("writes no row without the secret: the script would only refuse it", () => {
+    vi.stubEnv("LEAD_WEBHOOK_SECRET", "");
+    GET(request({ [HANDOFF_COOKIE]: handoff() }));
+    expect(afterCallbacks).toHaveLength(0);
+  });
+
   it("writes no row when the webhook is not configured", () => {
     vi.stubEnv("LEAD_WEBHOOK_URL", "");
     const res = GET(request({ [HANDOFF_COOKIE]: handoff() }));

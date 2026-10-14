@@ -28,7 +28,7 @@
  */
 const SHEET_NAME = "cliques";
 const TIMEZONE = "America/Sao_Paulo";
-/** A repeated request for the same click (browser retry) within this window is ignored. */
+/** The same click arriving twice (a double tap sends two requests with one cookie) is ignored. */
 const DUPLICATE_WINDOW_MS = 10 * 60 * 1000;
 /** No new row for this long, with this volume of traffic, means something broke. */
 const STALE_AFTER_DAYS = 3;
@@ -47,7 +47,9 @@ function doPost(e) {
   if (!row || typeof row.lead_code !== "string") return reply("bad request");
 
   const lock = LockService.getScriptLock();
-  lock.waitLock(20000);
+  // Short enough that the site's 25 s timeout never logs "not recorded" for a
+  // row that is then written anyway: past this, the write fails and says so.
+  lock.waitLock(10000);
   try {
     const sheet = leadsSheet();
     let headers = sheet.getLastRow() === 0
@@ -96,13 +98,22 @@ function isDuplicate(sheet, headers, row) {
   );
 }
 
-/** Daily trigger: e-mails ALERT_EMAIL when no click has been recorded for a while. */
+/**
+ * Daily trigger: e-mails ALERT_EMAIL when no click has been recorded for a
+ * while. Reads the newest `ts` in the column, so sorting the Sheet or adding
+ * manual rows does not fool it.
+ */
 function checkStale() {
   const sheet = leadsSheet();
   const last = sheet.getLastRow();
   const headers = last === 0 ? [] : sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
   const tsCol = headers.indexOf("ts");
-  const lastTs = last >= 2 && tsCol !== -1 ? new Date(sheet.getRange(last, tsCol + 1).getValue()) : null;
+  const times = last >= 2 && tsCol !== -1
+    ? sheet.getRange(2, tsCol + 1, last - 1, 1).getValues()
+        .map((r) => new Date(r[0]).getTime())
+        .filter((t) => !isNaN(t))
+    : [];
+  const lastTs = times.length ? new Date(Math.max.apply(null, times)) : null;
   const ageDays = lastTs ? (Date.now() - lastTs.getTime()) / 86400000 : Infinity;
   if (ageDays < STALE_AFTER_DAYS) return;
 

@@ -7,7 +7,7 @@
  */
 
 /**
- * Apps Script cold starts take seconds and the script may wait up to 20 s for
+ * Apps Script cold starts take seconds and the script may wait up to 10 s for
  * its lock; nobody is waiting on this. Must stay below the route's maxDuration.
  */
 export const TIMEOUT_MS = 25_000;

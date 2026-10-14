@@ -72,7 +72,7 @@ const shed = (value: string | undefined) => (value ?? "").slice(0, SHED_LENGTH);
 function slimTouch(t: Touch | null): Touch | null {
   if (!t) return null;
   const slim: Touch = { channel: t.channel, ts: t.ts, landing: shed(t.landing) };
-  for (const key of ["source", "medium", "campaign", "gclid", "fbclid"] as const) {
+  for (const key of ["source", "medium", "campaign", "gclid", "gbraid", "wbraid", "fbclid"] as const) {
     const value = t[key];
     if (value) slim[key] = shed(value);
   }
@@ -85,8 +85,8 @@ const bareTouch = (t: Touch | null): Touch | null =>
 
 /**
  * Cookie value for the handoff: base64url JSON. Real payloads fit as-is. Absurd
- * UTMs are shed in steps until it fits; the code, the service, the page and
- * the channels, which the message and the row need, are never shed.
+ * values are shortened, then dropped, until it fits. The code and both
+ * channels always survive; the service, page and placement survive shortened.
  */
 export function encodeHandoff(h: Handoff): string {
   const short = { ...h, from: shed(h.from), page: shed(h.page) };

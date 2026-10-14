@@ -13,10 +13,11 @@ import { HANDOFF_COOKIE, decodeHandoff, whatsappUrl } from "@/lib/whatsapp";
  *
  * Without a valid handoff cookie (JavaScript off, cookies blocked, a crawler,
  * someone typing the URL) it still redirects, with an X code, and writes no
- * row: a row has to mean "a real click happened".
+ * row. So a row means a click on the site, or someone forging the cookie: a
+ * click cannot be authenticated, and only a rate limit would bound the latter.
  */
 export const dynamic = "force-dynamic";
-/** Seconds. Keeps the function alive for the Sheet write in `after()`; see TIMEOUT_MS. */
+/** Seconds. Keeps the function alive for the Sheet write in `after()`; above lib/lead-webhook.ts's 25 s timeout. */
 export const maxDuration = 30;
 
 export function GET(request: NextRequest) {
@@ -36,11 +37,10 @@ export function GET(request: NextRequest) {
   response.cookies.set(HANDOFF_COOKIE, "", { path: "/whatsapp", maxAge: 0 });
 
   // Fails closed: only a Vercel production deploy with the webhook configured
-  // writes to the Sheet. Previews, local builds and e2e runs never do, even
-  // with production variables pulled into a local .env file.
+  // writes to the Sheet, never a preview or a plain local build.
   const url = process.env.LEAD_WEBHOOK_URL;
-  if (handoff && url && process.env.VERCEL_ENV === "production") {
-    const secret = process.env.LEAD_WEBHOOK_SECRET;
+  const secret = process.env.LEAD_WEBHOOK_SECRET;
+  if (handoff && url && secret && process.env.VERCEL_ENV === "production") {
     const extras = {
       ts: new Date().toISOString(),
       userAgent: request.headers.get("user-agent") ?? undefined,

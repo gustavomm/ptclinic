@@ -91,9 +91,24 @@ describe("handoff cookie", () => {
 
   it("sheds long descriptive UTMs before it sheds the click IDs", () => {
     const long = "ç".repeat(150);
-    const touch: Touch = { ...googleTouch, content: long, term: long, id: long, campaign: long };
+    const touch: Touch = {
+      ...googleTouch,
+      gbraid: "GB1",
+      wbraid: "WB1",
+      content: long,
+      term: long,
+      id: long,
+      campaign: long,
+    };
     const decoded = decodeHandoff(encodeHandoff({ ...handoff, first: touch, last: touch }));
-    expect(decoded?.last).toMatchObject({ channel: "google_ads", gclid: "G1", source: "google", medium: "cpc" });
+    expect(decoded?.last).toMatchObject({
+      channel: "google_ads",
+      gclid: "G1",
+      gbraid: "GB1",
+      wbraid: "WB1",
+      source: "google",
+      medium: "cpc",
+    });
     expect(decoded?.last?.content).toBeUndefined();
   });
 
