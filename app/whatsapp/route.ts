@@ -46,6 +46,8 @@ export function GET(request: NextRequest) {
       userAgent: request.headers.get("user-agent") ?? undefined,
       fbp: request.cookies.get("_fbp")?.value,
       fbc: request.cookies.get("_fbc")?.value,
+      gclAw: request.cookies.get("_gcl_aw")?.value,
+      ga: request.cookies.get("_ga")?.value,
     };
     after(async () => {
       try {

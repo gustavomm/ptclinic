@@ -29,6 +29,8 @@ describe("leadRow", () => {
     ts: "2026-10-14T12:00:00.000Z",
     userAgent: "Mozilla/5.0",
     fbp: "fb.1.1.2",
+    gclAw: "GCL.1760443200.G1",
+    ga: "GA1.1.123456789.1760443200",
   });
 
   it("is flat, with the code, the channel it encodes, and both touches", () => {
@@ -46,6 +48,8 @@ describe("leadRow", () => {
       first_channel: "google_ads",
       fbp: "fb.1.1.2",
       fbc: "",
+      gcl_aw: "GCL.1760443200.G1",
+      ga: "GA1.1.123456789.1760443200",
       user_agent: "Mozilla/5.0",
     });
     for (const value of Object.values(row)) expect(typeof value).toBe("string");

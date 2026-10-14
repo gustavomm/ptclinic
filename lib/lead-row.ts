@@ -43,7 +43,23 @@ function touchCells(prefix: string, t: Touch | null): Record<string, string> {
   return cells;
 }
 
-export type LeadExtras = { ts: string; userAgent?: string; fbp?: string; fbc?: string };
+/**
+ * Read from the /whatsapp request, not from the click handoff. All four are
+ * first-party cookies on the site's domain, and each is what an ad platform
+ * needs to match a later booking to its click:
+ * - `_fbp` / `_fbc`: Meta Pixel browser and click ids (Conversions API).
+ * - `_gcl_aw`: Google's Conversion Linker copy of the gclid, kept 90 days;
+ *   a fallback when the site's own storage lost it.
+ * - `_ga`: the GA4 client id, for sending a conversion through GA4.
+ */
+export type LeadExtras = {
+  ts: string;
+  userAgent?: string;
+  fbp?: string;
+  fbc?: string;
+  gclAw?: string;
+  ga?: string;
+};
 
 /** One Sheet row per click, always the same columns in the same order. */
 export function leadRow(h: Handoff, extras: LeadExtras): Record<string, string> {
@@ -58,6 +74,8 @@ export function leadRow(h: Handoff, extras: LeadExtras): Record<string, string> 
     ...touchCells("first", h.first),
     fbp: cell(extras.fbp),
     fbc: cell(extras.fbc),
+    gcl_aw: cell(extras.gclAw),
+    ga: cell(extras.ga),
     user_agent: cell(extras.userAgent),
   };
 }

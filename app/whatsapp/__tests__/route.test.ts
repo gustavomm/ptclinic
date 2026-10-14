@@ -75,7 +75,16 @@ describe("GET /whatsapp", () => {
   });
 
   it("records the lead after the response, with the row from the handoff", async () => {
-    GET(request({ [HANDOFF_COOKIE]: handoff(), _fbp: "fb.1.1.2" }));
+    GET(
+      request({
+        [HANDOFF_COOKIE]: handoff(),
+        _fbp: "fb.1.1.2",
+        // Google's own first-party cookies: the Conversion Linker's copy of
+        // the gclid, and the GA4 client id. Same domain, so they reach /whatsapp.
+        _gcl_aw: "GCL.1760443200.G1",
+        _ga: "GA1.1.123456789.1760443200",
+      }),
+    );
     expect(sendLead).not.toHaveBeenCalled();
     expect(afterCallbacks).toHaveLength(1);
     await afterCallbacks[0]();
@@ -86,6 +95,8 @@ describe("GET /whatsapp", () => {
       channel: "google_ads",
       last_gclid: "G1",
       fbp: "fb.1.1.2",
+      gcl_aw: "GCL.1760443200.G1",
+      ga: "GA1.1.123456789.1760443200",
       user_agent: "UA/1.0",
     });
     expect(config).toMatchObject({ url: "https://script.example/exec", secret: "s3" });
