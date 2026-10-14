@@ -27,10 +27,14 @@ Estas propriedades sustentam a conversão do Google Ads (R$55,50/dia de verba) e
 a integridade dos dados de contato. Uma falha aqui é **silenciosa** — o Ads
 continua cobrando e reportando zero conversões.
 
-- `/whatsapp` (`app/whatsapp/`) é o evento de conversão do Google Ads. A regra
-  do GTM é `event = gtm.click AND Click URL contains "/whatsapp"`, sem host
-  desde 17/08/2026: vale para qualquer domínio onde o GTM carregue, inclusive
-  localhost. Não mude essa URL.
+- `/whatsapp` (`app/whatsapp/`) é o evento de conversão do Google Ads. No
+  GTM, as tags `Contact WhatsApp` (conversão do Ads) e `Meta ADS - Contact
+  WhatsApp` disparam só pelo acionador `Clique WhatsApp (link)`: *Click – Just
+  Links*, `Click URL contains /whatsapp`, sem host, então vale para qualquer
+  domínio onde o GTM carregue, inclusive localhost. Publicado na versão 10 do
+  container, em 14/10/2026. Até ali a conversão do Ads só contava clique cujo
+  texto tivesse "Agendar": o botão flutuante, o rodapé e os demais botões sem
+  essa palavra levavam ao WhatsApp sem virar conversão. Não mude essa URL.
   A conversão conta no **clique**, na página de origem; por isso `/whatsapp`
   é um redirect de corpo vazio (`302`, `no-store`), sem página, sem GTM.
 - `/whatsapp` leva o `lead_code` para a mensagem do WhatsApp. O clique
