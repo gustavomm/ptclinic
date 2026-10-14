@@ -20,6 +20,20 @@
 > passou a ser `Click URL contains /whatsapp` (sem esquema nem host, imune ao
 > `https//` sem dois-pontos que estava no nome e a apex-vs-www), e o do telefone
 > passou de `text-slate-50 w-8 h-8` para `Click Classes contains redirect-phone`.
+>
+> **Correção em 14/10/2026.** O `Click URL contains /whatsapp` de 17/08 ficou
+> ligado só na tag do Meta. A conversão do Ads (`Contact WhatsApp`, rótulo
+> `ak4x…`) continuou presa a `Click Text contém Agendar`, mais dois acionadores
+> mortos (a imagem do botão flutuante do site antigo e um carregamento de
+> `/whatsapp`, que não existe porque a rota não tem página). O teste de 17/08
+> passou porque o botão do hero diz "Agendar". O botão flutuante, o rodapé, o
+> "Falar no WhatsApp", o blog e o domiciliar não contavam. Confirmado no GTM
+> Preview: o toque no botão flutuante não disparava a tag do Ads.
+>
+> A versão 10 do container troca tudo isso por um acionador só, `Clique
+> WhatsApp (link)` (*Click – Just Links*, `Click URL contains /whatsapp`), nas
+> tags do Ads e do Meta. A tag de telefone do Ads segue pausada: nenhum clique
+> em `tel:` vira conversão hoje.
 
 Rodar contra a URL de preview da Vercel, antes de promover para produção —
 com a exceção da seção "Conversão", que tem um bloco específico para rodar só
@@ -61,6 +75,21 @@ do Ministério da Saúde. Também mantido verbatim, e também precisa do sign-of
 das duas antes de publicar.
 
 ## Conversão — bloqueia o lançamento
+
+> **Desde o `lead_code` (outubro de 2026), o redirect final mudou.** Os itens
+> marcados abaixo com `wa.me/message/FJNBBFEBI6V5O1` registram o que foi
+> conferido em 17/08/2026. Hoje `/whatsapp` responde `302` com
+> `Cache-Control: no-store` para `wa.me/5511989172311?text=…`, com a mensagem
+> começando por `Olá! Vim pelo site da Vyta (código VY-…).` (código `VY-X…` quando a
+> visita chega sem o cookie do clique). A conversão continua contando no
+> clique, na página de origem.
+>
+> Depois de cada deploy que mexa nesse caminho, em produção:
+>
+> - [ ] Um clique real num botão de WhatsApp gera uma linha na planilha, com o
+>       mesmo código da mensagem. Marcar a linha como teste.
+> - [ ] No GTM Preview, `whatsapp_click` dispara só a tag de evento do GA4,
+>       nunca uma tag de conversão do Ads.
 
 **A tag de conversão do Ads só pode ser verificada em produção, não na URL de
 preview.** A regra do GTM que sobrevive ao redesign é `Click URL contains
@@ -355,7 +384,8 @@ Registrados durante o build; nenhum impede o deploy, mas valem uma passada
 numa manutenção futura.
 
 **Performance / build**
-- Aviso benigno `LRUCache: calculateSize returned 0` no log do servidor a
+- *(Resolvido em outubro de 2026: `/whatsapp` passou a ser dinâmica.)*
+  Aviso benigno `LRUCache: calculateSize returned 0` no log do servidor a
   cada request de `/whatsapp` (visível também nos logs do `test:e2e`). Causa
   raiz: corpo de 0 bytes faz o cálculo de tamanho do cache de prerender
   falhar: o erro é capturado e logado na escrita, engolido na leitura. Efeito

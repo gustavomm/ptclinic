@@ -27,7 +27,7 @@ describe("WhatsAppLink", () => {
   });
 
   it("calls the tracking stub with service and origin on click", async () => {
-    const spy = vi.spyOn(tracking, "trackWhatsAppClick").mockImplementation(() => {});
+    const spy = vi.spyOn(tracking, "trackWhatsAppClick").mockImplementation(() => null);
     render(<WhatsAppLink service="pilates" from="/pilates">Agendar</WhatsAppLink>);
     await userEvent.click(screen.getByRole("link"));
     expect(spy).toHaveBeenCalledWith({ service: "pilates", from: "/pilates" });

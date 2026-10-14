@@ -4,6 +4,7 @@ import { clinic } from "@/content/clinic";
 import { units } from "@/content/units";
 import { team } from "@/content/team";
 import { NAV_ITEMS } from "./Nav";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 export function Footer() {
   return (
@@ -43,9 +44,9 @@ export function Footer() {
 
         <div className="flex flex-col gap-3">
           <div className="mb-1 text-[13px] uppercase tracking-eyebrow text-subtle">Contato</div>
-          <a href="/whatsapp" className="redirect-whatsapp flex min-h-[44px] items-center text-[15px] text-ink hover:text-accent">
+          <WhatsAppLink service="geral" from="footer" variant="bare" className="flex min-h-[44px] items-center text-[15px] text-ink hover:text-accent">
             WhatsApp
-          </a>
+          </WhatsAppLink>
           <a href={`tel:${clinic.phoneE164}`} className="redirect-phone flex min-h-[44px] items-center text-[15px] text-ink hover:text-accent">
             {clinic.phoneDisplay}
           </a>

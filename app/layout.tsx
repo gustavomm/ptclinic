@@ -11,6 +11,7 @@ import { TopBar } from "@/components/layout/TopBar";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
+import { AttributionCapture } from "@/components/AttributionCapture";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -90,6 +91,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsAppFab />
+        <AttributionCapture />
         <Analytics />
       </body>
     </html>
