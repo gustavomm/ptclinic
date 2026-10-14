@@ -62,6 +62,14 @@ das duas antes de publicar.
 
 ## Conversão — bloqueia o lançamento
 
+> **Desde o `lead_code` (outubro de 2026), o redirect final mudou.** Os itens
+> marcados abaixo com `wa.me/message/FJNBBFEBI6V5O1` registram o que foi
+> conferido em 17/08/2026. Hoje `/whatsapp` responde `302` com
+> `Cache-Control: no-store` para `wa.me/5511989172311?text=…`, com a linha
+> `Código de atendimento: VY-…` no fim da mensagem (código `VY-X…` quando a
+> visita chega sem o cookie do clique). A conversão continua contando no
+> clique, na página de origem.
+
 **A tag de conversão do Ads só pode ser verificada em produção, não na URL de
 preview.** A regra do GTM que sobrevive ao redesign é `Click URL contains
 https://www.vytafisioterapia.com.br/whatsapp` — ela casa contra o host de
@@ -355,7 +363,8 @@ Registrados durante o build; nenhum impede o deploy, mas valem uma passada
 numa manutenção futura.
 
 **Performance / build**
-- Aviso benigno `LRUCache: calculateSize returned 0` no log do servidor a
+- *(Resolvido em outubro de 2026: `/whatsapp` passou a ser dinâmica.)*
+  Aviso benigno `LRUCache: calculateSize returned 0` no log do servidor a
   cada request de `/whatsapp` (visível também nos logs do `test:e2e`). Causa
   raiz: corpo de 0 bytes faz o cálculo de tamanho do cache de prerender
   falhar: o erro é capturado e logado na escrita, engolido na leitura. Efeito

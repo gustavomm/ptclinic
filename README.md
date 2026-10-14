@@ -10,13 +10,13 @@ Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 ## Verificação
 
     npm run typecheck   # tipos
-    npm test             # unidade (Vitest) — 68 testes
-    npm run build         # build de produção — 24 rotas pré-renderizadas
-    npm run test:e2e      # E2E (Playwright, roda build + start) — 68 testes
+    npm test             # unidade (Vitest) — 203 testes
+    npm run build         # build de produção — 26 páginas estáticas; só /whatsapp é dinâmica
+    npm run test:e2e      # E2E (Playwright, roda build + start) — 76 testes
 
 Rode os quatro antes de qualquer merge ou deploy.
 
-Os números acima são de 17/08/2026 e servem de linha de base: se `npm test`
+Os números acima são de 14/10/2026 e servem de linha de base: se `npm test`
 voltar com menos testes do que isto, alguma coisa deixou de rodar. Nada os
 verifica sozinho — não há CI neste repositório, então os quatro comandos só
 acontecem quando alguém lembra.
@@ -30,6 +30,23 @@ continua cobrando e reportando zero conversões.
 - `/whatsapp` (`app/whatsapp/`) é o evento de conversão do Google Ads. A regra
   do GTM é `event = gtm.click AND Click URL contains
   "https://www.vytafisioterapia.com.br/whatsapp"`. Não mude essa URL.
+  A conversão conta no **clique**, na página de origem; por isso `/whatsapp`
+  é um redirect de corpo vazio (`302`, `no-store`), sem página, sem GTM.
+- `/whatsapp` leva o `lead_code` para a mensagem do WhatsApp. O clique
+  (`lib/tracking.ts`) gera o código, empurra `whatsapp_click` para o
+  dataLayer e deixa um cookie curto (`vyta_wa`, só em `/whatsapp`) com o
+  código e a origem da visita (`lib/attribution.ts`). A rota lê o cookie,
+  redireciona para `wa.me/<número de content/clinic.ts>?text=...` e grava a
+  linha na planilha depois da resposta. Sem cookie, redireciona do mesmo
+  jeito com um código `VY-X…` e não grava linha. No GTM, `whatsapp_click`
+  é evento do GA4 — nunca uma segunda conversão do Google Ads.
+- A planilha só recebe linhas quando `VERCEL_ENV` é `production` **e**
+  `LEAD_WEBHOOK_URL`/`LEAD_WEBHOOK_SECRET` existem — configure os dois só no
+  ambiente Production da Vercel. Preview, build local e `test:e2e` nunca
+  escrevem na planilha (o `playwright.config.ts` ainda zera as variáveis). O
+  outro lado do contrato é `scripts/leads-apps-script.gs`.
+- O `lead_code` não é único sozinho (5 caracteres): ligue a conversa à linha
+  da planilha pelo código **e** pela data.
 - As classes `.redirect-whatsapp`, `.redirect-phone`, `.redirect-email` e
   `.redirect-instagram` são lidas pelo GTM em todo tipo de página.
   `e2e/gtm-classes.spec.ts` guarda isso — roda em toda página, valida as
@@ -56,8 +73,14 @@ continua cobrando e reportando zero conversões.
 
 - `e2e/gtm-classes.spec.ts` — guarda de conversão (classes GTM + destino do
   `/whatsapp`).
-- `e2e/conversion.spec.ts` — redirect de `/whatsapp` para o deep link do
-  WhatsApp.
+- `e2e/conversion.spec.ts` — redirect de `/whatsapp` para o número da
+  clínica, temporário, sem cache, corpo vazio, com código na mensagem.
+- `e2e/lead-code.spec.ts` — clique → dataLayer → `/whatsapp` → mensagem com
+  o mesmo `lead_code`, inclusive pelo link do rodapé. Bloqueia toda requisição
+  do navegador fora de localhost: com o GTM carregado, um clique de teste
+  viraria conversão de verdade no Ads.
+- `components/__tests__/whatsapp-cta-guard.test.ts` — nenhum link cru para
+  `/whatsapp` fora do `WhatsAppLink`.
 - `e2e/redirects.spec.ts` — redirects 308 das URLs antigas `/speciality/*`.
 - `e2e/accessibility.spec.ts` — axe (wcag22aa), h1 único, `lang`, alt text.
 - `e2e/motion-and-viewport.spec.ts` — `prefers-reduced-motion`, sem JS,

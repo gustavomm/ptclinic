@@ -1,5 +1,9 @@
 import { formatPhone } from "@/lib/format";
 
+/**
+ * Also the WhatsApp number: /whatsapp (app/whatsapp/route.ts) builds the wa.me
+ * link from it. Never link to WhatsApp directly — use WhatsAppLink.
+ */
 const PHONE_E164 = "+5511989172311";
 
 export const clinic = {
@@ -11,8 +15,6 @@ export const clinic = {
   email: "contato@vytafisioterapia.com.br",
   instagram: "https://instagram.com/vytafisioterapia",
   instagramHandle: "@vytafisioterapia",
-  /** Deep link used by the /whatsapp redirect. Never link to it directly — use WhatsAppLink. */
-  whatsappUrl: "https://wa.me/message/FJNBBFEBI6V5O1",
   siteUrl: "https://www.vytafisioterapia.com.br",
 } as const;
 

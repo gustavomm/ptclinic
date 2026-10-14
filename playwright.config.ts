@@ -11,5 +11,9 @@ export default defineConfig({
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
+    // Never let a test run write to the leads Sheet, even if production
+    // variables were pulled into a local .env file. Next does not override
+    // variables already set in the process environment.
+    env: { LEAD_WEBHOOK_URL: "", LEAD_WEBHOOK_SECRET: "" },
   },
 });
