@@ -64,6 +64,11 @@ export default function RootLayout({
         "vtp_tagId":"G-V5YCCVYQRR"}`, a "Tag do Google" que alguém adicionou
         nesse intervalo. Manter os dois mediria a mesma propriedade duas vezes.
 
+        Em 15/10/2026 essa tag passou a apontar para G-VSSZW88J6E (versão 13
+        do container). A G-V5YCCVYQRR tem dono desconhecido e ninguém da
+        clínica consegue abri-la; a G-VSSZW88J6E é da clínica e já estava
+        ligada ao Google Ads.
+
         Se a tag sair do container de novo, esta linha volta. Conferir é baixar
         https://www.googletagmanager.com/gtm.js?id=GTM-NNBD3887 e procurar
         __googtag — a tela do GTM mostra o mesmo em Overview → Destinations.

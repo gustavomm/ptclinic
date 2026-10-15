@@ -377,6 +377,10 @@ correção.
 - **Telefone, e-mail e os dois endereços** estão atuais. Confirmado.
 - **Propriedade GA4.** Só a `G-V5YCCVYQRR` segue em uso; a `G-VSSZW88J6E` saiu
   de cena. Ver a seção "GA4 — bloqueia o lançamento" acima.
+  *Invertido em 15/10/2026:* a `G-V5YCCVYQRR` tem dono desconhecido e ninguém
+  da clínica consegue abri-la, então a tag do Google do container (versão 13)
+  passou a mandar para a `G-VSSZW88J6E`, que é da clínica e já estava ligada
+  ao Google Ads. O histórico antigo fica na `G-V5YCCVYQRR`.
 
 ## Itens técnicos adiados (não bloqueiam o lançamento)
 
