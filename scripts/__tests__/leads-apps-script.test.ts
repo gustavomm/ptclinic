@@ -183,6 +183,19 @@ describe("normalizeCode", () => {
     // The letter after VY- is always a letter: a 0 or 1 there was an O or I.
     ["VY-07K3Q2", "VY-O7K3Q2"],
     ["VY-17K3Q2", "VY-I7K3Q2"],
+    // Copying from WhatsApp or a phone keyboard can bring a different dash, or
+    // invisible marks, that look identical to the eye.
+    ["VY\u2011GR79XB", "VY-GR79XB"], // non-breaking hyphen
+    ["VY\u2010GR79XB", "VY-GR79XB"], // hyphen
+    ["VY\u2013GR79XB", "VY-GR79XB"], // en dash
+    ["VY\u2014GR79XB", "VY-GR79XB"], // em dash
+    ["VY\u2212GR79XB", "VY-GR79XB"], // minus sign
+    ["VY_GR79XB", "VY-GR79XB"],
+    ["\u200EVY-GR79XB\u200F", "VY-GR79XB"], // directional marks around it
+    ["VY-\u200BGR79XB", "VY-GR79XB"], // zero-width space inside
+    ["V\u200BY-GR\u206079XB", "VY-GR79XB"], // invisible marks between letters
+    ["VY\u00A0GR79XB", "VY-GR79XB"], // non-breaking space
+    ["\uFEFFVY-GR79XB", "VY-GR79XB"], // byte-order mark
   ])("%j -> %j", (raw, code) => {
     expect(script.normalizeCode(raw)).toBe(code);
   });
