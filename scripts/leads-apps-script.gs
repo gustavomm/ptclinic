@@ -209,7 +209,14 @@ function findCodeHeader(sheet) {
  * typed there was an O or I.
  */
 function normalizeCode(raw) {
-  const match = String(raw).toUpperCase().match(/VY[\s-]?([A-Z0-9]{6})(?![A-Z0-9])/);
+  const text = String(raw)
+    // Invisible marks a copy from WhatsApp or a phone can carry: zero-width
+    // characters, direction marks, soft hyphen, byte-order mark.
+    .replace(/[\u00AD\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u206F\uFEFF]/g, "")
+    // Dashes that look like "-" but are other characters.
+    .replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D_]/g, "-")
+    .toUpperCase();
+  const match = text.match(/VY[\s-]?([A-Z0-9]{6})(?![A-Z0-9])/);
   if (!match) return null;
   let body = match[1];
   const letter = { 0: "O", 1: "I" }[body[0]];
