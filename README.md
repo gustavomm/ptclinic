@@ -10,7 +10,7 @@ Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 ## Verificação
 
     npm run typecheck   # tipos
-    npm test             # unidade (Vitest) — 282 testes
+    npm test             # unidade (Vitest) — 354 testes
     npm run build         # build de produção — 26 páginas estáticas; só /whatsapp é dinâmica
     npm run test:e2e      # E2E (Playwright, roda build + start) — 76 testes
 
@@ -62,6 +62,17 @@ continua cobrando e reportando zero conversões.
   das colunas são as chaves de `lib/lead-row.ts`: mudar um nome lá muda a
   planilha. Quando alguém cola um código na coluna "Código" da aba de
   contatos, o script preenche "Canal" sozinho.
+- Na aba de contatos, "Status" diz que tipo de contato é (Lead Fisio, Lead
+  Pilates, Pass, Contato profissional, Outro) e "Resultado" diz como terminou
+  (Agendou, Sem resposta, Preço…). Escolher um Resultado data sozinho a
+  coluna "Data do resultado". Lead com mais de 7 dias desde o 1º contato e
+  sem Resultado fica amarelo. O menu "Vyta" da planilha tem "Prévia da
+  organização", que só escreve numa aba à parte o que mudaria (número da
+  linha, sem nome nem telefone), e "Organizar planilha", que cria as colunas,
+  padroniza o Status, deduz o Resultado de linhas antigas a partir do Status
+  antigo, do Serviço, do "2º aula" e das Observações, e põe os menus de
+  opções e a regra amarela. Nunca troca um Resultado já escolhido e deixa
+  uma nota em cada célula que mudou. Pode rodar de novo sem estragar nada.
 - As classes `.redirect-whatsapp`, `.redirect-phone`, `.redirect-email` e
   `.redirect-instagram` são lidas pelo GTM em todo tipo de página.
   `e2e/gtm-classes.spec.ts` guarda isso — roda em toda página, valida as
