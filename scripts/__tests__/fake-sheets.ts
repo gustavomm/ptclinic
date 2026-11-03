@@ -99,6 +99,8 @@ export class FakeSpreadsheet {
   sheets = new Map<string, FakeSheet>();
   active: FakeSheet | null = null;
   toasts: string[] = [];
+  locale = "en_US";
+  getSpreadsheetLocale = () => this.locale;
   getSheetByName = (name: string) => this.sheets.get(name) ?? null;
   insertSheet = (name: string) => {
     const sheet = new FakeSheet(name);

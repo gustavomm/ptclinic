@@ -135,6 +135,12 @@ describe("highlightFormula", () => {
     expect(f).toMatch(/^=AND\(/);
   });
 
+  it("separates arguments with ';' when asked, as Portuguese-language Sheets require", () => {
+    const f = env.script.highlightFormula({ statusCol: 7, resultadoCol: 8, firstContactCol: 4 }, 6, ";");
+    expect(f).toContain('LEFT($G6;4)="Lead";$H6=""');
+    expect(f).not.toContain(",");
+  });
+
   it("handles columns past Z", () => {
     const f = env.script.highlightFormula({ statusCol: 27, resultadoCol: 28, firstContactCol: 1 }, 2);
     expect(f).toContain("$AA2");
@@ -236,6 +242,20 @@ describe("applyOrganization", () => {
     expect(sheet.formatRules[0].formula).toContain('LEFT($G6,4)="Lead"');
     expect(sheet.formatRules[0].formula).toContain('$H6=""');
     expect(sheet.formatRules[0].background).toMatch(/^#/);
+  });
+
+  it.each([
+    ["pt_BR", ";"],
+    ["es_ES", ";"],
+    ["en_US", ","],
+    ["en_GB", ","],
+  ])("writes the yellow rule in the syntax a %s Sheet accepts", (locale, sep) => {
+    env.ss.locale = locale;
+    const sheet = contactsTab([p("Lead Fisio", "Fisioterapia", "Chamar 27/10")]);
+    env.script.applyOrganization();
+    const formula = sheet.formatRules[0].formula;
+    expect(formula).toContain(`LEFT($G6${sep}4)`);
+    expect(formula.replace(/[^,;]/g, "")).toBe(sep.repeat(5));
   });
 
   it("keeps rules someone else created", () => {
