@@ -446,15 +446,24 @@ function columnLetter(n) {
   return letters;
 }
 
-/** Yellow when: a lead, no Resultado, first contact more than a week ago. */
-function highlightFormula(cols, firstRow) {
+/**
+ * Yellow when: a lead, no Resultado, first contact more than a week ago.
+ * Sheets reads the formula in the spreadsheet's own syntax: a Portuguese
+ * Sheet rejects commas between arguments and wants ";".
+ */
+function highlightFormula(cols, firstRow, sep = ",") {
   const status = `$${columnLetter(cols.statusCol)}${firstRow}`;
   const resultado = `$${columnLetter(cols.resultadoCol)}${firstRow}`;
   const first = `$${columnLetter(cols.firstContactCol)}${firstRow}`;
   return (
-    `=AND(LEFT(${status},4)="Lead",${resultado}="",ISNUMBER(${first}),` +
-    `TODAY()-${first}>${REVIEW_AFTER_DAYS},N("${REVIEW_MARKER}")=0)`
+    `=AND(LEFT(${status}${sep}4)="Lead"${sep}${resultado}=""${sep}ISNUMBER(${first})${sep}` +
+    `TODAY()-${first}>${REVIEW_AFTER_DAYS}${sep}N("${REVIEW_MARKER}")=0)`
   );
+}
+
+/** Sheets separates arguments with ";" in locales that write decimals with a comma. */
+function argumentSeparator(locale) {
+  return /^(en|ja|zh|ko|th|he|iw|hi)(_|$)/.test(String(locale)) ? "," : ";";
 }
 
 /** Where each named column of the contacts tab is (0 when missing), or null. */
@@ -603,7 +612,7 @@ function applyOrganization() {
     return !formula.includes(REVIEW_MARKER);
   });
   const review = SpreadsheetApp.newConditionalFormatRule()
-    .whenFormulaSatisfied(highlightFormula(layout, layout.row + 1))
+    .whenFormulaSatisfied(highlightFormula(layout, layout.row + 1, argumentSeparator(ss.getSpreadsheetLocale())))
     .setBackground(REVIEW_COLOR)
     .setRanges([sheet.getRange(layout.row + 1, 1, rows, sheet.getLastColumn())])
     .build();
