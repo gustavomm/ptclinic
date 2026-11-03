@@ -1,82 +1,8 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
-import vm from "node:vm";
 import { beforeEach, describe, expect, it } from "vitest";
 import { CHANNEL_LETTER } from "@/lib/lead-code";
 import { CHANNEL_LABEL, CODE_COLUMN, READABLE_COLUMNS, TIMESTAMP_COLUMN } from "@/lib/lead-row";
+import { FakeSheet, loadScript, type Cell, type FakeSpreadsheet } from "./fake-sheets";
 
-/*
- * scripts/leads-apps-script.gs runs inside Google Sheets, where nothing tests
- * it. Here it runs in a sandbox against a small fake of the Sheets API, enough
- * for the calls it makes.
- */
-
-type Cell = string | number;
-
-class FakeRange {
-  constructor(
-    private sheet: FakeSheet,
-    private row: number,
-    private col: number,
-    private rows = 1,
-    private cols = 1,
-  ) {}
-  getSheet = () => this.sheet;
-  getRow = () => this.row;
-  getColumn = () => this.col;
-  getNumRows = () => this.rows;
-  getNumColumns = () => this.cols;
-  getValue = () => this.sheet.get(this.row, this.col);
-  setValue = (v: Cell) => (this.sheet.set(this.row, this.col, v), this);
-  getValues = () =>
-    Array.from({ length: this.rows }, (_, r) =>
-      Array.from({ length: this.cols }, (_, c) => this.sheet.get(this.row + r, this.col + c)),
-    );
-  setValues = (values: Cell[][]) => {
-    values.forEach((line, r) => line.forEach((v, c) => this.sheet.set(this.row + r, this.col + c, v)));
-    return this;
-  };
-  getNote = () => this.sheet.notes.get(`${this.row}:${this.col}`) ?? "";
-  setNote = (note: string) => (this.sheet.notes.set(`${this.row}:${this.col}`, note), this);
-  setNumberFormat = () => this;
-  setFontWeight = () => this;
-  setWrap = () => this;
-  setBackground = () => this;
-  setFontColor = () => this;
-}
-
-class FakeSheet {
-  notes = new Map<string, string>();
-  frozenRows = 0;
-  constructor(
-    private name: string,
-    public cells: Cell[][] = [],
-  ) {}
-  getName = () => this.name;
-  get = (r: number, c: number): Cell => this.cells[r - 1]?.[c - 1] ?? "";
-  set = (r: number, c: number, v: Cell) => {
-    while (this.cells.length < r) this.cells.push([]);
-    this.cells[r - 1][c - 1] = v;
-  };
-  getLastRow = () => this.cells.length;
-  getLastColumn = () => Math.max(0, ...this.cells.map((line) => line.length));
-  getRange = (r: number, c: number, rows = 1, cols = 1) => new FakeRange(this, r, c, rows, cols);
-  setFrozenRows = (n: number) => void (this.frozenRows = n);
-  setColumnWidths = () => this;
-}
-
-class FakeSpreadsheet {
-  sheets = new Map<string, FakeSheet>();
-  getSheetByName = (name: string) => this.sheets.get(name) ?? null;
-  insertSheet = (name: string) => {
-    const sheet = new FakeSheet(name);
-    this.sheets.set(name, sheet);
-    return sheet;
-  };
-  add = (sheet: FakeSheet) => (this.sheets.set(sheet.getName(), sheet), sheet);
-}
-
-const SOURCE = readFileSync(path.resolve(__dirname, "../leads-apps-script.gs"), "utf8");
 const EXPORTS = [
   "doPost",
   "onEdit",
@@ -96,21 +22,7 @@ let mail: { to: string; subject: string }[];
 let script: Record<string, any>;
 
 beforeEach(() => {
-  ss = new FakeSpreadsheet();
-  mail = [];
-  const context = {
-    SpreadsheetApp: { getActiveSpreadsheet: () => ss },
-    PropertiesService: {
-      getScriptProperties: () => ({
-        getProperty: (k: string) => ({ LEAD_WEBHOOK_SECRET: "s3", ALERT_EMAIL: "dono@example.com" })[k] ?? null,
-      }),
-    },
-    LockService: { getScriptLock: () => ({ waitLock: () => {}, releaseLock: () => {} }) },
-    ContentService: { createTextOutput: (text: string) => ({ text }) },
-    Utilities: { formatDate: (d: Date) => d.toISOString() },
-    MailApp: { sendEmail: (to: string, subject: string) => mail.push({ to, subject }) },
-  };
-  script = vm.runInNewContext(`${SOURCE}\n;({ ${EXPORTS.join(", ")} })`, context);
+  ({ ss, mail, script } = loadScript(EXPORTS));
 });
 
 const post = (body: unknown) => script.doPost({ postData: { contents: JSON.stringify(body) } }).text;
