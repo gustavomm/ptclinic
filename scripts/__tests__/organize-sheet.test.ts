@@ -8,7 +8,11 @@ const EXPORTS = [
   "applyOrganization",
   "classifyRow",
   "highlightFormula",
+  "followUpFormula",
   "STATUS_OPTIONS",
+  "SERVICO_OPTIONS",
+  "CANAL_OPTIONS",
+  "LETTER_LABELS",
   "RESULTADO_OPTIONS",
   "PREVIEW_SHEET_NAME",
 ];
@@ -141,10 +145,22 @@ describe("highlightFormula", () => {
     expect(f).not.toContain(",");
   });
 
+  it("leaves out leads with a follow-up date: those are in progress, not forgotten", () => {
+    const f = env.script.highlightFormula({ statusCol: 7, resultadoCol: 8, firstContactCol: 4, returnCol: 11 }, 6);
+    expect(f).toContain("NOT(ISNUMBER($K6))");
+  });
+
   it("handles columns past Z", () => {
     const f = env.script.highlightFormula({ statusCol: 27, resultadoCol: 28, firstContactCol: 1 }, 2);
     expect(f).toContain("$AA2");
     expect(f).toContain("$AB2");
+  });
+});
+
+describe("followUpFormula", () => {
+  it("turns a row orange from its follow-up day on, until it has a Resultado", () => {
+    const f = env.script.followUpFormula({ resultadoCol: 8, returnCol: 11 }, 6, ";");
+    expect(f).toBe('=AND(ISNUMBER($K6);$K6<=TODAY();$H6="";N("retorno-vyta")=0)');
   });
 });
 
@@ -188,7 +204,17 @@ describe("previewOrganization", () => {
     expect(text).not.toContain("11900000000");
     expect(text).not.toContain("Fulana");
     const lines = preview.cells.filter((l) => typeof l[0] === "number");
-    expect(lines.map((l) => l[0])).toEqual([6, 7]);
+    // Row 8 gets a follow-up date from "Chamar 27/10".
+    expect(lines.map((l) => l[0])).toEqual([6, 7, 8]);
+    expect(text).toContain("27/10/2026");
+  });
+
+  it("counts the '-' it would clear instead of listing every row for it", () => {
+    contactsTab([p("Lead Fisio", "Fisioterapia"), p("Lead Pilates", "Pilates")]);
+    env.script.previewOrganization();
+    const preview = env.ss.getSheetByName(env.script.PREVIEW_SHEET_NAME)!;
+    expect(preview.cells.filter((l) => typeof l[0] === "number")).toEqual([]);
+    expect(preview.cells.flat().some((c) => /2 células com "-"/.test(String(c)))).toBe(true);
   });
 });
 
@@ -199,7 +225,7 @@ describe("applyOrganization", () => {
     const header = sheet.cells[4].map((h) => String(h).trim());
     expect(header).toEqual([
       "Contato", "Nome", "Código", "1º contato", "Serviço", "Canal", "Status",
-      "Resultado", "Data do resultado", "Último contato", "Observações", "2º aula",
+      "Resultado", "Data do resultado", "Último contato", "Retornar em", "Observações", "2º aula",
     ]);
     expect(sheet.getByHeader(5, "Observações", 6)).toBe("Chamar 27/10");
   });
@@ -235,13 +261,67 @@ describe("applyOrganization", () => {
     expect(resultado.rule.list).toEqual(env.script.RESULTADO_OPTIONS);
   });
 
-  it("adds one yellow rule for leads past 7 days without a result", () => {
+  it("adds the orange follow-up rule first, then the yellow review rule", () => {
     const sheet = contactsTab([p("Lead Fisio", "Fisioterapia")]);
     env.script.applyOrganization();
-    expect(sheet.formatRules).toHaveLength(1);
-    expect(sheet.formatRules[0].formula).toContain('LEFT($G6,4)="Lead"');
-    expect(sheet.formatRules[0].formula).toContain('$H6=""');
-    expect(sheet.formatRules[0].background).toMatch(/^#/);
+    expect(sheet.formatRules).toHaveLength(2);
+    const [followUp, review] = sheet.formatRules;
+    expect(followUp.formula).toContain("$K6<=TODAY()");
+    expect(review.formula).toContain('LEFT($G6,4)="Lead"');
+    expect(review.formula).toContain('$H6=""');
+    expect(review.formula).toContain("NOT(ISNUMBER($K6))");
+    expect(followUp.background).toMatch(/^#/);
+    expect(review.background).toMatch(/^#/);
+    expect(followUp.background).not.toBe(review.background);
+  });
+
+  it("fills Retornar em from a date in Observações, only while there is no Resultado", () => {
+    const sheet = contactsTab([
+      p("Lead Fisio", "Fisioterapia", "Entrar em contato dia 23/10"),
+      p("Lead Fisio", "Fisioterapia", "Agendou, retornar 23/10"),
+    ]);
+    env.script.applyOrganization();
+    const followUp = sheet.getByHeader(5, "Retornar em", 6) as Date;
+    expect([followUp.getFullYear(), followUp.getMonth() + 1, followUp.getDate()]).toEqual([2026, 10, 23]);
+    expect(sheet.getRange(6, 11).getNote()).toMatch(/automaticamente/);
+    expect(sheet.getByHeader(5, "Resultado", 7)).toBe("Agendou");
+    expect(sheet.getByHeader(5, "Retornar em", 7)).toBe("");
+  });
+
+  it("never overwrites a Retornar em already there", () => {
+    const sheet = contactsTab([p("Lead Fisio", "Fisioterapia", "Chamar 27/10")]);
+    env.script.applyOrganization();
+    const chosen = day(30);
+    sheet.set(6, 11, chosen);
+    env.script.applyOrganization();
+    expect(sheet.get(6, 11)).toBe(chosen);
+  });
+
+  it("tidies Serviço and Canal to the dropdown options, and clears the '-' placeholders", () => {
+    const row = (servico: string, canal: string) => {
+      const r = p("Lead Fisio", servico);
+      r[5] = canal;
+      return r;
+    };
+    const sheet = contactsTab([row("Fisio", "-"), row("Contato Profissional", "Ligação"), row("-", "Anúncio do Google")]);
+    env.script.applyOrganization();
+    expect([6, 7, 8].map((r) => sheet.getByHeader(5, "Serviço", r))).toEqual(["Fisioterapia", "Contato profissional", ""]);
+    expect([6, 7, 8].map((r) => sheet.getByHeader(5, "Canal", r))).toEqual(["", "Ligação", "Anúncio do Google"]);
+    expect(sheet.getRange(6, 5).getNote()).toContain("Fisio");
+  });
+
+  it("puts dropdowns on Serviço and Canal, and a date picker on the date columns", () => {
+    const sheet = contactsTab([p("Lead Fisio", "Fisioterapia")]);
+    env.script.applyOrganization();
+    const at = (col: number) => sheet.validations.find((v) => v.col === col)!.rule;
+    expect(at(5).list).toEqual(env.script.SERVICO_OPTIONS);
+    expect(at(6).list).toEqual(env.script.CANAL_OPTIONS);
+    expect(at(4).date).toBe(true);
+    expect(at(11).date).toBe(true);
+    // Every label a pasted code writes must be a valid Canal.
+    for (const label of Object.values(env.script.LETTER_LABELS)) {
+      expect(env.script.CANAL_OPTIONS).toContain(label);
+    }
   });
 
   it.each([
@@ -249,20 +329,21 @@ describe("applyOrganization", () => {
     ["es_ES", ";"],
     ["en_US", ","],
     ["en_GB", ","],
-  ])("writes the yellow rule in the syntax a %s Sheet accepts", (locale, sep) => {
+  ])("writes both rules in the syntax a %s Sheet accepts", (locale, sep) => {
     env.ss.locale = locale;
     const sheet = contactsTab([p("Lead Fisio", "Fisioterapia", "Chamar 27/10")]);
     env.script.applyOrganization();
-    const formula = sheet.formatRules[0].formula;
-    expect(formula).toContain(`LEFT($G6${sep}4)`);
-    expect(formula.replace(/[^,;]/g, "")).toBe(sep.repeat(5));
+    const [followUp, review] = sheet.formatRules.map((r) => r.formula);
+    expect(review).toContain(`LEFT($G6${sep}4)`);
+    expect(review.replace(/[^,;]/g, "")).toBe(sep.repeat(6));
+    expect(followUp.replace(/[^,;]/g, "")).toBe(sep.repeat(3));
   });
 
   it("keeps rules someone else created", () => {
     const sheet = contactsTab([p("Lead Fisio", "Fisioterapia")]);
     sheet.formatRules = [{ formula: "=A1>0" } as never];
     env.script.applyOrganization();
-    expect(sheet.formatRules).toHaveLength(2);
+    expect(sheet.formatRules).toHaveLength(3);
   });
 
   it("is safe to run twice: nothing changes the second time", () => {
@@ -271,7 +352,7 @@ describe("applyOrganization", () => {
     const cells = JSON.stringify(sheet.cells);
     env.script.applyOrganization();
     expect(JSON.stringify(sheet.cells)).toBe(cells);
-    expect(sheet.formatRules).toHaveLength(1);
+    expect(sheet.formatRules).toHaveLength(2);
   });
 
   it("uses a Resultado column Tainá already created instead of adding another", () => {

@@ -38,6 +38,8 @@ const SHEET_NAME = "Cliques do site";
 const LEGACY_SHEET_NAME = "cliques";
 const CODE_HEADER = "Código";
 const TS_HEADER = "Técnico: horário (UTC)";
+const SERVICE_HEADER = "Técnico: serviço";
+const PAGE_HEADER = "Técnico: página";
 /** The first columns, the ones staff read; the rest start with "Técnico:". */
 const READABLE_COLUMNS = 8;
 const TIMEZONE = "America/Sao_Paulo";
@@ -149,10 +151,12 @@ function isDuplicate(sheet, headers, codeKey, tsKey, row) {
 /**
  * Runs on every edit of the staff's contacts tab (the one with "Código" and
  * "Canal" columns).
+ * - A phone or name on a row with no "1º contato" dates it today.
  * - A code typed or pasted into "Código" is tidied, and "Canal" gets where the
  *   person came from. The letter after "VY-" is enough for that, so it works
  *   even when the click row is missing; a missing row only earns a note, which
- *   is how a typo gets noticed.
+ *   is how a typo gets noticed. When the click row is there, it also gives
+ *   "1º contato" and, if empty, "Serviço".
  * - A value picked in "Resultado" dates itself in "Data do resultado".
  */
 function onEdit(e) {
@@ -160,7 +164,10 @@ function onEdit(e) {
   // The clicks tabs have a "Código" column but no "Canal", so they never match.
   const layout = contactsLayout(sheet);
   if (!layout) return;
-  if (touches(e.range, layout.codeCol)) fillChannels(sheet, layout, e.range);
+  if (layout.firstContactCol && (touches(e.range, layout.contactCol) || touches(e.range, layout.nameCol))) {
+    stampFirstContact(sheet, layout, e.range);
+  }
+  if (touches(e.range, layout.codeCol)) fillFromCodes(sheet, layout, e.range);
   if (layout.resultadoCol && layout.dateCol && touches(e.range, layout.resultadoCol)) {
     stampResultDates(sheet, layout, e.range);
   }
@@ -178,8 +185,18 @@ function editedRows(range, layout) {
   return rows;
 }
 
-function fillChannels(sheet, layout, range) {
+function stampFirstContact(sheet, layout, range) {
+  for (const r of editedRows(range, layout)) {
+    const cell = sheet.getRange(r, layout.firstContactCol);
+    if (hasValue(cell.getValue())) continue;
+    const named = [layout.contactCol, layout.nameCol].some((c) => c && hasValue(sheet.getRange(r, c).getValue()));
+    if (named) cell.setValue(new Date()).setNumberFormat("dd/mm/yyyy");
+  }
+}
+
+function fillFromCodes(sheet, layout, range) {
   let known = null;
+  let clicks = null;
   for (const r of editedRows(range, layout)) {
     const codeCell = sheet.getRange(r, layout.codeCol);
     const raw = String(codeCell.getValue()).trim();
@@ -200,7 +217,68 @@ function fillChannels(sheet, layout, range) {
         ? ""
         : "Este código não está na aba Cliques do site. Confira se foi digitado certo.",
     );
+    clicks = clicks || latestClicks();
+    if (clicks[code]) fillFromClick(sheet, layout, r, clicks[code]);
   }
+}
+
+/**
+ * The click is when the person wrote, so it beats an empty "1º contato" or
+ * one dated today by stampFirstContact, but never a date typed by hand.
+ */
+function fillFromClick(sheet, layout, r, click) {
+  if (layout.firstContactCol && click.time) {
+    const cell = sheet.getRange(r, layout.firstContactCol);
+    const current = cell.getValue();
+    if (!hasValue(current) || (isDate(current) && sameDay(current, new Date()))) {
+      cell.setValue(click.time).setNumberFormat("dd/mm/yyyy");
+    }
+  }
+  if (layout.servicoCol) {
+    const cell = sheet.getRange(r, layout.servicoCol);
+    const servico = serviceForClick(click.service, click.page);
+    if (servico && !hasValue(cell.getValue())) cell.setValue(servico);
+  }
+}
+
+/**
+ * Serviço for a click, matching what the WhatsApp message asked about
+ * (lib/whatsapp.ts): Pilates by service or page, any other service is
+ * physiotherapy, and the general buttons say nothing.
+ */
+function serviceForClick(service, page) {
+  const s = String(service || "");
+  const p = String(page || "");
+  if (s === "pilates" || p === "/pilates" || p.startsWith("/pilates/")) return "Pilates";
+  if (s === "domiciliar" || s.startsWith("fisioterapia")) return "Fisioterapia";
+  return "";
+}
+
+/** The newest click of each code in "Cliques do site": codes repeat across days. */
+function latestClicks() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  if (!sheet || sheet.getLastRow() < 2) return {};
+  const values = sheet.getRange(1, 1, sheet.getLastRow(), sheet.getLastColumn()).getValues();
+  const header = values[0].map((v) => String(v).trim());
+  const at = (cells, name) => (header.indexOf(name) === -1 ? "" : cells[header.indexOf(name)]);
+  const clicks = {};
+  for (const cells of values.slice(1)) {
+    const code = String(at(cells, CODE_HEADER)).trim();
+    const raw = at(cells, TS_HEADER);
+    const time = isDate(raw) ? raw : new Date(String(raw));
+    const known = clicks[code];
+    if (!code || (known && known.time && !isNaN(time) && known.time > time)) continue;
+    clicks[code] = {
+      time: isNaN(time) ? null : time,
+      service: String(at(cells, SERVICE_HEADER)),
+      page: String(at(cells, PAGE_HEADER)),
+    };
+  }
+  return clicks;
+}
+
+function sameDay(a, b) {
+  return Utilities.formatDate(a, TIMEZONE, "yyyy-MM-dd") === Utilities.formatDate(b, TIMEZONE, "yyyy-MM-dd");
 }
 
 function stampResultDates(sheet, layout, range) {
@@ -330,11 +408,18 @@ const RESULTADO_OPTIONS = [
   "Achou que era a Vita",
   "Outro",
 ];
+const SERVICO_OPTIONS = ["Pilates", "Fisioterapia", "Contato profissional", "Outro"];
+/** Where someone came from when there is no code to say it. */
+const MANUAL_CHANNELS = ["Instagram (mensagem direta)", "Google Maps", "Indicação", "Ligação", "Já é paciente", "Outro"];
+const CANAL_OPTIONS = Object.values(LETTER_LABELS).concat(MANUAL_CHANNELS);
+const RETURN_HEADER = "Retornar em";
 const PREVIEW_SHEET_NAME = "Prévia da organização";
 const REVIEW_AFTER_DAYS = 7;
 const REVIEW_COLOR = "#fff2cc";
-/** Lets a rerun find and replace its own highlight rule, and no one else's. */
+const FOLLOW_UP_COLOR = "#fce5cd";
+/** Let a rerun find and replace its own highlight rules, and no one else's. */
 const REVIEW_MARKER = "revisao-vyta";
+const FOLLOW_UP_MARKER = "retorno-vyta";
 
 /** Old Status values that name the kind of contact, as their tidy form. */
 const STATUS_TYPES = {
@@ -359,6 +444,22 @@ const STATUS_OUTCOMES = {
   "achou que era a vita": "Achou que era a Vita",
   recusou: "Outro",
 };
+
+/** Old Serviço values, as the option they mean. "-" was the old "nothing here". */
+const SERVICO_TIDY = {
+  pilates: "Pilates",
+  fisio: "Fisioterapia",
+  fisioterapia: "Fisioterapia",
+  "contato profissional": "Contato profissional",
+  golpe: "Outro",
+  erro: "Outro",
+  fono: "Outro",
+  outro: "Outro",
+  "-": "",
+};
+
+/** Words in Observações that schedule the next message ("Chamar 27/10"). */
+const FOLLOW_UP_WORDS = /chamar|retornar|mandar mensagem|mantar mensagem|entrar em contato|ligar|ver se|cobrar|lembrar/;
 
 /** Words in Observações that settle a Resultado, strongest first. */
 const OBSERVATION_RULES = [
@@ -438,6 +539,24 @@ function classifyRow(row) {
   return { status, resultado, reason };
 }
 
+/**
+ * The follow-up date written in Observações, or null. A date without a year
+ * is the next one on or after the first contact.
+ */
+function followUpDate(observacoes, firstContact) {
+  const text = fold(observacoes || "");
+  if (!FOLLOW_UP_WORDS.test(text)) return null;
+  const match = text.match(/\b(\d{1,2})\/(\d{1,2})(?:\/(\d{4}|\d{2}))?\b/);
+  if (!match) return null;
+  const day = Number(match[1]);
+  const month = Number(match[2]);
+  const base = isDate(firstContact) ? firstContact : new Date();
+  const year = match[3] ? Number(match[3].length === 2 ? "20" + match[3] : match[3]) : base.getFullYear();
+  let date = new Date(year, month - 1, day, 12);
+  if (!match[3] && date.getTime() < base.getTime() - 86400000) date = new Date(year + 1, month - 1, day, 12);
+  return date.getMonth() === month - 1 && date.getDate() === day ? date : null;
+}
+
 function columnLetter(n) {
   let letters = "";
   for (let x = n; x > 0; x = Math.floor((x - 1) / 26)) {
@@ -447,7 +566,8 @@ function columnLetter(n) {
 }
 
 /**
- * Yellow when: a lead, no Resultado, first contact more than a week ago.
+ * Yellow when: a lead, no Resultado, first contact more than a week ago, and
+ * no follow-up date (that one has its own colour).
  * Sheets reads the formula in the spreadsheet's own syntax: a Portuguese
  * Sheet rejects commas between arguments and wants ";".
  */
@@ -455,10 +575,18 @@ function highlightFormula(cols, firstRow, sep = ",") {
   const status = `$${columnLetter(cols.statusCol)}${firstRow}`;
   const resultado = `$${columnLetter(cols.resultadoCol)}${firstRow}`;
   const first = `$${columnLetter(cols.firstContactCol)}${firstRow}`;
+  const followUp = cols.returnCol ? `NOT(ISNUMBER($${columnLetter(cols.returnCol)}${firstRow}))${sep}` : "";
   return (
     `=AND(LEFT(${status}${sep}4)="Lead"${sep}${resultado}=""${sep}ISNUMBER(${first})${sep}` +
-    `TODAY()-${first}>${REVIEW_AFTER_DAYS}${sep}N("${REVIEW_MARKER}")=0)`
+    `TODAY()-${first}>${REVIEW_AFTER_DAYS}${sep}${followUp}N("${REVIEW_MARKER}")=0)`
   );
+}
+
+/** Orange from the follow-up day on, until someone picks a Resultado. */
+function followUpFormula(cols, firstRow, sep = ",") {
+  const followUp = `$${columnLetter(cols.returnCol)}${firstRow}`;
+  const resultado = `$${columnLetter(cols.resultadoCol)}${firstRow}`;
+  return `=AND(ISNUMBER(${followUp})${sep}${followUp}<=TODAY()${sep}${resultado}=""${sep}N("${FOLLOW_UP_MARKER}")=0)`;
 }
 
 /** Sheets separates arguments with ";" in locales that write decimals with a comma. */
@@ -479,6 +607,8 @@ function contactsLayout(sheet) {
     row: header.row,
     codeCol: header.codeCol,
     channelCol: header.channelCol,
+    contactCol: col("Contato"),
+    nameCol: col("Nome"),
     statusCol: col("Status"),
     resultadoCol: col("Resultado"),
     dateCol: col("Data do resultado"),
@@ -487,10 +617,14 @@ function contactsLayout(sheet) {
     segundaCol: col("2º aula"),
     firstContactCol: col("1º contato"),
     lastContactCol: col("Último contato"),
+    returnCol: col(RETURN_HEADER),
   };
 }
 
-/** Every row whose Status or Resultado would change, and why. */
+/**
+ * Every row that would change, and why. A row whose only change is clearing
+ * a "-" placeholder is not `listed`: the preview counts those instead.
+ */
 function planChanges(sheet, layout) {
   const count = sheet.getLastRow() - layout.row;
   if (count <= 0) return [];
@@ -500,21 +634,41 @@ function planChanges(sheet, layout) {
     const at = (col) => (col ? cells[col - 1] : "");
     const oldStatus = String(at(layout.statusCol)).trim();
     const oldResultado = String(at(layout.resultadoCol)).trim();
+    const oldServico = String(at(layout.servicoCol)).trim();
+    const oldCanal = String(at(layout.channelCol)).trim();
     const out = classifyRow({
       status: oldStatus,
-      servico: at(layout.servicoCol),
+      servico: oldServico,
       observacoes: at(layout.obsCol),
       segundaAula: at(layout.segundaCol),
       resultado: oldResultado,
     });
-    if (out.status !== oldStatus || out.resultado !== oldResultado) {
+    const tidy = SERVICO_TIDY[fold(oldServico)];
+    const servico = layout.servicoCol && tidy !== undefined ? tidy : oldServico;
+    const canal = oldCanal === "-" ? "" : oldCanal;
+    const followUp =
+      !out.resultado && !hasValue(at(layout.returnCol)) ? followUpDate(at(layout.obsCol), at(layout.firstContactCol)) : null;
+    const reasons = [out.reason];
+    if (followUp) reasons.push("Observações tem data de retorno");
+    if (servico !== oldServico && oldServico !== "-") reasons.push(`Serviço "${oldServico}" padronizado`);
+    const listed =
+      out.status !== oldStatus || out.resultado !== oldResultado || !!followUp || (servico !== oldServico && oldServico !== "-");
+    const cleared = (servico !== oldServico && oldServico === "-" ? 1 : 0) + (canal !== oldCanal ? 1 : 0);
+    if (listed || cleared) {
       changes.push({
         row: layout.row + 1 + i,
+        listed,
+        cleared,
         oldStatus,
         newStatus: out.status,
         oldResultado,
         resultado: out.resultado,
-        reason: out.reason,
+        oldServico,
+        servico,
+        oldCanal,
+        canal,
+        followUp,
+        reason: reasons.filter(Boolean).join("; "),
         lastContact: at(layout.lastContactCol),
       });
     }
@@ -548,28 +702,35 @@ function previewOrganization() {
   if (!tab) return;
   const { ss, sheet, layout } = tab;
   const changes = planChanges(sheet, layout);
+  const listed = changes.filter((c) => c.listed);
+  const cleared = changes.reduce((n, c) => n + c.cleared, 0);
   const old = ss.getSheetByName(PREVIEW_SHEET_NAME);
   if (old) ss.deleteSheet(old);
   const preview = ss.insertSheet(PREVIEW_SHEET_NAME);
 
   const missing = [];
-  if (!layout.resultadoCol) missing.push("Resultado");
-  if (!layout.dateCol) missing.push("Data do resultado");
+  if (!layout.resultadoCol) missing.push("Resultado e Data do resultado, depois de Status");
+  else if (!layout.dateCol) missing.push("Data do resultado, depois de Resultado");
+  if (!layout.returnCol) missing.push("Retornar em, depois de Último contato");
+  const blank = ["", "", "", "", "", ""];
   const rows = [
-    [`Aba "${sheet.getName()}": ${changes.length} linhas vão mudar.`, "", "", "", ""],
-    [missing.length ? `Colunas novas, depois de Status: ${missing.join(", ")}` : "", "", "", "", ""],
-    ["Linha", "Status atual", "Status novo", "Resultado sugerido", "Por quê"],
+    [`Aba "${sheet.getName()}": ${listed.length} linhas vão mudar.`].concat(blank),
+    [missing.length ? `Colunas novas: ${missing.join("; ")}` : ""].concat(blank),
+    [cleared ? `Além disso, ${cleared} células com "-" em Serviço ou Canal vão ficar vazias.` : ""].concat(blank),
+    ["Linha", "Status atual", "Status novo", "Resultado sugerido", "Retornar em", "Serviço novo", "Por quê"],
   ].concat(
-    changes.map((c) => [
+    listed.map((c) => [
       c.row,
       c.oldStatus,
       c.newStatus === c.oldStatus ? "" : c.newStatus,
       c.resultado === c.oldResultado ? "" : c.resultado,
+      c.followUp ? Utilities.formatDate(c.followUp, TIMEZONE, "dd/MM/yyyy") : "",
+      c.servico === c.oldServico || c.oldServico === "-" ? "" : c.servico,
       c.reason,
     ]),
   );
-  preview.getRange(1, 1, rows.length, 5).setValues(rows);
-  ss.toast(`Prévia pronta: ${changes.length} linhas vão mudar. Nada foi alterado ainda.`);
+  preview.getRange(1, 1, rows.length, 7).setValues(rows);
+  ss.toast(`Prévia pronta: ${listed.length} linhas vão mudar. Nada foi alterado ainda.`);
 }
 
 /** Adds the columns, tidies the rows, and sets the dropdowns and the yellow rule. */
@@ -587,6 +748,12 @@ function applyOrganization() {
     sheet.getRange(layout.row, layout.resultadoCol + 1).setValue("Data do resultado");
   }
   layout = contactsLayout(sheet);
+  if (!layout.returnCol) {
+    const after = layout.lastContactCol || layout.dateCol;
+    sheet.insertColumnsAfter(after, 1);
+    sheet.getRange(layout.row, after + 1).setValue(RETURN_HEADER);
+    layout = contactsLayout(sheet);
+  }
 
   const changes = planChanges(sheet, layout);
   for (const c of changes) {
@@ -597,6 +764,17 @@ function applyOrganization() {
       sheet.getRange(c.row, layout.resultadoCol).setValue(c.resultado).setNote(`Preenchido automaticamente: ${c.reason}`);
       if (isDate(c.lastContact)) sheet.getRange(c.row, layout.dateCol).setValue(c.lastContact);
     }
+    if (c.servico !== c.oldServico) {
+      const cell = sheet.getRange(c.row, layout.servicoCol).setValue(c.servico);
+      if (c.oldServico !== "-") cell.setNote(`Serviço antigo: "${c.oldServico}"`);
+    }
+    if (c.canal !== c.oldCanal) sheet.getRange(c.row, layout.channelCol).setValue(c.canal);
+    if (c.followUp) {
+      sheet
+        .getRange(c.row, layout.returnCol)
+        .setValue(c.followUp)
+        .setNote("Preenchido automaticamente: data de retorno nas Observações");
+    }
   }
 
   const rows = sheet.getMaxRows() - layout.row;
@@ -604,22 +782,37 @@ function applyOrganization() {
     SpreadsheetApp.newDataValidation().requireValueInList(options, true).setAllowInvalid(false).build();
   sheet.getRange(layout.row + 1, layout.statusCol, rows, 1).setDataValidation(dropdown(STATUS_OPTIONS));
   sheet.getRange(layout.row + 1, layout.resultadoCol, rows, 1).setDataValidation(dropdown(RESULTADO_OPTIONS));
+  if (layout.servicoCol) {
+    sheet.getRange(layout.row + 1, layout.servicoCol, rows, 1).setDataValidation(dropdown(SERVICO_OPTIONS));
+  }
+  sheet.getRange(layout.row + 1, layout.channelCol, rows, 1).setDataValidation(dropdown(CANAL_OPTIONS));
+  const datePicker = SpreadsheetApp.newDataValidation().requireDate().setAllowInvalid(false).build();
+  for (const col of [layout.firstContactCol, layout.returnCol]) {
+    if (col) sheet.getRange(layout.row + 1, col, rows, 1).setDataValidation(datePicker).setNumberFormat("dd/mm/yyyy");
+  }
   sheet.getRange(layout.row + 1, layout.dateCol, rows, 1).setNumberFormat("dd/mm/yyyy");
 
+  const ours = [REVIEW_MARKER, FOLLOW_UP_MARKER];
   const others = sheet.getConditionalFormatRules().filter((rule) => {
     const condition = rule.getBooleanCondition && rule.getBooleanCondition();
     const formula = condition ? String(condition.getCriteriaValues()[0]) : "";
-    return !formula.includes(REVIEW_MARKER);
+    return !ours.some((marker) => formula.includes(marker));
   });
-  const review = SpreadsheetApp.newConditionalFormatRule()
-    .whenFormulaSatisfied(highlightFormula(layout, layout.row + 1, argumentSeparator(ss.getSpreadsheetLocale())))
-    .setBackground(REVIEW_COLOR)
-    .setRanges([sheet.getRange(layout.row + 1, 1, rows, sheet.getLastColumn())])
-    .build();
-  sheet.setConditionalFormatRules(others.concat([review]));
+  const sep = argumentSeparator(ss.getSpreadsheetLocale());
+  const area = [sheet.getRange(layout.row + 1, 1, rows, sheet.getLastColumn())];
+  const rule = (formula, color) =>
+    SpreadsheetApp.newConditionalFormatRule().whenFormulaSatisfied(formula).setBackground(color).setRanges(area).build();
+  // Sheets applies the first rule that matches, so a due follow-up shows orange.
+  sheet.setConditionalFormatRules(
+    others.concat([
+      rule(followUpFormula(layout, layout.row + 1, sep), FOLLOW_UP_COLOR),
+      rule(highlightFormula(layout, layout.row + 1, sep), REVIEW_COLOR),
+    ]),
+  );
 
   ss.toast(
-    `${changes.length} linhas organizadas. Leads com mais de ${REVIEW_AFTER_DAYS} dias sem Resultado ficam amarelos.`,
+    `${changes.filter((c) => c.listed).length} linhas organizadas. Leads com mais de ${REVIEW_AFTER_DAYS} dias ` +
+      "sem Resultado ficam amarelos; quem tem retorno marcado fica laranja no dia.",
   );
 }
 

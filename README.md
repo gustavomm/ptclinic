@@ -10,7 +10,7 @@ Site da clínica — Next.js 15 (App Router), TypeScript, Tailwind CSS.
 ## Verificação
 
     npm run typecheck   # tipos
-    npm test             # unidade (Vitest) — 359 testes
+    npm test             # unidade (Vitest) — 398 testes
     npm run build         # build de produção — 26 páginas estáticas; só /whatsapp é dinâmica
     npm run test:e2e      # E2E (Playwright, roda build + start) — 76 testes
 
@@ -73,6 +73,16 @@ continua cobrando e reportando zero conversões.
   antigo, do Serviço, do "2º aula" e das Observações, e põe os menus de
   opções e a regra amarela. Nunca troca um Resultado já escolhido e deixa
   uma nota em cada célula que mudou. Pode rodar de novo sem estragar nada.
+- O resto da linha também se preenche sozinho. Digitar o telefone ou o nome
+  numa linha nova põe a data de hoje em "1º contato". Colar um código que
+  está em "Cliques do site" troca essa data pela do clique e, se "Serviço"
+  estiver vazio, preenche pelo que a mensagem do WhatsApp pediu (Pilates ou
+  Fisioterapia). "Retornar em" guarda a data do próximo contato: a linha fica
+  laranja nesse dia até alguém escolher o Resultado, e um lead com retorno
+  marcado não fica amarelo. "Organizar planilha" cria essa coluna depois de
+  "Último contato", preenche com datas escritas nas Observações ("Chamar
+  27/10"), padroniza Serviço e Canal, troca os "-" por vazio e põe menus de
+  opções nos dois e calendário nas colunas de data.
 - As classes `.redirect-whatsapp`, `.redirect-phone`, `.redirect-email` e
   `.redirect-instagram` são lidas pelo GTM em todo tipo de página.
   `e2e/gtm-classes.spec.ts` guarda isso — roda em toda página, valida as

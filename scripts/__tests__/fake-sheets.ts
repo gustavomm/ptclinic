@@ -10,7 +10,7 @@ import vm from "node:vm";
 
 export type Cell = string | number | Date;
 
-type Validation = { list: string[]; allowInvalid: boolean };
+type Validation = { list: string[]; date: boolean; allowInvalid: boolean };
 type FormatRule = {
   formula: string;
   background: string;
@@ -114,9 +114,10 @@ export class FakeSpreadsheet {
 }
 
 function validationBuilder() {
-  const rule: Validation = { list: [], allowInvalid: true };
+  const rule: Validation = { list: [], date: false, allowInvalid: true };
   const builder = {
     requireValueInList: (list: string[]) => ((rule.list = list), builder),
+    requireDate: () => ((rule.date = true), builder),
     setAllowInvalid: (allow: boolean) => ((rule.allowInvalid = allow), builder),
     build: () => rule,
   };
@@ -134,6 +135,31 @@ function formatRuleBuilder() {
     build: () => rule,
   };
   return builder;
+}
+
+/** Utilities.formatDate, for the patterns the script uses (yyyy MM dd HH mm ss). */
+function formatDate(date: Date, timeZone: string, pattern: string) {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-GB", {
+      timeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hourCycle: "h23",
+    })
+      .formatToParts(date)
+      .map((p) => [p.type, p.value]),
+  );
+  return pattern
+    .replace("yyyy", parts.year)
+    .replace("MM", parts.month)
+    .replace("dd", parts.day)
+    .replace("HH", parts.hour)
+    .replace("mm", parts.minute)
+    .replace("ss", parts.second);
 }
 
 const SOURCE = readFileSync(path.resolve(__dirname, "../leads-apps-script.gs"), "utf8");
@@ -173,7 +199,7 @@ export function loadScript(exports: string[]): Env {
     },
     LockService: { getScriptLock: () => ({ waitLock: () => {}, releaseLock: () => {} }) },
     ContentService: { createTextOutput: (text: string) => ({ text }) },
-    Utilities: { formatDate: (d: Date) => d.toISOString() },
+    Utilities: { formatDate },
     MailApp: { sendEmail: (to: string, subject: string) => mail.push({ to, subject }) },
   };
   const script = vm.runInNewContext(`${SOURCE}\n;({ ${exports.join(", ")} })`, context);
